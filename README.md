@@ -1,7 +1,7 @@
 <p align="center">
  <a href="#Readme.md">Home</a> •
+ <a href="#about">About me</a> • 
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> • 
- <a href="#tecnologias">Tecnologias</a> • 
  <a href="#contribuicao">Contribuição</a> • 
  <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
