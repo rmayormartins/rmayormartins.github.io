@@ -1,7 +1,7 @@
 
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
- <a href="https://rmayormartins.github.io/about.md">About me</a> •
+ <a href="#about2.md">About me</a> •
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> • 
  <a href="#current">Current activities</a> • 
  <a href="#publications">Publications</a> • 
