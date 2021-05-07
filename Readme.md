@@ -1,3 +1,4 @@
+
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="#about.md">About me</a> •
@@ -15,8 +16,10 @@
 
 ## Ramon Mayor Martins
 
-Professor da área de Telecomunicações, no [Instituto Federal de Santa Catarina, Campus São José.](https://www.ifsc.edu.br/)<br/>
-M.Sc. em Telecomunicações pelo [Instituto Nacional de Telecomunicações](https://www.inatel.br)
+Professor in the area of Telecommunications, at [Instituto Federal de Santa Catarina, Campus São José.](https://www.ifsc.edu.br/)<br/>
+M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br)
+
+
 
 
          
