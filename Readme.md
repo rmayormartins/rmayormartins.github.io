@@ -2,8 +2,8 @@
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="about.html">About me</a> •
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> • 
- <a href="publications.md">Publications</a> • 
- <a href="contributions.md">Contributions</a> • 
+ <a href="publications.html">Publications</a> • 
+ <a href="contributions.html">Contributions</a> • 
  <a href="onthefly.md">Systems on the fly</a> •
  <a href="repositories.md">Repositories</a> •
  <a href="contact.md">Contact me</a> •
