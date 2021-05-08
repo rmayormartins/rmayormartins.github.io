@@ -6,7 +6,7 @@
  <a href="contributions.html">Contributions</a> • 
  <a href="onthefly.html">Systems on the fly</a> •
  <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
- <a href="contact.md">Contact me</a> •
+ <a href="contact.html">Contact me</a> •
 </p>
 
 ## Ramon Mayor Martins
