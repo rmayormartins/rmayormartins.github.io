@@ -7,8 +7,6 @@
  <a href="#autor">Autor</a>
 </p>
 
-<img src="https://user-images.githubusercontent.com/13935213/117522473-00e09d00-af8a-11eb-80de-a0a0937c9d38.png" width="250" height="250">
-
 
 ## Ramon Mayor Martins
 
