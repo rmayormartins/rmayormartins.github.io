@@ -1,10 +1,12 @@
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="about.html">About me</a> •
- <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> • 
+ <a href="current.html">Current Status</a> •
+ <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
+ <a href="http://lattes.cnpq.br/6289204315531991">Lattes CV</a> •
  <a href="publications.html">Publications</a> • 
  <a href="contributions.html">Contributions</a> • 
- <a href="onthefly.html">Systems on the fly</a> •
+ <a href="onthefly.html">On the fly Systems</a> •
  <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="contact.html">Contact me</a> •
 </p>
