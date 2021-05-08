@@ -4,8 +4,8 @@
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> • 
  <a href="publications.html">Publications</a> • 
  <a href="contributions.html">Contributions</a> • 
- <a href="onthefly.md">Systems on the fly</a> •
- <a href="repositories.md">Repositories</a> •
+ <a href="onthefly.html">Systems on the fly</a> •
+ <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="contact.md">Contact me</a> •
 </p>
 
