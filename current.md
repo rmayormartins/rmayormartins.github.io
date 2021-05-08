@@ -6,9 +6,11 @@ layout: default
 
 ## Research
 
-* Currently researching Computer Vision for Education Machine Learning (with UFSC-PPGCC-GQS-ML Group)
-* Researching voice recognition systems for accent detection
-* Researching satellite communications systems and ground station
+I am currently researching:
+
+* 💻🖼️	Computer Vision for Education Machine Learning (with UFSC-PPGCC-GQS-ML Group)
+* 🎤🎧 Voice recognition systems for accent detection
+* 📡🛰️	Satellite communications systems and ground station
 * For more information, please check my [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
 
 ## Teaching
