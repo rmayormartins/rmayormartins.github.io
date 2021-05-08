@@ -2,7 +2,7 @@
 layout: default
 ---
 
-##Contributions
+## Contributions
 
 My contributions to the educational dissemination of science and technology:
 
