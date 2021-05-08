@@ -19,7 +19,9 @@ Secretaria de Educação do Estado de Minas Gerais, SEMG, Brasil (2011).
 
 ## More about me
 
-Lattes CV
-Wikipage
+- [Lattes CV](http://lattes.cnpq.br/6289204315531991)
+- [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
+- [Anatel](https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp) -> _Consulte pelo indicativo PU4MAY_
+
 
 [back](./)
