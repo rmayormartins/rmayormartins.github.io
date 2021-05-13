@@ -10,7 +10,8 @@ layout: default
 I am currently researching:
 
 * 💻🖼️	Computer Vision for Education Machine Learning (with UFSC-PPGCC-GQS-ML Group)
-* 🎤🎧 Voice recognition systems for accent detection
+* 🎤🎧 Speech recognition systems for accent detection using Machine Learning
+* 🎤🎧 Speaker recognition systems for gender detection using Machine Learning
 * 📡🛰️	Satellite communications systems and ground station
 * For more information, please check my [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
 
