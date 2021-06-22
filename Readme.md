@@ -14,6 +14,7 @@
 
 ## Ramon Mayor Martins
 
+PhD. Student in Computer Science Program (PPGCC), at [Universidade Federal de Santa Catarina](https://ppgcc.ufsc.br/apresentacao/?lang=en)
 Professor in the area of Telecommunications, at [Instituto Federal de Santa Catarina, Campus São José.](https://www.ifsc.edu.br/)<br/>
 M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br)
 
