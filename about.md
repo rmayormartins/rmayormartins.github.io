@@ -8,8 +8,7 @@ layout: default
 Currently I am PhD. Student of Computer Science Program in [Universidade Federal de Santa Catarina](https://ufsc.br/). I am M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) in 2014. From [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/) i am Specialist in Telecommunications Systems in 2015, Specialist in Computer Networks in 2017, Professional MBA in Systems and Telecommunications Analysis in 2017 and Specialist in Systems Engineering in 2018. 
 Electrical Engineer with emphasis on Telematics, from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) in 2010.
 
-Since 2015, i'm hold the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at Instituto Federal de Santa Catarina, 
-Campus São José.
+Since 2015, i'm hold the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/),Campus São José.
 
 ## Researh Interests
 
