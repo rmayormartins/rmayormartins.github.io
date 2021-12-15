@@ -1,11 +1,16 @@
-### Some task list for 2021
+### Some task list for 2022
 
 [back](./)
 
-- [ ] Ph.D. candidate student in UFSC [Program in Computer Science](https://ppgcc.ufsc.br/?lang=en)
-- [ ] Project research Tree Classificator using Deep Learning
-- [x] Project research Speech Recognition - Accent Detection using Machine Learning
-- [x] Project research Speaker Recogntion - Gender Detection using Machine Learning
-- [x] Project research Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station
+- [ ] Ph.D. credits in UFSC [Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
+- [ ] Research: Technology Pedagogical Content for Teaching ML in HS (UFSC)
+- [ ] Course: ML4ALL (UFSC)
+
+### Some task list done in 2021
+
+- [x] Project research Tree Classificator using Deep Learning (UFSC)
+- [x] Project research Speech Recognition - Accent Detection using Machine Learning (IFSC)
+- [x] Project research Speaker Recogntion - Gender Detection using Machine Learning (IFSC)
+- [x] Project research Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station (IFSC)
 
 [back](./)
