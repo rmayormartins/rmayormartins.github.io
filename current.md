@@ -28,6 +28,7 @@ I am currently researching in Instituto Federa lde Santa Catarina (IFSC):
 * [Computação na Escola Initiative](https://computacaonaescola.ufsc.br/) [UFSC-PPGCC-GQS](http://www.gqs.ufsc.br/)
 
 [back](./)
+
 <!---
 ## Teaching
 
