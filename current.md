@@ -12,7 +12,7 @@ PhD. Research: I am currently researching for in Universidade Federal de Santa C
 * 💻🖼️	Computer Vision for Education Machine/Deep Learning (with UFSC-INE-PPGCC-GQS-ML Group)
 * 🤖👨‍🏫	Technology Pedagogical Content for Teaching Machine Learning in High School (with UFSC-INE-PPGCC-GQS-ML Group)
 
-I am currently researching in Instituto Federa lde Santa Catarina (IFSC):
+I am currently researching in Instituto Federal de Santa Catarina (IFSC):
 
 * 🎤🎧 Speech recognition systems for accent detection using Machine Learning
 * 🎤🎧 Speaker recognition systems for gender detection using Machine Learning
