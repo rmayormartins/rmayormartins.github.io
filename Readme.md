@@ -19,7 +19,7 @@ Professor in the area of Telecommunications, at [Instituto Federal de Santa Cata
 M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br)<br/>
 B.Eng. in Telecommunications from [Universidade do Sul de Santa Catarina](www.unisul.br)
 
-#
+# 
 <p align="center">
 ramon.mayor@ifsc.edu.br
 </p>
