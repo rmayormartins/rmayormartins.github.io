@@ -17,7 +17,7 @@
 PhD. Student in Computer Science Program (PPGCC), at [Universidade Federal de Santa Catarina](https://ppgcc.ufsc.br/apresentacao/?lang=en)<br/>
 Professor in the area of Telecommunications, at [Instituto Federal de Santa Catarina, Campus São José.](https://www.ifsc.edu.br/)<br/>
 M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br)<br/>
-B.Eng. in Telecommunications from [Universidade do Sul de Santa Catarina - UNISUL](www.unisul.br)
+B.Eng. in Telecommunications from [Universidade do Sul de Santa Catarina](www.unisul.br)
 
 #
 <p align="center">
