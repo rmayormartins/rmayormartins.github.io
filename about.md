@@ -12,6 +12,7 @@ Since 2015, i'm hold the position of Professor of Basic, Technical and Technolog
 
 ## Researh Interests
 
+* 👨‍🏫🤖 I am interested in Strategies to teach Machine Learning in High School
 * 📡🛰️	I am interested in Telecommunications research in the following subjects: Satellite Communication Systems (Cubesats, Small Satellites), Radio Frequency Systems (Waves, Antennas, Radar and SDR), Optical Communications Systems
 * 💻🤖 I am interested in Artificial Intelligence / Machine Learning research in the foloowing subjects: Algorithms, Techniques, Voice and Speech Recognition, Computational Vision.
 
