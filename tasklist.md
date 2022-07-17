@@ -2,8 +2,8 @@
 
 [back](./)
 
-- [ ] Project research: Technology Pedagogical Content for Teaching ML in HS UFSC [Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
-- [ ] Project research: Course ML4ALL (UFSC)
+- [x] Project research: Technology Pedagogical Content for Teaching ML in HS UFSC [Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
+- [x] Project research: Course ML4ALL (UFSC)
 
 ### Some task list done in 2021
 
