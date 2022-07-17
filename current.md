@@ -9,19 +9,19 @@ layout: default
 
 PhD. Research: I am currently researching for in Universidade Federal de Santa Catarina (UFSC):
 
-* 💻🖼️	Computer Vision for Education Machine/Deep Learning (with UFSC-INE-PPGCC-GQS-ML Group)
-* 🤖👨‍🏫	Technology Pedagogical Content for Teaching Machine Learning in High School (with UFSC-INE-PPGCC-GQS-ML Group)
+* 🖼️🤖	Computer Vision for Education Machine/Deep Learning (with UFSC-INE-PPGCC-GQS-ML Group)
+* 👨‍🏫🤖	Strategies for Teaching Machine Learning in High School (with UFSC-INE-PPGCC-GQS-ML Group)
 
 I am currently researching in Instituto Federal de Santa Catarina (IFSC):
 
-* 🎤🎧 Speech recognition systems for accent detection using Machine Learning
-* 🎤🎧 Speaker recognition systems for gender detection using Machine Learning
+* 🎤🤖 Speech recognition systems for accent detection using Machine Learning
+* 🎤🤖 Speaker recognition systems for gender detection using Machine Learning
 * 📡🛰️	Satellite communications systems and ground station
 * For more information, please check my [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
 
 ## Instructor
 
-* Instructor of Machine Learning 4 All courses (Computação na Escola - UFSC-INE-PPGCC-GQS)
+* Instructor of Machine Learning courses (Computação na Escola - UFSC-INE-PPGCC-GQS)
 
 ## Research Group in UFSC
 
