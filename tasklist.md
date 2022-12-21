@@ -1,12 +1,16 @@
-### Some task list for 2022
+### Some task list for 2023
 
 [back](./)
 
-- [x] Project research: Technology Pedagogical Content for Teaching ML in HS UFSC [Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
-- [x] Project research: Course ML4ALL (UFSC)
+- [ ] Project research: Strategies for Teaching Machine Learning in High School (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
+- [ ] Project research: Course applications (UFSC)
 
-### Some task list done in 2021
+### Some task list done in 2021-2022
 
+- [x] Project research: Course applications (CnE/UFSC)
+- [x] Project research: Apps with ML/IA (CnE/UFSC)
+- [x] Project research: Strategies for Teaching Machine Learning in High School (UFSC)
+- [x] Project research: Technology Pedagogical Content for Teaching ML in HS (UFSC)
 - [x] Project research: Tree Classificator using Deep Learning (UFSC)
 - [x] Project research: Speech Recognition - Accent Detection using Machine Learning (IFSC)
 - [x] Project research: Speaker Recogntion - Gender Detection using Machine Learning (IFSC)
