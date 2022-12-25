@@ -3,7 +3,7 @@
 [back](./)
 
 - [ ] Project research: Strategies for Teaching Machine Learning in High School (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
-- [ ] Project research: Course applications (UFSC)
+- [ ] Project research: Course applications (CnE/UFSC)
 
 ### Some task list done in 2021-2022
 
