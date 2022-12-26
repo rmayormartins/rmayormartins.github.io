@@ -33,7 +33,8 @@ Secretaria de Educação do Estado de Minas Gerais, SEMG, Brasil (2011).
 
 ## More more about me
 
-- 💻🎨 [OpenSea](https://opensea.io/collection/rmayormartins)-> _NFT Art - Non Fungible Token Crypto Art_
-- 🌐📈 [Instagram @novarendainvest](https://www.instagram.com/novarendainvest/) -> _Finance, economy and investment analysis_
+- 💻🎨 [OpenSea](https://opensea.io/collection/aiandme) -> NFT Art 
+- 👨‍🎨✏️ [DeviantArt](https://www.deviantart.com/rmayormartins) -> Hand drawing Art 
+- 🌐📈 [Instagram @novarendainvest](https://www.instagram.com/novarendainvest/) -> _Finance and investment analysis_
 
 [back](./)
