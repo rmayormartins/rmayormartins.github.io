@@ -4,6 +4,7 @@
  <a href="current.html">Current Status</a> •
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
  <a href="http://lattes.cnpq.br/6289204315531991">Lattes CV</a> •
+ <a href="phd-memorial.html">PhD Memorial</a> •
  <a href="publications.html">Publications</a> • 
  <a href="contributions.html">Contributions</a> • 
  <a href="onthefly.html">On the fly Systems</a> •
