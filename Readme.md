@@ -9,6 +9,7 @@
  <a href="onthefly.html">On the fly Systems</a> •
  <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="tasklist.html">Task List</a> •
+ <a href="charts">Charts</a> •
  <a href="contact.html">Contact me</a>
 </p>
 
