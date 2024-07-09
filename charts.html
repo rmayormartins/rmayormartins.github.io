@@ -63,11 +63,14 @@
         var data = google.visualization.arrayToDataTable([
           ['Qualis', 'Quantity'],
           ['A1', 10],
+          ['A2', 1],
           ['A3', 2],
           ['A4', 3],
           ['B1', 1],
           ['B2', 1],
-          ['B4', 3]
+          ['B4', 3],
+          ['under attribution', 2],
+          ['no attribution', 12]
         ]);
         var options = { title: 'Scientific Production: Qualis', pieHole: 0.4 };
         var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
