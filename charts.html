@@ -4,10 +4,18 @@
     <title>Google Charts Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      // https://jsfiddle.net/ Code Playground Google Chart 
-      // Teaching Chart
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawTeachingChart);
+      google.charts.setOnLoadCallback(drawCharts);
+
+      function drawCharts() {
+        drawTeachingChart();
+        drawProjectsChart();
+        drawProductionChart();
+        drawQualisChart();
+        drawSubjectSemesterChart();
+      }
+
+      // Teaching Chart
       function drawTeachingChart() {
         var data = google.visualization.arrayToDataTable([
           ['Course', 'Unique Disciplines'],
@@ -23,7 +31,6 @@
       }
 
       // Projects Chart
-      google.charts.setOnLoadCallback(drawProjectsChart);
       function drawProjectsChart() {
         var data = google.visualization.arrayToDataTable([
           ['Type of Project', 'Quantity'],
@@ -36,7 +43,6 @@
       }
 
       // Production Chart
-      google.charts.setOnLoadCallback(drawProductionChart);
       function drawProductionChart() {
         var data = google.visualization.arrayToDataTable([
           ['Type of Production', 'Quantity'],
@@ -51,11 +57,61 @@
         var chart = new google.visualization.PieChart(document.getElementById('production_chart'));
         chart.draw(data, options);
       }
+
+      // Qualis Chart
+      function drawQualisChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Qualis', 'Quantity'],
+          ['A1', 10],
+          ['A3', 2],
+          ['A4', 3],
+          ['B1', 1],
+          ['B2', 1],
+          ['B4', 3]
+        ]);
+        var options = { title: 'Scientific Production: Qualis', pieHole: 0.4 };
+        var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
+        chart.draw(data, options);
+      }
+
+      // Subject x No Semester Chart
+      function drawSubjectSemesterChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Disciplina', 'Nº de Semestres'],
+          ['Antenas e Propagação', 11],
+          ['Circuitos de Rádio Frequência', 8],
+          ['Radiotransmissão', 8],
+          ['Sistemas de Telecomunicações', 5],
+          ['Projeto Integrador 1', 4],
+          ['Instalação de Equipamentos de Redes', 2],
+          ['Comunicações Sem Fio', 2],
+          ['Cabeamento Estruturado', 2],
+          ['Economia para Engenharia', 1],
+          ['Administração para Engenharia', 1],
+          ['Programação 1', 1],
+          ['Princípios de Telecomunicações', 1],
+          ['Redes de Computadores', 1],
+          ['Telefonia IP', 1],
+          ['Projetos de Redes Metálicas', 1],
+          ['Análise de Circuitos 2', 1],
+          ['Telefonia 1', 1]
+        ]);
+        var options = {
+          title: 'Subject x No semester',
+          hAxis: { title: 'Disciplina', slantedText: true, slantedTextAngle: 45 },
+          vAxis: { title: 'Nº de Semestres' },
+          bars: 'vertical'
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
+        chart.draw(data, options);
+      }
     </script>
   </head>
   <body>
     <div id="teaching_chart" style="width: 900px; height: 500px;"></div>
     <div id="projects_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_chart" style="width: 900px; height: 500px;"></div>
+    <div id="qualis_chart" style="width: 900px; height: 500px;"></div>
+    <div id="subject_semester_chart" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
