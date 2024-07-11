@@ -1,120 +1,149 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Google Charts Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawCharts);
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawCharts);
 
-      function drawCharts() {
-        drawTeachingChart();
-        drawProjectsChart();
-        drawProductionChart();
-        drawQualisChart();
-        drawSubjectSemesterChart();
-      }
+        function drawCharts() {
+            drawTeachingChart();
+            drawSubjectSemesterChart();
+            drawProjectsChart();
+            drawProductionChart();
+            drawQualisChart();
+            drawProductionYearChart();  // Added here
+        }
 
-      // Teaching Chart
-      function drawTeachingChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Course', 'Unique Disciplines'],
-          ['Engenharia de Telecomunicações - 290', 7],
-          ['Técnico Integrado de Telecomunicações (diurno) - 608', 6],
-          ['Técnico Subsequente de Telecomunicações (noturno) - 111', 2],
-          ['Superior de Tecnologia em Sistemas de Telecomunicações - 207', 2],
-          ['Técnico de Telecomunicações (redes) - 125', 1]
-        ]);
-        var options = { title: 'Unique Subjects by Course', pieHole: 0.4 };
-        var chart = new google.visualization.PieChart(document.getElementById('teaching_chart'));
-        chart.draw(data, options);
-      }
+        // Teaching Chart
+        function drawTeachingChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Course', 'Unique Disciplines'],
+                ['Engenharia de Telecomunicações - 290', 7],
+                ['Técnico Integrado de Telecomunicações (diurno) - 608', 6],
+                ['Técnico Subsequente de Telecomunicações (noturno) - 111', 2],
+                ['Superior de Tecnologia em Sistemas de Telecomunicações - 207', 2],
+                ['Técnico de Telecomunicações (redes) - 125', 1]
+            ]);
+            var options = { title: 'Unique Subjects by Course', pieHole: 0.4 };
+            var chart = new google.visualization.PieChart(document.getElementById('teaching_chart'));
+            chart.draw(data, options);
+        }
 
-      // Projects Chart
-      function drawProjectsChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Type of Project', 'Quantity'],
-          ['Projetos de Pesquisa', 14],
-          ['Projetos de Extensão', 6]
-        ]);
-        var options = { title: 'Projects', pieHole: 0.4 };
-        var chart = new google.visualization.PieChart(document.getElementById('projects_chart'));
-        chart.draw(data, options);
-      }
+        // Projects Chart
+        function drawProjectsChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Type of Project', 'Quantity'],
+                ['Projetos de Pesquisa', 14],
+                ['Projetos de Extensão', 6]
+            ]);
+            var options = { title: 'Projects', pieHole: 0.4 };
+            var chart = new google.visualization.PieChart(document.getElementById('projects_chart'));
+            chart.draw(data, options);
+        }
 
-      // Production Chart
-      function drawProductionChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Type of Production', 'Quantity'],
-          ['Livro', 3],
-          ['Capítulo de Livro', 2],
-          ['Tutorial', 2],
-          ['Artigo', 31],
-          ['Relatório Técnico', 4],
-          ['Registro de Software/Propriedade Intelectual', 1]
-        ]);
-        var options = { title: 'Scientific Production', pieHole: 0.4 };
-        var chart = new google.visualization.PieChart(document.getElementById('production_chart'));
-        chart.draw(data, options);
-      }
+        // Production Chart
+        function drawProductionChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Type of Production', 'Quantity'],
+                ['Livro', 3],
+                ['Capítulo de Livro', 2],
+                ['Tutorial', 2],
+                ['Artigo', 31],
+                ['Relatório Técnico', 4],
+                ['Registro de Software/Propriedade Intelectual', 1]
+            ]);
+            var options = { title: 'Scientific Production', pieHole: 0.4 };
+            var chart = new google.visualization.PieChart(document.getElementById('production_chart'));
+            chart.draw(data, options);
+        }
 
-      // Qualis Chart
-      function drawQualisChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Qualis', 'Quantity'],
-          ['A1', 10],
-          ['A2', 1],
-          ['A3', 2],
-          ['A4', 3],
-          ['B1', 1],
-          ['B2', 1],
-          ['B4', 3],
-          ['under attribution', 2],
-          ['no attribution', 12]
-        ]);
-        var options = { title: 'Scientific Production: Qualis', pieHole: 0.4 };
-        var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
-        chart.draw(data, options);
-      }
+        // Qualis Chart
+        function drawQualisChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Qualis', 'Quantity'],
+                ['A1', 10],
+                ['A2', 1],
+                ['A3', 2],
+                ['A4', 3],
+                ['B1', 1],
+                ['B2', 1],
+                ['B4', 3],
+                ['under attribution', 2],
+                ['no attribution', 12]
+            ]);
+            var options = { title: 'Scientific Production: Qualis', pieHole: 0.4 };
+            var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
+            chart.draw(data, options);
+        }
 
-      // Subject x No Semester Chart
-      function drawSubjectSemesterChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Disciplina', 'Nº de Semestres'],
-          ['Antenas e Propagação', 11],
-          ['Circuitos de Rádio Frequência', 8],
-          ['Radiotransmissão', 8],
-          ['Sistemas de Telecomunicações', 5],
-          ['Projeto Integrador 1', 4],
-          ['Instalação de Equipamentos de Redes', 2],
-          ['Comunicações Sem Fio', 2],
-          ['Cabeamento Estruturado', 2],
-          ['Economia para Engenharia', 1],
-          ['Administração para Engenharia', 1],
-          ['Programação 1', 1],
-          ['Princípios de Telecomunicações', 1],
-          ['Redes de Computadores', 1],
-          ['Telefonia IP', 1],
-          ['Projetos de Redes Metálicas', 1],
-          ['Análise de Circuitos 2', 1],
-          ['Telefonia 1', 1]
-        ]);
-        var options = {
-          title: 'Subject x No semester',
-          hAxis: { title: 'Disciplina', slantedText: true, slantedTextAngle: 45 },
-          vAxis: { title: 'Nº de Semestres' },
-          bars: 'vertical'
-        };
-        var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
-        chart.draw(data, options);
-      }
+        // Subject x No Semester Chart
+        function drawSubjectSemesterChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Disciplina', 'Nº de Semestres'],
+                ['Antenas e Propagação', 11],
+                ['Circuitos de Rádio Frequência', 8],
+                ['Radiotransmissão', 8],
+                ['Sistemas de Telecomunicações', 5],
+                ['Projeto Integrador 1', 4],
+                ['Instalação de Equipamentos de Redes', 2],
+                ['Comunicações Sem Fio', 2],
+                ['Cabeamento Estruturado', 2],
+                ['Economia para Engenharia', 1],
+                ['Administração para Engenharia', 1],
+                ['Programação 1', 1],
+                ['Princípios de Telecomunicações', 1],
+                ['Redes de Computadores', 1],
+                ['Telefonia IP', 1],
+                ['Projetos de Redes Metálicas', 1],
+                ['Análise de Circuitos 2', 1],
+                ['Telefonia 1', 1]
+            ]);
+            var options = {
+                title: 'Subject x No semester',
+                hAxis: { title: 'Disciplina', slantedText: true, slantedTextAngle: 45 },
+                vAxis: { title: 'Nº de Semestres' },
+                bars: 'vertical'
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
+            chart.draw(data, options);
+        }
+
+        // Scientific Production x Year Chart
+        function drawProductionYearChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Quantity'],
+                ['2014', 2],
+                ['2015', 2],
+                ['2016', 7],
+                ['2017', 5],
+                ['2018', 5],
+                ['2019', 0],
+                ['2020', 4],
+                ['2021', 1],
+                ['2022', 9],
+                ['2023', 11],
+                ['2024', 3]
+            ]);
+            var options = {
+                title: 'Scientific Production x Year',
+                hAxis: { title: 'Year' },
+                vAxis: { title: 'Quantity', minValue: 0 },
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('production_year_chart'));
+            chart.draw(data, options);
+        }
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <div id="teaching_chart" style="width: 900px; height: 500px;"></div>
+    <div id="subject_semester_chart" style="width: 900px; height: 500px;"></div>
     <div id="projects_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_chart" style="width: 900px; height: 500px;"></div>
     <div id="qualis_chart" style="width: 900px; height: 500px;"></div>
-    <div id="subject_semester_chart" style="width: 900px; height: 500px;"></div>
-  </body>
+    <div id="production_year_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
+</body>
 </html>
