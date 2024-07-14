@@ -13,7 +13,11 @@
             drawProjectsChart();
             drawProductionChart();
             drawQualisChart();
-            drawProductionYearChart();  // Added here
+            drawProductionYearChart();
+            drawParticipationsChart();
+            drawParticipationsTotalChart();  // Added here
+            drawSupervisionsChart();
+            drawSupervisionsTotalChart();  // Added here
         }
 
         // Teaching Chart
@@ -136,6 +140,84 @@
             var chart = new google.visualization.LineChart(document.getElementById('production_year_chart'));
             chart.draw(data, options);
         }
+
+        // Participations in Committees Chart
+        function drawParticipationsChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Graduação', 'Pós-Graduação'],
+                ['2015', 4, 0],
+                ['2017', 7, 0],
+                ['2018', 11, 0],
+                ['2019', 3, 1],
+                ['2021', 2, 0],
+                ['2022', 7, 0],
+                ['2023', 4, 0],
+                ['2024', 5, 0]
+            ]);
+            var options = {
+                title: 'Participações em Bancas',
+                hAxis: { title: 'Year' },
+                vAxis: { title: 'Quantidade', minValue: 0 },
+                isStacked: true,
+                legend: { position: 'bottom' }
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('participations_chart'));
+            chart.draw(data, options);
+        }
+
+        // Participations in Committees Total Chart
+        function drawParticipationsTotalChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Type', 'Quantity'],
+                ['Graduação', 43],
+                ['Pós-Graduação', 1]
+            ]);
+            var options = {
+                title: 'Total de Participações em Bancas',
+                pieHole: 0.4
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('participations_total_chart'));
+            chart.draw(data, options);
+        }
+
+        // Supervisions and Co-supervisions Chart
+        function drawSupervisionsChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Graduação', 'Pós-Graduação'],
+                ['2015', 0, 0],
+                ['2017', 4, 0],
+                ['2018', 8, 6],
+                ['2019', 1, 0],
+                ['2021', 0, 0],
+                ['2022', 4, 0],
+                ['2023', 1, 0],
+                ['2024', 0, 0]
+            ]);
+            var options = {
+                title: 'Orientações e Coorientações',
+                hAxis: { title: 'Year' },
+                vAxis: { title: 'Quantidade', minValue: 0 },
+                isStacked: true,
+                legend: { position: 'bottom' }
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById('supervisions_chart'));
+            chart.draw(data, options);
+        }
+
+        // Supervisions and Co-supervisions Total Chart
+        function drawSupervisionsTotalChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Type', 'Quantity'],
+                ['Graduação', 18],
+                ['Pós-Graduação', 6]
+            ]);
+            var options = {
+                title: 'Total de Orientações e Coorientações',
+                pieHole: 0.4
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('supervisions_total_chart'));
+            chart.draw(data, options);
+        }
     </script>
 </head>
 <body>
@@ -144,6 +226,10 @@
     <div id="projects_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_chart" style="width: 900px; height: 500px;"></div>
     <div id="qualis_chart" style="width: 900px; height: 500px;"></div>
-    <div id="production_year_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
+    <div id="production_year_chart" style="width: 900px; height: 500px;"></div>
+    <div id="participations_chart" style="width: 900px; height: 500px;"></div>
+    <div id="participations_total_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
+    <div id="supervisions_chart" style="width: 900px; height: 500px;"></div>
+    <div id="supervisions_total_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
 </body>
 </html>
