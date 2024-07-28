@@ -9,19 +9,16 @@ You can contact me through many ways:
 
 ## Mailbox
 
-- 📧 <p align="center">
-  <code style="font-family: Consolas;">ramon.mayor at: ifsc.edu.br</code>
-</p>
-<p align="center">
+- 📧 <code style="font-family: Consolas;">ramon.mayor at: ifsc.edu.br</code>
 
 ## Social Network
 
-- 🌐 X @rmayormartins
-- 🌐 Instagram @rmayormartins
-- 🌐 Pinterest @rmayormartins
-- 🌐 Soundcloud @odinwottan
-- 🌐 Good Reads [https://www.goodreads.com/user/show/107873924-ramon-martins]
-- 🌐 DeviantArt [https://www.deviantart.com/rmayormartins]
+- 🌐 X [@rmayormartins](https://x.com/rmayormartins)
+- 🌐 Instagram [@rmayormartins](https://www.instagram.com/rmayormartins/)
+- 🌐 Pinterest [@rmayormartins](https://br.pinterest.com/rmayormartins/)
+- 🌐 Soundcloud [@odinwottan](https://soundcloud.com/odinwottan)
+- 🌐 Good Reads [ramon-martins](https://www.goodreads.com/user/show/107873924-ramon-martins)
+- 🌐 DeviantArt [rmayormartins](https://www.deviantart.com/rmayormartins)
 
 ## Eletromagnetic Waves
 
