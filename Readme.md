@@ -9,7 +9,7 @@
  <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="contributions.html">Contributions</a> • 
  <a href="tasklist.html">Task List</a> •
- <a href="charts.html">Academic Report</a> •
+ <a href="academicreport.html">Academic Report</a> •
  <a href="contact.html">Contact me</a>
 </p>
 
