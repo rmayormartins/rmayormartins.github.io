@@ -1,10 +1,10 @@
 [back](./)
 
-### Some task list done in 2024
+### Some task list in 2024/2
 
 - [ ] Technical research: Development of AI systems
 
-### Some task list done in 2023
+### Some task list done in 2023-2024/1
 
 - [x] Academic research: Strategies for Teaching Machine Learning to Low SES Students in Middle and High Schools (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
 - [x] Academic research: Data analysis of Learning, Perception and Perception of experience of Learning Machine Learning to Low SES Students in Middle and High Schools (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
