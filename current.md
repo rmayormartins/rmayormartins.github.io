@@ -3,29 +3,25 @@ layout: default
 ---
 [back](./)
 
-## My Current Status in 2022
+## My Current Status in 2024
 
-## Research
+## Academic Research
 
-PhD. Research: I am currently researching for in Universidade Federal de Santa Catarina (UFSC):
+I am currently participate in research at [Universidade Federal de Santa Catarina (UFSC)](https://ufsc.edu.br):
 
-* 🖼️🤖	Computer Vision for Education Machine/Deep Learning (with UFSC-INE-PPGCC-GQS-ML Group)
-* 👨‍🏫🤖	Strategies for Teaching Machine Learning in High School (with UFSC-INE-PPGCC-GQS-ML Group)
+* 👨‍🏫🖥️	Critical Thinking assessment in the teaching-learning process of Computer Science (with UFSC-INE-PPGCC-GQS-ML Group)
 
-I am currently researching in Instituto Federal de Santa Catarina (IFSC):
+## Technical Research
 
-* 🎤🤖 Speech recognition systems for accent detection using Machine Learning
-* 🎤🤖 Speaker recognition systems for gender detection using Machine Learning
-* 📡🛰️	Satellite communications systems and ground station
+I am currently conducting research at [Instituto Federal de Santa Catarina (IFSC)](https://ifsc.edu.br/):
+
+* 🖥️🤖 AI system development for Computer Vision, NLP, and Recommendation systems
+* 📡🛰️	Satellite communications systems and ground stations
 * For more information, please check my [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
 
-## Instructor
+## Research Group in IFSC
 
-* Instructor of Machine Learning courses (Computação na Escola - UFSC-INE-PPGCC-GQS)
-
-## Research Group in UFSC
-
-* [Computação na Escola Initiative](https://computacaonaescola.ufsc.br/) [UFSC-PPGCC-GQS](http://www.gqs.ufsc.br/)
+* [Grupo de Pesquisa e Desenvolvimento em Sistemas de Telecomunicações](https://dgp.cnpq.br/dgp/espelhogrupo/2924804687700988)
 
 [back](./)
 
