@@ -4,16 +4,17 @@ layout: default
 [back](./)
 
 ## About me
+Since 2015, i'm hold the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/),Campus São José. <br>
 
 I am Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ufsc.br/). <br>
 M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) <br>
-From [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/) i am Specialist in Telecommunications Systems, Specialist in Computer Networks, Professional MBA in Systems and Telecommunications Analysis and Specialist in Systems Engineering <br>
+PGC in Telecommunications Systems, in Computer Networks and Systems Engineering from [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)
+Professional MBA in Systems and Telecommunications Analysis from [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)  <br>
 Electrical Engineer with emphasis on Telematics and Telecommunications Engineer, from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
-Since 2015, i'm hold the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/),Campus São José.
 
 ## Researh Interests
 
-* 👨‍🏫🤖 I am interested in Strategies to teach AI
+* 👨‍🏫🤖 I am interested in strategies to teach and learn AI systems
 * 📡🛰️	I am interested in Telecommunications research in the following subjects: Satellite Communication Systems (Cubesats, Small Satellites, Ground Station), Radio Frequency Systems (Wave Propagation, Antennas, Radar and SDR), Optical Communications Systems
 * 💻🤖 I am interested in Artificial Intelligence in the following subjects: NLP (Sentiment Analysis, Speaker and Speech Recognition), Computational Vision, GANs.
 
