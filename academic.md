@@ -3,7 +3,9 @@ layout: default
 ---
 [back](./)
 
-## (Academic track) Publications and Papers
+## Academic profile
+
+### Publications and Papers
 For papers, presentations, books, chapters, tutorials, please check my:
 
 * 📚🎓 [Google Scholar Profile](https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ&hl=pt-BR)
