@@ -4,9 +4,9 @@
  <a href="current.html">Current Status</a> •
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
  <a href="http://lattes.cnpq.br/6289204315531991">Resume</a> •
- <a href="publications.html">Publications</a> • 
+ <a href="academic.html">Academic profile</a> • 
  <a href="contributions.html">Contributions</a> • 
- <a href="onthefly.html">On the fly Systems</a> •
+ <a href="technical.html">Technical profile</a> •
  <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="tasklist.html">Task List</a> •
  <a href="charts.html">Academic Report</a> •
