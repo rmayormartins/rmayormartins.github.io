@@ -20,11 +20,16 @@ Professor in the area of Telecommunications, at [Instituto Federal de Santa Cata
 M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br)<br/>
 B.Eng. in Telecommunications from [Universidade do Sul de Santa Catarina](www.unisul.br)
 
-# 
+<table>
+  <tr>
+    <td><img width="110" height="100" src="2023_Teacher_Excellence_Awards_Badge.jpg"></td>
+    <td><i>MIT App Inventor Foundation 2023 Teacher Excellence Award</i></td>
+  </tr>
+</table>
+
 <p align="center">
   <code style="font-family: Consolas;">ramon.mayor at: ifsc.edu.br</code>
 </p>
 <p align="center">
 <img width="51" height="51" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Game_of_life_animated_glider.gif"> <img width="51" height="51" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Game_of_life_animated_LWSS.gif">
 </p>
-
