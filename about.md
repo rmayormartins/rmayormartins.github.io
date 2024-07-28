@@ -5,16 +5,17 @@ layout: default
 
 ## About me
 
-Currently I am PhD. Student of Computer Science Program in [Universidade Federal de Santa Catarina](https://ufsc.br/). I am M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) in 2014. From [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/) i am Specialist in Telecommunications Systems in 2015, Specialist in Computer Networks in 2017, Professional MBA in Systems and Telecommunications Analysis in 2017 and Specialist in Systems Engineering in 2018. 
-Electrical Engineer with emphasis on Telematics, from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) in 2010.
-
+I am Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ufsc.br/). <br>
+M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) <br>
+From [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/) i am Specialist in Telecommunications Systems, Specialist in Computer Networks, Professional MBA in Systems and Telecommunications Analysis and Specialist in Systems Engineering <br>
+Electrical Engineer with emphasis on Telematics and Telecommunications Engineer, from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
 Since 2015, i'm hold the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/),Campus São José.
 
 ## Researh Interests
 
-* 👨‍🏫🤖 I am interested in Strategies to teach Machine Learning in High School
-* 📡🛰️	I am interested in Telecommunications research in the following subjects: Satellite Communication Systems (Cubesats, Small Satellites), Radio Frequency Systems (Waves, Antennas, Radar and SDR), Optical Communications Systems
-* 💻🤖 I am interested in Artificial Intelligence / Machine Learning research in the foloowing subjects: Algorithms, Techniques, Speaker and Speech Recognition, Computational Vision.
+* 👨‍🏫🤖 I am interested in Strategies to teach AI
+* 📡🛰️	I am interested in Telecommunications research in the following subjects: Satellite Communication Systems (Cubesats, Small Satellites, Ground Station), Radio Frequency Systems (Wave Propagation, Antennas, Radar and SDR), Optical Communications Systems
+* 💻🤖 I am interested in Artificial Intelligence in the following subjects: NLP (Sentiment Analysis, Speaker and Speech Recognition), Computational Vision, GANs.
 
 
 ## Professional Track
@@ -24,17 +25,21 @@ Instituto Nacional de Telecomunicações, INATEL, Brasil (2011~2013); Faculdade 
 Secretaria de Educação do Estado de Minas Gerais, SEMG, Brasil (2011).
 * Engineer: Project Engineer in [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br)
 
-## More about me
+## Academic profile
 
 - 📃👨‍🎓 [Lattes CV](http://lattes.cnpq.br/6289204315531991)
 - 📑🏫 [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
+
+## Technical profile
+
 - 💻😺 [Github](https://github.com/rmayormartins)
-- 📃📻 [Anatel](https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp) -> _consult by callsign PU4MAY_
+- 💻🤗 [Hugging Face Spaces](https://huggingface.co/rmayormartins)
+- 💻👾 [Replit Code Projects](https://replit.com/@rmayormartins)
+- 💻 K [Kaggle Projects](https://www.kaggle.com/rmayormartins)
+- 📃📻 [Anatel Callsign](https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp) -> _consult by callsign PU4MAY_
 
 ## More more about me
 
-- 💻🎨 [OpenSea](https://opensea.io/collection/aiandme) -> NFT Art 
-- 👨‍🎨✏️ [DeviantArt](https://www.deviantart.com/rmayormartins) -> Hand drawing Art 
-- 🌐📈 [Instagram @novarendainvest](https://www.instagram.com/novarendainvest/) -> _Finance and investment analysis_
+- 👨‍🎨✏️ [DeviantArt](https://www.deviantart.com/rmayormartins) -> Hand drawing Art
 
 [back](./)
