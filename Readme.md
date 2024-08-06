@@ -10,6 +10,7 @@
  <a href="contributions.html">Contributions</a> • 
  <a href="tasklist.html">Task List</a> •
  <a href="academicreport.html">Academic Report</a> •
+ <a href="academicroadmap.html">Academic Roadmap</a> •
  <a href="contact.html">Contact me</a>
 </p>
 
