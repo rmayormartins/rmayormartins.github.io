@@ -3,6 +3,8 @@
 <head>
     <title>Google Charts Example</title>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawCharts);
@@ -14,10 +16,11 @@
             drawProductionChart();
             drawQualisChart();
             drawProductionYearChart();
+            drawWordCloud();  // Desenhar a nuvem de palavras
             drawParticipationsChart();
-            drawParticipationsTotalChart();  // Added here
+            drawParticipationsTotalChart();  
             drawSupervisionsChart();
-            drawSupervisionsTotalChart();  // Added here
+            drawSupervisionsTotalChart();  
         }
 
         // Teaching Chart
@@ -141,6 +144,57 @@
             chart.draw(data, options);
         }
 
+        // Word Cloud using d3-cloud
+        function drawWordCloud() {
+            var wordList = [
+                {text: 'Artificial Intelligence', size: 30},
+                {text: 'Machine Learning', size: 110},
+                {text: 'Ethics', size: 20},
+                {text: 'Middle and High School', size: 100},
+                {text: 'Analysis', size: 70},
+                {text: 'Teaching', size: 50},
+                {text: 'Learning', size: 30},
+                {text: 'Image classification', size: 20},
+                {text: 'Assessment', size: 30},
+                {text: 'Radio', size: 60},
+                {text: 'Speech Recognition', size: 30},
+                {text: 'Low SES', size: 30},
+                {text: 'Artificial Neural Network', size: 20},
+                {text: 'Cubesat', size: 10}
+            ];
+
+            var width = 900;
+            var height = 500;
+
+            d3.layout.cloud().size([width, height])
+                .words(wordList)
+                .padding(5)
+                .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                .font("Times New Roman")
+                .fontSize(function(d) { return d.size; })
+                .on("end", draw)
+                .start();
+
+            function draw(words) {
+                d3.select("#wordcloud").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+                    .selectAll("text")
+                    .data(words)
+                    .enter().append("text")
+                    .style("font-size", function(d) { return d.size + "px"; })
+                    .style("font-family", "Times New Roman")
+                    .style("fill", function() { return d3.schemeCategory10[Math.floor(Math.random() * 10)]; })
+                    .attr("text-anchor", "middle")
+                    .attr("transform", function(d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                    })
+                    .text(function(d) { return d.text; });
+            }
+        }
+
         // Participations in Committees Chart
         function drawParticipationsChart() {
             var data = google.visualization.arrayToDataTable([
@@ -219,17 +273,46 @@
             chart.draw(data, options);
         }
     </script>
+    <style>
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .separator {
+            border-bottom: 2px solid black;
+            margin: 20px 0;
+        }
+        #wordcloud {
+            width: 900px;
+            height: 500px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
+    <!-- Ensino Section -->
+    <div class="section-title">Ensino</div>
+    <div class="separator"></div>
     <div id="teaching_chart" style="width: 900px; height: 500px;"></div>
     <div id="subject_semester_chart" style="width: 900px; height: 500px;"></div>
+
+    <!-- Pesquisa e Extensão Section -->
+    <div class="section-title">Pesquisa e Extensão</div>
+    <div class="separator"></div>
     <div id="projects_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_chart" style="width: 900px; height: 500px;"></div>
     <div id="qualis_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_year_chart" style="width: 900px; height: 500px;"></div>
+    <div id="wordcloud" style="width: 900px; height: 500px;"></div> <!-- Adicionada a nuvem de palavras -->
+
+    <!-- Orientações e Bancas Section -->
+    <div class="section-title">Orientações e Bancas</div>
+    <div class="separator"></div>
     <div id="participations_chart" style="width: 900px; height: 500px;"></div>
-    <div id="participations_total_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
+    <div id="participations_total_chart" style="width: 900px; height: 500px;"></div>
     <div id="supervisions_chart" style="width: 900px; height: 500px;"></div>
-    <div id="supervisions_total_chart" style="width: 900px; height: 500px;"></div> <!-- Added here -->
+    <div id="supervisions_total_chart" style="width: 900px; height: 500px;"></div>
 </body>
 </html>
