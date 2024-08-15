@@ -16,7 +16,7 @@
             drawProductionChart();
             drawQualisChart();
             drawProductionYearChart();
-            drawWordCloud();  // Desenhar a nuvem de palavras
+            drawWordCloud();  
             drawParticipationsChart();
             drawParticipationsTotalChart();  
             drawSupervisionsChart();
@@ -37,7 +37,6 @@
             var chart = new google.visualization.PieChart(document.getElementById('teaching_chart'));
             chart.draw(data, options);
         }
-
         // Projects Chart
         function drawProjectsChart() {
             var data = google.visualization.arrayToDataTable([
@@ -49,7 +48,6 @@
             var chart = new google.visualization.PieChart(document.getElementById('projects_chart'));
             chart.draw(data, options);
         }
-
         // Production Chart
         function drawProductionChart() {
             var data = google.visualization.arrayToDataTable([
@@ -65,7 +63,6 @@
             var chart = new google.visualization.PieChart(document.getElementById('production_chart'));
             chart.draw(data, options);
         }
-
         // Qualis Chart
         function drawQualisChart() {
             var data = google.visualization.arrayToDataTable([
@@ -84,55 +81,56 @@
         title: 'Scientific Production: Qualis',
         pieHole: 0.4,
         slices: {
-            8: { color: '#d3d3d3' }  // Define a cor cinza gelo para a fatia "no attribution"
+            8: { color: '#d3d3d3' }  
         }
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
     chart.draw(data, options);
 }
-
-        // Subject x No Semester Chart
-        function drawSubjectSemesterChart() {
+//subject x no semester
+function drawSubjectSemesterChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Disciplina', 'Nº de Semestres'],
-        ['Antenas e Propagação', 11],
-        ['Circuitos de Rádio Frequência', 8],
-        ['Radiotransmissão', 8],
-        ['Sistemas de Telecomunicações', 5],
-        ['Projeto Integrador 1', 4],
-        ['Instalação de Equipamentos de Redes', 2],
-        ['Comunicações Sem Fio', 2],
-        ['Cabeamento Estruturado', 2],
-        ['Economia para Engenharia', 1],
-        ['Administração para Engenharia', 1],
-        ['Programação 1', 1],
-        ['Princípios de Telecomunicações', 1],
-        ['Redes de Computadores', 1],
-        ['Telefonia IP', 1],
-        ['Projetos de Redes Metálicas', 1],
-        ['Análise de Circuitos 2', 1],
-        ['Telefonia 1', 1]
+        ['Disciplina', 'Nº de Semestres', { role: 'annotation' }],
+        ['Antenas e Propagação', 11, '11'],
+        ['Circuitos de Rádio Frequência', 8, '8'],
+        ['Radiotransmissão', 8, '8'],
+        ['Sistemas de Telecomunicações', 5, '5'],
+        ['Projeto Integrador 1', 4, '4'],
+        ['Instalação de Equipamentos de Redes', 2, '2'],
+        ['Comunicações Sem Fio', 2, '2'],
+        ['Cabeamento Estruturado', 2, '2'],
+        ['Economia para Engenharia', 1, '1'],
+        ['Administração para Engenharia', 1, '1'],
+        ['Programação 1', 1, '1'],
+        ['Princípios de Telecomunicações', 1, '1'],
+        ['Redes de Computadores', 1, '1'],
+        ['Telefonia IP', 1, '1'],
+        ['Projetos de Redes Metálicas', 1, '1'],
+        ['Análise de Circuitos 2', 1, '1'],
+        ['Telefonia 1', 1, '1']
     ]);
     
     var options = {
         title: 'Subject x No semester',
-        hAxis: { 
-            title: 'Disciplina', 
-            slantedText: true, 
-            slantedTextAngle: 45,  // Ângulo da rotação
-            maxTextLines: 2,  // Permite quebrar o texto em duas linhas
-        },
-        vAxis: { title: 'Nº de Semestres' },
-        bars: 'vertical',
-        chartArea: { width: '70%', height: '35%' },  // Ajusta a área do gráfico
-        width: 1000  // Aumenta a largura do gráfico
+        hAxis: { title: 'Nº de Semestres' },
+        vAxis: { title: 'Disciplina' },
+        bars: 'horizontal',
+        chartArea: { width: '30%', height: '70%' },
+        width: 1000,
+        annotations: {
+            alwaysOutside: true,  
+            textStyle: {
+                fontSize: 12,
+                bold: true,
+                color: '#000'
+            }
+        }
     };
     
-    var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
+    var chart = new google.visualization.BarChart(document.getElementById('subject_semester_chart'));
     chart.draw(data, options);
 }
-
         // Scientific Production x Year Chart
         function drawProductionYearChart() {
             var data = google.visualization.arrayToDataTable([
@@ -315,13 +313,13 @@
 </head>
 <body>
     <!-- Ensino Section -->
-    <div class="section-title">Ensino</div>
+    <div class="section-title">Teaching</div>
     <div class="separator"></div>
     <div id="teaching_chart" style="width: 900px; height: 500px;"></div>
     <div id="subject_semester_chart" style="width: 900px; height: 500px;"></div>
 
     <!-- Pesquisa e Extensão Section -->
-    <div class="section-title">Pesquisa e Extensão</div>
+    <div class="section-title">Research-Extension</div>
     <div class="separator"></div>
     <div id="projects_chart" style="width: 900px; height: 500px;"></div>
     <div id="production_chart" style="width: 900px; height: 500px;"></div>
@@ -333,7 +331,7 @@
     <div id="wordcloud_chart" style="width: 500px; height: 500px;"></div>
 
     <!-- Orientações e Bancas Section -->
-    <div class="section-title">Orientações e Bancas</div>
+    <div class="section-title">Advising and Examining board</div>
     <div class="separator"></div>
     <div id="participations_chart" style="width: 900px; height: 500px;"></div>
     <div id="participations_total_chart" style="width: 900px; height: 500px;"></div>
