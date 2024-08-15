@@ -80,42 +80,58 @@
                 ['under attribution', 2],
                 ['no attribution', 12]
             ]);
-            var options = { title: 'Scientific Production: Qualis', pieHole: 0.4 };
-            var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
-            chart.draw(data, options);
+                var options = {
+        title: 'Scientific Production: Qualis',
+        pieHole: 0.4,
+        slices: {
+            8: { color: '#d3d3d3' }  // Define a cor cinza gelo para a fatia "no attribution"
         }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('qualis_chart'));
+    chart.draw(data, options);
+}
 
         // Subject x No Semester Chart
         function drawSubjectSemesterChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Disciplina', 'Nº de Semestres'],
-                ['Antenas e Propagação', 11],
-                ['Circuitos de Rádio Frequência', 8],
-                ['Radiotransmissão', 8],
-                ['Sistemas de Telecomunicações', 5],
-                ['Projeto Integrador 1', 4],
-                ['Instalação de Equipamentos de Redes', 2],
-                ['Comunicações Sem Fio', 2],
-                ['Cabeamento Estruturado', 2],
-                ['Economia para Engenharia', 1],
-                ['Administração para Engenharia', 1],
-                ['Programação 1', 1],
-                ['Princípios de Telecomunicações', 1],
-                ['Redes de Computadores', 1],
-                ['Telefonia IP', 1],
-                ['Projetos de Redes Metálicas', 1],
-                ['Análise de Circuitos 2', 1],
-                ['Telefonia 1', 1]
-            ]);
-            var options = {
-                title: 'Subject x No semester',
-                hAxis: { title: 'Disciplina', slantedText: true, slantedTextAngle: 45 },
-                vAxis: { title: 'Nº de Semestres' },
-                bars: 'vertical'
-            };
-            var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
-            chart.draw(data, options);
-        }
+    var data = google.visualization.arrayToDataTable([
+        ['Disciplina', 'Nº de Semestres'],
+        ['Antenas e Propagação', 11],
+        ['Circuitos de Rádio Frequência', 8],
+        ['Radiotransmissão', 8],
+        ['Sistemas de Telecomunicações', 5],
+        ['Projeto Integrador 1', 4],
+        ['Instalação de Equipamentos de Redes', 2],
+        ['Comunicações Sem Fio', 2],
+        ['Cabeamento Estruturado', 2],
+        ['Economia para Engenharia', 1],
+        ['Administração para Engenharia', 1],
+        ['Programação 1', 1],
+        ['Princípios de Telecomunicações', 1],
+        ['Redes de Computadores', 1],
+        ['Telefonia IP', 1],
+        ['Projetos de Redes Metálicas', 1],
+        ['Análise de Circuitos 2', 1],
+        ['Telefonia 1', 1]
+    ]);
+    
+    var options = {
+        title: 'Subject x No semester',
+        hAxis: { 
+            title: 'Disciplina', 
+            slantedText: true, 
+            slantedTextAngle: 45,  // Ângulo da rotação
+            maxTextLines: 2,  // Permite quebrar o texto em duas linhas
+        },
+        vAxis: { title: 'Nº de Semestres' },
+        bars: 'vertical',
+        chartArea: { width: '70%', height: '35%' },  // Ajusta a área do gráfico
+        width: 1000  // Aumenta a largura do gráfico
+    };
+    
+    var chart = new google.visualization.ColumnChart(document.getElementById('subject_semester_chart'));
+    chart.draw(data, options);
+}
 
         // Scientific Production x Year Chart
         function drawProductionYearChart() {
@@ -148,9 +164,9 @@
         function drawWordCloud() {
             var wordList = [
                 {text: 'Artificial Intelligence', size: 30},
-                {text: 'Machine Learning', size: 110},
+                {text: 'Machine Learning', size: 70},
                 {text: 'Ethics', size: 20},
-                {text: 'Middle and High School', size: 100},
+                {text: 'Middle and High School', size: 70},
                 {text: 'Analysis', size: 70},
                 {text: 'Teaching', size: 50},
                 {text: 'Learning', size: 30},
@@ -160,11 +176,11 @@
                 {text: 'Speech Recognition', size: 30},
                 {text: 'Low SES', size: 30},
                 {text: 'Artificial Neural Network', size: 20},
-                {text: 'Cubesat', size: 10}
+                {text: 'Cubesat', size: 20}
             ];
 
-            var width = 900;
-            var height = 500;
+            var width = 700;
+            var height = 400;
 
             var svg = d3.select("#wordcloud_chart").append("svg")
                 .attr("width", width)
