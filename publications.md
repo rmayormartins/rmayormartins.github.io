@@ -18,6 +18,13 @@ For complete papers, presentations, books, chapters, tutorials, please check my:
 
 ## Publications
 Below is my list of publications
+* 📚 [Books and Book Chapters](#books-and-book-chapters)
+* 📃 [Articles](#articles)
+* 📑 [Tutorials](#tutorials)
+* 📑 [Technical Reports](#technical-reports)
+* 🖥️ [Software Registrations](#software-registrations)
+
+---
 
 ### Books and Book Chapters
 
