@@ -2,15 +2,13 @@
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="about.html">About me</a> •
  <a href="current.html">Current Status</a> •
+ <a href="publications.html">Publications & Patents</a> • 
+ <a href="academiprofile.html">Academic Profile</a> •
+ <a href="technicalprofile.html">Technical profile</a> •
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
  <a href="http://lattes.cnpq.br/6289204315531991">Resume</a> •
- <a href="academic.html">Academic profile</a> • 
- <a href="technical.html">Technical profile</a> •
- <a href="https://github.com/rmayormartins?tab=repositories">Repositories</a> •
  <a href="contributions.html">Contributions</a> • 
  <a href="tasklist.html">Task List</a> •
- <a href="academicreport.html">Academic Report</a> •
- <a href="academicroadmap.html">Academic Roadmap</a> •
  <a href="contact.html">Contact me</a>
 </p>
 
