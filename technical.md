@@ -3,14 +3,15 @@ layout: default
 ---
 [back](./)
 
-## Welcome to my Systems on the Fly
+## Technical Profile
+Systems on the fly and space codes
 
 ### AI
 * 🤖💻 [Spaces Hugging Face](https://huggingface.co/rmayormartins)
 
 > Hugging Face Spaces for experimentation with codes, datasets, and models
 
-### RF
+### Telecom
 * 📡💻 [SATNOGS - Ground Station IFSC for Satellites](https://network.satnogs.org/stations/453/)
 
 > Ground Station for signal reception of CubeSats, Small Satellites, Meteorological Satellites, and International Space Station
