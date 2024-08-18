@@ -27,6 +27,7 @@ Below is my list of publications
 ---
 
 ### Books and Book Chapters
+[Back to top](#top)
 
 | **Data** | **Tipo**            | **Título**                                                                                                         | **Autores**                                                                                | **Status**       | **Info**                                                                                                                                              |
 |----------|---------------------|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,6 +38,7 @@ Below is my list of publications
 | 2019/2020| Capítulo de Livro    | Análise em Multiresolução do sinal de Eletrocardiograma para Detecção de Cardiopatias                               | Lobato, E.M., **MARTINS, R. M.**, Espindola, B.                                            | ✅ Publicado     | Editora ATENA, DOI: 10.22533/at.ed.370201701                                                                                                           |
 
 ### Articles
+[Back to top](#top)
 
 | **Data** | **Título**                                                                                                                                  | **Periódico**                                      | **Evento**                                                                                                       | **Autores**                                                                                               | **Status**       | **Info** |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|------------------|----------|
@@ -80,6 +82,7 @@ Below is my list of publications
 | 2014     | GMM as an alternative to HMM in the search for the optimal warping factor for VTLN                                                       | -                                                 | International Symposium on Telecommunications - ITS 2014                                                         | **MARTINS, R. M.**, Ynoguti, C. A.                                                                        | ✅ Publicado     |          |
 
 ### Tutorials
+[Back to top](#top)
 
 | **Data** | **Título**                                        | **Evento**                          | **Autores**                                   | **Status**   |
 |----------|---------------------------------------------------|-------------------------------------|-----------------------------------------------|-------------|
@@ -87,6 +90,7 @@ Below is my list of publications
 | 2018     | An Introduction to SDR and GNU Radio              | III IAA Latin American CubeSat Workshop | **MARTINS, R. M.**                           | ✅ Publicado |
 
 ### Technical Reports
+[Back to top](#top)
 
 | **Data** | **Título**                                                                                      | **Autores**                                                                                       | **Status**   |
 |----------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------|
@@ -96,6 +100,7 @@ Below is my list of publications
 | 2023     | Avaliação do Ensino de Machine Learning – Cursos Computação na Escola – Instituto Pe. Vilson Groh 2022 | **MARTINS, R. M.**, Gresse von Wangenheim, C., Rauber, M.F., Hauck, J. C.                          | 🟦 Submetido |
 
 ### Software Registrations
+[Back to top](#top)
 
 | **Data** | **Título**              | **Orgão**                                      | **Autores**                                                                                        | **Status**                                       |
 |----------|-------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------|-------------------------------------------------|
