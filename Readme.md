@@ -1,3 +1,12 @@
+<table align="center" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black;">
+  <tr>
+    <td style="border: 1px solid black; padding: 5px;">
+      <p style="text-align: center;">Welcome to my page</p>
+      <p style="text-align: center;"><a href="https://rmayormartins.github.io/" target="_blank">Ramon Mayor Martins</a></p>
+    </td>
+  </tr>
+</table>
+
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="about.html">About me</a> •
@@ -11,15 +20,6 @@
  <a href="tasklist.html">Task List</a> •
  <a href="contact.html">Contact me</a>
 </p>
-
-<table align="center" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black;">
-  <tr>
-    <td style="border: 1px solid black; padding: 5px;">
-      <p style="text-align: center;">Welcome to my page</p>
-      <p style="text-align: center;"><a href="https://rmayormartins.github.io/" target="_blank">Ramon Mayor Martins</a></p>
-    </td>
-  </tr>
-</table>
 
 Ramon Mayor Martins holds a Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ppgcc.ufsc.br/apresentacao/?lang=en) (2024). He earned a Master's degree in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br) (2014), a specialization in Systems Engineering, Computer Networks, Telecommunications Systems, and a Professional MBA in Systems Analysis and Telecommunications. He also holds a Bachelor's degree in Electrical Engineering with an emphasis on Telematics / Telecommunications Engineering from [Universidade do Sul de Santa Catarina](https://www.unisul.br) (2010). 
 
