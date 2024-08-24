@@ -1,18 +1,3 @@
-<table align="center" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black;">
-  <tr>
-    <td style="border: 1px solid black; padding: 5px;">
-      <p style="text-align: center;">Welcome to my page</p>
-      <p style="text-align: center;"><a href="https://rmayormartins.github.io/" target="_blank">Ramon Mayor Martins</a></p>
-    </td>
-  </tr>
-</table>
-<table align="center" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; width: 300px;">
-  <tr>
-    <td style="border: 1px solid black; padding: 5px; width: 100px;">
-      <p style="text-align: center;">Welcome to my page</p>
-      <p style="text-align: center;"><a href="https://rmayormartins.github.io/" target="_blank">Ramon Mayor Martins</a></p>
-    </td>
-  </tr>
 </table>
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; width: 300px; margin-left: auto; margin-right: auto;">
   <tr>
