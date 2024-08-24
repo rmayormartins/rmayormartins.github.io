@@ -1,4 +1,3 @@
-</table>
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; width: 300px; margin-left: auto; margin-right: auto;">
   <tr>
     <td style="border: 1px solid black; padding: 5px; width: 100px;">
