@@ -6,6 +6,15 @@
     </td>
   </tr>
 </table>
+<table align="center" border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; width: 300px;">
+  <tr>
+    <td style="border: 1px solid black; padding: 5px; width: 100px;">
+      <p style="text-align: center;">Welcome to my page</p>
+      <p style="text-align: center;"><a href="https://rmayormartins.github.io/" target="_blank">Ramon Mayor Martins</a></p>
+    </td>
+  </tr>
+</table>
+
 
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
@@ -21,9 +30,9 @@
  <a href="contact.html">Contact me</a>
 </p>
 
-Ramon Mayor Martins holds a Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ppgcc.ufsc.br/apresentacao/?lang=en) (2024). He earned a Master's degree in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br) (2014). He holds a PGC in Systems Engineering, Computer Networks, Telecommunications Systems, and a Professional MBA in Systems Analysis and Telecommunications. He also holds a Bachelor's degree in Electrical Engineering with an emphasis on Telematics / Telecommunications Engineering from [Universidade do Sul de Santa Catarina](https://www.unisul.br) (2010). 
+Ramon Mayor Martins holds a Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ufsc.br) (2024). He earned a Master's degree in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br) (2014). He holds a PGC in Systems Engineering, Computer Networks, Telecommunications Systems, and a Professional MBA in Systems Analysis and Telecommunications. He also holds a Bachelor's degree in Electrical Engineering with an emphasis on Telematics / Telecommunications Engineering from [Universidade do Sul de Santa Catarina](https://www.unisul.br) (2010). 
 
-Since 2016, he has been a permanent professor in the area of Telecommunications at [Instituto Federal de Santa Catarina, Campus São José](https://www.ifsc.edu.br/).
+Since 2016, he has been a permanent professor in the area of Telecommunications at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/), Campus São José.
 
 <table>
   <tr>
