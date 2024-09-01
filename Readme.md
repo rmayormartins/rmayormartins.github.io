@@ -16,7 +16,7 @@
  <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
  <a href="http://lattes.cnpq.br/6289204315531991">Resume</a> •
  <a href="contributions.html">Contributions</a> • 
- <a href="tasklist.html">Task List</a> •
+ <a href="tasklist.html">Task List</a>
 </p>
 
 Ramon Mayor Martins holds a Ph.D. in Computer Science from the [Universidade Federal de Santa Catarina](https://ufsc.br) (2024). He earned a Master's degree in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br) (2014). He holds postgraduate certificates in Systems Engineering, Computer Networks, and Telecommunications Systems, as well as a Professional MBA in Systems Analysis and Telecommunications. Additionally, he completed a Bachelor's degree in Electrical Engineering with an emphasis on Telematics / Telecommunications Engineering from the [Universidade do Sul de Santa Catarina](https://www.unisul.br) (2010). 
