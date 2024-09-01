@@ -1,4 +1,3 @@
-<div style="font-family: 'Courier New', Courier, monospace;">
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; border: 1px solid black; width: 300px; margin-left: auto; margin-right: auto;">
   <tr>
     <td style="border: 1px solid black; padding: 5px; width: 100px;">
@@ -7,8 +6,7 @@
     </td>
   </tr>
 </table>
-</div>
-<div style="font-family: 'Courier New', Courier, monospace;">
+
 <p align="center">
  <a href="https://rmayormartins.github.io/">Home</a> •
  <a href="about.html">About me</a> •
@@ -22,20 +20,18 @@
  <a href="tasklist.html">Task List</a> •
  <a href="contact.html">Contact me</a>
 </p>
-  </div>
-<div style="font-family: 'Courier New', Courier, monospace;">
+
 Ramon Mayor Martins holds a Ph.D. in Computer Science from the [Universidade Federal de Santa Catarina](https://ufsc.br) (2024). He earned a Master's degree in Telecommunications from [Instituto Nacional de Telecomunicações](https://www.inatel.br) (2014). He holds postgraduate certificates in Systems Engineering, Computer Networks, and Telecommunications Systems, as well as a Professional MBA in Systems Analysis and Telecommunications. Additionally, he completed a Bachelor's degree in Electrical Engineering with an emphasis on Telematics / Telecommunications Engineering from the [Universidade do Sul de Santa Catarina](https://www.unisul.br) (2010). 
 
 Since 2016, he has been a tenured associate professor in the area of Telecommunications at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/), Campus São José.
-</div>
-<div style="font-family: 'Courier New', Courier, monospace;">
+
 <table>
   <tr>
     <td><img width="110" height="100" src="2023_Teacher_Excellence_Awards_Badge.jpg"></td>
     <td><i>MIT App Inventor Foundation 2023 Teacher Excellence Award</i></td>
   </tr>
 </table>
-</div>
+
 <p align="center">
   <code style="font-family: Consolas;">ramon.mayor at: ifsc.edu.br</code>
 </p>
