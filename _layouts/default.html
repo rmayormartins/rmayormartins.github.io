@@ -14,7 +14,22 @@
         font-family: 'Courier New', Courier, monospace;
       }
       header h1 a {
-        font-size: 23px;
+        font-size: 24px;
+      }
+      header {
+        width: 300px; /* Aumenta a largura do header */
+        float: left;
+        position: fixed;
+        -webkit-font-smoothing: subpixel-antialiased;
+        padding-right: 20px; /* Adiciona um pouco de espaço à direita */
+      }
+      section {
+        width: calc(100% - 340px); /* Ajusta a largura da seção principal */
+        float: right;
+        padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
+      }
+      .wrapper {
+        width: 1060px; /* Aumenta a largura total do wrapper */
       }
     </style>
   </head>
