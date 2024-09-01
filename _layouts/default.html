@@ -30,6 +30,32 @@
       }
       .wrapper {
         width: 1060px; /* Aumenta a largura total do wrapper */
+        margin: 0 auto;
+      }
+
+      /* Regras responsivas para telas menores */
+      @media screen and (max-width: 800px) {
+        .wrapper {
+          width: auto;
+          margin: 0;
+          padding: 15px;
+        }
+        header {
+          float: none;
+          position: static;
+          width: auto;
+          padding: 20px 0;
+        }
+        section {
+          float: none;
+          position: static;
+          width: auto;
+          padding: 20px 0;
+          border-top: 1px solid #e5e5e5;
+        }
+        header img {
+          max-width: 100%;
+        }
       }
     </style>
   </head>
