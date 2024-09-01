@@ -12,9 +12,9 @@
  <a href="current.html">Current Status</a> •
  <a href="publications.html">Publications & Patents</a> • 
  <a href="academic.html">Academic Profile</a> •
- <a href="technicalprofile.html">Technical profile</a><br> •
- <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins">Wikihome</a> •
- <a href="http://lattes.cnpq.br/6289204315531991">Resume</a> •
+<a href="technicalprofile.html" target="_blank">Technical profile</a><br> •
+<a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins" target="_blank">Wikihome</a> •
+<a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Resume</a> •
  <a href="contributions.html">Contributions</a> • 
  <a href="tasklist.html">Task List</a>
 </p>
