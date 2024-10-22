@@ -31,7 +31,7 @@ Since 2016, he has been a tenured associate professor in the area of Telecommuni
 </table>
 <table>
   <tr>
-    <td><img width="110" height="100" src="nasa-open-science.png"></td>
+    <td><img width="110" height="110" src="nasa-open-science.png"></td>
     <td><i>NASA OpenScience Qualified</i></td>
   </tr>
 </table>
