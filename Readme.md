@@ -25,7 +25,7 @@ Since 2016, he has been a tenured associate professor in the area of Telecommuni
 
 <table>
   <tr>
-    <td><img width="110" height="100" src="2023_Teacher_Excellence_Awards_Badge.jpg"></td>
+    <td><img width="120" height="110" src="2023_Teacher_Excellence_Awards_Badge.jpg"></td>
     <td><i>MIT App Inventor Foundation 2023 Teacher Excellence Award</i></td>
   </tr>
 </table>
