@@ -29,6 +29,12 @@ Since 2016, he has been a tenured associate professor in the area of Telecommuni
     <td><i>MIT App Inventor Foundation 2023 Teacher Excellence Award</i></td>
   </tr>
 </table>
+<table>
+  <tr>
+    <td><img width="110" height="100" src="nasa-open-science"></td>
+    <td><i>NASA OpenScience Qualified</i></td>
+  </tr>
+</table>
 
 <p align="center">
   <code style="font-family: Consolas;">ramon.mayor at: ifsc.edu.br</code>
