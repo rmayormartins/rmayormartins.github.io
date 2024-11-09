@@ -27,7 +27,8 @@
         function drawTeachingChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Course', 'Unique Disciplines'],
-                ['Engenharia de Telecomunicações - 290', 7],
+                ['Engenharia de Telecomunicações - 290 e 1290', 9],
+                ['Análise e Desenvolvimento de Sistemas - 786', 2],
                 ['Técnico Integrado de Telecomunicações (diurno) - 608', 6],
                 ['Técnico Subsequente de Telecomunicações (noturno) - 111', 2],
                 ['Superior de Tecnologia em Sistemas de Telecomunicações - 207', 2],
@@ -56,7 +57,8 @@
                 ['Capítulo de Livro', 2],
                 ['Tutorial', 2],
                 ['Artigo', 31],
-                ['Relatório Técnico', 4],
+                ['Divulgação Cientifica', 7],
+                ['Relatório Técnico', 4],             
                 ['Registro de Software/Propriedade Intelectual', 1]
             ]);
             var options = { title: 'Scientific Production', pieHole: 0.4 };
@@ -69,8 +71,8 @@
                 ['Qualis', 'Quantity'],
                 ['A1', 10],
                 ['A2', 1],
-                ['A3', 2],
-                ['A4', 3],
+                ['A3', 3],
+                ['A4', 5],
                 ['B1', 1],
                 ['B2', 1],
                 ['B4', 3],
@@ -102,7 +104,9 @@ function drawSubjectSemesterChart() {
         ['Cabeamento Estruturado', 2, '2'],
         ['Economia para Engenharia', 1, '1'],
         ['Administração para Engenharia', 1, '1'],
-        ['Programação 1', 1, '1'],
+        ['Programação 1', 2, '2'],
+        ['Programação Orientada a Objetos', 2, '1'],
+        ['Pensamento Computacional e Algoritmos', 1, '1'],
         ['Princípios de Telecomunicações', 1, '1'],
         ['Redes de Computadores', 1, '1'],
         ['Telefonia IP', 1, '1'],
@@ -145,7 +149,7 @@ function drawSubjectSemesterChart() {
                 ['2021', 1],
                 ['2022', 9],
                 ['2023', 11],
-                ['2024', 3]
+                ['2024', 6]
             ]);
             var options = {
                 title: 'Scientific Production x Year',
@@ -174,7 +178,9 @@ function drawSubjectSemesterChart() {
                 {text: 'Speech Recognition', size: 30},
                 {text: 'Low SES', size: 30},
                 {text: 'Artificial Neural Network', size: 20},
-                {text: 'Cubesat', size: 20}
+                {text: 'Cubesat', size: 20},
+                {text: 'Dataset', size: 20},
+                {text: 'Critical Thiking', size: 20}
             ];
 
             var width = 700;
@@ -238,8 +244,8 @@ function drawSubjectSemesterChart() {
         function drawParticipationsTotalChart() {
             var data = google.visualization.arrayToDataTable([
                 ['Type', 'Quantity'],
-                ['Graduação', 43],
-                ['Pós-Graduação', 1]
+                ['Graduação', 40],
+                ['Pós-Graduação', 7]
             ]);
             var options = {
                 title: 'Total de Participações em Bancas',
