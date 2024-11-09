@@ -34,26 +34,26 @@
 
     <script>
         const semesters = [
-            { period: '2024-2', teaching: '- subjects', research: '2 articles', extension: '0 project', advising: '0 advisings', committees: '5 committees', competitions: '0 competitions', events: '0 events', technicalAchievements: '0 collaboration' },
-            { period: '2024-1', teaching: '- subjects', research: '3 articles', extension: '0 projects', advising: '0 advisings', committees: '1 committee', competitions: '0 competition', events: '2 events', technicalAchievements: '13 collaborations' },
-            { period: '2023-2', teaching: '- subjects', research: '6 articles', extension: '0 project', advising: '0 advisings', committees: '2 committees', competitions: '0 competitions', events: '4 events', technicalAchievements: '3 collaborations' },
-            { period: '2023-1', teaching: '- subjects', research: '5 articles', extension: '0 projects', advising: '0 advisings', committees: '2 committee', competitions: '1 competition', events: '2 events', technicalAchievements: '3 collaboration' },
-            { period: '2022-2', teaching: '- subjects', research: '3 articles', extension: '0 project', advising: '0 advisings', committees: '5 committees', competitions: '0 competitions', events: '2 events', technicalAchievements: '4 collaborations' },
-            { period: '2022-1', teaching: '- subjects', research: '3 articles', extension: '0 projects', advising: '0 advisings', committees: '4 committee', competitions: '1 competition', events: '0 events', technicalAchievements: '3 collaboration' },
-            { period: '2021-2', teaching: '- subjects', research: '1 article', extension: '0 project', advising: '0 advisings', committees: '1 committee', competitions: '0 competitions', events: '0 events', technicalAchievements: '5 collaborations' },
-            { period: '2021-1', teaching: '6 subjects', research: '2 articles', extension: '0 projects', advising: '1 advising', committees: '1 committee', competitions: '0 competition', events: '0 events', technicalAchievements: '4 collaborations' },
-            { period: '2020-2', teaching: '2 subjects', research: '2 articles', extension: '0 project', advising: '0 advisings', committees: '1 committee', competitions: '0 competitions', events: '0 events', technicalAchievements: '3 collaborations' },
-            { period: '2020-1', teaching: '1 subject', research: '1 article', extension: '0 projects', advising: '2 advisings', committees: '0 committee', competitions: '0 competition', events: '0 events', technicalAchievements: '4 collaborations' },
-            { period: '2019-2', teaching: '2 subjects', research: '0 articles', extension: '0 project', advising: '2 advisings', committees: '3 committees', competitions: '0 competitions', events: '0 events', technicalAchievements: '2 collaborations' },
-            { period: '2019-1', teaching: '4 subjects', research: '0 articles', extension: '0 projects', advising: '0 advisings', committees: '2 committee', competitions: '0 competition', events: '0 events', technicalAchievements: '1 collaboration' },
-            { period: '2018-2', teaching: '4 subjects', research: '4 articles', extension: '2 projects', advising: '5 advisings', committees: '7 committee', competitions: '0 competitions', events: '0 events', technicalAchievements: '2 collaborations' },
-            { period: '2018-1', teaching: '6 subjects', research: '0 articles', extension: '2 projects', advising: '5 advisings', committees: '5 committees', competitions: '0 competition', events: '0 events', technicalAchievements: '2 collaborations' },
-            { period: '2017-2', teaching: '5 subjects', research: '2 articles', extension: '2 projects', advising: '2 advisings', committees: '3 committee', competitions: '0 competition', events: '1 event', technicalAchievements: '2 collaborations' },
-            { period: '2017-1', teaching: '6 subjects', research: '3 articles', extension: '0 projects', advising: '2 advisings', committees: '3 committees', competitions: '0 competition', events: '0 events', technicalAchievements: '0 collaborations' },
-            { period: '2016-2', teaching: '3 subjects', research: '4 articles', extension: '1 project', advising: '0 advisings', committees: '0 committee', competitions: '0 competitions', events: '2 events', technicalAchievements: '3 collaborations' },
-            { period: '2016-1', teaching: '7 subjects', research: '3 articles', extension: '0 project', advising: '0 advisings', committees: '0 committee', competitions: '0 competition', events: '0 events', technicalAchievements: '0 collaboration' },
-            { period: '2015-2', teaching: '4 subjects', research: '1 article', extension: '0 projects', advising: '0 advisings', committees: '3 committees', competitions: '0 competitions', events: '0 events', technicalAchievements: '0 collaborations' },
-            { period: '2015-1', teaching: '5 subjects', research: '1 article', extension: '0 projects', advising: '0 advisings', committees: '2 committee', competitions: '0 competition', events: '0 events', technicalAchievements: '0 collaboration' }
+            { period: '2024-2', ensino: '- 4 disciplinas', pesquisa: '5 artigos', extensao: '0 projeto', orientacoes: '2 orientações', bancas: '6 bancas', competicoes: '1 competição', eventos: '1 eventos', realizacoesTecnicas: '21 colaborações' },
+            { period: '2024-1', ensino: '- disciplinas', pesquisa: '3 artigos', extensao: '0 projetos', orientacoes: '0 orientações', bancas: '1 banca', competicoes: '0 competição', eventos: '2 eventos', realizacoesTecnicas: '13 colaborações' },
+            { period: '2023-2', ensino: '- disciplinas', pesquisa: '6 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '2 bancas', competicoes: '0 competições', eventos: '4 eventos', realizacoesTecnicas: '3 colaborações' },
+            { period: '2023-1', ensino: '- disciplinas', pesquisa: '5 artigos', extensao: '0 projetos', orientacoes: '0 orientações', bancas: '2 banca', competicoes: '1 competição', eventos: '2 eventos', realizacoesTecnicas: '3 colaboração' },
+            { period: '2022-2', ensino: '- disciplinas', pesquisa: '3 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '5 bancas', competicoes: '0 competições', eventos: '2 eventos', realizacoesTecnicas: '4 colaborações' },
+            { period: '2022-1', ensino: '- disciplinas', pesquisa: '3 artigos', extensao: '0 projetos', orientacoes: '0 orientações', bancas: '4 banca', competicoes: '1 competição', eventos: '0 eventos', realizacoesTecnicas: '3 colaboração' },
+            { period: '2021-2', ensino: '- disciplinas', pesquisa: '1 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '1 bancas', competicoes: '0 competições', eventos: '0 eventos', realizacoesTecnicas: '5 colaborações' },
+            { period: '2021-1', ensino: '6 disciplinas', pesquisa: '2 artigos', extensao: '0 projetos', orientacoes: '1 orientações', bancas: '1 banca', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '4 colaboração' },
+            { period: '2020-2', ensino: '2 disciplinas', pesquisa: '2 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '1 bancas', competicoes: '0 competições', eventos: '0 eventos', realizacoesTecnicas: '3 colaboração' },
+            { period: '2020-1', ensino: '1 disciplinas', pesquisa: '1 artigos', extensao: '0 projetos', orientacoes: '2 orientações', bancas: '0 banca', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '4 colaborações' },
+            { period: '2019-2', ensino: '2 disciplinas', pesquisa: '0 artigos', extensao: '0 projeto', orientacoes: '2 orientações', bancas: '3 bancas', competicoes: '0 competições', eventos: '0 eventos', realizacoesTecnicas: '2 colaboração' },
+            { period: '2019-1', ensino: '4 disciplinas', pesquisa: '0 artigos', extensao: '0 projetos', orientacoes: '0 orientações', bancas: '2 banca', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '1 colaborações' },
+            { period: '2018-2', ensino: '4 disciplinas', pesquisa: '4 artigos', extensao: '2 projeto', orientacoes: '5 orientações', bancas: '7 banca', competicoes: '0 competições', eventos: '0 eventos', realizacoesTecnicas: '2 colaboração' },
+            { period: '2018-1', ensino: '6 disciplinas', pesquisa: '0 artigos', extensao: '2 projetos', orientacoes: '5 orientações', bancas: '5 bancas', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '2 colaborações' },
+            { period: '2017-2', ensino: '5 disciplinas', pesquisa: '2 artigos', extensao: '2 projeto', orientacoes: '2 orientações', bancas: '3 banca', competicoes: '0 competição', eventos: '1 eventos', realizacoesTecnicas: '2 colaboração' },
+            { period: '2017-1', ensino: '6 disciplinas', pesquisa: '3 artigos', extensao: '0 projetos', orientacoes: '2 orientações', bancas: '3 bancas', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '0 colaborações' },
+            { period: '2016-2', ensino: '3 disciplinas', pesquisa: '4 artigos', extensao: '1 projeto', orientacoes: '0 orientações', bancas: '0 banca', competicoes: '0 competições', eventos: '2 eventos', realizacoesTecnicas: '3 colaborações' },
+            { period: '2016-1', ensino: '7 disciplinas', pesquisa: '3 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '0 banca', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '0 colaboração' },
+            { period: '2015-2', ensino: '4 disciplinas', pesquisa: '1 artigo', extensao: '0 projetos', orientacoes: '0 orientações', bancas: '3 bancas', competicoes: '0 competições', eventos: '0 eventos', realizacoesTecnicas: '0 colaborações' },
+            { period: '2015-1', ensino: '5 disciplinas', pesquisa: '1 artigos', extensao: '0 projeto', orientacoes: '0 orientações', bancas: '2 banca', competicoes: '0 competição', eventos: '0 eventos', realizacoesTecnicas: '0 colaboração' }
         ];
 
         const timeline = document.getElementById('timeline');
@@ -69,14 +69,14 @@
             const details = document.createElement('div');
             details.className = 'details';
             details.innerHTML = `
-                <p>Teaching: ${semester.teaching}</p>
-                <p>Research: ${semester.research}</p>
-                <p>Extension: ${semester.extension}</p>
-                <p>Advising: ${semester.advising}</p>
-                <p>Committees: ${semester.committees}</p>
-                <p>Competitions: ${semester.competitions}</p>
-                <p>Events: ${semester.events}</p>
-                <p>Technical Achv.: ${semester.technicalAchievements}</p>
+                <p>Ensino: ${semester.ensino}</p>
+                <p>Pesquisa: ${semester.pesquisa}</p>
+                <p>Extensão: ${semester.extensao}</p>
+                <p>Orientações: ${semester.orientacoes}</p>
+                <p>Bancas: ${semester.bancas}</p>
+                <p>Competições: ${semester.competicoes}</p>
+                <p>Eventos: ${semester.eventos}</p>
+                <p>Realizações técnicas: ${semester.realizacoesTecnicas}</p>
             `;
             semesterDiv.appendChild(details);
 
