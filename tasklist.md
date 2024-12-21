@@ -2,9 +2,9 @@
 
 ### Some task list in 2025
 
-- [] Technical research: Development of AI systems
-- [] Academic research: Critical Thinking and Computational Thinking in Computing Education (UFSC)
-- [] Academic research: Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station (IFSC)
+- [ ] Technical research: Development of AI systems
+- [ ] Academic research: Critical Thinking and Computational Thinking in Computing Education (UFSC)
+- [ ] Academic research: Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station (IFSC)
 
 ### Some task list done in 2023-2024
 
