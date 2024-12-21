@@ -1,15 +1,19 @@
 [back](./)
 
-### Some task list in 2024/2
+### Some task list in 2025
 
-- [ ] Technical research: Development of AI systems
+- [] Technical research: Development of AI systems
+- [] Academic research: Critical Thinking and Computational Thinking in Computing Education (UFSC)
+- [] Academic research: Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station (IFSC)
 
-### Some task list done in 2023-2024/1
+### Some task list done in 2023-2024
 
+- [x] Academic research: Critical Thinking and Computational Thinking in Computing Education
 - [x] Academic research: Strategies for Teaching Machine Learning to Low SES Students in Middle and High Schools (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
 - [x] Academic research: Data analysis of Learning, Perception and Perception of experience of Learning Machine Learning to Low SES Students in Middle and High Schools (UFSC) [PPGCC Computer Science Posgrad Program](https://ppgcc.ufsc.br/?lang=en)
 - [x] Academic research: Human-centered development process to create an ML model (UFSC)
 - [x] Academic research: Courses applications (CnE/UFSC)
+- [x] Technical research: Development of AI systems
 
 ### Some task list done in 2021-2022
 
