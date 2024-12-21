@@ -14,9 +14,23 @@
         font-family: 'Consolas', Courier, monospace;
         font-size: 12px; /*ajusta fonte*/
       }
+
+      /* Estilo para todos os links */
+      a {
+        color: sonic; /* Usando a palavra 'sonic' para cor azul */
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      a:hover {
+        color: #0066ff; /* Azul mais claro no hover */
+      }
+
       header h1 a {
         font-size: 24px;
+        color: sonic; /* Cor sonic para o título também */
       }
+
       header {
         width: 300px; /* Aumenta a largura do header */
         float: left;
@@ -24,14 +38,21 @@
         -webkit-font-smoothing: subpixel-antialiased;
         padding-right: 20px; /* Adiciona um pouco de espaço à direita */
       }
+
       section {
         width: calc(100% - 340px); /* Ajusta a largura da seção principal */
         float: right;
         padding-left: 20px; /* Adiciona um pouco de espaço à esquerda */
       }
+
       .wrapper {
         width: 1060px; /* Aumenta a largura total do wrapper */
         margin: 0 auto;
+      }
+
+      /* Links no footer também com cor sonic */
+      footer a {
+        color: sonic;
       }
 
       /* Regras responsivas para telas menores */
