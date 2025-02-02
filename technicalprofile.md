@@ -21,7 +21,7 @@ Systems on the fly, space codes and logs
 > Hugging Face Spaces for experimentation with codes, datasets, and models
 
 ### Telecom
-* 💻📡 [SATNOGS - Ground Station IFSC for Satellites](https://network.satnogs.org/stations/453/)
+* 💻📡 [SATNOGS - Ground Station IFSC for Satellites](https://network.satnogs.org/stations/389/)
 
 > Ground Station for signal reception of CubeSats, Small Satellites, Meteorological Satellites, and International Space Station
 
