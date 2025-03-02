@@ -4,33 +4,34 @@ layout: default
 [back](./)
 
 ## About me
-Since 2015, i've held the position of Professor of Basic, Technical and Technological Education, in the area of Telecommunications, at [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/), Campus São José. <br>
+Since 2015, I have served as a Professor of Basic, Technical, and Technological Education in the field of Telecommunications at the [Instituto Federal de Santa Catarina](https://www.ifsc.edu.br/), Campus São José. <br>
 
-I have a Ph.D. in Computer Science from [Universidade Federal de Santa Catarina](https://ufsc.br/). <br>
-M.Sc. in Telecommunications from [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) <br>
-PGC in Telecommunications Systems, Computer Networks and Systems Engineering from [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)
+I hold a Ph.D. in Computer Science from the [Universidade Federal de Santa Catarina](https://ufsc.br/). <br>
+M.Sc. in Telecommunications from the [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) <br>
+Postgraduate Certificate in Telecommunications Systems, Computer Networks, and Systems Engineering from the [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)
 Professional MBA in Systems and Telecommunications Analysis from [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)  <br>
-I am an Electrical Engineer with emphasis on Telematics and a Telecommunications Engineer, from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
+My academic background also includes degrees in Electrical Engineering with an emphasis on Telematics and Telecommunications Engineering from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
 
 ## Researh Interests
 
-* 👨‍🏫🤖 I am interested in research on strategies to teach and learn AI systems
-* 📡🛰️	I am interested in Telecommunications research in the following subjects: Satellite Communication Systems (Cubesats, Small Satellites, Ground Station), Radio Frequency Systems (Wave Propagation, Antennas, Radar and SDR), Optical Communications Systems
-* 💻🤖 I am interested in Artificial Intelligence research in the following subjects: NLP (Sentiment Analysis, Speaker and Speech Recognition), Computer Vision, GANs, etc.
+* 👨‍🏫🤖 My research focuses on strategies for teaching and learning artificial intelligence systems.
+* 📡🛰️	In the field of Telecommunications, my research interests include: Satellite Communication Systems (CubeSats, Small Satellites, Ground Stations); Radio Frequency Systems (Wave Propagation, Antennas, Radar, and Software-Defined Radio); Optical Communication Systems
+* 💻🤖 In Artificial Intelligence, my research interests encompass: Natural Language Processing (Sentiment Analysis, Speaker and Speech Recognition); Computer Vision; Generative Adversarial Networks (GANs), among other topics.
 
 
 ## Professional Track
 
-* Teaching experience: Instituto de Ensino Superior da Grande Florianópolis, IESGF, Brasil (2015); Secretaria de Educação do Estado da Bahia, SEEBA, Brasil (2013-2015); 
-Instituto Nacional de Telecomunicações, INATEL, Brasil (2011~2013); Faculdade de Ciências Sociais Aplicadas de Extrema, FAEX, Brasil (2013); 
-Secretaria de Educação do Estado de Minas Gerais, SEMG, Brasil (2011).
-* Engineering experience: Project Engineer at [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br)
+* Teaching experience: Instituto de Ensino Superior da Grande Florianópolis (IESGF), Brazil (2015) <br>
+Secretariat of Education of the State of Bahia (SEEBA), Brazil (2013–2015) <br>
+Instituto Nacional de Telecomunicações (INATEL), Brazil (2011–2013) <br>
+Faculdade de Ciências Sociais Aplicadas de Extrema (FAEX), Brazil (2013) <br>
+Secretariat of Education of the State of Minas Gerais (SEMG), Brazil (2011). <br>
+* Engineering experience: Project Engineer at the [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br)
 
 ## Academic profile
 
 - 📃👨‍🎓 [Lattes CV](http://lattes.cnpq.br/6289204315531991)
 - 📑🏫 [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
-- 
 
 ## Technical profile
 
