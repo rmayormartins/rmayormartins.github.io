@@ -5,19 +5,13 @@ layout: default
 
 ## My Current Status in 2024
 
-## Academic Research
+| Research Type  | Research Group                  | Info                                                                  |
+|---------------|--------------------------------|----------------------------------------------------------------------|
+| **Academic**  | UFSC-INE-PPGCC-GQS-ML          | Critical Thinking assessment in the teaching-learning process of Computer Science |
+| **Academic**  | UFSC-PPGE                      | Projeto Bullying                                                     |
+| **Technical** | IFSC                            | AI system development for Computer Vision, NLP, and Recommendation systems |
+| **Technical** | IFSC                            | Satellite communications systems and ground stations                 |
 
-I am currently participate in research at [Universidade Federal de Santa Catarina (UFSC)](https://ufsc.edu.br):
-
-* 👨‍🏫🖥️	Critical Thinking assessment in the teaching-learning process of Computer Science (with UFSC-INE-PPGCC-GQS-ML Group)
-* 👨‍🏫🖥️	Projeto Bullying (with UFSC-PPGE)
-
-## Technical Research
-
-I am currently conducting research at [Instituto Federal de Santa Catarina (IFSC)](https://ifsc.edu.br/):
-
-* 🖥️🤖 AI system development for Computer Vision, NLP, and Recommendation systems
-* 📡🛰️	Satellite communications systems and ground stations
 
 ## Research Groups
 
