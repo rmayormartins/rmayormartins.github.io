@@ -8,9 +8,9 @@ Since 2015, I have served as a Professor of Basic, Technical, and Technological 
 
 I hold a Ph.D. in Computer Science from the [Universidade Federal de Santa Catarina](https://ufsc.br/). <br>
 M.Sc. in Telecommunications from the [Instituto Nacional de Telecomunicações - INATEL](http://www.inatel.br) <br>
-Postgraduate Certificate in Telecommunications Systems, Computer Networks, and Systems Engineering from the [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)
+Postgraduate Certificate in Telecommunications Systems, Computer Networks, and Systems Engineering from the [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/) <br>
 Professional MBA in Systems and Telecommunications Analysis from [Escola Superior Aberta do Brasil - ESAB](https://esab.edu.br/)  <br>
-My academic background also includes degrees in Electrical Engineering with an emphasis on Telematics and Telecommunications Engineering from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
+My academic background also includes Bachelor degree in Electrical Engineering with an emphasis on Telematics and Telecommunications Engineering from the [Universidade do Sul de Santa Catarina - UNISUL](http://www.unisul.br) <br>
 
 ## Researh Interests
 
