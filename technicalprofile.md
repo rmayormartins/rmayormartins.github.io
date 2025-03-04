@@ -7,7 +7,6 @@ layout: default
 Systems on the fly, space codes and logs
 
 * 💻🤗 [Hugging Face Spaces](https://huggingface.co/rmayormartins)
-* 💻👾 [Replit Code Projects](https://replit.com/@rmayormartins)
 * 💻 **K** [Kaggle Projects](https://www.kaggle.com/rmayormartins)
 * 💻 ℝ [Shiny R Apps](https://rmayormartins.shinyapps.io/DiagnosticDataset/)
 * 💻📡 [QRZ logs](https://www.qrz.com/db/PU4MAY)
