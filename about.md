@@ -37,7 +37,6 @@ Secretariat of Education of the State of Minas Gerais (SEMG), Brazil (2011). <br
 
 - 💻😺 [Github](https://github.com/rmayormartins)
 - 💻🤗 [Hugging Face Spaces](https://huggingface.co/rmayormartins)
-- 💻👾 [Replit Code Projects](https://replit.com/@rmayormartins)
 - 💻 K [Kaggle Projects](https://www.kaggle.com/rmayormartins)
 - 📃📻 [Anatel Callsign](https://sistemas.anatel.gov.br/easp/Novo/ConsultaIndicativo/Tela.asp) -> _consult by callsign PU4MAY_
 
