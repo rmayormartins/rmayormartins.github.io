@@ -3,7 +3,9 @@ layout: default
 ---
 [back](./)
 
-## Technical Profiles
+## Technical
+
+### Technical Profiles
 Systems on the fly, space codes and logs
 
 * 💻🤗 [Hugging Face Spaces](https://huggingface.co/rmayormartins)
@@ -12,7 +14,7 @@ Systems on the fly, space codes and logs
 * 💻📡 [QRZ logs](https://www.qrz.com/db/PU4MAY)
 
 ---
-## Technical Projects
+### Technical Projects
 
 | Technical Area  | Project  | Info  |
 |----------------|----------|-----------------------------------------------------------------------------------------------|
