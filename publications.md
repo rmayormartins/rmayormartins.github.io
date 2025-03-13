@@ -3,7 +3,9 @@ layout: default
 ---
 [back](./)
 
-## Publications Profiles
+## Publications
+
+### Publications Profiles
 For complete papers, presentations, books, chapters, tutorials, please check my:
 
 * 📚🎓 [Google Scholar Profile](https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ&hl=pt-BR)
@@ -18,7 +20,7 @@ For complete papers, presentations, books, chapters, tutorials, please check my:
 * 📃📑 ORCID: [0000-0002-1952-0909](https://orcid.org/0000-0002-1952-0909)<br>
 * 📃📑 Web of Science ResearcherID [HHZ-6380-2022](https://www.webofscience.com/wos/author/record/HHZ-6380-2022)
 
-## Publications
+### Publications Types
 Below is my list of publications
 * 📚 [Books and Book Chapters](#books-and-book-chapters)
 * 📃 [Articles](#articles)
