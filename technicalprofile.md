@@ -3,9 +3,9 @@ layout: default
 ---
 [back](./)
 
-## Technical
+## Technical Profiles
 
-### Technical Profiles
+### Technical Systems
 Systems on the fly, space codes and logs
 
 * 💻🤗 [Hugging Face Spaces](https://huggingface.co/rmayormartins)
