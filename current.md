@@ -8,7 +8,8 @@ layout: default
 ### Research Groups
 
 * [Grupo de Pesquisa e Desenvolvimento em Sistemas de Telecomunicações (IFSC)](https://dgp.cnpq.br/dgp/espelhogrupo/2924804687700988)
-* [Grupo de Pesquisa em Ciência e Gestão de Dados (IFSC)](http://dgp.cnpq.br/dgp/espelhogrupo/9988409112589915))
+* [Grupo de Pesquisa em Processamento de Sinais e Inteligência Artificial - GPSIA (IFSC)](http://dgp.cnpq.br/dgp/espelhogrupo/815535)
+* [Grupo de Pesquisa em Ciência e Gestão de Dados - GPCGD (IFSC)](http://dgp.cnpq.br/dgp/espelhogrupo/9988409112589915)
 * [Grupo de Pesquisa e Extensão em Telecomunicação - GPET (UNILAB)](http://dgp.cnpq.br/dgp/espelhogrupo/1998757613082734)
 
 ### Current Research
