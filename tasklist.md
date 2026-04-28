@@ -1,9 +1,9 @@
 [back](./)
 
-### Some task list in 2025
+### Some task list in 2025-2026
 
-- [ ] Technical research: Educational Games to teach Programming
-- [ ] Technical research: Development of AI systems
+- [ ] Technical research: Educational Serious Games
+- [ ] Technical research: Development of AI systems for Biomedic
 - [ ] Academic research: Critical Thinking and Computational Thinking in Computing Education (UFSC)
 - [ ] Academic research: Ground Station IFSC using SatNOGS for signal receiver for Cubesats, Small Satellites and International Space Station (IFSC)
 
