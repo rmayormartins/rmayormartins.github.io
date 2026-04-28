@@ -3,23 +3,21 @@ layout: default
 ---
 [back](./)
 
-## My Current Status in 2024
+## My Current Status in 2026
 
 ### Research Groups
 
 * [Grupo de Pesquisa e Desenvolvimento em Sistemas de Telecomunicações (IFSC)](https://dgp.cnpq.br/dgp/espelhogrupo/2924804687700988)
 * [Grupo de Pesquisa em Processamento de Sinais e Inteligência Artificial - GPSIA (IFSC)](http://dgp.cnpq.br/dgp/espelhogrupo/815535)
-* [Grupo de Pesquisa em Ciência e Gestão de Dados - GPCGD (IFSC)](http://dgp.cnpq.br/dgp/espelhogrupo/9988409112589915)
 * [Grupo de Pesquisa e Extensão em Telecomunicação - GPET (UNILAB)](http://dgp.cnpq.br/dgp/espelhogrupo/1998757613082734)
 
 ### Current Research
 
 | Research Type  | Research Group                  | Info                                                                  |
 |---------------|--------------------------------|----------------------------------------------------------------------|
-| **Academic**  | UFSC-INE-PPGCC-GQS-ML          | Critical Thinking assessment in the teaching-learning process of Computer Science |
 | **Academic**  | UFSC-PPGE                      | Projeto Bullying                                                     |
-| **Technical** | IFSC                            | AI system development for Computer Vision, NLP, and Recommendation systems |
-| **Technical** | IFSC                            | Satellite communications systems and ground stations                 |
+| **Technical** | IFSC                            | AI system development for Computer Vision, NLP for biomedic |
+| **Technical** | IFSC                            | Telecom system for Satellite communications                 |
 
 * For more information, please check my [Wikipage](https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins)
 
