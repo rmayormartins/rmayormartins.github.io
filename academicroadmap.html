@@ -14,17 +14,15 @@
 :root {
   --bg-0: #0a0d10;
   --bg-1: #11161a;
-  --bg-2: #161c22;
-  --bg-3: #1e262e;
   --line: #2a3540;
   --line-soft: #1e262e;
   --ink-0: #e8ede8;
   --ink-1: #b9c2bc;
   --ink-2: #7e8a82;
   --ink-3: #4f5a55;
+
   --accent: #5fd49a;
   --accent-dim: #3a8a64;
-  --accent-soft: rgba(95, 212, 154, 0.12);
   --warn: #f1c068;
   --hot: #e07b6c;
   --cool: #6cb3e0;
@@ -32,14 +30,12 @@
   --rose: #e08fb4;
 
   /* category colors */
-  --cat-ensino: #5fd49a;
-  --cat-ensino-soft: rgba(95, 212, 154, 0.13);
-  --cat-pesquisa: #6cb3e0;
-  --cat-pesquisa-soft: rgba(108, 179, 224, 0.14);
-  --cat-orientacao: #e08fb4;
-  --cat-orientacao-soft: rgba(224, 143, 180, 0.14);
-  --cat-banca: #f1c068;
-  --cat-banca-soft: rgba(241, 192, 104, 0.14);
+  --cat-disciplinas: #5fd49a;   /* verde */
+  --cat-artigos:     #6cb3e0;   /* azul */
+  --cat-tcc:         #e08fb4;   /* rosa */
+  --cat-bancas:      #f1c068;   /* amarelo */
+  --cat-pesquisa:    #b48de0;   /* violeta */
+  --cat-extensao:    #e07b6c;   /* coral */
 
   --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
   --font-display: 'Fraunces', Georgia, serif;
@@ -58,14 +54,14 @@ body {
   letter-spacing: 0.01em;
   min-height: 100vh;
   background-image:
-    radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(95, 212, 154, 0.06), transparent 60%),
-    radial-gradient(ellipse 1000px 500px at 10% 100%, rgba(108, 179, 224, 0.05), transparent 60%);
+    radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(95, 212, 154, 0.05), transparent 60%),
+    radial-gradient(ellipse 1000px 500px at 10% 100%, rgba(108, 179, 224, 0.04), transparent 60%);
 }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.shell { max-width: 1320px; margin: 0 auto; padding: 28px 24px 60px; }
+.shell { max-width: 1280px; margin: 0 auto; padding: 28px 24px 60px; }
 
 /* ========== TOP BAR ========== */
 .topbar {
@@ -104,7 +100,6 @@ a:hover { text-decoration: underline; }
   line-height: 0.98;
   margin: 0 0 14px;
   letter-spacing: -0.03em;
-  color: var(--ink-0);
 }
 .hero h1 .em {
   font-family: var(--font-display);
@@ -113,7 +108,6 @@ a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 .hero .lede {
-  font-family: var(--font-sans);
   font-size: 16px;
   color: var(--ink-1);
   max-width: 620px;
@@ -161,7 +155,6 @@ a:hover { text-decoration: underline; }
 .status-cell {
   background: var(--bg-1);
   padding: 22px 20px;
-  display: flex; flex-direction: column; gap: 4px;
 }
 .status-cell .label {
   font-family: var(--font-mono);
@@ -174,17 +167,16 @@ a:hover { text-decoration: underline; }
   font-family: var(--font-mono);
   font-size: 38px;
   font-weight: 500;
-  color: var(--ink-0);
   letter-spacing: -0.02em;
   line-height: 1;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 .status-cell .value.accent { color: var(--accent); }
 .status-cell .sub {
   font-size: 11px;
   color: var(--ink-2);
   font-family: var(--font-mono);
-  margin-top: 6px;
+  margin-top: 8px;
   letter-spacing: 0.04em;
 }
 
@@ -210,7 +202,6 @@ section { margin-bottom: 60px; }
   font-weight: 500;
   letter-spacing: -0.01em;
   margin: 0;
-  color: var(--ink-0);
 }
 .section-head h2 .em {
   font-family: var(--font-display);
@@ -232,58 +223,34 @@ section { margin-bottom: 60px; }
   background: var(--bg-1);
   border: 1px solid var(--line-soft);
   border-radius: 6px;
-  padding: 22px;
-  position: relative;
-}
-.card .tag {
-  position: absolute;
-  top: 14px; right: 14px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.card .tag.live { color: var(--accent); }
-.card-title {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--ink-0);
-  margin: 0 0 4px;
-}
-.card-sub {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--ink-2);
-  margin: 0 0 18px;
+  padding: 28px 32px;
 }
 
-/* ========== CATEGORY LEGEND ========== */
+/* ========== CATEGORY LEGEND (subtle, top of trajectory) ========== */
 .cat-legend {
-  display: flex; flex-wrap: wrap; gap: 10px;
-  margin-bottom: 22px;
+  display: flex; flex-wrap: wrap; gap: 18px 22px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line-soft);
 }
-.cat-chip {
+.cat-legend .key {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 6px 12px;
-  border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border: 1px solid var(--line-soft);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
 }
-.cat-chip .swatch { width: 10px; height: 10px; border-radius: 50%; }
-.cat-chip.ensino     { color: var(--cat-ensino);     background: var(--cat-ensino-soft); }
-.cat-chip.ensino .swatch     { background: var(--cat-ensino); }
-.cat-chip.pesquisa   { color: var(--cat-pesquisa);   background: var(--cat-pesquisa-soft); }
-.cat-chip.pesquisa .swatch   { background: var(--cat-pesquisa); }
-.cat-chip.orientacao { color: var(--cat-orientacao); background: var(--cat-orientacao-soft); }
-.cat-chip.orientacao .swatch { background: var(--cat-orientacao); }
-.cat-chip.banca      { color: var(--cat-banca);      background: var(--cat-banca-soft); }
-.cat-chip.banca .swatch      { background: var(--cat-banca); }
+.cat-legend .key::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+}
+.cat-legend .key.disciplinas::before { background: var(--cat-disciplinas); }
+.cat-legend .key.artigos::before     { background: var(--cat-artigos); }
+.cat-legend .key.tcc::before         { background: var(--cat-tcc); }
+.cat-legend .key.bancas::before      { background: var(--cat-bancas); }
+.cat-legend .key.pesquisa::before    { background: var(--cat-pesquisa); }
+.cat-legend .key.extensao::before    { background: var(--cat-extensao); }
 
 /* ========== TRAJECTORY ========== */
 .traj-wrap { position: relative; }
@@ -295,45 +262,42 @@ section { margin-bottom: 60px; }
 }
 .traj-station {
   position: relative;
-  padding: 18px 0 22px;
-  border-bottom: 1px solid var(--line-soft);
+  padding: 16px 0 22px;
 }
-.traj-station:last-child { border-bottom: none; }
+.traj-station + .traj-station {
+  border-top: 1px solid var(--line-soft);
+}
 .traj-station::before {
   content: '';
   position: absolute;
   left: -47px;
-  top: 26px;
-  width: 18px; height: 18px;
+  top: 22px;
+  width: 14px; height: 14px;
   border-radius: 50%;
   background: var(--bg-0);
-  border: 2px solid var(--line);
+  border: 1px solid var(--line);
   box-sizing: border-box;
-}
-.traj-station.intensity-1::before { border-color: var(--ink-3); }
-.traj-station.intensity-2::before { border-color: var(--cool); }
-.traj-station.intensity-3::before { border-color: var(--accent); background: rgba(95, 212, 154, 0.15); }
-.traj-station.intensity-4::before {
-  border-color: var(--accent);
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(95,212,154,0.18);
 }
 .traj-station.live::before {
   border-color: var(--accent);
   background: var(--accent);
   animation: pulse 2.2s ease-in-out infinite;
 }
+.traj-station.milestone-stop::before {
+  border-color: var(--accent);
+  background: rgba(95, 212, 154, 0.25);
+}
+
 .traj-station .period {
   position: absolute;
   left: -135px;
-  top: 22px;
+  top: 18px;
   width: 80px;
   text-align: right;
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
   color: var(--ink-1);
-  letter-spacing: 0.04em;
 }
 .traj-station .period .yr { display: block; color: var(--ink-0); font-size: 13px; }
 .traj-station .period .sem { color: var(--ink-3); font-size: 10px; }
@@ -343,9 +307,8 @@ section { margin-bottom: 60px; }
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 500;
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: var(--ink-0);
-  letter-spacing: 0.01em;
 }
 .traj-station h4 .badge-mini {
   display: inline-block;
@@ -363,78 +326,99 @@ section { margin-bottom: 60px; }
 .traj-station h4 .badge-mini.milestone { border-color: var(--warn); color: var(--warn); }
 .traj-station h4 .badge-mini.live { border-color: var(--accent); color: var(--accent); }
 
-/* counts as colored chips */
+/* ========== CHIPS (clean: dot + colored text, no oval) ========== */
 .traj-counts {
-  display: flex; flex-wrap: wrap; gap: 8px;
+  display: flex; flex-wrap: wrap;
+  gap: 8px 22px;
   margin-top: 12px;
 }
 .traj-counts .ct {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 5px 11px 5px 9px;
-  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 7px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  border: 1px solid transparent;
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
 }
-.traj-counts .ct b { font-weight: 600; }
 .traj-counts .ct::before {
   content: '';
   width: 7px; height: 7px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
-.traj-counts .ct.ensino     { background: var(--cat-ensino-soft);     color: var(--cat-ensino);     border-color: rgba(95,212,154,0.25); }
-.traj-counts .ct.ensino::before     { background: var(--cat-ensino); }
-.traj-counts .ct.pesquisa   { background: var(--cat-pesquisa-soft);   color: var(--cat-pesquisa);   border-color: rgba(108,179,224,0.25); }
-.traj-counts .ct.pesquisa::before   { background: var(--cat-pesquisa); }
-.traj-counts .ct.orientacao { background: var(--cat-orientacao-soft); color: var(--cat-orientacao); border-color: rgba(224,143,180,0.25); }
-.traj-counts .ct.orientacao::before { background: var(--cat-orientacao); }
-.traj-counts .ct.banca      { background: var(--cat-banca-soft);      color: var(--cat-banca);      border-color: rgba(241,192,104,0.25); }
-.traj-counts .ct.banca::before      { background: var(--cat-banca); }
+.traj-counts .ct b { font-weight: 600; color: var(--ink-0); margin-right: 1px; }
+.traj-counts .ct.disciplinas         { color: var(--cat-disciplinas); }
+.traj-counts .ct.disciplinas::before { background: var(--cat-disciplinas); }
+.traj-counts .ct.disciplinas b       { color: var(--cat-disciplinas); }
+.traj-counts .ct.artigos             { color: var(--cat-artigos); }
+.traj-counts .ct.artigos::before     { background: var(--cat-artigos); }
+.traj-counts .ct.artigos b           { color: var(--cat-artigos); }
+.traj-counts .ct.tcc                 { color: var(--cat-tcc); }
+.traj-counts .ct.tcc::before         { background: var(--cat-tcc); }
+.traj-counts .ct.tcc b               { color: var(--cat-tcc); }
+.traj-counts .ct.bancas              { color: var(--cat-bancas); }
+.traj-counts .ct.bancas::before      { background: var(--cat-bancas); }
+.traj-counts .ct.bancas b            { color: var(--cat-bancas); }
+.traj-counts .ct.pesquisa            { color: var(--cat-pesquisa); }
+.traj-counts .ct.pesquisa::before    { background: var(--cat-pesquisa); }
+.traj-counts .ct.pesquisa b          { color: var(--cat-pesquisa); }
+.traj-counts .ct.extensao            { color: var(--cat-extensao); }
+.traj-counts .ct.extensao::before    { background: var(--cat-extensao); }
+.traj-counts .ct.extensao b          { color: var(--cat-extensao); }
 
 .traj-note {
-  margin-top: 12px;
-  font-size: 12px;
+  margin-top: 10px;
+  font-size: 12.5px;
   color: var(--ink-1);
   font-style: italic;
   font-family: var(--font-display);
-  border-left: 2px solid var(--accent-dim);
-  padding-left: 12px;
 }
 
 /* phase header */
 .traj-phase {
-  margin: 22px 0 6px -92px;
+  margin: 24px 0 4px -92px;
   padding-left: 92px;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--ink-3);
   display: flex; align-items: center; gap: 12px;
 }
 .traj-phase::before {
   content: '';
   display: inline-block;
-  width: 60px;
+  width: 50px;
   height: 1px;
-  background: var(--accent-dim);
+  background: var(--line);
 }
 .traj-phase.first { margin-top: 0; }
 
 /* ========== RESEARCH LANES (gantt) ========== */
-.lanes-chart { position: relative; padding: 14px 0 28px; }
+.lanes-card-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+.lanes-card-sub {
+  font-size: 12px;
+  color: var(--ink-2);
+  margin: 0 0 22px;
+}
+
+.lanes-chart { position: relative; padding: 4px 0 14px; }
 .lanes-axis {
   display: grid;
-  grid-template-columns: 180px repeat(13, 1fr);
+  grid-template-columns: 200px repeat(13, 1fr);
   gap: 0;
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--ink-3);
   border-bottom: 1px solid var(--line-soft);
-  padding: 0 0 6px;
-  margin-bottom: 12px;
+  padding: 0 0 8px;
+  margin-bottom: 14px;
 }
 .lanes-axis .ax-tick {
   text-align: center;
@@ -444,61 +428,60 @@ section { margin-bottom: 60px; }
 .lanes-axis .ax-tick.now {
   color: var(--accent);
   font-weight: 700;
-  border-left-color: var(--accent);
+  border-left: 1px solid var(--accent);
 }
 
 .lane-row {
   display: grid;
-  grid-template-columns: 180px repeat(13, 1fr);
+  grid-template-columns: 200px repeat(13, 1fr);
   align-items: center;
-  height: 36px;
+  height: 44px;
   position: relative;
-  border-bottom: 1px solid var(--line-soft);
 }
-.lane-row:last-child { border-bottom: none; }
+.lane-row + .lane-row { border-top: 1px solid var(--line-soft); }
+
 .lane-row .lane-name {
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--ink-1);
-  padding-right: 12px;
+  padding-right: 14px;
   letter-spacing: 0.02em;
 }
 .lane-row .lane-name .sub-name {
   display: block;
   font-size: 10px;
   color: var(--ink-3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 1px;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
 }
 .lane-bar {
   position: absolute;
-  left: 0; top: 50%;
+  top: 50%;
   transform: translateY(-50%);
-  height: 12px;
-  border-radius: 6px;
-  background: var(--accent-dim);
+  height: 14px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
-  padding: 0 8px;
+  padding: 0 10px;
   font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: rgba(0,0,0,0.7);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  color: rgba(10,13,16,0.85);
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   overflow: hidden;
   white-space: nowrap;
-  transition: filter 0.18s, transform 0.18s;
+  transition: filter 0.18s;
 }
-.lane-bar:hover { filter: brightness(1.15); transform: translateY(-50%) scale(1.01); }
-.lane-bar.gradient { background: linear-gradient(90deg, var(--accent), var(--accent-dim)); color: rgba(10,13,16,0.9); }
-.lane-bar.cool { background: linear-gradient(90deg, var(--cool), #355d80); color: rgba(10,13,16,0.9); }
-.lane-bar.warn { background: linear-gradient(90deg, var(--warn), #8a6d28); color: rgba(10,13,16,0.9); }
-.lane-bar.violet { background: linear-gradient(90deg, var(--violet), #604077); color: rgba(10,13,16,0.9); }
-.lane-bar.hot { background: linear-gradient(90deg, var(--hot), #7a3a30); color: rgba(10,13,16,0.9); }
-.lane-bar.rose { background: linear-gradient(90deg, var(--rose), #7a3f5d); color: rgba(10,13,16,0.9); }
-.lane-bar.future {
+.lane-bar:hover { filter: brightness(1.15); }
+
+.lane-bar.b-disciplinas { background: linear-gradient(90deg, var(--cat-disciplinas), var(--accent-dim)); }
+.lane-bar.b-artigos     { background: linear-gradient(90deg, var(--cat-artigos), #355d80); }
+.lane-bar.b-tcc         { background: linear-gradient(90deg, var(--cat-tcc), #7a3f5d); }
+.lane-bar.b-pesquisa    { background: linear-gradient(90deg, var(--cat-pesquisa), #604077); }
+.lane-bar.b-extensao    { background: linear-gradient(90deg, var(--cat-extensao), #7a3a30); }
+.lane-bar.b-bancas      { background: linear-gradient(90deg, var(--cat-bancas), #8a6d28); }
+.lane-bar.b-future {
   background: repeating-linear-gradient(
     45deg,
     rgba(180, 141, 224, 0.4),
@@ -508,159 +491,43 @@ section { margin-bottom: 60px; }
   );
   color: var(--violet);
 }
-/* "live" pulse at the present-edge (left in reverse axis) */
-.lane-bar.active::before {
-  content: '';
-  position: absolute;
-  left: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 18px;
-  border-radius: 3px;
-  background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
-  animation: pulse 2.2s ease-in-out infinite;
-  z-index: 1;
-}
-
-.now-line {
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 1px;
-  background: var(--accent);
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 2;
-}
-.now-line::before {
-  content: 'NOW';
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: var(--accent);
-  background: var(--bg-1);
-  padding: 0 4px;
-}
-
-/* ========== MILESTONES ========== */
-.ms-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 14px;
-}
-.ms {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 16px 16px 14px;
-  position: relative;
-  display: flex; flex-direction: column; gap: 4px;
-  transition: all 0.2s;
-  border-left-width: 3px;
-}
-.ms:hover { transform: translateY(-1px); border-color: var(--accent-dim); }
-.ms.cat-tese    { border-left-color: var(--accent); }
-.ms.cat-paper   { border-left-color: var(--cool); }
-.ms.cat-prize   { border-left-color: var(--warn); }
-.ms.cat-project { border-left-color: var(--rose); }
-.ms.cat-edu     { border-left-color: var(--violet); }
-
-.ms .yr {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.ms .ttl {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-0);
-  margin-top: 2px;
-}
-.ms .desc {
-  font-size: 12px;
-  color: var(--ink-1);
-  margin-top: 4px;
-}
-.ms .cat-pill {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 2px 8px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-}
-.ms.cat-tese    .cat-pill { color: var(--accent); border-color: var(--accent-dim); }
-.ms.cat-paper   .cat-pill { color: var(--cool); border-color: rgba(108,179,224,0.4); }
-.ms.cat-prize   .cat-pill { color: var(--warn); border-color: rgba(241,192,104,0.4); }
-.ms.cat-project .cat-pill { color: var(--rose); border-color: rgba(224,143,180,0.4); }
-.ms.cat-edu     .cat-pill { color: var(--violet); border-color: rgba(180,141,224,0.4); }
-
-/* ========== LEGEND ========== */
-.legend {
-  display: flex; flex-wrap: wrap; gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin-top: 14px;
-}
-.legend .key { display: inline-flex; align-items: center; gap: 6px; }
-.legend .swatch { width: 14px; height: 6px; border-radius: 3px; }
-.legend .swatch.green  { background: var(--accent); }
-.legend .swatch.cool   { background: var(--cool); }
-.legend .swatch.warn   { background: var(--warn); }
-.legend .swatch.violet { background: var(--violet); }
-.legend .swatch.rose   { background: var(--rose); }
-.legend .swatch.hot    { background: var(--hot); }
-.legend .swatch.future {
-  background: repeating-linear-gradient(45deg, var(--violet), var(--violet) 3px, transparent 3px, transparent 6px);
-}
 
 /* ========== FOOTER ========== */
 .foot {
   margin-top: 80px;
-  padding-top: 30px;
+  padding-top: 28px;
   border-top: 1px solid var(--line-soft);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap; gap: 16px;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 12px;
   color: var(--ink-2);
+  letter-spacing: 0.01em;
 }
-.foot .author { color: var(--ink-0); }
+.foot .author { color: var(--ink-1); }
 .foot a { color: var(--ink-1); }
 .foot a:hover { color: var(--accent); }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1100px) {
   .hero { grid-template-columns: 1fr; gap: 28px; }
-  .lanes-axis, .lane-row { grid-template-columns: 130px repeat(13, 1fr); }
+  .lanes-axis, .lane-row { grid-template-columns: 150px repeat(13, 1fr); }
 }
 @media (max-width: 700px) {
   .shell { padding: 18px 14px 40px; }
   .topbar { font-size: 10px; }
+  .card { padding: 22px 18px; }
   .traj-line { margin-left: 60px; padding-left: 24px; }
   .traj-station .period { left: -85px; width: 56px; }
   .traj-station::before { left: -33px; }
   .traj-phase { margin-left: -60px; padding-left: 60px; }
-  .lanes-axis, .lane-row { grid-template-columns: 100px repeat(13, 1fr); }
-  .lanes-axis .ax-tick { font-size: 8px; }
+  .lanes-axis, .lane-row { grid-template-columns: 110px repeat(13, 1fr); }
+  .lanes-axis .ax-tick { font-size: 8px; padding: 0 1px; }
   .lane-row .lane-name { font-size: 10px; }
   .lane-row .lane-name .sub-name { display: none; }
+  .lane-bar { font-size: 8.5px; padding: 0 6px; }
 }
 </style>
 </head>
@@ -673,7 +540,7 @@ section { margin-bottom: 60px; }
   <div class="crumbs">
     <span>rmayormartins.github.io</span>
     <span>academic roadmap</span>
-    <span>v1.1</span>
+    <span>v1.2</span>
   </div>
   <div class="pulse"><span class="dot"></span> trajectory · in progress</div>
 </div>
@@ -683,9 +550,8 @@ section { margin-bottom: 60px; }
   <div>
     <h1>ACADEMIC<br><span class="em">roadmap</span></h1>
     <div class="lede">
-      Trajetória acadêmica de <strong>Ramon Mayor Martins, Ph.D.</strong> · Professor EBTT · Coordenador de Pesquisa e Inovação ·
+      Trajetória acadêmica de <strong>Ramon Mayor Martins, Ph.D.</strong> · Professor EBTT · Coordenador de Pesquisa, Inovação e Pós ·
       Instituto Federal de Santa Catarina, Câmpus São José.
-      Mapa da jornada — semestre por semestre, do presente ao começo.
     </div>
     <div class="meta-row">
       <div>Trajeto <strong>2016 — 2026</strong></div>
@@ -727,171 +593,179 @@ section { margin-bottom: 60px; }
     <div class="h-right">2026.1 ── 2016.1</div>
   </div>
 
-  <div class="card" style="padding: 28px 32px 28px;">
-    <div class="card-title">Linha do tempo · estações da missão · ordem reversa</div>
-    <div class="card-sub">Cada estação é um ano (ou semestre quando relevante). Lê de cima (presente) para baixo (passado).</div>
+  <div class="card">
 
     <div class="cat-legend">
-      <span class="cat-chip ensino"><span class="swatch"></span>disciplinas</span>
-      <span class="cat-chip pesquisa"><span class="swatch"></span>artigos</span>
-      <span class="cat-chip orientacao"><span class="swatch"></span>orientações</span>
-      <span class="cat-chip banca"><span class="swatch"></span>bancas</span>
+      <span class="key disciplinas">disciplinas</span>
+      <span class="key artigos">artigos</span>
+      <span class="key tcc">TCC</span>
+      <span class="key bancas">bancas</span>
+      <span class="key pesquisa">pesquisa</span>
+      <span class="key extensao">extensão</span>
     </div>
 
     <div class="traj-wrap">
 
-      <!-- ===== PHASE 04: post-PhD (presente, no topo) ===== -->
-      <div class="traj-phase first">▸ phase 04 · post-PhD expansion</div>
+      <!-- ===== PHASE 04: post-PhD ===== -->
+      <div class="traj-phase first">phase 04 · post-PhD</div>
       <div class="traj-line">
 
         <div class="traj-station live">
           <div class="period"><span class="yr">2026</span><span class="sem">.1 · live</span></div>
           <h4>Missão atual · você está aqui <span class="badge-mini live">live</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>5</b> disciplinas</span>
-            <span class="ct pesquisa"><b>4+</b> papers em submissão</span>
-            <span class="ct orientacao"><b>4</b> TCCs ativos</span>
+            <span class="ct disciplinas"><b>5</b> disciplinas</span>
+            <span class="ct artigos"><b>4+</b> artigos em submissão</span>
+            <span class="ct tcc"><b>4</b> TCC</span>
+            <span class="ct pesquisa"><b>2</b> pesquisa</span>
           </div>
-          <div class="traj-note">SBRT 2026 (Beatriz · Wavelet+CBAM) · SBIE 2026 (ProgCTQ · ML scoring) · WEI 2026 (N=384) · WIE 2026 (médio × superior).</div>
+          <div class="traj-note">SBRT 2026, SBIE 2026, WEI 2026, WIE 2026 · editais PROPPI 05 e SIGAA 09 submetidos.</div>
         </div>
 
-        <div class="traj-station intensity-4">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2025</span><span class="sem">.2</span></div>
           <h4>3º lugar Educomp · Finalista CSBC <span class="badge-mini milestone">awards</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>~5</b> disciplinas</span>
-            <span class="ct pesquisa"><b>~7</b> artigos</span>
-            <span class="ct orientacao"><b>3</b> orientações</span>
-            <span class="ct banca"><b>~15</b> bancas</span>
+            <span class="ct disciplinas"><b>~5</b> disciplinas</span>
+            <span class="ct artigos"><b>~7</b> artigos</span>
+            <span class="ct tcc"><b>3</b> TCC</span>
+            <span class="ct bancas"><b>~15</b> bancas</span>
+            <span class="ct pesquisa"><b>2</b> pesquisa</span>
           </div>
-          <div class="traj-note">Concurso de Tese SBC · Finalista Rotas para Inovação Sebrae (Kamtech) · líder GPSIA · vice-líder Ciência e Gestão de Dados.</div>
+          <div class="traj-note">Concurso de Tese SBC · Finalista Rotas para Inovação Sebrae · líder GPSIA.</div>
         </div>
 
-        <div class="traj-station intensity-4">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2025</span><span class="sem">.1</span></div>
           <h4>Primeiro semestre como Dr. <span class="badge-mini milestone">post-PhD</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>~5</b> disciplinas</span>
-            <span class="ct pesquisa"><b>~7</b> artigos</span>
-            <span class="ct orientacao"><b>2</b> TCCs</span>
+            <span class="ct disciplinas"><b>~5</b> disciplinas</span>
+            <span class="ct artigos"><b>~7</b> artigos</span>
+            <span class="ct tcc"><b>2</b> TCC</span>
+            <span class="ct pesquisa"><b>1</b> pesquisa</span>
           </div>
-          <div class="traj-note">Início do pós-doc UFSC · TCCs Deivid Frederico (FloripaSat-I) e Matheus Pires (GS IFSC-SJ).</div>
+          <div class="traj-note">Início do pós-doc UFSC · TCCs CubeSat (Deivid Frederico) e GS SatNOGS (Matheus Pires).</div>
         </div>
 
       </div>
 
       <!-- ===== PHASE 03: acceleration ===== -->
-      <div class="traj-phase">▸ phase 03 · research acceleration</div>
+      <div class="traj-phase">phase 03 · research acceleration</div>
       <div class="traj-line">
 
-        <div class="traj-station intensity-3">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2024</span><span class="sem">.1 / .2</span></div>
           <h4>Defesa do doutorado · UFSC <span class="badge-mini milestone">PhD</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>4</b> disciplinas</span>
-            <span class="ct pesquisa"><b>8</b> artigos</span>
-            <span class="ct orientacao"><b>2</b> orientações</span>
-            <span class="ct banca"><b>7</b> bancas</span>
+            <span class="ct disciplinas"><b>4</b> disciplinas</span>
+            <span class="ct artigos"><b>8</b> artigos</span>
+            <span class="ct tcc"><b>2</b> TCC</span>
+            <span class="ct bancas"><b>7</b> bancas</span>
+            <span class="ct pesquisa"><b>1</b> pesquisa</span>
           </div>
-          <div class="traj-note">"Machine Learning para Todos!" · 338 estudantes · Vilson Groh · NASA Open Science · IBM ML Specialist · Intel Advanced.</div>
+          <div class="traj-note">"Machine Learning para Todos!" · 338 estudantes · NASA Open Science · IBM ML Specialist · Intel Advanced.</div>
         </div>
 
-        <div class="traj-station intensity-3">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2023</span><span class="sem">.1 / .2</span></div>
           <h4>MIT Teacher Excellence Award <span class="badge-mini milestone">award</span></h4>
           <div class="traj-counts">
-            <span class="ct pesquisa"><b>11</b> artigos</span>
-            <span class="ct banca"><b>4</b> bancas</span>
+            <span class="ct artigos"><b>11</b> artigos</span>
+            <span class="ct bancas"><b>4</b> bancas</span>
+            <span class="ct pesquisa"><b>1</b> pesquisa</span>
           </div>
-          <div class="traj-note">App Inventor Foundation · App of the Season (UNESCO) · 3º artigo mais lido INFEDU.</div>
+          <div class="traj-note">App Inventor Foundation · App of the Season UNESCO · 3º artigo mais lido INFEDU.</div>
         </div>
 
-        <div class="traj-station intensity-3">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2022</span><span class="sem">.1 / .2</span></div>
           <h4>3º lugar Summer Appathon · MIT <span class="badge-mini milestone">award</span></h4>
           <div class="traj-counts">
-            <span class="ct pesquisa"><b>6</b> artigos</span>
-            <span class="ct banca"><b>9</b> bancas</span>
+            <span class="ct artigos"><b>6</b> artigos</span>
+            <span class="ct bancas"><b>9</b> bancas</span>
+            <span class="ct pesquisa"><b>1</b> pesquisa</span>
           </div>
-          <div class="traj-note">Início do programa ProgCTQ e da linha de pensamento crítico.</div>
+          <div class="traj-note">Início do programa ProgCTQ.</div>
         </div>
 
       </div>
 
       <!-- ===== PHASE 02: teaching-heavy ===== -->
-      <div class="traj-phase">▸ phase 02 · teaching-heavy &amp; first projects</div>
+      <div class="traj-phase">phase 02 · teaching-heavy</div>
       <div class="traj-line">
 
-        <div class="traj-station intensity-2">
+        <div class="traj-station">
           <div class="period"><span class="yr">2021</span><span class="sem">.1 / .2</span></div>
           <h4>Primeira competição internacional</h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>6</b> disciplinas</span>
-            <span class="ct pesquisa"><b>3</b> artigos</span>
-            <span class="ct orientacao"><b>1</b> orientação</span>
-            <span class="ct banca"><b>2</b> bancas</span>
+            <span class="ct disciplinas"><b>6</b> disciplinas</span>
+            <span class="ct artigos"><b>3</b> artigos</span>
+            <span class="ct tcc"><b>1</b> TCC</span>
+            <span class="ct bancas"><b>2</b> bancas</span>
           </div>
         </div>
 
-        <div class="traj-station intensity-2">
+        <div class="traj-station">
           <div class="period"><span class="yr">2020</span><span class="sem">.1 / .2 · pandemia</span></div>
           <h4>Adaptação ao ensino remoto</h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>3</b> disciplinas</span>
-            <span class="ct pesquisa"><b>3</b> artigos</span>
-            <span class="ct orientacao"><b>2</b> orientações</span>
+            <span class="ct disciplinas"><b>3</b> disciplinas</span>
+            <span class="ct artigos"><b>3</b> artigos</span>
+            <span class="ct tcc"><b>2</b> TCC</span>
           </div>
           <div class="traj-note">Início do trabalho com App Inventor &amp; educação em IA.</div>
         </div>
 
-        <div class="traj-station intensity-2">
+        <div class="traj-station">
           <div class="period"><span class="yr">2019</span><span class="sem">.1 / .2</span></div>
           <h4>Transição · gestação do tema de doutorado</h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>6</b> disciplinas</span>
-            <span class="ct pesquisa"><b>0</b> artigos</span>
-            <span class="ct orientacao"><b>2</b> orientações</span>
-            <span class="ct banca"><b>5</b> bancas</span>
+            <span class="ct disciplinas"><b>6</b> disciplinas</span>
+            <span class="ct tcc"><b>2</b> TCC</span>
+            <span class="ct bancas"><b>5</b> bancas</span>
           </div>
         </div>
 
-        <div class="traj-station intensity-4">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2018</span><span class="sem">.1 / .2</span></div>
           <h4>Pico de orientações &amp; bancas <span class="badge-mini milestone">peak year</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>10</b> disciplinas</span>
-            <span class="ct pesquisa"><b>4</b> artigos</span>
-            <span class="ct orientacao"><b>10</b> orientações</span>
-            <span class="ct banca"><b>12</b> bancas</span>
+            <span class="ct disciplinas"><b>10</b> disciplinas</span>
+            <span class="ct artigos"><b>4</b> artigos</span>
+            <span class="ct tcc"><b>10</b> TCC</span>
+            <span class="ct bancas"><b>12</b> bancas</span>
+            <span class="ct extensao"><b>4</b> extensão</span>
           </div>
-          <div class="traj-note">4 projetos de extensão · maior densidade de orientação da carreira.</div>
+          <div class="traj-note">Maior densidade de orientação da carreira.</div>
         </div>
 
       </div>
 
-      <!-- ===== PHASE 01: building (no fundo) ===== -->
-      <div class="traj-phase">▸ phase 01 · building foundation</div>
+      <!-- ===== PHASE 01: building ===== -->
+      <div class="traj-phase">phase 01 · building foundation</div>
       <div class="traj-line">
 
-        <div class="traj-station intensity-3">
+        <div class="traj-station">
           <div class="period"><span class="yr">2017</span><span class="sem">.1 / .2</span></div>
           <h4>Consolidação no ensino &amp; primeiras orientações</h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>11</b> disciplinas</span>
-            <span class="ct pesquisa"><b>5</b> artigos</span>
-            <span class="ct orientacao"><b>4</b> orientações</span>
-            <span class="ct banca"><b>6</b> bancas</span>
+            <span class="ct disciplinas"><b>11</b> disciplinas</span>
+            <span class="ct artigos"><b>5</b> artigos</span>
+            <span class="ct tcc"><b>4</b> TCC</span>
+            <span class="ct bancas"><b>6</b> bancas</span>
+            <span class="ct extensao"><b>2</b> extensão</span>
           </div>
         </div>
 
-        <div class="traj-station intensity-3">
+        <div class="traj-station milestone-stop">
           <div class="period"><span class="yr">2016</span><span class="sem">.1 / .2</span></div>
           <h4>Ingresso efetivo no IFSC <span class="badge-mini milestone">start</span></h4>
           <div class="traj-counts">
-            <span class="ct ensino"><b>10</b> disciplinas</span>
-            <span class="ct pesquisa"><b>7</b> artigos</span>
+            <span class="ct disciplinas"><b>10</b> disciplinas</span>
+            <span class="ct artigos"><b>7</b> artigos</span>
+            <span class="ct extensao"><b>1</b> extensão</span>
           </div>
-          <div class="traj-note">Servidor público federal · primeiro grande pico de produção · ponto inicial da missão.</div>
+          <div class="traj-note">Servidor público federal · ponto inicial da missão.</div>
         </div>
 
       </div>
@@ -911,11 +785,10 @@ section { margin-bottom: 60px; }
   </div>
 
   <div class="card">
-    <div class="tag">gantt · reverse</div>
-    <div class="card-title">Linhas de pesquisa &times; tempo</div>
-    <div class="card-sub">Eixo invertido · 2026 à esquerda. Marca pulsante = ainda ativa hoje. Faixa tracejada = linha emergente.</div>
+    <div class="lanes-card-title">Linhas de pesquisa &times; tempo</div>
+    <div class="lanes-card-sub">Eixo invertido · 2026 à esquerda. Faixa tracejada = linha emergente.</div>
 
-    <div class="lanes-chart" style="margin-top: 18px;">
+    <div class="lanes-chart">
       <div class="lanes-axis">
         <div></div>
         <div class="ax-tick now">'26</div>
@@ -933,58 +806,58 @@ section { margin-bottom: 60px; }
         <div class="ax-tick">'14</div>
       </div>
 
-      <!-- Telecom & SDR · 2017 → present (10 anos, ativo) -->
+      <!-- Telecom & SDR · 2017 → present (10 anos) -->
       <div class="lane-row">
         <div class="lane-name">Telecom &amp; SDR<span class="sub-name">antenas · cubesat · satnogs</span></div>
-        <div class="lane-bar gradient active" style="left: 180px; width: calc(10 / 13 * (100% - 180px) - 8px);">
-          since 2017 · active
+        <div class="lane-bar b-disciplinas" style="left: 200px; width: calc(10 / 13 * (100% - 200px) - 6px);">
+          since 2017
         </div>
       </div>
 
-      <!-- ML para Todos · 2020 → present (7 anos, ativo) -->
+      <!-- ML para Todos · 2020 → present -->
       <div class="lane-row">
         <div class="lane-name">ML para Todos<span class="sub-name">educação · vulnerabilidade</span></div>
-        <div class="lane-bar cool active" style="left: 180px; width: calc(7 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-artigos" style="left: 200px; width: calc(7 / 13 * (100% - 200px) - 6px);">
           2020 → present
         </div>
       </div>
 
-      <!-- ProgCTQ · 2022 → present (5 anos, ativo) -->
+      <!-- ProgCTQ · 2022 → present -->
       <div class="lane-row">
         <div class="lane-name">ProgCTQ<span class="sub-name">pensamento crítico · psicometria</span></div>
-        <div class="lane-bar violet active" style="left: 180px; width: calc(5 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-pesquisa" style="left: 200px; width: calc(5 / 13 * (100% - 200px) - 6px);">
           2022 → present
         </div>
       </div>
 
-      <!-- Imagem médica · 2024 → present (3 anos, ativo) -->
+      <!-- Imagem médica · 2024 → present -->
       <div class="lane-row">
         <div class="lane-name">Imagem médica<span class="sub-name">mamografia · wavelet · CBAM</span></div>
-        <div class="lane-bar rose active" style="left: 180px; width: calc(3 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-tcc" style="left: 200px; width: calc(3 / 13 * (100% - 200px) - 6px);">
           2024 → present
         </div>
       </div>
 
-      <!-- Sinais & CvT · 2025 → present (2 anos, ativo) -->
+      <!-- Sinais & CvT · 2025 → present -->
       <div class="lane-row">
         <div class="lane-name">Sinais &amp; CvT<span class="sub-name">ECG · EEG · ultrassom</span></div>
-        <div class="lane-bar hot active" style="left: 180px; width: calc(2 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-extensao" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">
           since 2025
         </div>
       </div>
 
-      <!-- Kamtech · 2025 → present (2 anos, ativo) -->
+      <!-- Kamtech · 2025 → present -->
       <div class="lane-row">
         <div class="lane-name">Kamtech<span class="sub-name">SIGAP · SISDEV · porto</span></div>
-        <div class="lane-bar warn active" style="left: 180px; width: calc(2 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-bancas" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">
           since 2025
         </div>
       </div>
 
-      <!-- App Inventor · 2021 → 2024 (finalizada, deslocada do presente) -->
+      <!-- App Inventor · 2021 → 2024 -->
       <div class="lane-row">
         <div class="lane-name">App Inventor<span class="sub-name">jogos sérios · UNESCO</span></div>
-        <div class="lane-bar warn" style="left: calc(180px + 2 / 13 * (100% - 180px)); width: calc(4 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-bancas" style="left: calc(200px + 2 / 13 * (100% - 200px)); width: calc(4 / 13 * (100% - 200px) - 6px);">
           2021 — 2024
         </div>
       </div>
@@ -992,157 +865,12 @@ section { margin-bottom: 60px; }
       <!-- LLM em Educação · emerging -->
       <div class="lane-row">
         <div class="lane-name">LLM em Educação<span class="sub-name">corretor ENEM · avaliação</span></div>
-        <div class="lane-bar future" style="left: 180px; width: calc(1.5 / 13 * (100% - 180px) - 8px);">
+        <div class="lane-bar b-future" style="left: 200px; width: calc(1.5 / 13 * (100% - 200px) - 6px);">
           emerging
         </div>
       </div>
 
     </div>
-
-    <div class="legend" style="margin-top: 22px; border-top: 1px solid var(--line-soft); padding-top: 16px;">
-      <div class="key"><span class="swatch green"></span>Telecom &amp; SDR</div>
-      <div class="key"><span class="swatch cool"></span>ML para Todos</div>
-      <div class="key"><span class="swatch violet"></span>ProgCTQ</div>
-      <div class="key"><span class="swatch rose"></span>Imagem médica</div>
-      <div class="key"><span class="swatch hot"></span>Sinais &amp; CvT</div>
-      <div class="key"><span class="swatch warn"></span>App Inventor / Kamtech</div>
-      <div class="key"><span class="swatch future"></span>linha emergente</div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 03 · MILESTONES ========== -->
-<section id="milestones">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">03</div>
-      <h2>Milestones <span class="em">/ key constellation points</span></h2>
-    </div>
-    <div class="h-right">2026 ── 2016 · ordem reversa</div>
-  </div>
-
-  <div class="ms-grid">
-
-    <!-- ===== 2026 ===== -->
-    <div class="ms cat-paper">
-      <div class="yr">2026</div>
-      <div class="ttl">SBRT 2026 — paper mamografia</div>
-      <div class="desc">Wavelet pooling × Dual-branch CNN + CBAM (TCC Beatriz).</div>
-      <div class="cat-pill">paper</div>
-    </div>
-    <div class="ms cat-paper">
-      <div class="yr">2026</div>
-      <div class="ttl">SBIE / WEI / WIE 2026</div>
-      <div class="desc">Programa ProgCTQ · 3 submissões SBC simultâneas.</div>
-      <div class="cat-pill">paper</div>
-    </div>
-    <div class="ms cat-project">
-      <div class="yr">2026</div>
-      <div class="ttl">TCC Manual · Eng. Telecom</div>
-      <div class="desc">Manual oficial de TCC I em PDF · 26 páginas · ABNT.</div>
-      <div class="cat-pill">guide</div>
-    </div>
-
-    <!-- ===== 2025 ===== -->
-    <div class="ms cat-prize">
-      <div class="yr">2025</div>
-      <div class="ttl">3º lugar · Concurso de Tese Educomp</div>
-      <div class="desc">SBC · Educomp 2025 — pódio nacional.</div>
-      <div class="cat-pill">award</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2025</div>
-      <div class="ttl">Finalista · Concurso de Tese CSBC</div>
-      <div class="desc">CSBC 2025 · SBC — top 11 entre 43 teses.</div>
-      <div class="cat-pill">award</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2025</div>
-      <div class="ttl">Finalista · Rotas para Inovação</div>
-      <div class="desc">Sebrae · ELUME — Kamtech (SIGAP &amp; SISDEV).</div>
-      <div class="cat-pill">award</div>
-    </div>
-    <div class="ms cat-edu">
-      <div class="yr">2025</div>
-      <div class="ttl">Líder GPSIA · IFSC</div>
-      <div class="desc">Liderança de grupo de pesquisa CNPq.</div>
-      <div class="cat-pill">leadership</div>
-    </div>
-    <div class="ms cat-edu">
-      <div class="yr">2025</div>
-      <div class="ttl">Pós-doc UFSC iniciado</div>
-      <div class="desc">Continuação da linha de pesquisa pós-doutorado.</div>
-      <div class="cat-pill">post-doc</div>
-    </div>
-    <div class="ms cat-project">
-      <div class="yr">2025</div>
-      <div class="ttl">Estação SatNOGS · IFSC-SJ #389</div>
-      <div class="desc">Ground station registrada na rede SatNOGS.</div>
-      <div class="cat-pill">infra</div>
-    </div>
-
-    <!-- ===== 2024 ===== -->
-    <div class="ms cat-tese">
-      <div class="yr">2024</div>
-      <div class="ttl">Defesa do Doutorado · UFSC</div>
-      <div class="desc">"Machine Learning para Todos!" — 338 estudantes · Inst. Vilson Groh · vulnerabilidade social.</div>
-      <div class="cat-pill">PhD</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2024</div>
-      <div class="ttl">NASA Open Science Qualified</div>
-      <div class="desc">NASA Open Science Initiative — reconhecimento internacional.</div>
-      <div class="cat-pill">cert</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2024</div>
-      <div class="ttl">IBM ML Specialist · Advanced</div>
-      <div class="desc">Certificação IBM Machine Learning · nível avançado.</div>
-      <div class="cat-pill">cert</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2024</div>
-      <div class="ttl">Intel Advanced Technical Pro</div>
-      <div class="desc">AI in the Cloud — programa Intel.</div>
-      <div class="cat-pill">cert</div>
-    </div>
-
-    <!-- ===== 2023 ===== -->
-    <div class="ms cat-prize">
-      <div class="yr">2023</div>
-      <div class="ttl">MIT Teacher Excellence Award</div>
-      <div class="desc">App Inventor Foundation — reconhecimento global em ensino.</div>
-      <div class="cat-pill">award</div>
-    </div>
-    <div class="ms cat-prize">
-      <div class="yr">2023</div>
-      <div class="ttl">App of the Season · UNESCO</div>
-      <div class="desc">Menção honrosa — App Inventor Foundation × UNESCO.</div>
-      <div class="cat-pill">award</div>
-    </div>
-    <div class="ms cat-paper">
-      <div class="yr">2023</div>
-      <div class="ttl">3º artigo mais lido · INFEDU</div>
-      <div class="desc">6,5k+ visualizações · periódico Vilnius (Q1).</div>
-      <div class="cat-pill">paper</div>
-    </div>
-
-    <!-- ===== 2022 ===== -->
-    <div class="ms cat-prize">
-      <div class="yr">2022</div>
-      <div class="ttl">3º lugar · Summer Appathon</div>
-      <div class="desc">MIT App Inventor — primeira competição internacional.</div>
-      <div class="cat-pill">award</div>
-    </div>
-
-    <!-- ===== 2016 ===== -->
-    <div class="ms cat-edu">
-      <div class="yr">2016</div>
-      <div class="ttl">Ingresso efetivo IFSC</div>
-      <div class="desc">Concurso público · servidor EBTT · Câmpus São José.</div>
-      <div class="cat-pill">institutional</div>
-    </div>
-
   </div>
 </section>
 
@@ -1151,7 +879,7 @@ section { margin-bottom: 60px; }
   <div class="author">Ramon Mayor Martins, Ph.D. · IFSC Câmpus São José</div>
   <div>
     <a href="https://rmayormartins.github.io/" target="_blank">rmayormartins.github.io</a>
-    · roadmap v1.1 · last updated 2026.04
+    · roadmap v1.2 · last updated 2026.04
   </div>
 </footer>
 
