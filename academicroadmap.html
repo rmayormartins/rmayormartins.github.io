@@ -3,242 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academic Roadmap — Ramon Mayor Martins, Ph.D.</title>
-<meta name="description" content="Trajetória acadêmica de Ramon Mayor Martins · IFSC Câmpus São José · 2016—2026">
+<title>Academic Roadmap — Ramon Mayor Martins</title>
+<meta name="description" content="Trajetória acadêmica de Ramon Mayor Martins, Ph.D. · IFSC Câmpus São José">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===================================================================
+   MODERNIST THEME · light · matches academicreport_1_.html
+   =================================================================== */
+
 :root {
-  --bg-0: #0a0d10;
-  --bg-1: #11161a;
-  --line: #2a3540;
-  --line-soft: #1e262e;
-  --ink-0: #e8ede8;
-  --ink-1: #b9c2bc;
-  --ink-2: #7e8a82;
-  --ink-3: #4f5a55;
+  --bg:        #ffffff;
+  --bg-soft:   #fafafa;
+  --bg-deep:   #f5f5f5;
+  --line:      #e5e5e5;
+  --line-soft: #efefef;
+  --line-dot:  #cccccc;
 
-  --accent: #5fd49a;
-  --accent-dim: #3a8a64;
-  --warn: #f1c068;
-  --hot: #e07b6c;
-  --cool: #6cb3e0;
-  --violet: #b48de0;
-  --rose: #e08fb4;
+  --text:        #333333;
+  --text-strong: #1d1f21;
+  --text-mute:   #666666;
+  --text-low:    #999999;
 
-  /* category colors */
-  --cat-disciplinas: #5fd49a;   /* verde */
-  --cat-artigos:     #6cb3e0;   /* azul */
-  --cat-tcc:         #e08fb4;   /* rosa */
-  --cat-bancas:      #f1c068;   /* amarelo */
-  --cat-pesquisa:    #b48de0;   /* violeta */
-  --cat-extensao:    #e07b6c;   /* coral */
+  --accent:        #267CB9;
+  --accent-soft:   #4a9bd1;
+  --accent-deep:   #1d5e8c;
+  --accent-bg:     #f0f7fc;
 
-  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  /* category palette (mesma do report) */
+  --c1: #267CB9;   /* azul · artigos */
+  --c2: #4caf6d;   /* verde · disciplinas */
+  --c3: #e8a93e;   /* amarelo · bancas */
+  --c4: #d96666;   /* vermelho · extensão */
+  --c5: #8e6cb3;   /* violeta · pesquisa */
+  --c6: #5cb3c2;   /* ciano · TCC */
+
+  --cat-disciplinas: var(--c2);
+  --cat-artigos:     var(--c1);
+  --cat-tcc:         var(--c6);
+  --cat-bancas:      var(--c3);
+  --cat-pesquisa:    var(--c5);
+  --cat-extensao:    var(--c4);
+
+  --font-mono: 'Source Code Pro', ui-monospace, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
 body {
-  background: var(--bg-0);
-  color: var(--ink-0);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: 0.01em;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
   min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(95, 212, 154, 0.05), transparent 60%),
-    radial-gradient(ellipse 1000px 500px at 10% 100%, rgba(108, 179, 224, 0.04), transparent 60%);
 }
 
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a:hover { text-decoration: underline; color: var(--accent-deep); }
 
-.shell { max-width: 1280px; margin: 0 auto; padding: 28px 24px 60px; }
+::selection { background: var(--accent); color: #fff; }
 
-/* ========== TOP BAR ========== */
-.topbar {
-  display: flex; align-items: center; justify-content: space-between;
-  font-family: var(--font-mono); font-size: 11px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--ink-2);
-  padding-bottom: 16px; margin-bottom: 36px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.topbar .crumbs span + span::before { content: ' / '; opacity: 0.5; margin: 0 6px; }
-.topbar .pulse { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); }
-.dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(95,212,154,0.5); }
-  50% { box-shadow: 0 0 0 8px rgba(95,212,154,0); }
-}
-
-/* ========== HERO ========== */
-.hero {
+/* ===== LAYOUT ===== */
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  margin-bottom: 56px;
-  align-items: end;
+  grid-template-columns: 240px 1fr;
+  gap: 50px;
+  padding: 50px 40px;
 }
-.hero h1 {
-  font-family: var(--font-mono);
-  font-size: clamp(36px, 5.2vw, 70px);
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: sticky;
+  top: 50px;
+  align-self: start;
+}
+.sidebar h1 {
+  font-size: 20px;
   font-weight: 700;
-  line-height: 0.98;
-  margin: 0 0 14px;
-  letter-spacing: -0.03em;
-}
-.hero h1 .em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
   color: var(--accent);
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
 }
-.hero .lede {
-  font-size: 16px;
-  color: var(--ink-1);
-  max-width: 620px;
-  margin-bottom: 22px;
-}
-.hero .meta-row {
-  display: flex; gap: 22px; flex-wrap: wrap;
-  font-family: var(--font-mono);
+.sidebar .role {
   font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--text-mute);
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
 }
-.hero .meta-row strong { color: var(--ink-0); font-weight: 500; }
-.hero .links {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 18px;
-}
-.hero .links a {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 12px;
+.sidebar .role b { color: var(--text-strong); font-weight: 600; }
+
+.side-card {
+  background: var(--bg-deep);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink-1);
-  transition: all 0.18s;
+  padding: 14px 16px;
+  margin: 18px 0;
+  font-size: 11px;
 }
-.hero .links a:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  text-decoration: none;
+.side-card .lbl {
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
-
-.status-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
-  background: var(--line-soft);
-  border: 1px solid var(--line-soft);
-  border-radius: 4px;
-  overflow: hidden;
+.side-card .v {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 13px;
 }
-.status-cell {
-  background: var(--bg-1);
-  padding: 22px 20px;
-}
-.status-cell .label {
-  font-family: var(--font-mono);
+.side-card .v .accent { color: var(--accent); }
+.side-card .meta {
   font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.status-cell .value {
-  font-family: var(--font-mono);
-  font-size: 38px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-top: 6px;
-}
-.status-cell .value.accent { color: var(--accent); }
-.status-cell .sub {
-  font-size: 11px;
-  color: var(--ink-2);
-  font-family: var(--font-mono);
-  margin-top: 8px;
-  letter-spacing: 0.04em;
+  color: var(--text-low);
+  margin-top: 4px;
 }
 
-/* ========== SECTION ========== */
-section { margin-bottom: 60px; }
-.section-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 16px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.section-head .h-left { display: flex; align-items: baseline; gap: 18px; }
-.section-num {
-  font-family: var(--font-mono);
+.sidebar nav {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: 18px;
   font-size: 12px;
-  color: var(--accent);
-  letter-spacing: 0.18em;
 }
-.section-head h2 {
-  font-family: var(--font-mono);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-.section-head h2 .em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
-  margin-left: 6px;
-}
-.section-head .h-right {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
+.sidebar nav a { color: var(--accent); padding: 2px 0; }
+.sidebar nav .label {
+  color: var(--text-low);
+  font-size: 10px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  margin: 14px 0 4px;
+}
+.sidebar nav .label:first-child { margin-top: 0; }
+
+/* ===== MAIN ===== */
+.main { min-width: 0; }
+
+.head-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+  margin-bottom: 8px;
+}
+.head-row .back a { font-size: 13px; }
+.head-row .version {
+  font-size: 11px;
+  color: var(--text-low);
+}
+.head-row .version b { color: var(--text-strong); font-weight: 600; }
+
+h2.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.page-lede {
+  color: var(--text-mute);
+  font-size: 13px;
+  max-width: 880px;
+  margin: 0 0 28px;
+}
+.page-lede strong { color: var(--text-strong); font-weight: 600; }
+
+/* ===== META BAR ===== */
+.meta-bar {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  font-size: 11px;
+  color: var(--text-low);
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+.meta-bar b { color: var(--text-strong); font-weight: 600; }
+.meta-bar .ok {
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.meta-bar .ok::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ===== KPI GRID ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 50px;
+}
+.kpi {
+  background: var(--bg);
+  padding: 18px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.kpi .lbl {
+  font-size: 10px;
+  color: var(--text-low);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.kpi .val {
+  font-size: 30px;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 4px 0;
+  letter-spacing: -0.01em;
+}
+.kpi .sub { font-size: 10px; color: var(--text-mute); }
+
+/* ===== SECTION ===== */
+section { margin-bottom: 50px; }
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.sec-head h3 .num {
+  color: var(--accent);
+  font-weight: 500;
+  margin-right: 10px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.sec-head h3 .slash { color: var(--text-low); font-weight: 400; margin: 0 6px; }
+.sec-head h3 .en { color: var(--text-low); font-weight: 400; font-size: 12px; }
+.sec-head .meta { font-size: 11px; color: var(--text-low); }
+.sec-head .meta b { color: var(--accent); font-weight: 600; }
+
+/* ===== PANEL ===== */
+.panel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+}
+.panel-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4px;
+  gap: 12px;
+}
+.panel-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.panel-title b { color: var(--accent); font-weight: 600; }
+.panel-tag {
+  font-size: 10px;
+  color: var(--text-low);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.panel-tag.live { color: var(--accent); }
+.panel-tag.live::before {
+  content: '● ';
+  font-size: 8px;
+  vertical-align: middle;
+  animation: blink 2.4s ease-in-out infinite;
+}
+.panel-sub {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin: 0 0 16px;
 }
 
-/* ========== CARD ========== */
-.card {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 28px 32px;
-}
-
-/* ========== CATEGORY LEGEND (subtle, top of trajectory) ========== */
+/* ===== CATEGORY LEGEND ===== */
 .cat-legend {
-  display: flex; flex-wrap: wrap; gap: 18px 22px;
-  margin-bottom: 28px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--line-soft);
+  display: flex; flex-wrap: wrap; gap: 16px 22px;
+  padding: 12px 0;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
 }
 .cat-legend .key {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--font-mono);
+  display: inline-flex; align-items: center; gap: 7px;
   font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--ink-2);
+  letter-spacing: 0.04em;
+  color: var(--text-mute);
 }
 .cat-legend .key::before {
   content: '';
@@ -252,177 +314,147 @@ section { margin-bottom: 60px; }
 .cat-legend .key.pesquisa::before    { background: var(--cat-pesquisa); }
 .cat-legend .key.extensao::before    { background: var(--cat-extensao); }
 
-/* ========== TRAJECTORY ========== */
-.traj-wrap { position: relative; }
-.traj-line {
-  position: relative;
-  margin-left: 92px;
-  border-left: 1px solid var(--line);
-  padding: 4px 0 4px 38px;
+/* ===== TRAJECTORY TIMELINE ===== */
+.tl { display: flex; flex-direction: column; }
+.tl-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px dotted var(--line-dot);
+  align-items: start;
 }
-.traj-station {
-  position: relative;
-  padding: 16px 0 22px;
+.tl-item:last-child { border-bottom: none; }
+.tl-item .yr {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding-top: 1px;
 }
-.traj-station + .traj-station {
-  border-top: 1px solid var(--line-soft);
+.tl-item .yr .sem {
+  display: block;
+  color: var(--text-low);
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 2px;
 }
-.traj-station::before {
-  content: '';
-  position: absolute;
-  left: -47px;
-  top: 22px;
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  background: var(--bg-0);
-  border: 1px solid var(--line);
-  box-sizing: border-box;
+.tl-item.live .yr { color: var(--accent); }
+.tl-item.live .yr::before {
+  content: '● ';
+  font-size: 8px;
+  animation: blink 2.4s ease-in-out infinite;
 }
-.traj-station.live::before {
-  border-color: var(--accent);
-  background: var(--accent);
-  animation: pulse 2.2s ease-in-out infinite;
+.tl-item .ttl {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 2px;
 }
-.traj-station.milestone-stop::before {
-  border-color: var(--accent);
-  background: rgba(95, 212, 154, 0.25);
-}
-
-.traj-station .period {
-  position: absolute;
-  left: -135px;
-  top: 18px;
-  width: 80px;
-  text-align: right;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--ink-1);
-}
-.traj-station .period .yr { display: block; color: var(--ink-0); font-size: 13px; }
-.traj-station .period .sem { color: var(--ink-3); font-size: 10px; }
-.traj-station.live .period .yr { color: var(--accent); }
-
-.traj-station h4 {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  margin: 0 0 4px;
-  color: var(--ink-0);
-}
-.traj-station h4 .badge-mini {
+.tl-item .ttl .badge {
   display: inline-block;
-  margin-left: 8px;
-  padding: 2px 8px;
-  font-family: var(--font-mono);
+  margin-left: 6px;
   font-size: 9px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border-radius: 999px;
+  padding: 1px 7px;
   border: 1px solid var(--line);
-  color: var(--ink-2);
+  background: var(--bg-deep);
+  color: var(--text-mute);
+  font-weight: 600;
   vertical-align: middle;
 }
-.traj-station h4 .badge-mini.milestone { border-color: var(--warn); color: var(--warn); }
-.traj-station h4 .badge-mini.live { border-color: var(--accent); color: var(--accent); }
+.tl-item .ttl .badge.milestone {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+.tl-item .ttl .badge.live {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
 
-/* ========== CHIPS (clean: dot + colored text, no oval) ========== */
-.traj-counts {
+/* counts (clean, no oval) */
+.tl-counts {
   display: flex; flex-wrap: wrap;
-  gap: 8px 22px;
-  margin-top: 12px;
+  gap: 6px 18px;
+  margin-top: 8px;
 }
-.traj-counts .ct {
+.tl-counts .ct {
   display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  letter-spacing: 0.02em;
-  color: var(--ink-2);
+  font-size: 11px;
+  color: var(--text-mute);
+  letter-spacing: 0.01em;
 }
-.traj-counts .ct::before {
+.tl-counts .ct::before {
   content: '';
   width: 7px; height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-.traj-counts .ct b { font-weight: 600; color: var(--ink-0); margin-right: 1px; }
-.traj-counts .ct.disciplinas         { color: var(--cat-disciplinas); }
-.traj-counts .ct.disciplinas::before { background: var(--cat-disciplinas); }
-.traj-counts .ct.disciplinas b       { color: var(--cat-disciplinas); }
-.traj-counts .ct.artigos             { color: var(--cat-artigos); }
-.traj-counts .ct.artigos::before     { background: var(--cat-artigos); }
-.traj-counts .ct.artigos b           { color: var(--cat-artigos); }
-.traj-counts .ct.tcc                 { color: var(--cat-tcc); }
-.traj-counts .ct.tcc::before         { background: var(--cat-tcc); }
-.traj-counts .ct.tcc b               { color: var(--cat-tcc); }
-.traj-counts .ct.bancas              { color: var(--cat-bancas); }
-.traj-counts .ct.bancas::before      { background: var(--cat-bancas); }
-.traj-counts .ct.bancas b            { color: var(--cat-bancas); }
-.traj-counts .ct.pesquisa            { color: var(--cat-pesquisa); }
-.traj-counts .ct.pesquisa::before    { background: var(--cat-pesquisa); }
-.traj-counts .ct.pesquisa b          { color: var(--cat-pesquisa); }
-.traj-counts .ct.extensao            { color: var(--cat-extensao); }
-.traj-counts .ct.extensao::before    { background: var(--cat-extensao); }
-.traj-counts .ct.extensao b          { color: var(--cat-extensao); }
+.tl-counts .ct b {
+  font-weight: 700;
+  margin-right: 1px;
+  color: var(--text-strong);
+}
+.tl-counts .ct.disciplinas::before { background: var(--cat-disciplinas); }
+.tl-counts .ct.disciplinas         { color: var(--cat-disciplinas); }
+.tl-counts .ct.disciplinas b       { color: var(--cat-disciplinas); }
+.tl-counts .ct.artigos::before     { background: var(--cat-artigos); }
+.tl-counts .ct.artigos             { color: var(--cat-artigos); }
+.tl-counts .ct.artigos b           { color: var(--cat-artigos); }
+.tl-counts .ct.tcc::before         { background: var(--cat-tcc); }
+.tl-counts .ct.tcc                 { color: var(--cat-tcc); }
+.tl-counts .ct.tcc b               { color: var(--cat-tcc); }
+.tl-counts .ct.bancas::before      { background: var(--cat-bancas); }
+.tl-counts .ct.bancas              { color: var(--cat-bancas); }
+.tl-counts .ct.bancas b            { color: var(--cat-bancas); }
+.tl-counts .ct.pesquisa::before    { background: var(--cat-pesquisa); }
+.tl-counts .ct.pesquisa            { color: var(--cat-pesquisa); }
+.tl-counts .ct.pesquisa b          { color: var(--cat-pesquisa); }
+.tl-counts .ct.extensao::before    { background: var(--cat-extensao); }
+.tl-counts .ct.extensao            { color: var(--cat-extensao); }
+.tl-counts .ct.extensao b          { color: var(--cat-extensao); }
 
-.traj-note {
-  margin-top: 10px;
-  font-size: 12.5px;
-  color: var(--ink-1);
-  font-style: italic;
-  font-family: var(--font-display);
+.tl-note {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-top: 8px;
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
 }
 
-/* phase header */
-.traj-phase {
-  margin: 24px 0 4px -92px;
-  padding-left: 92px;
-  font-family: var(--font-mono);
+/* phase header inside timeline */
+.tl-phase {
+  padding: 18px 0 6px;
   font-size: 10px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-3);
-  display: flex; align-items: center; gap: 12px;
+  color: var(--text-low);
+  font-weight: 600;
 }
-.traj-phase::before {
-  content: '';
-  display: inline-block;
-  width: 50px;
-  height: 1px;
-  background: var(--line);
+.tl-phase::before {
+  content: '— ';
+  color: var(--accent);
+  margin-right: 4px;
 }
-.traj-phase.first { margin-top: 0; }
+.tl-phase:first-child { padding-top: 0; }
 
-/* ========== RESEARCH LANES (gantt) ========== */
-.lanes-card-title {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  margin: 0 0 4px;
-}
-.lanes-card-sub {
-  font-size: 12px;
-  color: var(--ink-2);
-  margin: 0 0 22px;
-}
-
-.lanes-chart { position: relative; padding: 4px 0 14px; }
+/* ===== RESEARCH LANES (gantt) ===== */
 .lanes-axis {
   display: grid;
   grid-template-columns: 200px repeat(13, 1fr);
-  gap: 0;
-  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--ink-3);
-  border-bottom: 1px solid var(--line-soft);
+  color: var(--text-low);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--line);
   padding: 0 0 8px;
-  margin-bottom: 14px;
+  margin-bottom: 0;
 }
 .lanes-axis .ax-tick {
   text-align: center;
-  border-left: 1px dashed var(--line-soft);
+  border-left: 1px dotted var(--line-dot);
   padding: 0 4px;
 }
 .lanes-axis .ax-tick.now {
@@ -435,454 +467,477 @@ section { margin-bottom: 60px; }
   display: grid;
   grid-template-columns: 200px repeat(13, 1fr);
   align-items: center;
-  height: 44px;
+  height: 40px;
   position: relative;
+  border-bottom: 1px dotted var(--line-dot);
 }
-.lane-row + .lane-row { border-top: 1px solid var(--line-soft); }
+.lane-row:last-child { border-bottom: none; }
 
 .lane-row .lane-name {
-  font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--ink-1);
+  font-weight: 600;
+  color: var(--text-strong);
   padding-right: 14px;
-  letter-spacing: 0.02em;
 }
 .lane-row .lane-name .sub-name {
   display: block;
   font-size: 10px;
-  color: var(--ink-3);
-  letter-spacing: 0.06em;
+  font-weight: 400;
+  color: var(--text-low);
+  letter-spacing: 0.04em;
   margin-top: 2px;
+  text-transform: lowercase;
 }
 .lane-bar {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   height: 14px;
-  border-radius: 7px;
   display: flex;
   align-items: center;
-  padding: 0 10px;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  letter-spacing: 0.06em;
-  color: rgba(10,13,16,0.85);
-  text-transform: uppercase;
+  padding: 0 9px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #fff;
   font-weight: 600;
   overflow: hidden;
   white-space: nowrap;
   transition: filter 0.18s;
 }
-.lane-bar:hover { filter: brightness(1.15); }
+.lane-bar:hover { filter: brightness(0.92); }
 
-.lane-bar.b-disciplinas { background: linear-gradient(90deg, var(--cat-disciplinas), var(--accent-dim)); }
-.lane-bar.b-artigos     { background: linear-gradient(90deg, var(--cat-artigos), #355d80); }
-.lane-bar.b-tcc         { background: linear-gradient(90deg, var(--cat-tcc), #7a3f5d); }
-.lane-bar.b-pesquisa    { background: linear-gradient(90deg, var(--cat-pesquisa), #604077); }
-.lane-bar.b-extensao    { background: linear-gradient(90deg, var(--cat-extensao), #7a3a30); }
-.lane-bar.b-bancas      { background: linear-gradient(90deg, var(--cat-bancas), #8a6d28); }
+.lane-bar.b-disciplinas { background: var(--cat-disciplinas); }
+.lane-bar.b-artigos     { background: var(--cat-artigos); }
+.lane-bar.b-tcc         { background: var(--cat-tcc); }
+.lane-bar.b-pesquisa    { background: var(--cat-pesquisa); }
+.lane-bar.b-extensao    { background: var(--cat-extensao); }
+.lane-bar.b-bancas      { background: var(--cat-bancas); }
 .lane-bar.b-future {
   background: repeating-linear-gradient(
     45deg,
-    rgba(180, 141, 224, 0.4),
-    rgba(180, 141, 224, 0.4) 4px,
-    rgba(180, 141, 224, 0.18) 4px,
-    rgba(180, 141, 224, 0.18) 8px
+    rgba(142, 108, 179, 0.6),
+    rgba(142, 108, 179, 0.6) 4px,
+    rgba(142, 108, 179, 0.18) 4px,
+    rgba(142, 108, 179, 0.18) 8px
   );
-  color: var(--violet);
+  color: var(--c5);
+  font-weight: 700;
 }
 
-/* ========== FOOTER ========== */
+/* ===== FOOTER ===== */
 .foot {
-  margin-top: 80px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line-soft);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; gap: 16px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--ink-2);
-  letter-spacing: 0.01em;
+  margin-top: 60px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+  font-size: 11px;
+  color: var(--text-low);
 }
-.foot .author { color: var(--ink-1); }
-.foot a { color: var(--ink-1); }
-.foot a:hover { color: var(--accent); }
+.foot a { color: var(--accent); }
 
-/* ========== RESPONSIVE ========== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .layout { grid-template-columns: 200px 1fr; gap: 35px; padding: 40px 28px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .lanes-axis, .lane-row { grid-template-columns: 150px repeat(13, 1fr); }
 }
-@media (max-width: 700px) {
-  .shell { padding: 18px 14px 40px; }
-  .topbar { font-size: 10px; }
-  .card { padding: 22px 18px; }
-  .traj-line { margin-left: 60px; padding-left: 24px; }
-  .traj-station .period { left: -85px; width: 56px; }
-  .traj-station::before { left: -33px; }
-  .traj-phase { margin-left: -60px; padding-left: 60px; }
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  .sidebar {
+    position: static;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .tl-item { grid-template-columns: 95px 1fr; gap: 14px; }
   .lanes-axis, .lane-row { grid-template-columns: 110px repeat(13, 1fr); }
-  .lanes-axis .ax-tick { font-size: 8px; padding: 0 1px; }
-  .lane-row .lane-name { font-size: 10px; }
+  .lanes-axis .ax-tick { font-size: 9px; padding: 0 1px; }
+  .lane-row .lane-name { font-size: 11px; }
   .lane-row .lane-name .sub-name { display: none; }
-  .lane-bar { font-size: 8.5px; padding: 0 6px; }
+  .lane-bar { font-size: 9px; padding: 0 6px; }
 }
 </style>
 </head>
+
 <body>
 
-<div class="shell">
+<div class="layout">
 
-<!-- ========== TOP BAR ========== -->
-<div class="topbar">
-  <div class="crumbs">
-    <span>rmayormartins.github.io</span>
-    <span>academic roadmap</span>
-    <span>v1.2</span>
-  </div>
-  <div class="pulse"><span class="dot"></span> trajectory · in progress</div>
-</div>
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <h1>Ramon Mayor Martins</h1>
+    <p class="role">Ph.D. · <b>Professor EBTT</b></p>
+    <p class="role">IFSC Câmpus São José</p>
+    <p class="role">Eng. de Telecomunicações</p>
 
-<!-- ========== HERO ========== -->
-<header class="hero">
-  <div>
-    <h1>ACADEMIC<br><span class="em">roadmap</span></h1>
-    <div class="lede">
-      Trajetória acadêmica de <strong>Ramon Mayor Martins, Ph.D.</strong> · Professor EBTT · Coordenador de Pesquisa, Inovação e Pós ·
-      Instituto Federal de Santa Catarina, Câmpus São José.
+    <div class="side-card">
+      <div class="lbl">Coord. Pesquisa &amp; Inovação</div>
+      <div class="v"><span class="accent">FG2 · ativa</span></div>
+      <div class="meta">desde 03/2025</div>
     </div>
-    <div class="meta-row">
-      <div>Trajeto <strong>2016 — 2026</strong></div>
-      <div>Servidor desde <strong>2016</strong></div>
-      <div>Doutorado <strong>UFSC · 2024</strong></div>
-      <div>Pós-doc <strong>UFSC · 2025+</strong></div>
-    </div>
-    <div class="links">
-      <a href="https://rmayormartins.github.io/" target="_blank">Página pessoal</a>
+
+    <nav>
+      <div class="label">site</div>
+      <a href="https://rmayormartins.github.io/" target="_blank">Home</a>
+      <a href="https://rmayormartins.github.io/about.html" target="_blank">About</a>
+      <a href="https://rmayormartins.github.io/current.html" target="_blank">Current Status</a>
+      <a href="https://rmayormartins.github.io/publications.html" target="_blank">Publications</a>
+      <a href="https://rmayormartins.github.io/academic.html" target="_blank">Academic Profile</a>
+      <a href="./academicreport.html">Academic Dashboard</a>
+      <a href="https://rmayormartins.github.io/contact.html" target="_blank">Contact Me</a>
+
+      <div class="label">labs</div>
+      <a href="https://rmayormartins.github.io/telecom-tools/" target="_blank">Telecom Tools</a>
+      <a href="https://rmayormartins.github.io/ia-tools/" target="_blank">IA Tools</a>
+
+      <div class="label">profiles</div>
+      <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
+      <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
       <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Lattes</a>
       <a href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">Scholar</a>
       <a href="https://orcid.org/0000-0002-1952-0909" target="_blank">ORCID</a>
-      <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
-      <a href="./academicreport.html">Dashboard</a>
-    </div>
-  </div>
+    </nav>
+  </aside>
 
-  <div class="status-grid">
-    <div class="status-cell">
-      <div class="label">Mission day</div>
-      <div class="value accent" id="mission-day">—</div>
-      <div class="sub">desde ingresso no IFSC · 04.2016</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Fase atual</div>
-      <div class="value">2026.1</div>
-      <div class="sub">post-doc · TCC × 4 · papers × 4</div>
-    </div>
-  </div>
-</header>
+  <!-- ========== MAIN ========== -->
+  <main class="main">
 
-<!-- ========== 01 · TRAJECTORY ========== -->
-<section id="trajectory">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">01</div>
-      <h2>Trajectory <span class="em">/ semester-by-semester</span></h2>
-    </div>
-    <div class="h-right">2026.1 ── 2016.1</div>
-  </div>
-
-  <div class="card">
-
-    <div class="cat-legend">
-      <span class="key disciplinas">disciplinas</span>
-      <span class="key artigos">artigos</span>
-      <span class="key tcc">TCC</span>
-      <span class="key bancas">bancas</span>
-      <span class="key pesquisa">pesquisa</span>
-      <span class="key extensao">extensão</span>
+    <div class="head-row">
+      <div class="back"><a href="https://rmayormartins.github.io/">← back</a></div>
+      <div class="version">v2.0 · last build <b id="bd">—</b></div>
     </div>
 
-    <div class="traj-wrap">
+    <h2 class="page-title">Academic Roadmap</h2>
+    <p class="page-lede">
+      Trajetória acadêmica de <strong>Ramon Mayor Martins, Ph.D.</strong> — semestre por semestre, do presente ao começo. Mapa narrativo da jornada (2016 → 2026) acompanhado das linhas de pesquisa que atravessam o tempo.
+    </p>
 
-      <!-- ===== PHASE 04: post-PhD ===== -->
-      <div class="traj-phase first">phase 04 · post-PhD</div>
-      <div class="traj-line">
-
-        <div class="traj-station live">
-          <div class="period"><span class="yr">2026</span><span class="sem">.1 · live</span></div>
-          <h4>Missão atual · você está aqui <span class="badge-mini live">live</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>5</b> disciplinas</span>
-            <span class="ct artigos"><b>4+</b> artigos em submissão</span>
-            <span class="ct tcc"><b>4</b> TCC</span>
-            <span class="ct pesquisa"><b>2</b> pesquisa</span>
-          </div>
-          <div class="traj-note">SBRT 2026, SBIE 2026, WEI 2026, WIE 2026 · editais PROPPI 05 e SIGAA 09 submetidos.</div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2025</span><span class="sem">.2</span></div>
-          <h4>3º lugar Educomp · Finalista CSBC <span class="badge-mini milestone">awards</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>~5</b> disciplinas</span>
-            <span class="ct artigos"><b>~7</b> artigos</span>
-            <span class="ct tcc"><b>3</b> TCC</span>
-            <span class="ct bancas"><b>~15</b> bancas</span>
-            <span class="ct pesquisa"><b>2</b> pesquisa</span>
-          </div>
-          <div class="traj-note">Concurso de Tese SBC · Finalista Rotas para Inovação Sebrae · líder GPSIA.</div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2025</span><span class="sem">.1</span></div>
-          <h4>Primeiro semestre como Dr. <span class="badge-mini milestone">post-PhD</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>~5</b> disciplinas</span>
-            <span class="ct artigos"><b>~7</b> artigos</span>
-            <span class="ct tcc"><b>2</b> TCC</span>
-            <span class="ct pesquisa"><b>1</b> pesquisa</span>
-          </div>
-          <div class="traj-note">Início do pós-doc UFSC · TCCs CubeSat (Deivid Frederico) e GS SatNOGS (Matheus Pires).</div>
-        </div>
-
-      </div>
-
-      <!-- ===== PHASE 03: acceleration ===== -->
-      <div class="traj-phase">phase 03 · research acceleration</div>
-      <div class="traj-line">
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2024</span><span class="sem">.1 / .2</span></div>
-          <h4>Defesa do doutorado · UFSC <span class="badge-mini milestone">PhD</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>4</b> disciplinas</span>
-            <span class="ct artigos"><b>8</b> artigos</span>
-            <span class="ct tcc"><b>2</b> TCC</span>
-            <span class="ct bancas"><b>7</b> bancas</span>
-            <span class="ct pesquisa"><b>1</b> pesquisa</span>
-          </div>
-          <div class="traj-note">"Machine Learning para Todos!" · 338 estudantes · NASA Open Science · IBM ML Specialist · Intel Advanced.</div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2023</span><span class="sem">.1 / .2</span></div>
-          <h4>MIT Teacher Excellence Award <span class="badge-mini milestone">award</span></h4>
-          <div class="traj-counts">
-            <span class="ct artigos"><b>11</b> artigos</span>
-            <span class="ct bancas"><b>4</b> bancas</span>
-            <span class="ct pesquisa"><b>1</b> pesquisa</span>
-          </div>
-          <div class="traj-note">App Inventor Foundation · App of the Season UNESCO · 3º artigo mais lido INFEDU.</div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2022</span><span class="sem">.1 / .2</span></div>
-          <h4>3º lugar Summer Appathon · MIT <span class="badge-mini milestone">award</span></h4>
-          <div class="traj-counts">
-            <span class="ct artigos"><b>6</b> artigos</span>
-            <span class="ct bancas"><b>9</b> bancas</span>
-            <span class="ct pesquisa"><b>1</b> pesquisa</span>
-          </div>
-          <div class="traj-note">Início do programa ProgCTQ.</div>
-        </div>
-
-      </div>
-
-      <!-- ===== PHASE 02: teaching-heavy ===== -->
-      <div class="traj-phase">phase 02 · teaching-heavy</div>
-      <div class="traj-line">
-
-        <div class="traj-station">
-          <div class="period"><span class="yr">2021</span><span class="sem">.1 / .2</span></div>
-          <h4>Primeira competição internacional</h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>6</b> disciplinas</span>
-            <span class="ct artigos"><b>3</b> artigos</span>
-            <span class="ct tcc"><b>1</b> TCC</span>
-            <span class="ct bancas"><b>2</b> bancas</span>
-          </div>
-        </div>
-
-        <div class="traj-station">
-          <div class="period"><span class="yr">2020</span><span class="sem">.1 / .2 · pandemia</span></div>
-          <h4>Adaptação ao ensino remoto</h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>3</b> disciplinas</span>
-            <span class="ct artigos"><b>3</b> artigos</span>
-            <span class="ct tcc"><b>2</b> TCC</span>
-          </div>
-          <div class="traj-note">Início do trabalho com App Inventor &amp; educação em IA.</div>
-        </div>
-
-        <div class="traj-station">
-          <div class="period"><span class="yr">2019</span><span class="sem">.1 / .2</span></div>
-          <h4>Transição · gestação do tema de doutorado</h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>6</b> disciplinas</span>
-            <span class="ct tcc"><b>2</b> TCC</span>
-            <span class="ct bancas"><b>5</b> bancas</span>
-          </div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2018</span><span class="sem">.1 / .2</span></div>
-          <h4>Pico de orientações &amp; bancas <span class="badge-mini milestone">peak year</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>10</b> disciplinas</span>
-            <span class="ct artigos"><b>4</b> artigos</span>
-            <span class="ct tcc"><b>10</b> TCC</span>
-            <span class="ct bancas"><b>12</b> bancas</span>
-            <span class="ct extensao"><b>4</b> extensão</span>
-          </div>
-          <div class="traj-note">Maior densidade de orientação da carreira.</div>
-        </div>
-
-      </div>
-
-      <!-- ===== PHASE 01: building ===== -->
-      <div class="traj-phase">phase 01 · building foundation</div>
-      <div class="traj-line">
-
-        <div class="traj-station">
-          <div class="period"><span class="yr">2017</span><span class="sem">.1 / .2</span></div>
-          <h4>Consolidação no ensino &amp; primeiras orientações</h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>11</b> disciplinas</span>
-            <span class="ct artigos"><b>5</b> artigos</span>
-            <span class="ct tcc"><b>4</b> TCC</span>
-            <span class="ct bancas"><b>6</b> bancas</span>
-            <span class="ct extensao"><b>2</b> extensão</span>
-          </div>
-        </div>
-
-        <div class="traj-station milestone-stop">
-          <div class="period"><span class="yr">2016</span><span class="sem">.1 / .2</span></div>
-          <h4>Ingresso efetivo no IFSC <span class="badge-mini milestone">start</span></h4>
-          <div class="traj-counts">
-            <span class="ct disciplinas"><b>10</b> disciplinas</span>
-            <span class="ct artigos"><b>7</b> artigos</span>
-            <span class="ct extensao"><b>1</b> extensão</span>
-          </div>
-          <div class="traj-note">Servidor público federal · ponto inicial da missão.</div>
-        </div>
-
-      </div>
-
+    <div class="meta-bar">
+      <div>window: <b>2016 → 2026</b></div>
+      <div>servidor: <b>2016+</b></div>
+      <div>doutorado: <b>UFSC · 2024</b></div>
+      <div>pós-doc: <b>UFSC · 2025+</b></div>
+      <div style="margin-left: auto;" class="ok">live</div>
     </div>
-  </div>
-</section>
 
-<!-- ========== 02 · RESEARCH LANES ========== -->
-<section id="lanes">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">02</div>
-      <h2>Research lanes <span class="em">/ parallel threads through time</span></h2>
+    <!-- ========== KPI GRID ========== -->
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="lbl">mission day</div>
+        <div class="val" id="mission-day">—</div>
+        <div class="sub">desde ingresso · 04/2016</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">fase atual</div>
+        <div class="val">2026.1</div>
+        <div class="sub">post-doc · TCC × 4 · papers × 4</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">trajeto</div>
+        <div class="val">10<span style="font-size: 18px; color: var(--text-low);"> anos</span></div>
+        <div class="sub">2016 → 2026 · 4 fases</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">linhas ativas</div>
+        <div class="val">6</div>
+        <div class="sub">+ 1 linha emergente</div>
+      </div>
     </div>
-    <div class="h-right">2026 ── 2014</div>
-  </div>
 
-  <div class="card">
-    <div class="lanes-card-title">Linhas de pesquisa &times; tempo</div>
-    <div class="lanes-card-sub">Eixo invertido · 2026 à esquerda. Faixa tracejada = linha emergente.</div>
-
-    <div class="lanes-chart">
-      <div class="lanes-axis">
-        <div></div>
-        <div class="ax-tick now">'26</div>
-        <div class="ax-tick">'25</div>
-        <div class="ax-tick">'24</div>
-        <div class="ax-tick">'23</div>
-        <div class="ax-tick">'22</div>
-        <div class="ax-tick">'21</div>
-        <div class="ax-tick">'20</div>
-        <div class="ax-tick">'19</div>
-        <div class="ax-tick">'18</div>
-        <div class="ax-tick">'17</div>
-        <div class="ax-tick">'16</div>
-        <div class="ax-tick">'15</div>
-        <div class="ax-tick">'14</div>
+    <!-- ========== 01 TRAJECTORY ========== -->
+    <section id="trajectory">
+      <div class="sec-head">
+        <h3><span class="num">01.</span> Trajectory <span class="slash">/</span><span class="en">semester-by-semester</span></h3>
+        <div class="meta">2026.1 ── 2016.1 · ordem reversa</div>
       </div>
 
-      <!-- Telecom & SDR · 2017 → present (10 anos) -->
-      <div class="lane-row">
-        <div class="lane-name">Telecom &amp; SDR<span class="sub-name">antenas · cubesat · satnogs</span></div>
-        <div class="lane-bar b-disciplinas" style="left: 200px; width: calc(10 / 13 * (100% - 200px) - 6px);">
-          since 2017
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">linha do tempo <b>· estações da missão</b></div>
+          <div class="panel-tag live">live</div>
+        </div>
+        <p class="panel-sub">cada estação é um ano (ou semestre quando relevante). lê de cima (presente) para baixo (passado).</p>
+
+        <div class="cat-legend">
+          <span class="key disciplinas">disciplinas</span>
+          <span class="key artigos">artigos</span>
+          <span class="key tcc">TCC</span>
+          <span class="key bancas">bancas</span>
+          <span class="key pesquisa">pesquisa</span>
+          <span class="key extensao">extensão</span>
+        </div>
+
+        <div class="tl">
+
+          <!-- ===== PHASE 04 ===== -->
+          <div class="tl-phase">phase 04 · post-PhD</div>
+
+          <div class="tl-item live">
+            <div class="yr">2026<span class="sem">.1 · live</span></div>
+            <div>
+              <div class="ttl">Missão atual · você está aqui <span class="badge live">live</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>5</b> disciplinas</span>
+                <span class="ct artigos"><b>4+</b> artigos em submissão</span>
+                <span class="ct tcc"><b>4</b> TCC</span>
+                <span class="ct pesquisa"><b>2</b> pesquisa</span>
+              </div>
+              <div class="tl-note">SBRT 2026, SBIE 2026, WEI 2026, WIE 2026 · editais PROPPI 05 e SIGAA 09 submetidos.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2025<span class="sem">.2</span></div>
+            <div>
+              <div class="ttl">3º lugar Educomp · Finalista CSBC <span class="badge milestone">awards</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>~5</b> disciplinas</span>
+                <span class="ct artigos"><b>~7</b> artigos</span>
+                <span class="ct tcc"><b>3</b> TCC</span>
+                <span class="ct bancas"><b>~15</b> bancas</span>
+                <span class="ct pesquisa"><b>2</b> pesquisa</span>
+              </div>
+              <div class="tl-note">Concurso de Tese SBC · Finalista Rotas para Inovação Sebrae · líder GPSIA.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2025<span class="sem">.1</span></div>
+            <div>
+              <div class="ttl">Primeiro semestre como Dr. <span class="badge milestone">post-PhD</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>~5</b> disciplinas</span>
+                <span class="ct artigos"><b>~7</b> artigos</span>
+                <span class="ct tcc"><b>2</b> TCC</span>
+                <span class="ct pesquisa"><b>1</b> pesquisa</span>
+              </div>
+              <div class="tl-note">Início do pós-doc UFSC · TCCs CubeSat (Deivid Frederico) e GS SatNOGS (Matheus Pires).</div>
+            </div>
+          </div>
+
+          <!-- ===== PHASE 03 ===== -->
+          <div class="tl-phase">phase 03 · research acceleration</div>
+
+          <div class="tl-item">
+            <div class="yr">2024<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Defesa do doutorado · UFSC <span class="badge milestone">PhD</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>4</b> disciplinas</span>
+                <span class="ct artigos"><b>8</b> artigos</span>
+                <span class="ct tcc"><b>2</b> TCC</span>
+                <span class="ct bancas"><b>7</b> bancas</span>
+                <span class="ct pesquisa"><b>1</b> pesquisa</span>
+              </div>
+              <div class="tl-note">"Machine Learning para Todos!" · 338 estudantes · NASA Open Science · IBM ML Specialist · Intel Advanced.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2023<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">MIT Teacher Excellence Award <span class="badge milestone">award</span></div>
+              <div class="tl-counts">
+                <span class="ct artigos"><b>11</b> artigos</span>
+                <span class="ct bancas"><b>4</b> bancas</span>
+                <span class="ct pesquisa"><b>1</b> pesquisa</span>
+              </div>
+              <div class="tl-note">App Inventor Foundation · App of the Season UNESCO · 3º artigo mais lido INFEDU.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2022<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">3º lugar Summer Appathon · MIT <span class="badge milestone">award</span></div>
+              <div class="tl-counts">
+                <span class="ct artigos"><b>6</b> artigos</span>
+                <span class="ct bancas"><b>9</b> bancas</span>
+                <span class="ct pesquisa"><b>1</b> pesquisa</span>
+              </div>
+              <div class="tl-note">Início do programa ProgCTQ.</div>
+            </div>
+          </div>
+
+          <!-- ===== PHASE 02 ===== -->
+          <div class="tl-phase">phase 02 · teaching-heavy</div>
+
+          <div class="tl-item">
+            <div class="yr">2021<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Primeira competição internacional</div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>6</b> disciplinas</span>
+                <span class="ct artigos"><b>3</b> artigos</span>
+                <span class="ct tcc"><b>1</b> TCC</span>
+                <span class="ct bancas"><b>2</b> bancas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2020<span class="sem">.1 / .2 · pandemia</span></div>
+            <div>
+              <div class="ttl">Adaptação ao ensino remoto</div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>3</b> disciplinas</span>
+                <span class="ct artigos"><b>3</b> artigos</span>
+                <span class="ct tcc"><b>2</b> TCC</span>
+              </div>
+              <div class="tl-note">Início do trabalho com App Inventor &amp; educação em IA.</div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2019<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Transição · gestação do tema de doutorado</div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>6</b> disciplinas</span>
+                <span class="ct tcc"><b>2</b> TCC</span>
+                <span class="ct bancas"><b>5</b> bancas</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2018<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Pico de orientações &amp; bancas <span class="badge milestone">peak year</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>10</b> disciplinas</span>
+                <span class="ct artigos"><b>4</b> artigos</span>
+                <span class="ct tcc"><b>10</b> TCC</span>
+                <span class="ct bancas"><b>12</b> bancas</span>
+                <span class="ct extensao"><b>4</b> extensão</span>
+              </div>
+              <div class="tl-note">Maior densidade de orientação da carreira.</div>
+            </div>
+          </div>
+
+          <!-- ===== PHASE 01 ===== -->
+          <div class="tl-phase">phase 01 · building foundation</div>
+
+          <div class="tl-item">
+            <div class="yr">2017<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Consolidação no ensino &amp; primeiras orientações</div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>11</b> disciplinas</span>
+                <span class="ct artigos"><b>5</b> artigos</span>
+                <span class="ct tcc"><b>4</b> TCC</span>
+                <span class="ct bancas"><b>6</b> bancas</span>
+                <span class="ct extensao"><b>2</b> extensão</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="yr">2016<span class="sem">.1 / .2</span></div>
+            <div>
+              <div class="ttl">Ingresso efetivo no IFSC <span class="badge milestone">start</span></div>
+              <div class="tl-counts">
+                <span class="ct disciplinas"><b>10</b> disciplinas</span>
+                <span class="ct artigos"><b>7</b> artigos</span>
+                <span class="ct extensao"><b>1</b> extensão</span>
+              </div>
+              <div class="tl-note">Servidor público federal · ponto inicial da missão.</div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- ML para Todos · 2020 → present -->
-      <div class="lane-row">
-        <div class="lane-name">ML para Todos<span class="sub-name">educação · vulnerabilidade</span></div>
-        <div class="lane-bar b-artigos" style="left: 200px; width: calc(7 / 13 * (100% - 200px) - 6px);">
-          2020 → present
-        </div>
+    <!-- ========== 02 RESEARCH LANES ========== -->
+    <section id="lanes">
+      <div class="sec-head">
+        <h3><span class="num">02.</span> Research Lanes <span class="slash">/</span><span class="en">parallel threads through time</span></h3>
+        <div class="meta"><b>6</b> linhas ativas · <b>1</b> emergente</div>
       </div>
 
-      <!-- ProgCTQ · 2022 → present -->
-      <div class="lane-row">
-        <div class="lane-name">ProgCTQ<span class="sub-name">pensamento crítico · psicometria</span></div>
-        <div class="lane-bar b-pesquisa" style="left: 200px; width: calc(5 / 13 * (100% - 200px) - 6px);">
-          2022 → present
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">linhas de pesquisa <b>× tempo</b></div>
+          <div class="panel-tag">gantt · reverse</div>
         </div>
-      </div>
+        <p class="panel-sub">eixo invertido · 2026 à esquerda. faixa tracejada = linha emergente.</p>
 
-      <!-- Imagem médica · 2024 → present -->
-      <div class="lane-row">
-        <div class="lane-name">Imagem médica<span class="sub-name">mamografia · wavelet · CBAM</span></div>
-        <div class="lane-bar b-tcc" style="left: 200px; width: calc(3 / 13 * (100% - 200px) - 6px);">
-          2024 → present
+        <div class="lanes-axis">
+          <div></div>
+          <div class="ax-tick now">'26</div>
+          <div class="ax-tick">'25</div>
+          <div class="ax-tick">'24</div>
+          <div class="ax-tick">'23</div>
+          <div class="ax-tick">'22</div>
+          <div class="ax-tick">'21</div>
+          <div class="ax-tick">'20</div>
+          <div class="ax-tick">'19</div>
+          <div class="ax-tick">'18</div>
+          <div class="ax-tick">'17</div>
+          <div class="ax-tick">'16</div>
+          <div class="ax-tick">'15</div>
+          <div class="ax-tick">'14</div>
         </div>
-      </div>
 
-      <!-- Sinais & CvT · 2025 → present -->
-      <div class="lane-row">
-        <div class="lane-name">Sinais &amp; CvT<span class="sub-name">ECG · EEG · ultrassom</span></div>
-        <div class="lane-bar b-extensao" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">
-          since 2025
+        <div class="lane-row">
+          <div class="lane-name">Telecom &amp; SDR<span class="sub-name">antenas · cubesat · satnogs</span></div>
+          <div class="lane-bar b-disciplinas" style="left: 200px; width: calc(10 / 13 * (100% - 200px) - 6px);">since 2017</div>
         </div>
-      </div>
 
-      <!-- Kamtech · 2025 → present -->
-      <div class="lane-row">
-        <div class="lane-name">Kamtech<span class="sub-name">SIGAP · SISDEV · porto</span></div>
-        <div class="lane-bar b-bancas" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">
-          since 2025
+        <div class="lane-row">
+          <div class="lane-name">ML para Todos<span class="sub-name">educação · vulnerabilidade</span></div>
+          <div class="lane-bar b-artigos" style="left: 200px; width: calc(7 / 13 * (100% - 200px) - 6px);">2020 → present</div>
         </div>
-      </div>
 
-      <!-- App Inventor · 2021 → 2024 -->
-      <div class="lane-row">
-        <div class="lane-name">App Inventor<span class="sub-name">jogos sérios · UNESCO</span></div>
-        <div class="lane-bar b-bancas" style="left: calc(200px + 2 / 13 * (100% - 200px)); width: calc(4 / 13 * (100% - 200px) - 6px);">
-          2021 — 2024
+        <div class="lane-row">
+          <div class="lane-name">ProgCTQ<span class="sub-name">pensamento crítico · psicometria</span></div>
+          <div class="lane-bar b-pesquisa" style="left: 200px; width: calc(5 / 13 * (100% - 200px) - 6px);">2022 → present</div>
         </div>
-      </div>
 
-      <!-- LLM em Educação · emerging -->
-      <div class="lane-row">
-        <div class="lane-name">LLM em Educação<span class="sub-name">corretor ENEM · avaliação</span></div>
-        <div class="lane-bar b-future" style="left: 200px; width: calc(1.5 / 13 * (100% - 200px) - 6px);">
-          emerging
+        <div class="lane-row">
+          <div class="lane-name">Imagem médica<span class="sub-name">mamografia · wavelet · CBAM</span></div>
+          <div class="lane-bar b-tcc" style="left: 200px; width: calc(3 / 13 * (100% - 200px) - 6px);">2024 → present</div>
         </div>
+
+        <div class="lane-row">
+          <div class="lane-name">Sinais &amp; CvT<span class="sub-name">ECG · EEG · ultrassom</span></div>
+          <div class="lane-bar b-extensao" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">since 2025</div>
+        </div>
+
+        <div class="lane-row">
+          <div class="lane-name">Kamtech<span class="sub-name">SIGAP · SISDEV · porto</span></div>
+          <div class="lane-bar b-bancas" style="left: 200px; width: calc(2 / 13 * (100% - 200px) - 6px);">since 2025</div>
+        </div>
+
+        <div class="lane-row">
+          <div class="lane-name">App Inventor<span class="sub-name">jogos sérios · UNESCO</span></div>
+          <div class="lane-bar b-bancas" style="left: calc(200px + 2 / 13 * (100% - 200px)); width: calc(4 / 13 * (100% - 200px) - 6px);">2021 — 2024</div>
+        </div>
+
+        <div class="lane-row">
+          <div class="lane-name">LLM em Educação<span class="sub-name">corretor ENEM · avaliação</span></div>
+          <div class="lane-bar b-future" style="left: 200px; width: calc(1.5 / 13 * (100% - 200px) - 6px);">emerging</div>
+        </div>
+
       </div>
+    </section>
 
-    </div>
-  </div>
-</section>
+    <!-- ========== FOOTER ========== -->
+    <footer class="foot">
+      <div>Ramon Mayor Martins, Ph.D. · IFSC Câmpus São José</div>
+      <div>
+        <a href="https://rmayormartins.github.io/" target="_blank">rmayormartins.github.io</a>
+        · roadmap v2.0 · last updated 2026.04
+      </div>
+    </footer>
 
-<!-- ========== FOOTER ========== -->
-<footer class="foot">
-  <div class="author">Ramon Mayor Martins, Ph.D. · IFSC Câmpus São José</div>
-  <div>
-    <a href="https://rmayormartins.github.io/" target="_blank">rmayormartins.github.io</a>
-    · roadmap v1.2 · last updated 2026.04
-  </div>
-</footer>
-
+  </main>
 </div>
 
 <script>
@@ -892,6 +947,13 @@ section { margin-bottom: 60px; }
   const days = Math.floor((Date.now() - start.getTime()) / (1000 * 60 * 60 * 24));
   const cell = document.getElementById('mission-day');
   if (cell) cell.textContent = days.toLocaleString('pt-BR');
+
+  /* last build = today */
+  const bd = document.getElementById('bd');
+  if (bd) {
+    const d = new Date();
+    bd.textContent = d.toISOString().slice(0,10);
+  }
 })();
 </script>
 
