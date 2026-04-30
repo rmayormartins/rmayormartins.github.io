@@ -3,1524 +3,1201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academic Dashboard — Ramon Mayor Martins, Ph.D.</title>
-<meta name="description" content="Painel acadêmico completo de Ramon Mayor Martins · IFSC Câmpus São José">
+<title>Academic Dashboard — Ramon Mayor Martins</title>
+<meta name="description" content="Painel acadêmico de Ramon Mayor Martins, Ph.D. · IFSC Câmpus São José">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <style>
+/* ===================================================================
+   MODERNIST THEME · light · adapted for academic dashboard
+   matches https://rmayormartins.github.io/ orderedlist theme
+   =================================================================== */
+
 :root {
-  --bg-0: #0a0d10;
-  --bg-1: #11161a;
-  --bg-2: #161c22;
-  --bg-3: #1e262e;
-  --line: #2a3540;
-  --line-soft: #1e262e;
-  --ink-0: #e8ede8;
-  --ink-1: #b9c2bc;
-  --ink-2: #7e8a82;
-  --ink-3: #4f5a55;
-  --accent: #5fd49a;        /* IFSC green pulled darker for tech feel */
-  --accent-dim: #3a8a64;
-  --accent-soft: rgba(95, 212, 154, 0.12);
-  --warn: #f1c068;
-  --hot: #e07b6c;
-  --cool: #6cb3e0;
-  --violet: #b48de0;
+  --bg:        #ffffff;
+  --bg-soft:   #fafafa;
+  --bg-deep:   #f5f5f5;
+  --line:      #e5e5e5;
+  --line-soft: #efefef;
+  --line-dot:  #cccccc;
 
-  /* chart palette */
-  --c1: #5fd49a;
-  --c2: #6cb3e0;
-  --c3: #f1c068;
-  --c4: #e07b6c;
-  --c5: #b48de0;
-  --c6: #8fcad8;
-  --c7: #d8a677;
-  --c8: #9fb87f;
-  --c9: #c7c4b1;
+  --text:        #333333;
+  --text-strong: #1d1f21;
+  --text-mute:   #666666;
+  --text-low:    #999999;
 
-  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --accent:        #267CB9;
+  --accent-soft:   #4a9bd1;
+  --accent-deep:   #1d5e8c;
+  --accent-bg:     #f0f7fc;
+
+  /* chart palette tuned for light bg */
+  --c1: #267CB9;
+  --c2: #4caf6d;
+  --c3: #e8a93e;
+  --c4: #d96666;
+  --c5: #8e6cb3;
+  --c6: #5cb3c2;
+  --c7: #c89060;
+  --c8: #8aa872;
+  --c9: #999999;
+
+  --font-mono: 'Source Code Pro', ui-monospace, Menlo, Consolas, monospace;
 }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
 body {
-  background: var(--bg-0);
-  color: var(--ink-0);
-  font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: 0.01em;
-  min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse 1200px 600px at 80% -10%, rgba(95, 212, 154, 0.06), transparent 60%),
-    radial-gradient(ellipse 1000px 500px at 10% 100%, rgba(108, 179, 224, 0.05), transparent 60%);
-}
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-.shell {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 28px 24px 60px;
-}
-
-/* =========== TOP BAR =========== */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line-soft);
-  margin-bottom: 36px;
-}
-.topbar .crumbs span + span::before { content: ' / '; opacity: 0.5; margin: 0 6px; }
-.topbar .pulse {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--accent);
-}
-.dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 0 var(--accent);
-  animation: pulse 2.2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(95,212,154,0.5); }
-  50% { box-shadow: 0 0 0 8px rgba(95,212,154,0); }
-}
-
-/* =========== HERO =========== */
-.hero {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  margin-bottom: 56px;
-  align-items: end;
-}
-.hero h1 {
-  font-family: var(--font-mono);
-  font-size: clamp(36px, 5.2vw, 70px);
-  font-weight: 700;
-  line-height: 0.98;
-  margin: 0 0 14px;
-  letter-spacing: -0.03em;
-  color: var(--ink-0);
-}
-.hero h1 .em {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--accent);
+  line-height: 1.6;
+  min-height: 100vh;
 }
-.hero .lede {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  color: var(--ink-1);
-  max-width: 620px;
-  margin-bottom: 22px;
-}
-.hero .meta-row {
-  display: flex; gap: 22px; flex-wrap: wrap;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.hero .meta-row strong { color: var(--ink-0); font-weight: 500; }
 
-.hero .links {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-top: 18px;
-}
-.hero .links a {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--ink-1);
-  transition: all 0.18s;
-}
-.hero .links a:hover {
-  border-color: var(--accent);
+a {
   color: var(--accent);
   text-decoration: none;
 }
-
-/* status panel like lab pages */
-.status-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: var(--line-soft);
-  border: 1px solid var(--line-soft);
-  border-radius: 4px;
-  overflow: hidden;
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-deep);
 }
-.status-cell {
-  background: var(--bg-1);
+
+::selection { background: var(--accent); color: #fff; }
+
+/* ===================================================================
+   LAYOUT — sidebar + main (modernist)
+   =================================================================== */
+
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 50px;
+  padding: 50px 40px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 50px;
+  align-self: start;
+}
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.sidebar .role {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+.sidebar .role b { color: var(--text-strong); font-weight: 600; }
+
+.side-card {
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  margin: 18px 0;
+  font-size: 11px;
+}
+.side-card .lbl {
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.side-card .v {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 13px;
+}
+.side-card .v .accent { color: var(--accent); }
+
+.sidebar nav {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: 18px;
+  font-size: 12px;
+}
+.sidebar nav a {
+  color: var(--accent);
+  padding: 2px 0;
+}
+.sidebar nav .label {
+  color: var(--text-low);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 14px 0 4px;
+}
+.sidebar nav .label:first-child { margin-top: 0; }
+
+/* MAIN */
+.main {
+  min-width: 0;
+}
+
+/* ===================================================================
+   HEADER (top of main)
+   =================================================================== */
+
+.head-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+  margin-bottom: 8px;
+}
+.head-row .back a { font-size: 13px; }
+
+h2.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+.page-lede {
+  color: var(--text-mute);
+  font-size: 13px;
+  max-width: 880px;
+  margin: 0 0 28px;
+}
+.page-lede strong { color: var(--text-strong); font-weight: 600; }
+
+/* ===================================================================
+   META BAR
+   =================================================================== */
+
+.meta-bar {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  font-size: 11px;
+  color: var(--text-low);
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+.meta-bar b { color: var(--text-strong); font-weight: 600; }
+.meta-bar .ok {
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.meta-bar .ok::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ===================================================================
+   KPI GRID (top stats)
+   =================================================================== */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 50px;
+}
+.kpi {
+  background: var(--bg);
   padding: 18px 16px;
   display: flex; flex-direction: column; gap: 4px;
 }
-.status-cell .label {
-  font-family: var(--font-mono);
+.kpi .lbl {
   font-size: 10px;
-  letter-spacing: 0.18em;
+  color: var(--text-low);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-2);
 }
-.status-cell .value {
-  font-family: var(--font-mono);
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--ink-0);
-  letter-spacing: -0.01em;
-}
-.status-cell .value.accent { color: var(--accent); }
-.status-cell .sub {
-  font-size: 11px; color: var(--ink-2);
-  font-family: var(--font-mono);
-}
-
-/* =========== SECTION =========== */
-section {
-  margin-bottom: 60px;
-}
-.section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 24px;
-  padding-bottom: 16px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.section-head .h-left {
-  display: flex; align-items: baseline; gap: 18px;
-}
-.section-num {
-  font-family: var(--font-mono);
-  font-size: 12px;
+.kpi .val {
+  font-size: 30px;
   color: var(--accent);
-  letter-spacing: 0.18em;
-}
-.section-head h2 {
-  font-family: var(--font-mono);
-  font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 4px 0;
   letter-spacing: -0.01em;
+}
+.kpi .sub { font-size: 10px; color: var(--text-mute); }
+
+/* ===================================================================
+   SECTION
+   =================================================================== */
+
+section { margin-bottom: 50px; }
+
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding-bottom: 10px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-strong);
   margin: 0;
-  color: var(--ink-0);
+  letter-spacing: -0.005em;
 }
-.section-head h2 .em {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
+.sec-head h3 .num {
   color: var(--accent);
-  margin-left: 6px;
-}
-.section-head .h-right {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-
-/* =========== CARD =========== */
-.card {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 22px;
-  position: relative;
-}
-.card .tag {
-  position: absolute;
-  top: 14px; right: 14px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-}
-.card .tag.live { color: var(--accent); }
-.card-title {
-  font-family: var(--font-mono);
-  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  color: var(--ink-0);
-  margin: 0 0 4px;
+  margin-right: 10px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
 }
-.card-sub {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--ink-2);
-  margin: 0 0 18px;
+.sec-head h3 .slash { color: var(--text-low); font-weight: 400; margin: 0 6px; }
+.sec-head h3 .en { color: var(--text-low); font-weight: 400; font-size: 12px; }
+.sec-head .meta { font-size: 11px; color: var(--text-low); }
+.sec-head .meta b { color: var(--accent); font-weight: 600; }
+
+/* ===================================================================
+   PANEL
+   =================================================================== */
+
+.panel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+}
+.panel-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4px;
+  gap: 12px;
+}
+.panel-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.panel-title b { color: var(--accent); font-weight: 600; }
+.panel-tag {
+  font-size: 10px;
+  color: var(--text-low);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.panel-tag.live {
+  color: var(--accent);
+}
+.panel-tag.live::before {
+  content: '● ';
+  font-size: 8px;
+  vertical-align: middle;
+  animation: blink 2.4s ease-in-out infinite;
+}
+.panel-sub {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin: 0 0 16px;
 }
 
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.grid-asym-3 {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 20px;
-}
-.grid-asym-2 {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 20px;
-}
+.grid-asym-2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
+.grid-asym-3 { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
 
 .chart-box { position: relative; height: 280px; }
 .chart-box.tall { height: 360px; }
-.chart-box.short { height: 200px; }
 
-/* =========== STAT TILE =========== */
+/* ===================================================================
+   STAT TILE
+   =================================================================== */
+
 .stat-tile {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 18px 18px 16px;
-  display: flex; flex-direction: column; gap: 4px;
-  position: relative;
-  overflow: hidden;
-}
-.stat-tile::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-  opacity: 0.5;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
 }
 .stat-tile .num {
-  font-family: var(--font-mono);
-  font-size: 32px;
-  font-weight: 500;
-  color: var(--ink-0);
-  letter-spacing: -0.02em;
+  font-size: 28px;
+  color: var(--accent);
+  font-weight: 700;
   line-height: 1;
+  letter-spacing: -0.01em;
 }
-.stat-tile .lbl {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin-top: 8px;
-}
-.stat-tile .sub {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  color: var(--ink-2);
-  margin-top: 2px;
-}
+.stat-tile .lbl { font-size: 11px; color: var(--text); margin-top: 8px; font-weight: 500; }
+.stat-tile .sub { font-size: 10px; color: var(--text-low); margin-top: 2px; }
 
-/* =========== KEYWORD CLOUD =========== */
-.kw-cloud {
-  display: flex; flex-wrap: wrap; gap: 8px 12px;
-  align-items: center;
-  padding: 14px 4px;
+/* ===================================================================
+   KEYWORDS CLOUD
+   =================================================================== */
+
+.kw {
+  display: flex; flex-wrap: wrap; gap: 6px 12px;
+  align-items: baseline;
+  padding: 4px 0;
 }
-.kw-cloud span {
-  font-family: var(--font-mono);
-  letter-spacing: 0.02em;
-  color: var(--ink-1);
+.kw span {
   display: inline-block;
-  transition: color 0.2s;
-  cursor: default;
+  transition: color 0.15s;
 }
-.kw-cloud span:hover { color: var(--accent); }
-.kw-cloud .s5 { font-size: 28px; color: var(--accent); font-weight: 700; }
-.kw-cloud .s4 { font-size: 22px; color: var(--ink-0); font-weight: 500; }
-.kw-cloud .s3 { font-size: 17px; color: var(--ink-1); }
-.kw-cloud .s2 { font-size: 14px; color: var(--ink-1); }
-.kw-cloud .s1 { font-size: 12px; color: var(--ink-2); }
+.kw span:hover { color: var(--accent); }
+.kw .s5 { font-size: 22px; color: var(--accent); font-weight: 700; }
+.kw .s4 { font-size: 17px; color: var(--text-strong); font-weight: 600; }
+.kw .s3 { font-size: 14px; color: var(--text); }
+.kw .s2 { font-size: 12px; color: var(--text-mute); }
+.kw .s1 { font-size: 11px; color: var(--text-low); }
 
-/* =========== BADGE GRID =========== */
-.badge-grid {
+/* ===================================================================
+   DATA LIST
+   =================================================================== */
+
+.dl { list-style: none; margin: 0; padding: 0; }
+.dl li {
+  display: flex; justify-content: space-between;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--line-dot);
+  font-size: 12px;
+  gap: 12px;
+}
+.dl li:last-child { border-bottom: none; }
+.dl .k { color: var(--text-mute); }
+.dl .v { color: var(--text-strong); font-weight: 500; }
+.dl .v.accent { color: var(--accent); font-weight: 600; }
+.dl .v.amber { color: var(--c3); font-weight: 600; }
+
+/* ===================================================================
+   CARD GRID
+   =================================================================== */
+
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
 }
-.badge {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 18px;
-  display: flex; flex-direction: column; gap: 6px;
-  position: relative;
-  transition: all 0.2s;
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 13px 15px;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: border-color 0.15s, background 0.15s;
 }
-.badge:hover {
-  border-color: var(--accent-dim);
-  transform: translateY(-1px);
+.card:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
 }
-.badge .icon {
-  font-size: 24px;
+.card .top {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-low);
   margin-bottom: 4px;
 }
-.badge .title {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--ink-0);
+.card .top .ok { color: var(--accent); font-weight: 600; }
+.card .top .ok::before {
+  content: '● ';
+  font-size: 7px;
+  animation: blink 2.4s ease-in-out infinite;
 }
-.badge .org {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  color: var(--ink-1);
+.card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 4px 0;
 }
-.badge .yr {
-  font-family: var(--font-mono);
+.card .meta {
+  font-size: 11px;
+  color: var(--text-mute);
+  flex: 1;
+}
+.card .id {
   font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
   color: var(--accent);
-  margin-top: 6px;
+  font-weight: 600;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dotted var(--line-dot);
+  letter-spacing: 0.02em;
 }
 
-/* =========== TIMELINE =========== */
-.timeline {
-  display: flex; flex-direction: column; gap: 0;
-  padding-left: 0;
+/* ===================================================================
+   PATCH GRID (awards)
+   =================================================================== */
+
+.patch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
 }
+.patch {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.patch:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.patch .ic { font-size: 20px; line-height: 1; margin-bottom: 4px; }
+.patch .t { font-size: 12px; font-weight: 700; color: var(--text-strong); }
+.patch .o { font-size: 11px; color: var(--text-mute); }
+.patch .y {
+  font-size: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* ===================================================================
+   TIMELINE
+   =================================================================== */
+
+.tl { display: flex; flex-direction: column; }
 .tl-item {
   display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 20px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line-soft);
+  grid-template-columns: 130px 1fr;
+  gap: 22px;
+  padding: 11px 0;
+  border-bottom: 1px dotted var(--line-dot);
   align-items: start;
 }
 .tl-item:last-child { border-bottom: none; }
 .tl-item .yr {
-  font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.14em;
   color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   padding-top: 1px;
 }
-.tl-item .body .ttl {
-  font-family: var(--font-mono);
+.tl-item .ttl {
   font-size: 13px;
-  font-weight: 500;
-  color: var(--ink-0);
-  margin-bottom: 4px;
+  font-weight: 600;
+  color: var(--text-strong);
+  margin-bottom: 2px;
 }
-.tl-item .body .meta {
-  font-size: 12px;
-  color: var(--ink-2);
-}
-
-/* =========== DATA TABLE =========== */
-.data-list {
-  list-style: none;
-  margin: 0; padding: 0;
-}
-.data-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px dashed var(--line-soft);
-  font-size: 13px;
-}
-.data-list li:last-child { border-bottom: none; }
-.data-list .k { color: var(--ink-1); }
-.data-list .v {
-  font-family: var(--font-mono);
-  color: var(--ink-0);
-  font-weight: 500;
-}
-.data-list .v.accent { color: var(--accent); }
-
-/* =========== PROGRESS BARS =========== */
-.bar-row {
-  display: grid;
-  grid-template-columns: 220px 1fr 60px;
-  gap: 12px;
-  align-items: center;
-  padding: 8px 0;
-  font-size: 12px;
-}
-.bar-row .b-lbl { color: var(--ink-1); font-size: 12px; }
-.bar-row .b-val {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  color: var(--ink-0);
-  text-align: right;
-  font-size: 12px;
-}
-.bar-track {
-  height: 6px;
-  background: var(--bg-3);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--cool));
-  border-radius: 3px;
-  transition: width 0.6s ease;
-}
-
-/* =========== CURRENT TEACHING / LAB CARDS =========== */
-.lab-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
-}
-.lab-card {
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  padding: 18px;
-  position: relative;
-  transition: all 0.2s;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.lab-card:hover {
-  border-color: var(--accent-dim);
-  transform: translateY(-1px);
-}
-.lab-card .topline {
-  display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-2);
-  margin-bottom: 4px;
-}
-.lab-card .topline .running {
-  color: var(--accent);
-  display: inline-flex; align-items: center; gap: 6px;
-}
-.lab-card .topline .running .dotmini {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-}
-.lab-card h4 {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: 500;
-  margin: 4px 0;
-  color: var(--ink-0);
-}
-.lab-card .meta {
-  font-size: 12px;
-  color: var(--ink-1);
-}
-.lab-card .codigo {
-  font-family: var(--font-mono);
+.tl-item .meta {
   font-size: 11px;
-  color: var(--accent);
-  margin-top: auto;
-  padding-top: 10px;
+  color: var(--text-mute);
 }
 
-/* =========== SUPERVISION TABLE =========== */
+/* ===================================================================
+   SUPERVISION ROWS
+   =================================================================== */
+
 .sup-list {
-  display: flex; flex-direction: column; gap: 6px;
+  display: flex; flex-direction: column; gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
 }
 .sup-item {
   display: grid;
-  grid-template-columns: 70px 1fr auto;
+  grid-template-columns: 80px 1fr auto;
   gap: 14px;
-  padding: 10px 14px;
-  background: var(--bg-1);
-  border: 1px solid var(--line-soft);
-  border-radius: 4px;
-  font-size: 12px;
+  padding: 8px 12px;
+  background: var(--bg);
+  font-size: 11px;
+  align-items: center;
 }
 .sup-item .yr {
-  font-family: var(--font-mono);
   color: var(--accent);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-}
-.sup-item .nm { color: var(--ink-0); }
-.sup-item .lvl {
-  font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.sup-item .nm { color: var(--text-strong); font-size: 12px; }
+.sup-item .lvl {
+  font-size: 9px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink-2);
+  color: var(--text-low);
+  background: var(--bg-deep);
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  font-weight: 600;
 }
 
-/* =========== FOOTER =========== */
-.foot {
-  margin-top: 80px;
-  padding-top: 30px;
-  border-top: 1px solid var(--line-soft);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; gap: 16px;
-  font-family: var(--font-mono);
+/* ===================================================================
+   TABLE (like the Current Status table from the original site)
+   =================================================================== */
+
+table.modtable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 4px;
+}
+table.modtable th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-strong);
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--line);
   font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-2);
 }
-.foot .author { color: var(--ink-0); }
-.foot a { color: var(--ink-1); }
-.foot a:hover { color: var(--accent); }
+table.modtable td {
+  padding: 10px 14px 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+  color: var(--text);
+  vertical-align: top;
+}
+table.modtable tr:last-child td { border-bottom: none; }
+table.modtable td.k {
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+table.modtable td.kk {
+  font-weight: 700;
+  color: var(--text-strong);
+  white-space: nowrap;
+}
 
-/* =========== RESPONSIVE =========== */
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+
+.foot {
+  margin-top: 60px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+  font-size: 11px;
+  color: var(--text-low);
+}
+.foot a { color: var(--accent); }
+
+/* ===================================================================
+   RESPONSIVE
+   =================================================================== */
+
 @media (max-width: 1100px) {
-  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .layout { grid-template-columns: 200px 1fr; gap: 35px; padding: 40px 28px; }
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
   .grid-3, .grid-asym-3 { grid-template-columns: 1fr 1fr; }
   .grid-4 { grid-template-columns: 1fr 1fr; }
   .grid-asym-2 { grid-template-columns: 1fr; }
 }
-@media (max-width: 700px) {
-  .shell { padding: 18px 14px 40px; }
-  .grid-2, .grid-3, .grid-asym-3, .grid-4 { grid-template-columns: 1fr; }
-  .status-grid { grid-template-columns: 1fr 1fr; }
-  .topbar { font-size: 10px; }
-  .topbar .crumbs span + span::before { content: ' · '; }
-  .bar-row { grid-template-columns: 130px 1fr 50px; }
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  .sidebar {
+    position: static;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .grid-2, .grid-3, .grid-4, .grid-asym-2, .grid-asym-3 { grid-template-columns: 1fr; }
+  .tl-item { grid-template-columns: 95px 1fr; gap: 14px; }
+  .sup-item { grid-template-columns: 70px 1fr auto; gap: 10px; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="shell">
+<div class="layout">
 
-<!-- ========== TOP BAR ========== -->
-<div class="topbar">
-  <div class="crumbs">
-    <span>rmayormartins.github.io</span>
-    <span>academic dashboard</span>
-    <span>v2.0</span>
-  </div>
-  <div class="pulse"><span class="dot"></span> live · auto-updated</div>
-</div>
+  <!-- ========== SIDEBAR (modernist style) ========== -->
+  <aside class="sidebar">
+    <h1>Ramon Mayor Martins</h1>
+    <p class="role">Ph.D. · <b>Professor EBTT</b></p>
+    <p class="role">IFSC Câmpus São José</p>
+    <p class="role">Eng. de Telecomunicações</p>
 
-<!-- ========== HERO ========== -->
-<header class="hero">
-  <div>
-    <h1>ACADEMIC<br><span class="em">dashboard</span></h1>
-    <div class="lede">
-      Painel acadêmico de <strong>Ramon Mayor Martins, Ph.D.</strong> · Professor EBTT · Coordenador de Pesquisa e Inovação ·
-      Instituto Federal de Santa Catarina, Câmpus São José.
-      Reúne ensino, pesquisa, orientações, banca, projetos, premiações e participações editoriais desde 2014.
+    <div class="side-card">
+      <div class="lbl">Coord. Pesquisa &amp; Inovação</div>
+      <div class="v"><span class="accent">FG2 · ativa</span></div>
+      <div style="font-size: 10px; color: var(--text-low); margin-top: 4px;">desde 03/2025</div>
     </div>
-    <div class="meta-row">
-      <div>Registro <strong>2014—2026</strong></div>
-      <div>Servidor desde <strong>2016</strong></div>
-      <div>Doutorado <strong>UFSC · 2024</strong></div>
-      <div>Pós-doc <strong>UFSC · 2025+</strong></div>
-    </div>
-    <div class="links">
-      <a href="https://rmayormartins.github.io/" target="_blank">Página pessoal</a>
+
+    <nav>
+      <div class="label">site</div>
+      <a href="https://rmayormartins.github.io/" target="_blank">Home</a>
+      <a href="https://rmayormartins.github.io/about.html" target="_blank">About</a>
+      <a href="https://rmayormartins.github.io/current.html" target="_blank">Current Status</a>
+      <a href="https://rmayormartins.github.io/publications.html" target="_blank">Publications</a>
+      <a href="https://rmayormartins.github.io/academic.html" target="_blank">Academic Profile</a>
+      <a href="https://rmayormartins.github.io/contact.html" target="_blank">Contact Me</a>
+
+      <div class="label">labs</div>
+      <a href="https://rmayormartins.github.io/telecom-tools/" target="_blank">Telecom Tools</a>
+      <a href="https://rmayormartins.github.io/ia-tools/" target="_blank">IA Tools</a>
+
+      <div class="label">profiles</div>
+      <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
+      <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
       <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Lattes</a>
       <a href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">Scholar</a>
       <a href="https://orcid.org/0000-0002-1952-0909" target="_blank">ORCID</a>
-      <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
-      <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
-      <a href="https://rmayormartins.github.io/telecom-tools/" target="_blank">Telecom Tools</a>
-      <a href="https://rmayormartins.github.io/ia-tools/" target="_blank">IA Tools</a>
-    </div>
-  </div>
+    </nav>
+  </aside>
 
-  <div class="status-grid">
-    <div class="status-cell">
-      <div class="label">Produção total</div>
-      <div class="value accent" id="kpi-prod">—</div>
-      <div class="sub">livros · capítulos · artigos · tutoriais · sw</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Qualis A1</div>
-      <div class="value" id="kpi-a1">—</div>
-      <div class="sub">artigos em periódicos topo</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Orientações</div>
-      <div class="value" id="kpi-sup">—</div>
-      <div class="sub">graduação + pós</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Bancas</div>
-      <div class="value" id="kpi-banca">—</div>
-      <div class="sub">graduação + pós</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Projetos</div>
-      <div class="value" id="kpi-proj">—</div>
-      <div class="sub">pesquisa + extensão</div>
-    </div>
-    <div class="status-cell">
-      <div class="label">Pareceres ad-hoc</div>
-      <div class="value" id="kpi-ad">—</div>
-      <div class="sub">editais + periódicos · revisões</div>
-    </div>
-  </div>
-</header>
+  <!-- ========== MAIN ========== -->
+  <main class="main">
 
-<!-- ========== 01 · ENSINO ========== -->
-<section id="ensino">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">01</div>
-      <h2>Ensino <span class="em">/ teaching</span></h2>
+    <div class="head-row">
+      <div class="back"><a href="https://rmayormartins.github.io/">← back</a></div>
+      <div style="font-size: 11px; color: var(--text-low);">v3.0 · last build <b id="bd">—</b></div>
     </div>
-    <div class="h-right">19 disciplinas únicas · 6 cursos</div>
-  </div>
 
-  <div class="grid-asym-2" style="margin-bottom: 22px;">
-    <div class="card">
-      <div class="tag live">distribution</div>
-      <div class="card-title">Disciplinas únicas por curso</div>
-      <div class="card-sub">Total de unidades curriculares já ministradas, agrupadas por curso de origem</div>
-      <div class="chart-box"><canvas id="chartCourses"></canvas></div>
+    <h2 class="page-title">Academic Dashboard</h2>
+    <p class="page-lede">
+      Painel acadêmico consolidado de <strong>Ramon Mayor Martins, Ph.D.</strong> — ensino, pesquisa, orientações, bancas, projetos, prêmios e participações editoriais — janela 2014 → 2026.
+    </p>
+
+    <div class="meta-bar">
+      <div>window: <b>2014 → 2026</b></div>
+      <div>servidor: <b>2016+</b></div>
+      <div>doutorado: <b>UFSC · 2024</b></div>
+      <div>pós-doc: <b>UFSC · 2025+</b></div>
+      <div style="margin-left: auto;" class="ok">live</div>
     </div>
-    <div class="card">
-      <div class="tag">live · 2026.1</div>
-      <div class="card-title">Semestre atual</div>
-      <div class="card-sub">Disciplinas ministradas em 2026.1</div>
-      <div class="lab-grid" style="margin-top: 14px;">
-        <div class="lab-card">
-          <div class="topline"><span>FIC EAD</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>História da IA</h4>
-          <div class="meta">FIC EAD IA Generativa · 20h</div>
-          <div class="codigo">HIA112101</div>
+
+    <!-- ========== KPI GRID ========== -->
+    <div class="kpi-grid">
+      <div class="kpi"><div class="lbl">produção total</div><div class="val" id="kpi-prod">—</div><div class="sub">artigos · livros · cap · sw</div></div>
+      <div class="kpi"><div class="lbl">qualis A1</div><div class="val" id="kpi-a1">—</div><div class="sub">veículos topo</div></div>
+      <div class="kpi"><div class="lbl">orientações</div><div class="val" id="kpi-sup">—</div><div class="sub">grad + pós</div></div>
+      <div class="kpi"><div class="lbl">bancas</div><div class="val" id="kpi-banca">—</div><div class="sub">grad + pós</div></div>
+      <div class="kpi"><div class="lbl">projetos</div><div class="val" id="kpi-proj">—</div><div class="sub">pesquisa + extensão</div></div>
+      <div class="kpi"><div class="lbl">peer review</div><div class="val" id="kpi-ad">—</div><div class="sub">editais · revistas · TPCs</div></div>
+    </div>
+
+    <!-- ========== 01 ENSINO ========== -->
+    <section id="ensino">
+      <div class="sec-head">
+        <h3><span class="num">01.</span> Ensino <span class="slash">/</span><span class="en">teaching</span></h3>
+        <div class="meta"><b>19</b> disciplinas únicas · <b>6</b> cursos</div>
+      </div>
+
+      <div class="grid-asym-2" style="margin-bottom: 18px;">
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">disciplinas únicas <b>· por curso</b></div>
+            <div class="panel-tag">distribution</div>
+          </div>
+          <p class="panel-sub">total de unidades curriculares já ministradas, agrupadas por curso de origem</p>
+          <div class="chart-box"><canvas id="chartCourses"></canvas></div>
         </div>
-        <div class="lab-card">
-          <div class="topline"><span>FIC EAD</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>IA na Educação</h4>
-          <div class="meta">co-docência com Jesué · 40h</div>
-          <div class="codigo">AIE112101</div>
-        </div>
-        <div class="lab-card">
-          <div class="topline"><span>ENG TELECOM</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>TCC</h4>
-          <div class="meta">Trabalho de Conclusão de Curso</div>
-          <div class="codigo">TCC290008</div>
-        </div>
-        <div class="lab-card">
-          <div class="topline"><span>ENG TELECOM</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>Projeto Integrador III</h4>
-          <div class="meta">Engenharia de Telecomunicações</div>
-          <div class="codigo">PJI29008</div>
-        </div>
-        <div class="lab-card">
-          <div class="topline"><span>ADS</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>ICD &amp; ML</h4>
-          <div class="meta">Intro Ciência de Dados &amp; Aprendizado de Máquina</div>
-          <div class="codigo">ICD786205</div>
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">semestre atual <b>· 2026.1</b></div>
+            <div class="panel-tag live">running</div>
+          </div>
+          <p class="panel-sub">disciplinas ministradas neste semestre</p>
+          <div class="card-grid">
+            <div class="card"><div class="top"><span>FIC EAD</span><span class="ok">running</span></div><h4>História da IA</h4><div class="meta">FIC EAD IA Generativa · 20h · 20/04 → 05/05</div><div class="id">HIA112101</div></div>
+            <div class="card"><div class="top"><span>FIC EAD</span><span class="ok">running</span></div><h4>IA na Educação</h4><div class="meta">co-docência com Jesué · 40h</div><div class="id">AIE112101</div></div>
+            <div class="card"><div class="top"><span>ENG TELECOM</span><span class="ok">running</span></div><h4>TCC</h4><div class="meta">Trabalho de Conclusão de Curso</div><div class="id">TCC290008</div></div>
+            <div class="card"><div class="top"><span>ENG TELECOM</span><span class="ok">running</span></div><h4>Projeto Integrador III</h4><div class="meta">Engenharia de Telecomunicações</div><div class="id">PJI29008</div></div>
+            <div class="card"><div class="top"><span>ADS</span><span class="ok">running</span></div><h4>ICD &amp; ML</h4><div class="meta">Intro Ciência de Dados &amp; Aprendizado de Máquina</div><div class="id">ICD786205</div></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="card">
-    <div class="tag">history</div>
-    <div class="card-title">Disciplina × nº de semestres ministrados</div>
-    <div class="card-sub">Recorrência histórica das disciplinas no período 2015—2026.1</div>
-    <div class="chart-box tall"><canvas id="chartSubjects"></canvas></div>
-  </div>
-</section>
-
-<!-- ========== 02 · PRODUÇÃO ========== -->
-<section id="producao">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">02</div>
-      <h2>Produção <span class="em">/ research output</span></h2>
-    </div>
-    <div class="h-right" id="prod-counter">computing…</div>
-  </div>
-
-  <div class="grid-asym-3" style="margin-bottom: 22px;">
-    <div class="card">
-      <div class="tag">composition</div>
-      <div class="card-title">Composição da produção</div>
-      <div class="card-sub">Por tipologia (artigos · livros · capítulos · tutoriais · relatórios · software)</div>
-      <div class="chart-box"><canvas id="chartProdType"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="tag">qualis</div>
-      <div class="card-title">Estratificação Qualis</div>
-      <div class="card-sub">Distribuição dos veículos da produção segundo Qualis CAPES</div>
-      <div class="chart-box"><canvas id="chartQualis"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="tag">highlight</div>
-      <div class="card-title">Periódicos A1 — destaque</div>
-      <div class="card-sub">Edições principais</div>
-      <ul class="data-list" style="margin-top: 6px;">
-        <li><span class="k">ACM TOCE</span><span class="v">×3</span></li>
-        <li><span class="k">INFEDU (Vilnius)</span><span class="v">×5</span></li>
-        <li><span class="k">IJAIED (Springer)</span><span class="v">×1</span></li>
-        <li><span class="k">Educação &amp; Realidade</span><span class="v">×1</span></li>
-        <li><span class="k">Psicologia: T&amp;P</span><span class="v">×1 (sub.)</span></li>
-        <li><span class="k">Ed. &amp; Inf. Tech.</span><span class="v">×1 (sub.)</span></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="tag">timeline</div>
-    <div class="card-title">Produção × ano</div>
-    <div class="card-sub">Evolução temporal · escalada do programa de pesquisa pós-doutorado</div>
-    <div class="chart-box tall"><canvas id="chartYears"></canvas></div>
-  </div>
-</section>
-
-<!-- ========== 03 · ÁREAS DE PESQUISA ========== -->
-<section id="areas">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">03</div>
-      <h2>Áreas &amp; tópicos <span class="em">/ research areas</span></h2>
-    </div>
-    <div class="h-right">tag-cloud</div>
-  </div>
-
-  <div class="grid-asym-2">
-    <div class="card">
-      <div class="tag">keywords</div>
-      <div class="card-title">Mapa de palavras-chave</div>
-      <div class="card-sub">Frequência relativa nos termos da produção (peso visual proporcional)</div>
-      <div class="kw-cloud">
-        <span class="s5">Machine Learning</span>
-        <span class="s5">Educação em Computação</span>
-        <span class="s4">Ensino Fundamental e Médio</span>
-        <span class="s4">Pensamento Crítico</span>
-        <span class="s4">Visão Computacional</span>
-        <span class="s4">Cubesats &amp; SDR</span>
-        <span class="s3">Processamento de Sinais</span>
-        <span class="s3">Vulnerabilidade Social</span>
-        <span class="s3">Mamografia &amp; Aprendizado Profundo</span>
-        <span class="s3">Reconhecimento de Voz</span>
-        <span class="s3">Antenas &amp; Propagação</span>
-        <span class="s3">Wavelet</span>
-        <span class="s3">App Inventor</span>
-        <span class="s3">Avaliação Automatizada</span>
-        <span class="s3">Ética em IA</span>
-        <span class="s2">Redes Neurais Artificiais</span>
-        <span class="s2">Convolutional Vision Transformer</span>
-        <span class="s2">EEG / ECG</span>
-        <span class="s2">Ground Station / SatNOGS</span>
-        <span class="s2">RTL-SDR / GNU Radio</span>
-        <span class="s2">CBAM</span>
-        <span class="s2">IRT / Psicometria</span>
-        <span class="s2">Jogos Sérios</span>
-        <span class="s2">Random Forest · SVM · KNN</span>
-        <span class="s1">Naive Bayes</span>
-        <span class="s1">Cluster K-Means</span>
-        <span class="s1">Detecção de Objetos</span>
-        <span class="s1">LLM</span>
-        <span class="s1">NLP</span>
-        <span class="s1">GAN</span>
-        <span class="s1">Speech Recognition</span>
-        <span class="s1">Transformada Discreta</span>
-        <span class="s1">PSO</span>
+      <div class="panel">
+        <div class="panel-head">
+          <div class="panel-title">disciplina × nº de semestres ministrados</div>
+          <div class="panel-tag">history · 2015—2026</div>
+        </div>
+        <p class="panel-sub">recorrência histórica das disciplinas no período · ordenado por frequência</p>
+        <div class="chart-box tall"><canvas id="chartSubjects"></canvas></div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="tag">grupos cnpq</div>
-      <div class="card-title">Grupos de pesquisa</div>
-      <div class="card-sub">Vínculo institucional ativo</div>
-      <ul class="data-list">
-        <li><span class="k">GPSIA · IFSC</span><span class="v accent">líder · 2025</span></li>
-        <li><span class="k">G. Ciência e Gestão de Dados · IFSC</span><span class="v accent">vice-líder · 2024</span></li>
-        <li><span class="k">Pesq. e Des. em Sist. Telecom · IFSC</span><span class="v">membro · 2016</span></li>
-        <li><span class="k">GPET · UNILAB</span><span class="v">membro · 2024</span></li>
-        <li><span class="k">G. Qualidade de Software · UFSC</span><span class="v">egresso · 2024</span></li>
-      </ul>
-      <div class="card-title" style="margin-top: 18px;">Macroáreas</div>
-      <ul class="data-list">
-        <li><span class="k">Inteligência Artificial</span><span class="v accent">●●●●●</span></li>
-        <li><span class="k">Telecomunicações</span><span class="v accent">●●●●○</span></li>
-        <li><span class="k">Educação em Computação</span><span class="v accent">●●●●●</span></li>
-        <li><span class="k">Processamento de Sinais</span><span class="v accent">●●●○○</span></li>
-        <li><span class="k">Sistemas Embarcados / IoT</span><span class="v accent">●●○○○</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- ========== 02 PRODUÇÃO ========== -->
+    <section id="producao">
+      <div class="sec-head">
+        <h3><span class="num">02.</span> Produção <span class="slash">/</span><span class="en">research output</span></h3>
+        <div class="meta" id="prod-counter">…</div>
+      </div>
 
-<!-- ========== 04 · PROJETOS ========== -->
-<section id="projetos">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">04</div>
-      <h2>Projetos <span class="em">/ projects</span></h2>
-    </div>
-    <div class="h-right">pesquisa · extensão</div>
-  </div>
-
-  <div class="grid-4" style="margin-bottom: 22px;">
-    <div class="stat-tile">
-      <div class="num" id="kpi-pesq-tot">14</div>
-      <div class="lbl">Pesquisa · total</div>
-      <div class="sub">desde 2016</div>
-    </div>
-    <div class="stat-tile">
-      <div class="num" id="kpi-ext-tot">6</div>
-      <div class="lbl">Extensão · total</div>
-      <div class="sub">desde 2016</div>
-    </div>
-    <div class="stat-tile">
-      <div class="num">3</div>
-      <div class="lbl">Pesquisa · em andamento</div>
-      <div class="sub">2025—2026</div>
-    </div>
-    <div class="stat-tile">
-      <div class="num">2</div>
-      <div class="lbl">Extensão · em andamento</div>
-      <div class="sub">2025</div>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="tag live">active</div>
-      <div class="card-title">Projetos ativos</div>
-      <div class="card-sub">Em execução em 2025—2026</div>
-      <div class="lab-grid" style="margin-top: 12px;">
-        <div class="lab-card">
-          <div class="topline"><span>PESQUISA · PIBIT-AF</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>IA · Mamografia</h4>
-          <div class="meta">Sistema inteligente para detecção primária de nódulos. Edital 03/2025/PROPPI · co-orientação Elen Lobato.</div>
-          <div class="codigo">PISJE4218-2025</div>
+      <div class="grid-asym-3" style="margin-bottom: 18px;">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">composição da produção</div><div class="panel-tag">type</div></div>
+          <p class="panel-sub">por tipologia · artigos · livros · cap. · tutoriais · relatórios · sw</p>
+          <div class="chart-box"><canvas id="chartProdType"></canvas></div>
         </div>
-        <div class="lab-card">
-          <div class="topline"><span>PESQUISA · FLUXO</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>Mobilidade Urbana</h4>
-          <div class="meta">Sustentabilidade na operação do transporte coletivo em regiões metropolitanas brasileiras.</div>
-          <div class="codigo">PISJE4460-2024</div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">estratificação Qualis</div><div class="panel-tag">capes</div></div>
+          <p class="panel-sub">distribuição dos veículos segundo Qualis CAPES</p>
+          <div class="chart-box"><canvas id="chartQualis"></canvas></div>
         </div>
-        <div class="lab-card">
-          <div class="topline"><span>PESQUISA · UFSC/CEPSH</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>ProgCTQ · Pensamento Crítico</h4>
-          <div class="meta">Avaliação do desenvolvimento do pensamento crítico no ensino de programação. CAAE: 84019224.4.0000.0121.</div>
-          <div class="codigo">PARECER 7.320.427</div>
-        </div>
-        <div class="lab-card">
-          <div class="topline"><span>EXTENSÃO · PROEX</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>Playground IA</h4>
-          <div class="meta">Imersão tecnológica para estudantes — IA na educação básica.</div>
-          <div class="codigo">PJ169-2025</div>
-        </div>
-        <div class="lab-card">
-          <div class="topline"><span>EXTENSÃO · PROEX</span><span class="running"><span class="dotmini"></span>RUNNING</span></div>
-          <h4>Despertar para Tecnologia</h4>
-          <div class="meta">Criando jogos com Arduino · co-coordenação.</div>
-          <div class="codigo">PJ170-2025</div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">periódicos A1 · destaque</div><div class="panel-tag">flagship</div></div>
+          <p class="panel-sub">veículos topo · qualis A1</p>
+          <ul class="dl" style="margin-top: 6px;">
+            <li><span class="k">ACM TOCE</span><span class="v accent">×3</span></li>
+            <li><span class="k">INFEDU · Vilnius</span><span class="v accent">×5</span></li>
+            <li><span class="k">IJAIED · Springer</span><span class="v">×1</span></li>
+            <li><span class="k">Educação &amp; Realidade</span><span class="v">×1</span></li>
+            <li><span class="k">Psicologia: T&amp;P</span><span class="v amber">×1 sub.</span></li>
+            <li><span class="k">Ed. &amp; Inf. Tech.</span><span class="v amber">×1 sub.</span></li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="tag">distribution</div>
-      <div class="card-title">Pesquisa &times; Extensão</div>
-      <div class="card-sub">Total histórico</div>
-      <div class="chart-box"><canvas id="chartProj"></canvas></div>
-
-      <div class="card-title" style="margin-top: 22px;">Sistemas on-the-fly</div>
-      <ul class="data-list" style="margin-top: 4px;">
-        <li><span class="k">TELECOM-TOOLS</span><a href="https://rmayormartins.github.io/telecom-tools/" target="_blank" class="v accent">→ launch</a></li>
-        <li><span class="k">IA-TOOLS</span><a href="https://rmayormartins.github.io/ia-tools/" target="_blank" class="v accent">→ launch</a></li>
-        <li><span class="k">SatNOGS · IFSC</span><a href="https://network.satnogs.org/stations/389/" target="_blank" class="v accent">→ ground station</a></li>
-        <li><span class="k">SDR-IFSC · webSDR</span><a href="https://sdr.sj.ifsc.edu.br/" target="_blank" class="v accent">→ receiver</a></li>
-        <li><span class="k">HuggingFace Spaces</span><a href="https://huggingface.co/rmayormartins" target="_blank" class="v accent">→ spaces</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 05 · ORIENTAÇÕES & BANCAS ========== -->
-<section id="orientacoes">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">05</div>
-      <h2>Orientações &amp; Bancas <span class="em">/ supervision &amp; juries</span></h2>
-    </div>
-    <div class="h-right" id="sup-counter">computing…</div>
-  </div>
-
-  <div class="grid-2" style="margin-bottom: 22px;">
-    <div class="card">
-      <div class="tag">supervisions</div>
-      <div class="card-title">Orientações &amp; Coorientações × ano</div>
-      <div class="card-sub">Stack: graduação · pós-graduação</div>
-      <div class="chart-box"><canvas id="chartSupYears"></canvas></div>
-    </div>
-    <div class="card">
-      <div class="tag">juries</div>
-      <div class="card-title">Bancas Examinadoras × ano</div>
-      <div class="card-sub">Stack: graduação · pós-graduação</div>
-      <div class="chart-box"><canvas id="chartBancaYears"></canvas></div>
-    </div>
-  </div>
-
-  <div class="grid-3">
-    <div class="card">
-      <div class="tag">running</div>
-      <div class="card-title">Em andamento · TCC</div>
-      <div class="card-sub">Engenharia de Telecomunicações</div>
-      <div class="sup-list" style="margin-top: 10px;">
-        <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Beatriz Paz Faria · Mamografia · Wavelet+CBAM+ROI</span><span class="lvl">orient.</span></div>
-        <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Jamilly Pinheiro · ECG · Scalogramas + CvT</span><span class="lvl">co-orient.</span></div>
-        <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Joana · Ultrassom mamário · CvT</span><span class="lvl">co-orient.</span></div>
-        <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Julia · EEG &amp; Ansiedade · EEG-Conformer</span><span class="lvl">co-orient.</span></div>
-        <div class="sup-item"><span class="yr">2025.1</span><span class="nm">Deivid Frederico · CubeSat FloripaSat-I</span><span class="lvl">orient.</span></div>
-        <div class="sup-item"><span class="yr">2025.1</span><span class="nm">Matheus Pires · GS IFSC-SJ · SatNOGS+TinyGS</span><span class="lvl">orient.</span></div>
-        <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Irla Fonseca · QRS · Wavelet</span><span class="lvl">co-orient.</span></div>
+      <div class="panel">
+        <div class="panel-head"><div class="panel-title">produção × ano · trajetória</div><div class="panel-tag">timeline</div></div>
+        <p class="panel-sub">evolução temporal · escalada do programa de pesquisa pós-doutorado</p>
+        <div class="chart-box tall"><canvas id="chartYears"></canvas></div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="tag">posg</div>
-      <div class="card-title">Pós-graduação · em andamento</div>
-      <div class="card-sub">Especialização em Ensino de Ciências e Matemática</div>
-      <div class="sup-list" style="margin-top: 10px;">
-        <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Natalia Souza · Pesquisa &amp; Ensino de Física</span><span class="lvl">orient.</span></div>
-        <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Gabriel Grube · Pesquisa &amp; Ensino de Física</span><span class="lvl">orient.</span></div>
-        <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Sandro Azevedo · Estratégias paradidáticas</span><span class="lvl">orient.</span></div>
+    <!-- ========== 03 ÁREAS ========== -->
+    <section id="areas">
+      <div class="sec-head">
+        <h3><span class="num">03.</span> Áreas &amp; tópicos <span class="slash">/</span><span class="en">research areas</span></h3>
+        <div class="meta">tag-cloud · cnpq groups</div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="tag">totals</div>
-      <div class="card-title">Totais consolidados</div>
-      <div class="card-sub">2015 — presente</div>
-      <ul class="data-list" style="margin-top: 10px;">
-        <li><span class="k">Orientações graduação</span><span class="v accent" id="sup-grad">—</span></li>
-        <li><span class="k">Orientações pós-graduação</span><span class="v accent" id="sup-pos">—</span></li>
-        <li><span class="k">Bancas graduação</span><span class="v" id="banca-grad">—</span></li>
-        <li><span class="k">Bancas pós-graduação</span><span class="v" id="banca-pos">—</span></li>
-        <li><span class="k">Bancas concurso público</span><span class="v">3</span></li>
-        <li><span class="k">Iniciação Científica</span><span class="v">12+</span></li>
-        <li><span class="k">Estágios obrigatórios</span><span class="v">2</span></li>
-        <li><span class="k">Monitorias</span><span class="v">1</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 06 · PRÊMIOS & RECONHECIMENTO ========== -->
-<section id="premios">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">06</div>
-      <h2>Prêmios &amp; certificações <span class="em">/ awards</span></h2>
-    </div>
-    <div class="h-right">internacionais · nacionais</div>
-  </div>
-
-  <div class="badge-grid">
-    <div class="badge">
-      <div class="icon">🏆</div>
-      <div class="title">MIT Teacher Excellence Award</div>
-      <div class="org">App Inventor Foundation</div>
-      <div class="yr">2023</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🛰️</div>
-      <div class="title">NASA Open Science Qualified</div>
-      <div class="org">NASA Open Science Initiative</div>
-      <div class="yr">2024</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🤖</div>
-      <div class="title">IBM ML Specialist · Advanced</div>
-      <div class="org">IBM</div>
-      <div class="yr">2024</div>
-    </div>
-    <div class="badge">
-      <div class="icon">⚡</div>
-      <div class="title">Intel Advanced Technical Pro</div>
-      <div class="org">Intel · AI in the Cloud</div>
-      <div class="yr">2024</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🥉</div>
-      <div class="title">3º lugar · Concurso de Tese</div>
-      <div class="org">Educomp 2025 · SBC</div>
-      <div class="yr">2025</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🎖️</div>
-      <div class="title">Finalista · Concurso de Tese</div>
-      <div class="org">CSBC 2025 · SBC (top 11/43)</div>
-      <div class="yr">2025</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🎖️</div>
-      <div class="title">Finalista · Rotas para Inovação</div>
-      <div class="org">Sebrae · ELUME (Kamtech)</div>
-      <div class="yr">2025</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🌟</div>
-      <div class="title">App of the Season · Menção Honrosa</div>
-      <div class="org">App Inventor Foundation · UNESCO</div>
-      <div class="yr">2023</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🥉</div>
-      <div class="title">3º lugar · Summer Appathon</div>
-      <div class="org">MIT App Inventor (QFruta?)</div>
-      <div class="yr">2022</div>
-    </div>
-    <div class="badge">
-      <div class="icon">📚</div>
-      <div class="title">3º artigo mais lido (6.5k views)</div>
-      <div class="org">INFEDU · Vilnius</div>
-      <div class="yr">2023</div>
-    </div>
-    <div class="badge">
-      <div class="icon">📖</div>
-      <div class="title">Artigo mais lido (16.5k views)</div>
-      <div class="org">INFEDU · Vilnius</div>
-      <div class="yr">2022</div>
-    </div>
-    <div class="badge">
-      <div class="icon">🥇</div>
-      <div class="title">Prêmio melhor artigo de pesquisa</div>
-      <div class="org">Educomp 2023 (Rauber et al.)</div>
-      <div class="yr">2023</div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 07 · COMPETIÇÕES ========== -->
-<section id="competicoes">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">07</div>
-      <h2>Hackathons &amp; competições <span class="em">/ competitions</span></h2>
-    </div>
-    <div class="h-right">competidor · juiz</div>
-  </div>
-
-  <div class="grid-3">
-    <div class="card">
-      <div class="tag live">2025</div>
-      <div class="card-title">MIT Global AI Hackathon 2025</div>
-      <div class="card-sub">Massachusetts Institute of Technology · App Inventor Foundation</div>
-      <ul class="data-list" style="margin-top: 10px;">
-        <li><span class="k">Função</span><span class="v">Technical &amp; Community Judge</span></li>
-        <li><span class="k">Submissão</span><span class="v">Projeto C.AI</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="tag">2024</div>
-      <div class="card-title">NASA Space Apps Challenge</div>
-      <div class="card-sub">Seismic Detection Across the Solar System</div>
-      <ul class="data-list" style="margin-top: 10px;">
-        <li><span class="k">Projeto</span><span class="v">WAI6 · Wavelet+AI</span></li>
-        <li><span class="k">Status</span><span class="v accent">submitted</span></li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="tag">2025</div>
-      <div class="card-title">Rotas para Inovação · Sebrae</div>
-      <div class="card-sub">Programa de aceleração ELUME</div>
-      <ul class="data-list" style="margin-top: 10px;">
-        <li><span class="k">Soluções</span><span class="v">SISDEV · SIGAP</span></li>
-        <li><span class="k">Empresa</span><span class="v">Kamtech TI</span></li>
-        <li><span class="k">Resultado</span><span class="v accent">finalista</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ========== 08 · EDITORIAL & REVISÃO ========== -->
-<section id="editorial">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">08</div>
-      <h2>Editorial &amp; revisão <span class="em">/ peer review</span></h2>
-    </div>
-    <div class="h-right">editorial board · ad-hoc · TPCs</div>
-  </div>
-
-  <div class="grid-asym-2" style="margin-bottom: 22px;">
-    <div class="card">
-      <div class="tag live">editorial board</div>
-      <div class="card-title">Periódicos com assento editorial</div>
-      <div class="card-sub">Membro de corpo editorial ativo</div>
-      <div class="lab-grid" style="margin-top: 10px;">
-        <div class="lab-card">
-          <div class="topline"><span>QUALIS A1</span><span class="running"><span class="dotmini"></span>ACTIVE</span></div>
-          <h4>Informatics in Education</h4>
-          <div class="meta">Vilnius University · ISSN 2335-8971 · desde 2025.1</div>
+      <div class="grid-asym-2">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">mapa de palavras-chave</div><div class="panel-tag">keywords</div></div>
+          <p class="panel-sub">frequência relativa nos termos da produção · peso visual proporcional</p>
+          <div class="kw">
+            <span class="s5">Machine Learning</span>
+            <span class="s5">Educação em Computação</span>
+            <span class="s4">Ensino Fundamental e Médio</span>
+            <span class="s4">Pensamento Crítico</span>
+            <span class="s4">Visão Computacional</span>
+            <span class="s4">Cubesats &amp; SDR</span>
+            <span class="s3">Processamento de Sinais</span>
+            <span class="s3">Vulnerabilidade Social</span>
+            <span class="s3">Mamografia &amp; Aprendizado Profundo</span>
+            <span class="s3">Reconhecimento de Voz</span>
+            <span class="s3">Antenas &amp; Propagação</span>
+            <span class="s3">Wavelet</span>
+            <span class="s3">App Inventor</span>
+            <span class="s3">Avaliação Automatizada</span>
+            <span class="s3">Ética em IA</span>
+            <span class="s2">Redes Neurais Artificiais</span>
+            <span class="s2">Convolutional Vision Transformer</span>
+            <span class="s2">EEG / ECG</span>
+            <span class="s2">Ground Station / SatNOGS</span>
+            <span class="s2">RTL-SDR / GNU Radio</span>
+            <span class="s2">CBAM</span>
+            <span class="s2">IRT / Psicometria</span>
+            <span class="s2">Jogos Sérios</span>
+            <span class="s2">Random Forest · SVM · KNN</span>
+            <span class="s1">Naive Bayes</span>
+            <span class="s1">Cluster K-Means</span>
+            <span class="s1">Detecção de Objetos</span>
+            <span class="s1">LLM</span>
+            <span class="s1">NLP</span>
+            <span class="s1">GAN</span>
+            <span class="s1">Speech Recognition</span>
+            <span class="s1">Transformada Discreta</span>
+            <span class="s1">PSO</span>
+          </div>
         </div>
-        <div class="lab-card">
-          <div class="topline"><span>RIMA</span><span class="running"><span class="dotmini"></span>ACTIVE</span></div>
-          <h4>Research on Intelligent Manufacturing &amp; Assembly</h4>
-          <div class="meta">SyncSci Publishing · Singapore · desde 2024.2</div>
+
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">grupos de pesquisa</div><div class="panel-tag">cnpq</div></div>
+          <p class="panel-sub">vínculo institucional ativo</p>
+          <ul class="dl">
+            <li><span class="k">GPSIA · IFSC</span><span class="v accent">líder · 2025</span></li>
+            <li><span class="k">G. Ciência e Gestão de Dados · IFSC</span><span class="v accent">vice · 2024</span></li>
+            <li><span class="k">Pesq. Sist. Telecom · IFSC</span><span class="v">membro · 2016</span></li>
+            <li><span class="k">GPET · UNILAB</span><span class="v">membro · 2024</span></li>
+            <li><span class="k">G. Qualidade de Software · UFSC</span><span class="v">egresso · 2024</span></li>
+          </ul>
+          <div class="panel-title" style="margin-top: 18px;">macroáreas</div>
+          <ul class="dl" style="margin-top: 8px;">
+            <li><span class="k">Inteligência Artificial</span><span class="v accent">●●●●●</span></li>
+            <li><span class="k">Educação em Computação</span><span class="v accent">●●●●●</span></li>
+            <li><span class="k">Telecomunicações</span><span class="v accent">●●●●○</span></li>
+            <li><span class="k">Processamento de Sinais</span><span class="v">●●●○○</span></li>
+            <li><span class="k">Sistemas Embarcados / IoT</span><span class="v">●●○○○</span></li>
+          </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <div class="tag">load</div>
-      <div class="card-title">Carga de revisão</div>
-      <div class="card-sub">Por veículo · 2017—2026</div>
-      <ul class="data-list" style="margin-top: 6px;">
-        <li><span class="k">ACM TOCE</span><span class="v">5</span></li>
-        <li><span class="k">INFEDU</span><span class="v">9</span></li>
-        <li><span class="k">IEEE Trans. on Education</span><span class="v">1</span></li>
-        <li><span class="k">Improving Schools (SAGE)</span><span class="v">1</span></li>
-        <li><span class="k">Educational Research &amp; Eval. (Routledge)</span><span class="v">1</span></li>
-        <li><span class="k">Springer · Discover Education</span><span class="v">1</span></li>
-        <li><span class="k">SBC · WEI · SBIE · EduComp · CIAED</span><span class="v">25+</span></li>
-        <li><span class="k">CBIE · CSBC · BRACIS · LatinR · SBrT</span><span class="v">15+</span></li>
-      </ul>
-    </div>
-  </div>
+    <!-- ========== 04 PROJETOS ========== -->
+    <section id="projetos">
+      <div class="sec-head">
+        <h3><span class="num">04.</span> Projetos <span class="slash">/</span><span class="en">projects</span></h3>
+        <div class="meta">pesquisa · extensão</div>
+      </div>
 
-  <div class="card">
-    <div class="tag">tpc</div>
-    <div class="card-title">Comitês de programa &amp; bancas científicas</div>
-    <div class="card-sub">Eventos com participação como Technical Program Committee Member, Chair ou Reviewer</div>
-    <div class="grid-3" style="margin-top: 14px;">
-      <ul class="data-list">
-        <li><span class="k">EduComp · trilha 1 &amp; 2</span><span class="v">2024 · 2025 · 2026</span></li>
-        <li><span class="k">WEI / CSBC</span><span class="v">2022 (chair) · 2025 · 2026</span></li>
-        <li><span class="k">SBIE / CBIE</span><span class="v">2022 · 2024 · 2026</span></li>
-        <li><span class="k">CIAED</span><span class="v">2025 · 2026</span></li>
-      </ul>
-      <ul class="data-list">
-        <li><span class="k">EAAI 2026 (AAAI)</span><span class="v accent">TPC member</span></li>
-        <li><span class="k">2CIIAE Argentina</span><span class="v accent">TPC member</span></li>
-        <li><span class="k">LatinR 2024 · 2025</span><span class="v">comitê &amp; revisor</span></li>
-        <li><span class="k">CTD EduComp 2026</span><span class="v">TPC</span></li>
-      </ul>
-      <ul class="data-list">
-        <li><span class="k">Pareceres ad-hoc</span><span class="v accent">28+ editais</span></li>
-        <li><span class="k">IFSC · IFRS · IFAL · IFPE</span><span class="v">externos</span></li>
-        <li><span class="k">IFSUL · IFPR · IFC</span><span class="v">externos</span></li>
-        <li><span class="k">FAPESC</span><span class="v">parecerista</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <div class="grid-4" style="margin-bottom: 18px;">
+        <div class="stat-tile"><div class="num">16</div><div class="lbl">pesquisa · total</div><div class="sub">desde 2016</div></div>
+        <div class="stat-tile"><div class="num">8</div><div class="lbl">extensão · total</div><div class="sub">desde 2016</div></div>
+        <div class="stat-tile"><div class="num">3</div><div class="lbl">pesquisa · ativos</div><div class="sub">2025—2026</div></div>
+        <div class="stat-tile"><div class="num">2</div><div class="lbl">extensão · ativos</div><div class="sub">2025</div></div>
+      </div>
 
-<!-- ========== 09 · GESTÃO ========== -->
-<section id="gestao">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">09</div>
-      <h2>Gestão &amp; designações <span class="em">/ governance</span></h2>
-    </div>
-    <div class="h-right">portarias institucionais</div>
-  </div>
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">projetos ativos <b>· in flight</b></div><div class="panel-tag live">running</div></div>
+          <p class="panel-sub">em execução em 2025—2026</p>
+          <div class="card-grid">
+            <div class="card"><div class="top"><span>PESQUISA · PIBIT-AF</span><span class="ok">running</span></div><h4>IA · Mamografia</h4><div class="meta">Detecção primária de nódulos · co-orient. Elen Lobato.</div><div class="id">PISJE4218-2025</div></div>
+            <div class="card"><div class="top"><span>PESQUISA · FLUXO</span><span class="ok">running</span></div><h4>Mobilidade Urbana</h4><div class="meta">Sustentabilidade no transporte coletivo · regiões metropolitanas.</div><div class="id">PISJE4460-2024</div></div>
+            <div class="card"><div class="top"><span>UFSC · CEPSH</span><span class="ok">approved</span></div><h4>ProgCTQ · Pensamento Crítico</h4><div class="meta">Avaliação no ensino de programação · CAAE 84019224.4.0000.0121</div><div class="id">PARECER 7.320.427</div></div>
+            <div class="card"><div class="top"><span>EXTENSÃO · PROEX</span><span class="ok">running</span></div><h4>Playground IA</h4><div class="meta">Imersão tecnológica para estudantes — IA na educação básica.</div><div class="id">PJ169-2025</div></div>
+            <div class="card"><div class="top"><span>EXTENSÃO · PROEX</span><span class="ok">running</span></div><h4>Despertar para Tecnologia</h4><div class="meta">Criando jogos com Arduino · co-coordenação.</div><div class="id">PJ170-2025</div></div>
+          </div>
+        </div>
 
-  <div class="grid-asym-2">
-    <div class="card">
-      <div class="tag live">FG2 · ATIVA</div>
-      <div class="card-title">Coordenação atual</div>
-      <div class="card-sub">Função gratificada nível 2</div>
-      <div style="font-family: var(--font-mono); font-size: 22px; color: var(--ink-0); margin: 14px 0 6px; letter-spacing: -0.01em;">
-        Coordenador de <span style="color: var(--accent)">Pesquisa &amp; Inovação</span>
-      </div>
-      <div style="color: var(--ink-1); font-size: 13px;">Câmpus São José · Portaria do(a) Reitor(a) Nº 833 de 13/03/2025</div>
-      <ul class="data-list" style="margin-top: 18px;">
-        <li><span class="k">Anterior</span><span class="v">Coord. Curso Téc. Telecom · 2019—2021</span></li>
-      </ul>
-    </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">pesquisa &times; extensão</div><div class="panel-tag">distribution</div></div>
+          <p class="panel-sub">total histórico</p>
+          <div class="chart-box"><canvas id="chartProj"></canvas></div>
 
-    <div class="card">
-      <div class="tag">multi</div>
-      <div class="card-title">Comissões &amp; conselhos vigentes</div>
-      <div class="card-sub">Designações ativas em 2025—2026</div>
-      <ul class="data-list" style="margin-top: 6px;">
-        <li><span class="k">Conselho Editorial · IFSC</span><span class="v accent">titular</span></li>
-        <li><span class="k">Colegiado · Eng. Telecomunicações</span><span class="v">titular</span></li>
-        <li><span class="k">Colegiado · ADS</span><span class="v">titular</span></li>
-        <li><span class="k">Comitê Técnico-Científico SJE</span><span class="v">membro</span></li>
-        <li><span class="k">Comissão Permanente Heteroidentificação</span><span class="v">membro</span></li>
-        <li><span class="k">Resp. Lab Comunicações sem Fio</span><span class="v">titular</span></li>
-        <li><span class="k">CEPSH · Relatoria</span><span class="v">relator</span></li>
-        <li><span class="k">NEABI</span><span class="v">membro</span></li>
-        <li><span class="k">Comissão Eleitoral CONSUP</span><span class="v">membro</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
+          <div class="panel-title" style="margin-top: 22px;">sistemas on-the-fly</div>
+          <ul class="dl" style="margin-top: 6px;">
+            <li><span class="k">TELECOM-TOOLS</span><a href="https://rmayormartins.github.io/telecom-tools/" target="_blank" class="v accent">▶ launch</a></li>
+            <li><span class="k">IA-TOOLS</span><a href="https://rmayormartins.github.io/ia-tools/" target="_blank" class="v accent">▶ launch</a></li>
+            <li><span class="k">SatNOGS · IFSC-389</span><a href="https://network.satnogs.org/stations/389/" target="_blank" class="v accent">▶ ground station</a></li>
+            <li><span class="k">SDR-IFSC · webSDR</span><a href="https://sdr.sj.ifsc.edu.br/" target="_blank" class="v accent">▶ receiver</a></li>
+            <li><span class="k">HuggingFace Spaces</span><a href="https://huggingface.co/rmayormartins" target="_blank" class="v accent">▶ spaces</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!-- ========== 10 · EVENTOS ========== -->
-<section id="eventos">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">10</div>
-      <h2>Eventos &amp; apresentações <span class="em">/ events &amp; talks</span></h2>
-    </div>
-    <div class="h-right">apresentações &amp; tutoriais</div>
-  </div>
+    <!-- ========== 05 ORIENTAÇÕES & BANCAS ========== -->
+    <section id="orientacoes">
+      <div class="sec-head">
+        <h3><span class="num">05.</span> Orientações &amp; bancas <span class="slash">/</span><span class="en">supervision &amp; juries</span></h3>
+        <div class="meta" id="sup-counter">…</div>
+      </div>
 
-  <div class="card">
-    <div class="tag">history</div>
-    <div class="card-title">Linha do tempo · principais eventos</div>
-    <div class="card-sub">Apresentações, tutoriais e participações em mesas</div>
-    <div class="timeline" style="margin-top: 14px;">
-      <div class="tl-item">
-        <div class="yr">2026 · I SEM IA</div>
-        <div class="body">
-          <div class="ttl">Mesa redonda · IFSC SJE</div>
-          <div class="meta">I Seminário de IA Generativa · Melhores práticas em sala de aula</div>
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">orientações &amp; coorientações × ano</div><div class="panel-tag">stack</div></div>
+          <p class="panel-sub">graduação · pós-graduação</p>
+          <div class="chart-box"><canvas id="chartSupYears"></canvas></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">bancas examinadoras × ano</div><div class="panel-tag">stack</div></div>
+          <p class="panel-sub">graduação · pós-graduação</p>
+          <div class="chart-box"><canvas id="chartBancaYears"></canvas></div>
         </div>
       </div>
-      <div class="tl-item">
-        <div class="yr">2025 · CSBC</div>
-        <div class="body">
-          <div class="ttl">CSBC 2025 · Maceió-AL</div>
-          <div class="meta">WEI (2 artigos) · CTD finalista (Concurso de Tese SBC)</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2025 · EduComp</div>
-        <div class="body">
-          <div class="ttl">EduComp 2025 · Juiz de Fora-MG</div>
-          <div class="meta">3º lugar Concurso de Tese · Lab. Ideias (PseudocodeLab e Java-Judge-OO)</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2024 · LatinR</div>
-        <div class="body">
-          <div class="ttl">LatinR 2024 · Comunicação oral (online)</div>
-          <div class="meta">Herramienta R Shiny para diagnóstico de datasets</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2024 · UFSC</div>
-        <div class="body">
-          <div class="ttl">CTC/INE · Portas Abertas</div>
-          <div class="meta">Oficina · Playground de IA</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2023 · CBIE</div>
-        <div class="body">
-          <div class="ttl">CBIE 2023 · Passo Fundo-RS</div>
-          <div class="meta">Desafios e Soluções no Ensino de ML em vulnerabilidade social</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2023 · BRACIS</div>
-        <div class="body">
-          <div class="ttl">BRACIS 2023 · Belo Horizonte-MG</div>
-          <div class="meta">Deep learning · classificação de larvas de mosquito</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2023 · UNESCO</div>
-        <div class="body">
-          <div class="ttl">XôDengue · Digital Learning Week</div>
-          <div class="meta">Apresentação UNESCO · UFSC · App Inventor Foundation</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2020 · IAA-LACW</div>
-        <div class="body">
-          <div class="ttl">4th IAA Latin American Cubesat Workshop</div>
-          <div class="meta">Tutorial · SatNOGS para ground station de cubesats</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2018 · IAA-LACW</div>
-        <div class="body">
-          <div class="ttl">III IAA Latin American CubeSat Workshop · Ubatuba-SP</div>
-          <div class="meta">Tutorial · Introduction to SDR and GNU Radio</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2017 · BalkanCom</div>
-        <div class="body">
-          <div class="ttl">First Intl. Balkan Conf. on Comm. &amp; Networking · Tirana, Albânia</div>
-          <div class="meta">Speech Recognition with HMM · presencial</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ========== 11 · FORMAÇÃO ========== -->
-<section id="formacao">
-  <div class="section-head">
-    <div class="h-left">
-      <div class="section-num">11</div>
-      <h2>Formação <span class="em">/ education</span></h2>
-    </div>
-    <div class="h-right">PhD · MSc · 4 especializações · BSc</div>
-  </div>
+      <div class="grid-3">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">tcc · em andamento</div><div class="panel-tag live">running</div></div>
+          <p class="panel-sub">Engenharia de Telecomunicações</p>
+          <div class="sup-list" style="margin-top: 10px;">
+            <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Beatriz Paz Faria · Mamografia · Wavelet+CBAM+ROI</span><span class="lvl">orient.</span></div>
+            <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Jamilly Pinheiro · ECG · Scalogramas + CvT</span><span class="lvl">co-or.</span></div>
+            <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Joana · Ultrassom mamário · CvT</span><span class="lvl">co-or.</span></div>
+            <div class="sup-item"><span class="yr">2026.1</span><span class="nm">Julia · EEG &amp; Ansiedade · EEG-Conformer</span><span class="lvl">co-or.</span></div>
+            <div class="sup-item"><span class="yr">2025.1</span><span class="nm">Deivid Frederico · CubeSat FloripaSat-I</span><span class="lvl">orient.</span></div>
+            <div class="sup-item"><span class="yr">2025.1</span><span class="nm">Matheus Pires · GS IFSC-SJ · SatNOGS+TinyGS</span><span class="lvl">orient.</span></div>
+            <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Irla Fonseca · QRS · Wavelet</span><span class="lvl">co-or.</span></div>
+          </div>
+        </div>
 
-  <div class="card">
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="yr">2025 →</div>
-        <div class="body">
-          <div class="ttl">Pós-Doutorado · Educação · Jogos eletrônicos</div>
-          <div class="meta">UFSC · PPGE — em andamento</div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">pós-graduação · em andamento</div><div class="panel-tag">post-grad</div></div>
+          <p class="panel-sub">Especialização em Ensino de Ciências e Matemática</p>
+          <div class="sup-list" style="margin-top: 10px;">
+            <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Natalia Souza · Pesquisa &amp; Ensino de Física</span><span class="lvl">orient.</span></div>
+            <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Gabriel Grube · Pesquisa &amp; Ensino de Física</span><span class="lvl">orient.</span></div>
+            <div class="sup-item"><span class="yr">2024.2</span><span class="nm">Sandro Azevedo · Estratégias paradidáticas</span><span class="lvl">orient.</span></div>
+          </div>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2024</div>
-        <div class="body">
-          <div class="ttl">Doutorado · Ciência da Computação</div>
-          <div class="meta">UFSC · INE/PPGCC — Tese: Estratégias para o Ensino de ML para estudantes em vulnerabilidade social</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2014</div>
-        <div class="body">
-          <div class="ttl">Mestrado · Telecomunicações</div>
-          <div class="meta">INATEL · GMM-UBM &amp; HMM · técnica VTLN para locutores crianças</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2018</div>
-        <div class="body">
-          <div class="ttl">Especialização em Engenharia de Sistemas · ESAB</div>
-          <div class="meta">Lato sensu</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2017</div>
-        <div class="body">
-          <div class="ttl">Espec. em Redes de Computadores · MBA em Análise &amp; Telecom · ESAB</div>
-          <div class="meta">Lato sensu</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2015</div>
-        <div class="body">
-          <div class="ttl">Espec. em Sistemas de Telecomunicações · ESAB</div>
-          <div class="meta">Lato sensu</div>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="yr">2010</div>
-        <div class="body">
-          <div class="ttl">Engenharia Elétrica · ênfase Telemática / Eng. Telecomunicações</div>
-          <div class="meta">UNISUL — Universidade do Sul de Santa Catarina</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ========== FOOTER ========== -->
-<div class="foot">
-  <div>
-    <span class="author">Ramon Mayor Martins, Ph.D.</span> · IFSC Câmpus São José · Eng. de Telecomunicações
-  </div>
-  <div>
-    <a href="https://rmayormartins.github.io/" target="_blank">rmayormartins.github.io</a> · v2.0 · 2026
-  </div>
-</div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">totais consolidados</div><div class="panel-tag">summary</div></div>
+          <p class="panel-sub">2015 — presente</p>
+          <ul class="dl" style="margin-top: 10px;">
+            <li><span class="k">orientações graduação</span><span class="v accent" id="sup-grad">—</span></li>
+            <li><span class="k">orientações pós-graduação</span><span class="v accent" id="sup-pos">—</span></li>
+            <li><span class="k">bancas graduação</span><span class="v" id="banca-grad">—</span></li>
+            <li><span class="k">bancas pós-graduação</span><span class="v" id="banca-pos">—</span></li>
+            <li><span class="k">bancas concurso público</span><span class="v">3</span></li>
+            <li><span class="k">iniciação científica</span><span class="v">12+</span></li>
+            <li><span class="k">estágios obrigatórios</span><span class="v">2</span></li>
+            <li><span class="k">monitorias</span><span class="v">1</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-</div><!-- /shell -->
+    <!-- ========== 06 PRÊMIOS ========== -->
+    <section id="premios">
+      <div class="sec-head">
+        <h3><span class="num">06.</span> Prêmios &amp; certificações <span class="slash">/</span><span class="en">awards</span></h3>
+        <div class="meta">internacionais · nacionais</div>
+      </div>
+
+      <div class="patch-grid">
+        <div class="patch"><div class="ic">🏆</div><div class="t">MIT Teacher Excellence Award</div><div class="o">App Inventor Foundation</div><div class="y">2023</div></div>
+        <div class="patch"><div class="ic">🛰️</div><div class="t">NASA Open Science Qualified</div><div class="o">NASA Open Science Initiative</div><div class="y">2024</div></div>
+        <div class="patch"><div class="ic">🤖</div><div class="t">IBM ML Specialist · Advanced</div><div class="o">IBM</div><div class="y">2024</div></div>
+        <div class="patch"><div class="ic">⚡</div><div class="t">Intel Advanced Technical Pro</div><div class="o">Intel · AI in the Cloud</div><div class="y">2024</div></div>
+        <div class="patch"><div class="ic">🥉</div><div class="t">3º lugar · Concurso de Tese</div><div class="o">Educomp 2025 · SBC</div><div class="y">2025</div></div>
+        <div class="patch"><div class="ic">🎖️</div><div class="t">Finalista · Concurso de Tese</div><div class="o">CSBC 2025 · top 11/43</div><div class="y">2025</div></div>
+        <div class="patch"><div class="ic">🚀</div><div class="t">Finalista · Rotas para Inovação</div><div class="o">Sebrae · ELUME · Kamtech</div><div class="y">2025</div></div>
+        <div class="patch"><div class="ic">🌟</div><div class="t">App of the Season · Menção</div><div class="o">App Inventor · UNESCO</div><div class="y">2023</div></div>
+        <div class="patch"><div class="ic">🥉</div><div class="t">3º lugar · Summer Appathon</div><div class="o">MIT App Inventor · QFruta?</div><div class="y">2022</div></div>
+        <div class="patch"><div class="ic">📚</div><div class="t">3º artigo mais lido · 6.5k</div><div class="o">INFEDU · Vilnius</div><div class="y">2023</div></div>
+        <div class="patch"><div class="ic">📖</div><div class="t">Artigo mais lido · 16.5k</div><div class="o">INFEDU · Vilnius</div><div class="y">2022</div></div>
+        <div class="patch"><div class="ic">🥇</div><div class="t">Melhor artigo de pesquisa</div><div class="o">Educomp 2023 · Rauber et al.</div><div class="y">2023</div></div>
+      </div>
+    </section>
+
+    <!-- ========== 07 COMPETIÇÕES ========== -->
+    <section id="competicoes">
+      <div class="sec-head">
+        <h3><span class="num">07.</span> Hackathons &amp; competições <span class="slash">/</span><span class="en">competitions</span></h3>
+        <div class="meta">competidor · juiz</div>
+      </div>
+
+      <div class="grid-3">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">MIT Global AI Hackathon 2025</div><div class="panel-tag live">2025</div></div>
+          <p class="panel-sub">MIT · App Inventor Foundation</p>
+          <ul class="dl" style="margin-top: 10px;">
+            <li><span class="k">função</span><span class="v">Technical &amp; Community Judge</span></li>
+            <li><span class="k">submissão</span><span class="v">Projeto C.AI</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">NASA Space Apps Challenge</div><div class="panel-tag">2024</div></div>
+          <p class="panel-sub">Seismic Detection Across the Solar System</p>
+          <ul class="dl" style="margin-top: 10px;">
+            <li><span class="k">projeto</span><span class="v">WAI6 · Wavelet+AI</span></li>
+            <li><span class="k">status</span><span class="v accent">submitted</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">Rotas para Inovação · Sebrae</div><div class="panel-tag">2025</div></div>
+          <p class="panel-sub">programa de aceleração ELUME</p>
+          <ul class="dl" style="margin-top: 10px;">
+            <li><span class="k">soluções</span><span class="v">SISDEV · SIGAP</span></li>
+            <li><span class="k">empresa</span><span class="v">Kamtech TI</span></li>
+            <li><span class="k">resultado</span><span class="v accent">finalista</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 08 EDITORIAL ========== -->
+    <section id="editorial">
+      <div class="sec-head">
+        <h3><span class="num">08.</span> Editorial &amp; revisão <span class="slash">/</span><span class="en">peer review</span></h3>
+        <div class="meta">editorial board · ad-hoc · TPCs</div>
+      </div>
+
+      <div class="grid-asym-2" style="margin-bottom: 18px;">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">periódicos · assento editorial</div><div class="panel-tag live">active</div></div>
+          <p class="panel-sub">membro de corpo editorial</p>
+          <div class="card-grid" style="margin-top: 10px;">
+            <div class="card"><div class="top"><span>QUALIS A1</span><span class="ok">active</span></div><h4>Informatics in Education</h4><div class="meta">Vilnius University · ISSN 2335-8971 · desde 2025.1</div></div>
+            <div class="card"><div class="top"><span>SYNCSCI</span><span class="ok">active</span></div><h4>RIMA</h4><div class="meta">Research on Intelligent Manufacturing &amp; Assembly · Singapore · desde 2024.2</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">carga de revisão · 2017—2026</div><div class="panel-tag">load</div></div>
+          <p class="panel-sub">por veículo · revisões por convite editorial</p>
+          <ul class="dl" style="margin-top: 6px;">
+            <li><span class="k">ACM TOCE</span><span class="v">5</span></li>
+            <li><span class="k">INFEDU</span><span class="v">9</span></li>
+            <li><span class="k">IEEE Trans. on Education</span><span class="v">1</span></li>
+            <li><span class="k">Improving Schools · SAGE</span><span class="v">1</span></li>
+            <li><span class="k">Educ. Research &amp; Eval. · Routledge</span><span class="v">1</span></li>
+            <li><span class="k">Springer · Discover Education</span><span class="v">1</span></li>
+            <li><span class="k">SBC · WEI/SBIE/EduComp/CIAED</span><span class="v">25+</span></li>
+            <li><span class="k">CBIE · CSBC · BRACIS · LatinR · SBrT</span><span class="v">15+</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div class="panel-title">comitês de programa &amp; bancas científicas</div><div class="panel-tag">tpc</div></div>
+        <p class="panel-sub">eventos com participação como TPC member, chair ou reviewer</p>
+        <div class="grid-3" style="margin-top: 14px;">
+          <ul class="dl">
+            <li><span class="k">EduComp · trilha 1 &amp; 2</span><span class="v">2024 · 2025 · 2026</span></li>
+            <li><span class="k">WEI / CSBC</span><span class="v">2022 chair · 2025 · 2026</span></li>
+            <li><span class="k">SBIE / CBIE</span><span class="v">2022 · 2024 · 2026</span></li>
+            <li><span class="k">CIAED</span><span class="v">2025 · 2026</span></li>
+          </ul>
+          <ul class="dl">
+            <li><span class="k">EAAI 2026 · AAAI</span><span class="v accent">TPC</span></li>
+            <li><span class="k">2CIIAE Argentina</span><span class="v accent">TPC</span></li>
+            <li><span class="k">LatinR 2024 · 2025</span><span class="v">comitê + revisor</span></li>
+            <li><span class="k">CTD EduComp 2026</span><span class="v">TPC</span></li>
+          </ul>
+          <ul class="dl">
+            <li><span class="k">pareceres ad-hoc</span><span class="v accent">28+ editais</span></li>
+            <li><span class="k">IFSC · IFRS · IFAL · IFPE</span><span class="v">externos</span></li>
+            <li><span class="k">IFSUL · IFPR · IFC</span><span class="v">externos</span></li>
+            <li><span class="k">FAPESC</span><span class="v">parecerista</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 09 GESTÃO ========== -->
+    <section id="gestao">
+      <div class="sec-head">
+        <h3><span class="num">09.</span> Gestão &amp; designações <span class="slash">/</span><span class="en">governance</span></h3>
+        <div class="meta">portarias · ativas</div>
+      </div>
+
+      <div class="grid-asym-2">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">coordenação atual</div><div class="panel-tag live">FG2 · ativa</div></div>
+          <p class="panel-sub">função gratificada nível 2</p>
+          <div style="font-size: 20px; color: var(--text-strong); margin: 14px 0 6px; font-weight: 700;">
+            Coordenador · <span style="color: var(--accent);">Pesquisa &amp; Inovação</span>
+          </div>
+          <div style="color: var(--text-mute); font-size: 12px;">Câmpus São José · Portaria do(a) Reitor(a) Nº 833 de 13/03/2025</div>
+          <ul class="dl" style="margin-top: 18px;">
+            <li><span class="k">anterior</span><span class="v">Coord. Curso Téc. Telecom · 2019—2021</span></li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">comissões &amp; conselhos vigentes</div><div class="panel-tag">multi</div></div>
+          <p class="panel-sub">designações ativas · 2025—2026</p>
+          <ul class="dl" style="margin-top: 6px;">
+            <li><span class="k">Conselho Editorial · IFSC</span><span class="v accent">titular</span></li>
+            <li><span class="k">Colegiado · Eng. Telecomunicações</span><span class="v">titular</span></li>
+            <li><span class="k">Colegiado · ADS</span><span class="v">titular</span></li>
+            <li><span class="k">Comitê Técnico-Científico SJE</span><span class="v">membro</span></li>
+            <li><span class="k">Comissão Heteroidentificação</span><span class="v">membro</span></li>
+            <li><span class="k">Resp. Lab Comunicações sem Fio</span><span class="v">titular</span></li>
+            <li><span class="k">CEPSH · Relatoria</span><span class="v">relator</span></li>
+            <li><span class="k">NEABI</span><span class="v">membro</span></li>
+            <li><span class="k">Comissão Eleitoral CONSUP</span><span class="v">membro</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10 EVENTOS ========== -->
+    <section id="eventos">
+      <div class="sec-head">
+        <h3><span class="num">10.</span> Eventos &amp; apresentações <span class="slash">/</span><span class="en">events &amp; talks</span></h3>
+        <div class="meta">talks · tutoriais · mesas</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div class="panel-title">linha do tempo · principais eventos</div><div class="panel-tag">history</div></div>
+        <p class="panel-sub">apresentações, tutoriais e participações em mesas</p>
+        <div class="tl" style="margin-top: 14px;">
+          <div class="tl-item"><div class="yr">2026 · I SEM IA</div><div><div class="ttl">Mesa redonda · IFSC SJE</div><div class="meta">I Seminário de IA Generativa · melhores práticas em sala de aula</div></div></div>
+          <div class="tl-item"><div class="yr">2025 · CSBC</div><div><div class="ttl">CSBC 2025 · Maceió-AL</div><div class="meta">WEI (2 artigos) · CTD finalista · Concurso de Tese SBC</div></div></div>
+          <div class="tl-item"><div class="yr">2025 · EduComp</div><div><div class="ttl">EduComp 2025 · Juiz de Fora-MG</div><div class="meta">3º lugar Concurso de Tese · Lab. Ideias (PseudocodeLab e Java-Judge-OO)</div></div></div>
+          <div class="tl-item"><div class="yr">2024 · LatinR</div><div><div class="ttl">LatinR 2024 · comunicação oral (online)</div><div class="meta">Herramienta R Shiny para diagnóstico de datasets</div></div></div>
+          <div class="tl-item"><div class="yr">2024 · UFSC</div><div><div class="ttl">CTC/INE · Portas Abertas</div><div class="meta">oficina · Playground de IA</div></div></div>
+          <div class="tl-item"><div class="yr">2023 · CBIE</div><div><div class="ttl">CBIE 2023 · Passo Fundo-RS</div><div class="meta">Desafios e Soluções no Ensino de ML em vulnerabilidade social</div></div></div>
+          <div class="tl-item"><div class="yr">2023 · BRACIS</div><div><div class="ttl">BRACIS 2023 · Belo Horizonte-MG</div><div class="meta">Deep learning · classificação de larvas de mosquito</div></div></div>
+          <div class="tl-item"><div class="yr">2023 · UNESCO</div><div><div class="ttl">XôDengue · Digital Learning Week</div><div class="meta">apresentação UNESCO · UFSC · App Inventor Foundation</div></div></div>
+          <div class="tl-item"><div class="yr">2020 · IAA-LACW</div><div><div class="ttl">4th IAA Latin American Cubesat Workshop</div><div class="meta">tutorial · SatNOGS para ground station de cubesats</div></div></div>
+          <div class="tl-item"><div class="yr">2018 · IAA-LACW</div><div><div class="ttl">III IAA Latin American CubeSat Workshop · Ubatuba-SP</div><div class="meta">tutorial · Introduction to SDR and GNU Radio</div></div></div>
+          <div class="tl-item"><div class="yr">2017 · BalkanCom</div><div><div class="ttl">First Intl. Balkan Conf. on Comm. &amp; Networking · Tirana, Albânia</div><div class="meta">Speech Recognition with HMM · presencial</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 11 FORMAÇÃO ========== -->
+    <section id="formacao">
+      <div class="sec-head">
+        <h3><span class="num">11.</span> Formação <span class="slash">/</span><span class="en">education</span></h3>
+        <div class="meta">phd · msc · 4 espec. · bsc</div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><div class="panel-title">trajetória acadêmica</div><div class="panel-tag">timeline</div></div>
+        <table class="modtable" style="margin-top: 14px;">
+          <thead>
+            <tr>
+              <th style="width: 110px;">Período</th>
+              <th style="width: 280px;">Nível</th>
+              <th>Instituição &amp; observações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="k">2025 →</td><td class="kk">Pós-Doutorado · Educação</td><td>UFSC · PPGE — Jogos eletrônicos e educação · em andamento</td></tr>
+            <tr><td class="k">2024</td><td class="kk">Doutorado · Ciência da Computação</td><td>UFSC · INE/PPGCC — Tese: Estratégias para o Ensino de ML para estudantes em vulnerabilidade social</td></tr>
+            <tr><td class="k">2014</td><td class="kk">Mestrado · Telecomunicações</td><td>INATEL · GMM-UBM &amp; HMM · técnica VTLN para locutores crianças</td></tr>
+            <tr><td class="k">2018</td><td class="kk">Espec. em Engenharia de Sistemas</td><td>ESAB · lato sensu</td></tr>
+            <tr><td class="k">2017</td><td class="kk">Espec. em Redes de Computadores</td><td>ESAB · lato sensu</td></tr>
+            <tr><td class="k">2017</td><td class="kk">MBA em Análise &amp; Telecom</td><td>ESAB</td></tr>
+            <tr><td class="k">2015</td><td class="kk">Espec. em Sistemas de Telecomunicações</td><td>ESAB · lato sensu</td></tr>
+            <tr><td class="k">2010</td><td class="kk">Engenharia Elétrica · Telemática</td><td>UNISUL — Universidade do Sul de Santa Catarina</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>Hosted on GitHub Pages — academic dashboard v3.0</div>
+      <div><a href="https://rmayormartins.github.io/" target="_blank">rmayormartins.github.io</a></div>
+    </footer>
+
+  </main><!-- /main -->
+
+</div><!-- /layout -->
 
 <script>
-/* =================================================
- * DATA — derived from wiki source (2014—2026)
- * ================================================= */
-const PAL = ['#5fd49a','#6cb3e0','#f1c068','#e07b6c','#b48de0','#8fcad8','#d8a677','#9fb87f','#c7c4b1','#7e8a82'];
-const INK_0 = '#e8ede8', INK_1 = '#b9c2bc', INK_2 = '#7e8a82', LINE = '#2a3540';
+const PAL = ['#267CB9','#4caf6d','#e8a93e','#d96666','#8e6cb3','#5cb3c2','#c89060','#8aa872','#999999'];
+const INK = '#333333', INK_LOW = '#999999', LINE = '#e5e5e5';
 
-/* shared chart defaults */
-Chart.defaults.color = INK_1;
-Chart.defaults.font.family = "'JetBrains Mono', ui-monospace, monospace";
+Chart.defaults.color = INK;
+Chart.defaults.font.family = "'Source Code Pro', ui-monospace, monospace";
 Chart.defaults.font.size = 11;
 Chart.defaults.borderColor = LINE;
 Chart.defaults.plugins.legend.labels.boxWidth = 10;
 Chart.defaults.plugins.legend.labels.boxHeight = 10;
 Chart.defaults.plugins.legend.labels.padding = 12;
-Chart.defaults.plugins.tooltip.backgroundColor = '#0a0d10';
-Chart.defaults.plugins.tooltip.borderColor = '#5fd49a';
+Chart.defaults.plugins.tooltip.backgroundColor = '#1d1f21';
+Chart.defaults.plugins.tooltip.borderColor = '#267CB9';
 Chart.defaults.plugins.tooltip.borderWidth = 1;
 Chart.defaults.plugins.tooltip.padding = 10;
-Chart.defaults.plugins.tooltip.titleColor = '#e8ede8';
-Chart.defaults.plugins.tooltip.bodyColor = '#b9c2bc';
-Chart.defaults.plugins.tooltip.titleFont = { family: "'JetBrains Mono', monospace", size: 11 };
-Chart.defaults.plugins.tooltip.bodyFont = { family: "'JetBrains Mono', monospace", size: 11 };
+Chart.defaults.plugins.tooltip.titleColor = '#ffffff';
+Chart.defaults.plugins.tooltip.bodyColor = '#dddddd';
+Chart.defaults.plugins.tooltip.titleFont = { family: "'Source Code Pro', monospace", size: 12, weight: '600' };
+Chart.defaults.plugins.tooltip.bodyFont = { family: "'Source Code Pro', monospace", size: 11 };
 
-/* ========== 01 · COURSES ========== */
 new Chart(document.getElementById('chartCourses'), {
   type: 'doughnut',
   data: {
-    labels: [
-      'Eng. Telecomunicações (290 / 1290)',
-      'Téc. Integrado Telecom (608)',
-      'Análise e Des. Sistemas (786)',
-      'Téc. Subseq. Telecom (111)',
-      'Sup. Tec. Sist. Telecom (207)',
-      'Téc. Telecom · redes (125)',
-      'FIC EAD IA Generativa (2026)'
-    ],
-    datasets: [{
-      data: [9, 6, 3, 2, 2, 1, 2],
-      backgroundColor: PAL,
-      borderColor: '#11161a',
-      borderWidth: 2,
-      hoverOffset: 6
-    }]
+    labels: ['Eng. Telecomunicações · 290/1290','Téc. Integrado Telecom · 608','Análise e Des. Sistemas · 786','Téc. Subseq. Telecom · 111','Sup. Tec. Sist. Telecom · 207','Téc. Telecom · redes · 125','FIC EAD IA Generativa · 2026'],
+    datasets: [{ data: [9, 6, 3, 2, 2, 1, 2], backgroundColor: PAL, borderColor: '#fff', borderWidth: 2, hoverOffset: 6 }]
   },
-  options: {
-    maintainAspectRatio: false,
-    cutout: '58%',
-    plugins: {
-      legend: { position: 'right', labels: { font: { size: 10 } } }
-    }
-  }
+  options: { maintainAspectRatio: false, cutout: '62%', plugins: { legend: { position: 'right', labels: { font: { size: 10 }, color: INK } } } }
 });
 
-/* ========== 02 · SUBJECTS HISTOGRAM ========== */
 const subjects = [
-  ['Antenas e Propagação', 11],
-  ['Circuitos de Rádio Frequência', 8],
-  ['Radiotransmissão', 8],
-  ['Sistemas de Telecomunicações', 5],
-  ['Projeto Integrador 1', 4],
-  ['Comunicações Sem Fio', 2],
-  ['Cabeamento Estruturado', 2],
-  ['Inst. Equip. de Redes', 2],
-  ['Programação 1', 2],
-  ['Programação Orientada a Objetos', 2],
-  ['Pensamento Comp. e Algoritmos', 2],
-  ['Intro Ciência de Dados &amp; ML (ICD)', 2],
-  ['Economia para Engenharia', 1],
-  ['Administração para Engenharia', 1],
-  ['Princípios de Telecomunicações', 1],
-  ['Redes de Computadores', 1],
-  ['Telefonia IP', 1],
-  ['Projetos de Redes Metálicas', 1],
-  ['Análise de Circuitos 2', 1],
-  ['Telefonia 1', 1],
-  ['História da IA · FIC', 1],
-  ['IA na Educação · FIC', 1]
+  ['Antenas e Propagação', 11], ['Circuitos de Rádio Frequência', 8], ['Radiotransmissão', 8],
+  ['Sistemas de Telecomunicações', 5], ['Projeto Integrador 1', 4], ['Comunicações Sem Fio', 2],
+  ['Cabeamento Estruturado', 2], ['Inst. Equip. de Redes', 2], ['Programação 1', 2],
+  ['Programação Orientada a Objetos', 2], ['Pensamento Comp. e Algoritmos', 2], ['Intro Ciência de Dados & ML', 2],
+  ['Economia para Engenharia', 1], ['Administração para Engenharia', 1], ['Princípios de Telecomunicações', 1],
+  ['Redes de Computadores', 1], ['Telefonia IP', 1], ['Projetos de Redes Metálicas', 1],
+  ['Análise de Circuitos 2', 1], ['Telefonia 1', 1], ['História da IA · FIC', 1], ['IA na Educação · FIC', 1]
 ];
 subjects.sort((a,b) => b[1]-a[1]);
 new Chart(document.getElementById('chartSubjects'), {
@@ -1528,94 +1205,47 @@ new Chart(document.getElementById('chartSubjects'), {
   data: {
     labels: subjects.map(s => s[0]),
     datasets: [{
-      label: 'Semestres',
-      data: subjects.map(s => s[1]),
-      backgroundColor: ctx => {
-        const v = ctx.raw;
-        if (v >= 8) return '#5fd49a';
-        if (v >= 4) return '#6cb3e0';
-        if (v >= 2) return '#f1c068';
-        return '#7e8a82';
-      },
-      borderRadius: 3,
-      borderSkipped: false
+      label: 'semestres', data: subjects.map(s => s[1]),
+      backgroundColor: ctx => { const v = ctx.raw; if (v >= 8) return '#267CB9'; if (v >= 4) return '#4caf6d'; if (v >= 2) return '#e8a93e'; return '#999999'; },
+      borderRadius: 2, borderSkipped: false
     }]
   },
   options: {
-    indexAxis: 'y',
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
+    indexAxis: 'y', maintainAspectRatio: false, plugins: { legend: { display: false } },
     scales: {
-      x: {
-        grid: { color: LINE, drawBorder: false },
-        ticks: { color: INK_2, stepSize: 1 }
-      },
-      y: {
-        grid: { display: false },
-        ticks: { color: INK_1, font: { size: 10 } }
-      }
+      x: { grid: { color: LINE }, ticks: { color: INK_LOW, stepSize: 1 } },
+      y: { grid: { display: false }, ticks: { color: INK, font: { size: 10 } } }
     }
   }
 });
 
-/* ========== 03 · PRODUCTION TYPE ========== */
 const prodType = {
   labels: ['Artigos', 'Divulgação Científica', 'Relatórios Técnicos', 'Livros', 'Capítulos de Livro', 'Tutoriais (Eventos)', 'Software · Reg. PI'],
   data:   [   45,                7,                       4,             3,           2,                   2,                  1]
 };
 new Chart(document.getElementById('chartProdType'), {
   type: 'doughnut',
-  data: {
-    labels: prodType.labels,
-    datasets: [{
-      data: prodType.data,
-      backgroundColor: PAL,
-      borderColor: '#11161a',
-      borderWidth: 2,
-      hoverOffset: 6
-    }]
-  },
-  options: {
-    maintainAspectRatio: false,
-    cutout: '58%',
-    plugins: {
-      legend: { position: 'right', labels: { font: { size: 10 } } }
-    }
-  }
+  data: { labels: prodType.labels, datasets: [{ data: prodType.data, backgroundColor: PAL, borderColor: '#fff', borderWidth: 2, hoverOffset: 6 }] },
+  options: { maintainAspectRatio: false, cutout: '62%', plugins: { legend: { position: 'right', labels: { font: { size: 10 }, color: INK } } } }
 });
 
-/* ========== 04 · QUALIS ========== */
-const qualis = {
-  labels: ['A1','A2','A3','A4','B1','B2','B3','B4','B5','sem atribuição'],
-  data:   [ 11,   1,   5,   8,   1,   1,   4,   3,   2,   12]
-};
+const qualis = { labels: ['A1','A2','A3','A4','B1','B2','B3','B4','B5','sem'], data: [11,1,5,8,1,1,4,3,2,12] };
 new Chart(document.getElementById('chartQualis'), {
   type: 'bar',
   data: {
     labels: qualis.labels,
     datasets: [{
-      label: 'Publicações',
-      data: qualis.data,
-      backgroundColor: (ctx) => {
-        const lbl = ctx.chart.data.labels[ctx.dataIndex];
-        if (lbl.startsWith('A')) return '#5fd49a';
-        if (lbl.startsWith('B')) return '#6cb3e0';
-        return '#4f5a55';
-      },
-      borderRadius: 3
+      label: 'publicações', data: qualis.data,
+      backgroundColor: ctx => { const lbl = ctx.chart.data.labels[ctx.dataIndex]; if (lbl.startsWith('A')) return '#267CB9'; if (lbl.startsWith('B')) return '#4caf6d'; return '#cccccc'; },
+      borderRadius: 2
     }]
   },
   options: {
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { display: false }, ticks: { color: INK_1 } },
-      y: { grid: { color: LINE }, ticks: { color: INK_2, stepSize: 2 } }
-    }
+    maintainAspectRatio: false, plugins: { legend: { display: false } },
+    scales: { x: { grid: { display: false }, ticks: { color: INK } }, y: { grid: { color: LINE }, ticks: { color: INK_LOW, stepSize: 2 } } }
   }
 });
 
-/* ========== 05 · PRODUCTION × YEAR ========== */
 const yearLabels = ['2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026*'];
 const yearData   = [   2,    2,    7,    5,    5,    0,    4,    1,    9,   11,    6,   14,    7];
 new Chart(document.getElementById('chartYears'), {
@@ -1623,141 +1253,76 @@ new Chart(document.getElementById('chartYears'), {
   data: {
     labels: yearLabels,
     datasets: [
-      {
-        type: 'line',
-        label: 'Tendência',
-        data: yearData,
-        borderColor: '#5fd49a',
-        backgroundColor: 'rgba(95, 212, 154, 0.15)',
-        tension: 0.35,
-        fill: true,
-        pointRadius: 4,
-        pointBackgroundColor: '#5fd49a',
-        pointBorderColor: '#0a0d10',
-        pointBorderWidth: 2,
-        order: 0
-      },
-      {
-        type: 'bar',
-        label: 'Publicações no ano',
-        data: yearData,
-        backgroundColor: 'rgba(108, 179, 224, 0.55)',
-        borderRadius: 3,
-        order: 1
-      }
+      { type: 'line', label: 'tendência', data: yearData, borderColor: '#267CB9', backgroundColor: 'rgba(38, 124, 185, 0.1)', tension: 0.35, fill: true, pointRadius: 4, pointBackgroundColor: '#267CB9', pointBorderColor: '#fff', pointBorderWidth: 2, order: 0 },
+      { type: 'bar', label: 'publicações no ano', data: yearData, backgroundColor: 'rgba(76, 175, 109, 0.55)', borderRadius: 2, order: 1 }
     ]
   },
   options: {
     maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'top', align: 'end' },
-      tooltip: {
-        callbacks: {
-          afterLabel: function(ctx) {
-            if (ctx.label === '2026*') return ' (em andamento · submissões abertas)';
-            return null;
-          }
-        }
-      }
-    },
-    scales: {
-      x: { grid: { display: false }, ticks: { color: INK_1 } },
-      y: { grid: { color: LINE }, ticks: { color: INK_2, stepSize: 2 }, beginAtZero: true }
-    }
+    plugins: { legend: { position: 'top', align: 'end' }, tooltip: { callbacks: { afterLabel: ctx => ctx.label === '2026*' ? ' (em andamento)' : null } } },
+    scales: { x: { grid: { display: false }, ticks: { color: INK } }, y: { grid: { color: LINE }, ticks: { color: INK_LOW, stepSize: 2 }, beginAtZero: true } }
   }
 });
 
-/* ========== 06 · PROJECTS ========== */
 new Chart(document.getElementById('chartProj'), {
   type: 'doughnut',
-  data: {
-    labels: ['Projetos de Pesquisa', 'Projetos de Extensão'],
-    datasets: [{
-      data: [16, 8],
-      backgroundColor: ['#5fd49a','#f1c068'],
-      borderColor: '#11161a',
-      borderWidth: 2,
-      hoverOffset: 6
-    }]
-  },
-  options: {
-    maintainAspectRatio: false,
-    cutout: '62%',
-    plugins: { legend: { position: 'bottom' } }
-  }
+  data: { labels: ['Pesquisa', 'Extensão'], datasets: [{ data: [16, 8], backgroundColor: ['#267CB9','#e8a93e'], borderColor: '#fff', borderWidth: 2, hoverOffset: 6 }] },
+  options: { maintainAspectRatio: false, cutout: '64%', plugins: { legend: { position: 'bottom', labels: { color: INK } } } }
 });
 
-/* ========== 07 · SUPERVISION × YEAR ========== */
 const supYears = ['2017','2018','2019','2021','2022','2023','2024','2025','2026'];
 const supGrad  = [   4,    8,    1,    0,    4,    1,    1,    2,    2];
 const supPos   = [   0,    6,    0,    0,    0,    0,    0,    6,    0];
 new Chart(document.getElementById('chartSupYears'), {
   type: 'bar',
-  data: {
-    labels: supYears,
-    datasets: [
-      { label: 'Graduação',     data: supGrad, backgroundColor: '#5fd49a', borderRadius: 3, stack: 's' },
-      { label: 'Pós-Graduação', data: supPos,  backgroundColor: '#b48de0', borderRadius: 3, stack: 's' }
-    ]
-  },
+  data: { labels: supYears, datasets: [
+    { label: 'graduação', data: supGrad, backgroundColor: '#267CB9', borderRadius: 2, stack: 's' },
+    { label: 'pós-graduação', data: supPos, backgroundColor: '#8e6cb3', borderRadius: 2, stack: 's' }
+  ] },
   options: {
-    maintainAspectRatio: false,
-    plugins: { legend: { position: 'top', align: 'end' } },
-    scales: {
-      x: { stacked: true, grid: { display: false }, ticks: { color: INK_1 } },
-      y: { stacked: true, grid: { color: LINE }, ticks: { color: INK_2, stepSize: 2 } }
-    }
+    maintainAspectRatio: false, plugins: { legend: { position: 'top', align: 'end' } },
+    scales: { x: { stacked: true, grid: { display: false }, ticks: { color: INK } }, y: { stacked: true, grid: { color: LINE }, ticks: { color: INK_LOW, stepSize: 2 } } }
   }
 });
 
-/* ========== 08 · BANCAS × YEAR ========== */
 const bancaYears = ['2015','2017','2018','2019','2021','2022','2023','2024','2025','2026'];
 const bancaGrad  = [   4,    7,   11,    3,    2,    7,    4,    5,    8,    2];
 const bancaPos   = [   0,    0,    0,    1,    0,    0,    0,    9,    7,    1];
 new Chart(document.getElementById('chartBancaYears'), {
   type: 'bar',
-  data: {
-    labels: bancaYears,
-    datasets: [
-      { label: 'Graduação',     data: bancaGrad, backgroundColor: '#6cb3e0', borderRadius: 3, stack: 'b' },
-      { label: 'Pós-Graduação', data: bancaPos,  backgroundColor: '#e07b6c', borderRadius: 3, stack: 'b' }
-    ]
-  },
+  data: { labels: bancaYears, datasets: [
+    { label: 'graduação', data: bancaGrad, backgroundColor: '#4caf6d', borderRadius: 2, stack: 'b' },
+    { label: 'pós-graduação', data: bancaPos, backgroundColor: '#d96666', borderRadius: 2, stack: 'b' }
+  ] },
   options: {
-    maintainAspectRatio: false,
-    plugins: { legend: { position: 'top', align: 'end' } },
-    scales: {
-      x: { stacked: true, grid: { display: false }, ticks: { color: INK_1 } },
-      y: { stacked: true, grid: { color: LINE }, ticks: { color: INK_2, stepSize: 2 } }
-    }
+    maintainAspectRatio: false, plugins: { legend: { position: 'top', align: 'end' } },
+    scales: { x: { stacked: true, grid: { display: false }, ticks: { color: INK } }, y: { stacked: true, grid: { color: LINE }, ticks: { color: INK_LOW, stepSize: 2 } } }
   }
 });
 
-/* ========== KPIs ========== */
 const totalProd = prodType.data.reduce((a,b)=>a+b, 0);
-const totalA1   = qualis.data[0];
-const totalSup  = supGrad.reduce((a,b)=>a+b,0) + supPos.reduce((a,b)=>a+b,0);
+const totalA1 = qualis.data[0];
+const totalSup = supGrad.reduce((a,b)=>a+b,0) + supPos.reduce((a,b)=>a+b,0);
 const totalBanca = bancaGrad.reduce((a,b)=>a+b,0) + bancaPos.reduce((a,b)=>a+b,0);
-const totalProj = 24;          // 16 pesquisa + 8 extensão (incluindo ativos)
-const totalAdHoc = 60;         // pareceres + revisões aproximadamente
 
 document.getElementById('kpi-prod').textContent = totalProd;
-document.getElementById('kpi-a1').textContent   = totalA1;
-document.getElementById('kpi-sup').textContent  = totalSup;
+document.getElementById('kpi-a1').textContent = totalA1;
+document.getElementById('kpi-sup').textContent = totalSup;
 document.getElementById('kpi-banca').textContent = totalBanca;
-document.getElementById('kpi-proj').textContent = totalProj;
-document.getElementById('kpi-ad').textContent   = totalAdHoc + '+';
+document.getElementById('kpi-proj').textContent = 24;
+document.getElementById('kpi-ad').textContent = '60+';
 
-document.getElementById('prod-counter').textContent =
-  `${totalProd} produções · ${yearData.reduce((a,b)=>a+b,0)} entregas indexadas`;
+document.getElementById('prod-counter').textContent = totalProd + ' produções · ' + yearData.reduce((a,b)=>a+b,0) + ' entregas indexadas';
+document.getElementById('sup-counter').textContent = totalSup + ' orientações · ' + totalBanca + ' bancas';
 
-document.getElementById('sup-counter').textContent =
-  `${totalSup} orientações · ${totalBanca} bancas`;
-
-document.getElementById('sup-grad').textContent  = supGrad.reduce((a,b)=>a+b,0);
-document.getElementById('sup-pos').textContent   = supPos.reduce((a,b)=>a+b,0);
+document.getElementById('sup-grad').textContent = supGrad.reduce((a,b)=>a+b,0);
+document.getElementById('sup-pos').textContent = supPos.reduce((a,b)=>a+b,0);
 document.getElementById('banca-grad').textContent = bancaGrad.reduce((a,b)=>a+b,0);
-document.getElementById('banca-pos').textContent  = bancaPos.reduce((a,b)=>a+b,0);
+document.getElementById('banca-pos').textContent = bancaPos.reduce((a,b)=>a+b,0);
+
+const now = new Date();
+const months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+document.getElementById('bd').textContent = String(now.getDate()).padStart(2,'0') + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
 </script>
 </body>
 </html>
