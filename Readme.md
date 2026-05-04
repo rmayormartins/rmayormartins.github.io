@@ -12,7 +12,7 @@
  <a href="current.html">Current Status</a> •
  <a href="publications.html">Publications & Patents</a> • 
  <a href="academicreport.html">Academic Report</a> •
-  <a href="academicdashboard.html">Academic Roadmap</a> •
+  <a href="academicroadmap.html">Academic Roadmap</a> •
 <a href="technicalprofile.html">Technical Profile</a><br> •
 <a href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins" target="_blank">Wikihome</a> •
 <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Resume</a> •
