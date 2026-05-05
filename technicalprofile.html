@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical profile · Ramon Mayor Martins, Ph.D.</title>
+<meta name="description" content="Technical systems, projects and code by area: AI and Telecommunications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #fafafa;
+  --bg-deep: #f5f5f5;
+  --line: #e5e5e5;
+  --line-soft: #efefef;
+  --line-dot: #cccccc;
+  --text: #333333;
+  --text-strong: #1d1f21;
+  --text-mute: #666666;
+  --text-low: #999999;
+  --accent: #267CB9;
+  --accent-soft: #4a9bd1;
+  --accent-deep: #1d5e8c;
+  --accent-bg: #f0f7fc;
+  --c1: #267CB9;
+  --c2: #4caf6d;
+  --c3: #e8a93e;
+  --c4: #d96666;
+  --c5: #8e6cb3;
+  --c6: #5cb3c2;
+  --font-mono: 'Source Code Pro', ui-monospace, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent-deep); }
+::selection { background: var(--accent); color: #fff; }
+
+/* LAYOUT */
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 50px;
+  padding: 50px 40px;
+}
+
+/* SIDEBAR */
+.sidebar { position: sticky; top: 50px; align-self: start; }
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.sidebar h1 a { color: inherit; }
+.sidebar h1 a:hover { text-decoration: none; }
+.sidebar .role {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+}
+.sidebar .role b { color: var(--text-strong); font-weight: 600; }
+.sidebar .avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  margin: 14px 0 18px;
+  filter: grayscale(0.08);
+  transition: filter 0.25s;
+}
+.sidebar .avatar:hover { filter: grayscale(0); }
+.sidebar .avatar-cap {
+  font-size: 10px;
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: -10px 0 14px;
+  text-align: right;
+}
+.side-card {
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  margin: 18px 0;
+  font-size: 11px;
+}
+.side-card .lbl {
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.side-card .v {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 13px;
+}
+.side-card .v .accent { color: var(--accent); }
+.side-card .meta { font-size: 10px; color: var(--text-low); margin-top: 4px; }
+.sidebar nav {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: 18px;
+  font-size: 12px;
+}
+.sidebar nav a { color: var(--accent); padding: 2px 0; }
+.sidebar nav a.current {
+  color: var(--text-strong);
+  font-weight: 600;
+  pointer-events: none;
+}
+.sidebar nav a.current::before {
+  content: '\2022 ';
+  font-size: 8px;
+  color: var(--accent);
+  vertical-align: middle;
+}
+.sidebar nav .label {
+  color: var(--text-low);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 14px 0 4px;
+}
+.sidebar nav .label:first-child { margin-top: 0; }
+
+/* MAIN */
+.main { min-width: 0; }
+.head-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+  margin-bottom: 18px;
+}
+.head-row .crumb {
+  font-size: 11px; color: var(--text-low);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.head-row .crumb::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+.head-row .version { font-size: 11px; color: var(--text-low); }
+.head-row .version b { color: var(--text-strong); font-weight: 600; }
+
+/* PAGE TITLE */
+.page-title {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 22px;
+}
+.page-title h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+.page-title h2 .a { color: var(--accent); }
+.page-title h2 .slash { color: var(--text-low); font-weight: 400; margin: 0 8px; }
+.page-title h2 .en {
+  color: var(--text-low); font-weight: 400; font-size: 18px;
+  letter-spacing: 0;
+}
+.page-title .stamp {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-low);
+  text-align: right;
+  line-height: 1.7;
+}
+.page-title .stamp b { color: var(--accent); font-weight: 700; font-size: 12px; }
+
+.page-lede {
+  color: var(--text-mute);
+  font-size: 13px;
+  max-width: 880px;
+  margin: 0 0 22px;
+}
+.page-lede strong { color: var(--text-strong); font-weight: 600; }
+.page-lede .a { color: var(--accent); font-weight: 600; }
+
+/* META BAR */
+.meta-bar {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  font-size: 11px;
+  color: var(--text-low);
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+.meta-bar b { color: var(--text-strong); font-weight: 600; }
+.meta-bar .ok {
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.meta-bar .ok::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* SECTION */
+section { margin-bottom: 50px; }
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding-bottom: 10px; margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head h3 {
+  font-size: 16px; font-weight: 700;
+  color: var(--text-strong); margin: 0;
+  letter-spacing: -0.005em;
+}
+.sec-head h3 .num {
+  color: var(--accent); font-weight: 500;
+  margin-right: 10px; font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.sec-head h3 .slash { color: var(--text-low); font-weight: 400; margin: 0 6px; }
+.sec-head h3 .en { color: var(--text-low); font-weight: 400; font-size: 12px; }
+.sec-head .meta { font-size: 11px; color: var(--text-low); }
+.sec-head .meta b { color: var(--accent); font-weight: 600; }
+
+/* PANEL */
+.panel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+}
+.panel + .panel { margin-top: 14px; }
+.panel-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4px; gap: 12px;
+}
+.panel-title { font-size: 13px; font-weight: 600; color: var(--text-strong); }
+.panel-title b { color: var(--accent); font-weight: 600; }
+.panel-tag {
+  font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.panel-tag.live { color: var(--accent); }
+.panel-tag.live::before {
+  content: '\2022 '; font-size: 8px;
+  vertical-align: middle;
+  animation: blink 2.4s ease-in-out infinite;
+}
+.panel-sub {
+  font-size: 11px; color: var(--text-mute);
+  margin: 0 0 16px;
+}
+
+/* GRIDS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+/* CARD GRID */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.nav-card {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.nav-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  text-decoration: none;
+}
+.nav-card .top {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-low);
+  margin-bottom: 4px;
+}
+.nav-card .top .arr { color: var(--accent); font-weight: 700; }
+.nav-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 4px 0;
+}
+.nav-card .meta {
+  font-size: 11px;
+  color: var(--text-mute);
+  flex: 1;
+}
+
+/* PROFILE ROWS */
+.prof-list { display: flex; flex-direction: column; gap: 0; }
+.prof-row {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+.prof-row:last-child { border-bottom: 1px solid var(--line); }
+.prof-row:hover { background: var(--accent-bg); text-decoration: none; }
+.prof-row .ic { font-size: 16px; line-height: 1; text-align: center; color: var(--accent); }
+.prof-row .nm { color: var(--text-strong); font-weight: 600; }
+.prof-row .nm .desc {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-mute);
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+}
+.prof-row .arr { color: var(--accent); font-weight: 600; font-size: 11px; letter-spacing: 0.06em; }
+
+/* PROSE */
+.prose { font-size: 13px; color: var(--text); }
+.prose p { margin: 0 0 14px; }
+.prose strong { color: var(--text-strong); font-weight: 600; }
+.prose ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+}
+.prose ul li {
+  padding: 4px 0 4px 16px;
+  position: relative;
+}
+.prose ul li::before {
+  content: '\25B8';
+  color: var(--accent);
+  position: absolute;
+  left: 0; top: 4px;
+  font-size: 10px;
+}
+
+/* TIMELINE LIST */
+.tl {
+  border-left: 1px solid var(--line);
+  margin-left: 8px;
+  padding-left: 18px;
+}
+.tl-item { padding: 8px 0; position: relative; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -22px; top: 14px;
+  width: 7px; height: 7px;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+}
+.tl-item.solid::before { background: var(--accent); }
+.tl-year {
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.tl-line {
+  font-size: 12px;
+  color: var(--text);
+  margin-top: 2px;
+}
+.tl-line b { color: var(--text-strong); font-weight: 600; }
+
+/* DATA TABLE PANEL */
+.dtable {
+  display: grid;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 12px;
+}
+.dtable .h, .dtable .r {
+  display: grid;
+  grid-template-columns: 140px 200px 1fr;
+  gap: 0;
+}
+.dtable .h {
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--line);
+}
+.dtable .h > div, .dtable .r > div {
+  padding: 9px 14px;
+  border-right: 1px dotted var(--line-dot);
+}
+.dtable .h > div:last-child, .dtable .r > div:last-child { border-right: none; }
+.dtable .h > div {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-low);
+  font-weight: 700;
+}
+.dtable .r {
+  border-bottom: 1px solid var(--line-soft);
+}
+.dtable .r:last-child { border-bottom: none; }
+.dtable .r:hover { background: var(--accent-bg); }
+.dtable .r .k { color: var(--accent); font-weight: 700; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+.dtable .r .n { color: var(--text-strong); font-weight: 600; }
+.dtable .r .d { color: var(--text-mute); }
+.dtable .r .d a { color: var(--accent); }
+
+/* TASK ROWS */
+.task-list { display: flex; flex-direction: column; gap: 0; }
+.task {
+  display: grid;
+  grid-template-columns: 28px 90px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  font-size: 12px;
+}
+.task:last-child { border-bottom: 1px solid var(--line); }
+.task .box {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1;
+}
+.task.done .box { color: var(--c2); }
+.task.todo .box { color: var(--accent); }
+.task .tag {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 2px 6px;
+  text-align: center;
+  display: inline-block;
+}
+.task.done .tag { color: var(--c2); border: 1px solid var(--c2); background: #f0f8f3; }
+.task.todo .tag { color: var(--accent); border: 1px solid var(--accent); background: var(--accent-bg); }
+.task .label { color: var(--text); }
+.task .label b { color: var(--text-strong); font-weight: 600; }
+.task .label a { color: var(--accent); }
+
+/* CONTACT BLOCK */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+}
+.contact-block {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  font-size: 12px;
+}
+.contact-block h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+}
+.contact-block .row {
+  display: flex; gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--line-dot);
+}
+.contact-block .row:last-child { border-bottom: none; }
+.contact-block .k {
+  color: var(--text-low);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+  min-width: 80px;
+  padding-top: 1px;
+}
+.contact-block .v { color: var(--text-strong); font-weight: 500; flex: 1; }
+.contact-block .v.code { color: var(--accent); font-weight: 600; }
+
+/* CALLOUT */
+.callout {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  padding: 14px 18px;
+  font-size: 12px;
+  color: var(--text);
+}
+.callout b { color: var(--text-strong); font-weight: 600; }
+.callout .lbl {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* FOOTER */
+.foot {
+  margin-top: 60px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+  font-size: 11px;
+  color: var(--text-low);
+}
+.foot a { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 200px 1fr; gap: 35px; padding: 40px 28px; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .page-title { flex-direction: column; align-items: flex-start; }
+  .page-title .stamp { text-align: left; }
+  .dtable .h, .dtable .r { grid-template-columns: 100px 160px 1fr; }
+  .task { grid-template-columns: 28px 80px 1fr; }
+}
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; gap: 30px; padding: 30px 20px; }
+  .sidebar { position: static; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .page-title h2 { font-size: 28px; }
+  .dtable .h, .dtable .r { grid-template-columns: 1fr; }
+  .dtable .h > div, .dtable .r > div { border-right: none; border-bottom: 1px dotted var(--line-dot); }
+  .task { grid-template-columns: 24px 70px 1fr; gap: 8px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h1><a href="./index.html">Ramon Mayor Martins</a></h1>
+  <p class="role">Ph.D. · <b>Associate Professor</b></p>
+  <p class="role">IFSC · São José Campus</p>
+  <p class="role">Telecommunications Engineering</p>
+
+  <img class="avatar" src="img/logo.png" alt="Ramon Mayor Martins · Space Center Houston" />
+  <p class="avatar-cap">space center · houston</p>
+
+  <div class="side-card">
+    <div class="lbl">Research &amp; Innovation Coord.</div>
+    <div class="v"><span class="accent">FG2 · active</span></div>
+    <div class="meta">since 03/2025</div>
+  </div>
+
+  <nav>
+    <div class="label">site</div>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./current.html">Current Status</a>
+    <a href="./publications.html">Publications</a>
+    <a href="./academicreport.html">Academic Dashboard</a>
+    <a href="./academicroadmap.html">Academic Roadmap</a>
+    <a class="current" href="./technicalprofile.html">Technical Profile</a>
+    <a href="./contributions.html">Contributions</a>
+    <a href="./tasklist.html">Task List</a>
+    <a href="./contact.html">Contact Me</a>
+
+    <div class="label">labs</div>
+    <a href="./telecom-tools/" target="_blank">Telecom Tools</a>
+    <a href="./ia-tools/" target="_blank">AI Tools</a>
+
+    <div class="label">profiles</div>
+    <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
+    <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
+    <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Lattes</a>
+    <a href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">Scholar</a>
+    <a href="https://orcid.org/0000-0002-1952-0909" target="_blank">ORCID</a>
+  </nav>
+</aside>
+
+<main class="main">
+
+  <div class="head-row">
+    <div class="crumb">technical · stack</div>
+    <div class="version">v1.0 · last build <b id="bd">—</b></div>
+  </div>
+
+
+  <div class="page-title">
+    <h2>Technical profile<span class="slash">/</span><span class="en">systems &amp; projects</span></h2>
+    <div class="stamp">
+      <b>STACK</b><br>
+      systems · code · logs
+    </div>
+  </div>
+
+  <p class="page-lede">
+    Systems on the fly, space codes and logs. Interactive web tools for AI and Telecommunications,
+    a SatNOGS ground station, a public webSDR receiver, and HuggingFace Spaces for
+    AI experimentation.
+  </p>
+
+  <div class="meta-bar">
+    <div>tools online: <b>active</b></div>
+    <div>callsign: <b>PU4MAY</b></div>
+    <div>SatNOGS: <b>station 389</b></div>
+    <div style="margin-left: auto;" class="ok">all systems live</div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <h3><span class="num">01.</span> Technical systems <span class="slash">/</span><span class="en">on the fly</span></h3>
+      <div class="meta">live · running</div>
+    </div>
+
+    <div class="prof-list">
+      <a class="prof-row" href="https://huggingface.co/rmayormartins" target="_blank">
+        <span class="ic">🤗</span>
+        <span class="nm">HuggingFace Spaces<span class="desc">demos · models · NLP &amp; CV</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="./ia-tools/" target="_blank">
+        <span class="ic">🤖</span>
+        <span class="nm">AI Tools<span class="desc">interactive ML algorithms</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="./telecom-tools/" target="_blank">
+        <span class="ic">📡</span>
+        <span class="nm">Telecom Tools<span class="desc">RF · sat · IoT · DSP labs</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://www.qrz.com/db/PU4MAY" target="_blank">
+        <span class="ic">📻</span>
+        <span class="nm">QRZ logs · PU4MAY<span class="desc">amateur radio operating log</span></span>
+        <span class="arr">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h3><span class="num">02.</span> Technical projects <span class="slash">/</span><span class="en">by area</span></h3>
+      <div class="meta">AI · Telecom</div>
+    </div>
+
+    <div class="dtable">
+      <div class="h">
+        <div>area</div>
+        <div>project</div>
+        <div>info</div>
+      </div>
+      <div class="r">
+        <div class="k">AI</div>
+        <div class="n"><a href="./ia-tools/" target="_blank">AI Tools</a></div>
+        <div class="d">AI tools for education — interactive visualizations of classical ML algorithms (Decision Tree, SVM, Naive Bayes, Random Forest, K-Means, KNN, ANN).</div>
+      </div>
+      <div class="r">
+        <div class="k">AI</div>
+        <div class="n"><a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace Spaces</a></div>
+        <div class="d">Spaces for experimentation with code, datasets and models — NLP, computer vision and LLMs.</div>
+      </div>
+      <div class="r">
+        <div class="k">Telecom</div>
+        <div class="n"><a href="./telecom-tools/" target="_blank">Telecom Tools</a></div>
+        <div class="d">Telecom tools for education — Satellite, RF, IoT, Antenna, DSP, Digital Communications and RF Microelectronics labs.</div>
+      </div>
+      <div class="r">
+        <div class="k">Telecom</div>
+        <div class="n"><a href="https://network.satnogs.org/stations/389/" target="_blank">SatNOGS · IFSC-389</a></div>
+        <div class="d">Ground station for signal reception of CubeSats, Small Satellites, Meteorological Satellites and the International Space Station.</div>
+      </div>
+      <div class="r">
+        <div class="k">Telecom</div>
+        <div class="n"><a href="https://sdr.sj.ifsc.edu.br/" target="_blank">webSDR · IFSC-SJ</a></div>
+        <div class="d">Web Software Defined Radio for signal reception of HF, VHF and UHF RF stations · public access.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h3><span class="num">03.</span> Commanders <span class="slash">/</span><span class="en">space dashboards</span></h3>
+      <div class="meta">live tracking</div>
+    </div>
+
+    <div class="card-grid">
+      <a class="nav-card" href="./telecom-tools/starlink-commander.html" target="_blank">
+        <div class="top"><span>SGP4 · constellation</span><span class="arr">↗</span></div>
+        <h4>Starlink Commander</h4>
+        <p class="meta">Real-time Starlink constellation · 2D + 3D · RSS feeds.</p>
+      </a>
+      <a class="nav-card" href="./telecom-tools/iss-commander.html" target="_blank">
+        <div class="top"><span>LEO · live</span><span class="arr">↗</span></div>
+        <h4>ISS Commander</h4>
+        <p class="meta">International Space Station orbit &amp; current crew.</p>
+      </a>
+      <a class="nav-card" href="./telecom-tools/voyager-commander.html" target="_blank">
+        <div class="top"><span>deep space</span><span class="arr">↗</span></div>
+        <h4>Voyager Commander</h4>
+        <p class="meta">Voyager 1 &amp; 2 · NASA/JPL data · DSN feed.</p>
+      </a>
+    </div>
+  </section>
+
+
+  <footer class="foot">
+    <div>Ramon Mayor Martins, Ph.D. · IFSC São José Campus</div>
+    <div>
+      <a href="./index.html">rmayormartins.github.io</a>
+      · last updated <span id="ftd">2026.05</span>
+    </div>
+  </footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  const bd = document.getElementById('bd');
+  if (bd) bd.textContent = new Date().toISOString().slice(0,10);
+  const ftd = document.getElementById('ftd');
+  if (ftd) ftd.textContent = new Date().toISOString().slice(0,7).replace('-', '.');
+})();
+</script>
+
+</body>
+</html>
