@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications · Ramon Mayor Martins, Ph.D.</title>
+<meta name="description" content="Full list of publications by Ramon Mayor Martins, Ph.D. — articles, book chapters, tutorials, technical reports and software registrations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --bg: #ffffff; --bg-soft: #fafafa; --bg-deep: #f5f5f5;
+  --line: #e5e5e5; --line-soft: #efefef; --line-dot: #cccccc;
+  --text: #333333; --text-strong: #1d1f21;
+  --text-mute: #666666; --text-low: #999999;
+  --accent: #267CB9; --accent-soft: #4a9bd1;
+  --accent-deep: #1d5e8c; --accent-bg: #f0f7fc;
+  --c1: #267CB9; --c2: #4caf6d; --c3: #e8a93e;
+  --c4: #d96666; --c5: #8e6cb3; --c6: #5cb3c2;
+  --font-mono: 'Source Code Pro', ui-monospace, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text);
+  font-family: var(--font-mono); font-size: 13px;
+  font-weight: 400; line-height: 1.6; min-height: 100vh; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent-deep); }
+::selection { background: var(--accent); color: #fff; }
+
+/* LAYOUT */
+.layout { max-width: 1400px; margin: 0 auto;
+  display: grid; grid-template-columns: 240px 1fr;
+  gap: 50px; padding: 50px 40px; }
+
+/* SIDEBAR */
+.sidebar { position: sticky; top: 50px; align-self: start; }
+.sidebar h1 { font-size: 20px; font-weight: 700; color: var(--accent);
+  margin: 0 0 18px; letter-spacing: -0.005em; line-height: 1.25; }
+.sidebar h1 a { color: inherit; }
+.sidebar h1 a:hover { text-decoration: none; }
+.sidebar .role { font-size: 11px; color: var(--text-mute);
+  margin: 0 0 4px; letter-spacing: 0.02em; }
+.sidebar .role b { color: var(--text-strong); font-weight: 600; }
+.sidebar .avatar { display: block; width: 100%; height: auto;
+  border: 1px solid var(--line); margin: 14px 0 18px;
+  filter: grayscale(0.08); transition: filter 0.25s; }
+.sidebar .avatar:hover { filter: grayscale(0); }
+.sidebar .avatar-cap { font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin: -10px 0 14px; text-align: right; }
+.side-card { background: var(--bg-deep); border: 1px solid var(--line);
+  padding: 14px 16px; margin: 18px 0; font-size: 11px; }
+.side-card .lbl { color: var(--text-low); letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 6px; }
+.side-card .v { color: var(--text-strong); font-weight: 600; font-size: 13px; }
+.side-card .v .accent { color: var(--accent); }
+.side-card .meta { font-size: 10px; color: var(--text-low); margin-top: 4px; }
+.sidebar nav { display: flex; flex-direction: column; gap: 2px;
+  margin-top: 18px; font-size: 12px; }
+.sidebar nav a { color: var(--accent); padding: 2px 0; }
+.sidebar nav a.current { color: var(--text-strong); font-weight: 600;
+  pointer-events: none; }
+.sidebar nav a.current::before { content: '\2022 '; font-size: 8px;
+  color: var(--accent); vertical-align: middle; }
+.sidebar nav .label { color: var(--text-low); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin: 14px 0 4px; }
+.sidebar nav .label:first-child { margin-top: 0; }
+
+/* MAIN */
+.main { min-width: 0; }
+.head-row { display: flex; align-items: baseline;
+  justify-content: space-between; flex-wrap: wrap;
+  gap: 18px; margin-bottom: 18px; }
+.head-row .crumb { font-size: 11px; color: var(--text-low);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 7px; }
+.head-row .crumb::before { content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite; }
+.head-row .version { font-size: 11px; color: var(--text-low); }
+.head-row .version b { color: var(--text-strong); font-weight: 600; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* PAGE TITLE */
+.page-title { display: flex; align-items: baseline;
+  justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  padding-bottom: 22px; border-bottom: 1px solid var(--line);
+  margin-bottom: 22px; }
+.page-title h2 { font-size: 36px; font-weight: 700;
+  color: var(--text-strong); letter-spacing: -0.02em;
+  line-height: 1.05; margin: 0; }
+.page-title h2 .a { color: var(--accent); }
+.page-title h2 .slash { color: var(--text-low);
+  font-weight: 400; margin: 0 8px; }
+.page-title h2 .en { color: var(--text-low); font-weight: 400;
+  font-size: 18px; letter-spacing: 0; }
+.page-title .stamp { font-size: 10px; letter-spacing: 0.08em;
+  color: var(--text-low); text-align: right; line-height: 1.7; }
+.page-title .stamp b { color: var(--accent); font-weight: 700; font-size: 12px; }
+
+.page-lede { color: var(--text-mute); font-size: 13px;
+  max-width: 880px; margin: 0 0 22px; }
+.page-lede strong { color: var(--text-strong); font-weight: 600; }
+.page-lede .a { color: var(--accent); font-weight: 600; }
+
+.meta-bar { display: flex; flex-wrap: wrap; gap: 18px;
+  font-size: 11px; color: var(--text-low); padding: 10px 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-bottom: 32px; letter-spacing: 0.02em; }
+.meta-bar b { color: var(--text-strong); font-weight: 600; }
+.meta-bar .ok { color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px; }
+.meta-bar .ok::before { content: ''; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite; }
+
+/* KPIs */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+  margin-bottom: 50px; }
+.kpi { background: var(--bg); padding: 18px 16px;
+  display: flex; flex-direction: column; gap: 4px; }
+.kpi .lbl { font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.1em; text-transform: uppercase; }
+.kpi .val { font-size: 30px; color: var(--accent); font-weight: 700;
+  line-height: 1.05; margin: 4px 0; letter-spacing: -0.01em; }
+.kpi .sub { font-size: 10px; color: var(--text-mute); }
+
+/* SECTION */
+section { margin-bottom: 50px; scroll-margin-top: 24px; }
+.sec-head { display: flex; align-items: baseline;
+  justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  padding-bottom: 10px; margin-bottom: 22px;
+  border-bottom: 1px solid var(--line); }
+.sec-head h3 { font-size: 16px; font-weight: 700;
+  color: var(--text-strong); margin: 0; letter-spacing: -0.005em; }
+.sec-head h3 .num { color: var(--accent); font-weight: 500;
+  margin-right: 10px; font-size: 13px; letter-spacing: 0.02em; }
+.sec-head h3 .slash { color: var(--text-low); font-weight: 400; margin: 0 6px; }
+.sec-head h3 .en { color: var(--text-low); font-weight: 400; font-size: 12px; }
+.sec-head .meta { font-size: 11px; color: var(--text-low); }
+.sec-head .meta b { color: var(--accent); font-weight: 600; }
+
+/* QUICKNAV bar */
+.quicknav { display: flex; flex-wrap: wrap; gap: 8px;
+  font-size: 11px; padding: 12px 14px; margin-bottom: 30px;
+  background: var(--bg-deep); border: 1px solid var(--line); }
+.quicknav .label { color: var(--text-low); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-right: 6px; }
+.quicknav a { padding: 2px 8px; border: 1px solid var(--line);
+  background: var(--bg); color: var(--accent); }
+.quicknav a:hover { background: var(--accent-bg); text-decoration: none;
+  border-color: var(--accent); }
+
+/* PROFILE ROWS (for Publications profiles section) */
+.prof-list { display: flex; flex-direction: column; gap: 0; }
+.prof-row { display: grid; grid-template-columns: 30px 1fr auto;
+  gap: 14px; align-items: center; padding: 10px 12px;
+  background: var(--bg); border: 1px solid var(--line);
+  border-bottom: none; font-size: 12px; text-decoration: none;
+  color: inherit; transition: background 0.15s, border-color 0.15s; }
+.prof-row:last-child { border-bottom: 1px solid var(--line); }
+.prof-row:hover { background: var(--accent-bg); text-decoration: none; }
+.prof-row .ic { font-size: 16px; line-height: 1;
+  text-align: center; color: var(--accent); }
+.prof-row .nm { color: var(--text-strong); font-weight: 600; }
+.prof-row .nm .desc { display: block; font-size: 10px;
+  font-weight: 400; color: var(--text-mute);
+  margin-top: 1px; letter-spacing: 0.02em; }
+.prof-row .arr { color: var(--accent); font-weight: 600;
+  font-size: 11px; letter-spacing: 0.06em; }
+
+/* PUB COMPONENT */
+.pub-list { display: flex; flex-direction: column; gap: 0; }
+.pub { display: grid; grid-template-columns: 130px 1fr;
+  gap: 18px; padding: 14px 16px;
+  background: var(--bg); border: 1px solid var(--line);
+  border-bottom: none; transition: background 0.15s; }
+.pub:last-child { border-bottom: 1px solid var(--line); }
+.pub:hover { background: var(--accent-bg); }
+.pub-meta { display: flex; flex-direction: column;
+  gap: 5px; align-items: flex-start; }
+.pub-year { font-size: 16px; font-weight: 700; color: var(--accent);
+  letter-spacing: 0.01em; line-height: 1; }
+.pub-status { font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 700;
+  padding: 2px 6px; border: 1px solid; display: inline-block; }
+.pub-status.s-pub { color: var(--c2); border-color: var(--c2); background: #f0f8f3; }
+.pub-status.s-sub { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.pub-status.s-tbd { color: var(--c3); border-color: var(--c3); background: #fdf6e9; }
+.pub-qualis { font-size: 9px; letter-spacing: 0.08em;
+  font-weight: 700; padding: 2px 7px; border: 1px solid;
+  display: inline-block; text-align: center; min-width: 30px; }
+.pub-qualis.q-a1 { color: #fff; background: var(--accent-deep); border-color: var(--accent-deep); }
+.pub-qualis.q-a2 { color: var(--accent-deep); border-color: var(--accent-deep); background: var(--accent-bg); }
+.pub-qualis.q-a3 { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+.pub-qualis.q-b { color: var(--text-mute); border-color: var(--line-dot); background: var(--bg); }
+.pub-qualis.q-x { color: var(--text-low); border-color: var(--line-dot); background: var(--bg); }
+.pub-kind { font-size: 9px; letter-spacing: 0.06em;
+  text-transform: uppercase; font-weight: 600; color: var(--c5);
+  padding: 2px 6px; border: 1px solid var(--c5);
+  background: #f7f3fa; display: inline-block; }
+.pub-body { font-size: 12px; min-width: 0; }
+.pub-title { font-size: 13px; font-weight: 600;
+  color: var(--text-strong); line-height: 1.45;
+  margin-bottom: 4px; }
+.pub-venue { font-size: 11px; color: var(--accent);
+  font-style: italic; margin-bottom: 4px; }
+.pub-authors { font-size: 11px; color: var(--text-mute);
+  margin-bottom: 4px; }
+.pub-notes { font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.02em; }
+.pub-notes a { color: var(--accent); }
+.pub-notes b { color: var(--text-strong); font-weight: 600; }
+
+/* YEAR GROUP */
+.year-group { margin-bottom: 28px; }
+.year-head { display: flex; align-items: baseline;
+  gap: 14px; padding: 8px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted var(--line-dot); }
+.year-head .y { font-size: 22px; font-weight: 700;
+  color: var(--text-strong); letter-spacing: -0.01em; }
+.year-head .c { font-size: 11px; color: var(--text-low);
+  letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* FOOTER */
+.foot { margin-top: 60px; padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+  font-size: 11px; color: var(--text-low); }
+.foot a { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 200px 1fr; gap: 35px; padding: 40px 28px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .page-title { flex-direction: column; align-items: flex-start; }
+  .page-title .stamp { text-align: left; }
+}
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; gap: 30px; padding: 30px 20px; }
+  .sidebar { position: static; padding-bottom: 24px;
+    border-bottom: 1px solid var(--line); }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .page-title h2 { font-size: 28px; }
+  .pub { grid-template-columns: 1fr; gap: 8px; }
+  .pub-meta { flex-direction: row; flex-wrap: wrap; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<aside class="sidebar">
+  <h1><a href="./index.html">Ramon Mayor Martins</a></h1>
+  <p class="role">Ph.D. · <b>Associate Professor</b></p>
+  <p class="role">IFSC · São José Campus</p>
+  <p class="role">Telecommunications Engineering</p>
+
+  <img class="avatar" src="img/logo.png" alt="Ramon Mayor Martins · Space Center Houston" />
+  <p class="avatar-cap">space center · houston</p>
+
+  <div class="side-card">
+    <div class="lbl">Research &amp; Innovation Coord.</div>
+    <div class="v"><span class="accent">FG2 · active</span></div>
+    <div class="meta">since 03/2025</div>
+  </div>
+
+  <nav>
+    <div class="label">site</div>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./current.html">Current Status</a>
+    <a class="current" href="./publications.html">Publications</a>
+    <a href="./academicreport.html">Academic Dashboard</a>
+    <a href="./academicroadmap.html">Academic Roadmap</a>
+    <a href="./technicalprofile.html">Technical Profile</a>
+    <a href="./contributions.html">Contributions</a>
+    <a href="./tasklist.html">Task List</a>
+    <a href="./contact.html">Contact Me</a>
+
+    <div class="label">labs</div>
+    <a href="./telecom-tools/" target="_blank">Telecom Tools</a>
+    <a href="./ia-tools/" target="_blank">AI Tools</a>
+
+    <div class="label">profiles</div>
+    <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
+    <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
+    <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Lattes</a>
+    <a href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">Scholar</a>
+    <a href="https://orcid.org/0000-0002-1952-0909" target="_blank">ORCID</a>
+  </nav>
+</aside>
+
+<main class="main">
+
+  <div class="head-row">
+    <div class="crumb">publications · index</div>
+    <div class="version">v1.0 · last build <b id="bd">—</b></div>
+  </div>
+
+  <div class="page-title">
+    <h2>Publications<span class="slash">/</span><span class="en">scientific output</span></h2>
+    <div class="stamp">
+      <b>SCIENTIFIC OUTPUT</b><br>
+      articles · books · sw
+    </div>
+  </div>
+
+  <p class="page-lede">
+    Full scientific output spanning <strong>2016–2026</strong>. Coverage includes
+    peer-reviewed articles, book chapters, tutorials, technical reports and software
+    registrations across <strong>AI in Education</strong>,
+    <strong>Telecommunications</strong> and <strong>Biomedical Signal Processing</strong>.
+    For complete records and citations, see the academic profiles below.
+  </p>
+
+  <div class="meta-bar">
+    <div>span: <b>2016 → 2026</b></div>
+    <div>Qualis A1: <b>12</b></div>
+    <div>pipeline: <b>13</b></div>
+    <div>updated: <b id="mb-upd">—</b></div>
+    <div style="margin-left: auto;" class="ok">listing live</div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="lbl">total publications</div>
+      <div class="val">65</div>
+      <div class="sub">articles · books · sw · reports</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">articles</div>
+      <div class="val">53</div>
+      <div class="sub">peer-reviewed papers</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">qualis A1</div>
+      <div class="val">12</div>
+      <div class="sub">top-tier venues</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">pipeline</div>
+      <div class="val">13</div>
+      <div class="sub">submitted &amp; to-submit</div>
+    </div>
+  </div>
+
+  <!-- QUICK NAV -->
+  <div class="quicknav">
+    <span class="label">jump to</span>
+    <a href="#profiles">profiles</a>
+    <a href="#books">books &amp; chapters</a>
+    <a href="#articles">articles</a>
+    <a href="#tutorials">tutorials</a>
+    <a href="#reports">reports</a>
+    <a href="#software">software</a>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 01 PROFILES                                                  -->
+  <!-- ============================================================ -->
+  <section id="profiles">
+    <div class="sec-head">
+      <h3><span class="num">01.</span> Publication profiles <span class="slash">/</span><span class="en">indexed records</span></h3>
+      <div class="meta">complete records</div>
+    </div>
+
+    <p class="page-lede" style="margin-bottom: 16px;">
+      For complete papers, presentations, books, chapters and tutorials, please
+      check the indexed profiles below.
+    </p>
+
+    <div class="prof-list">
+      <a class="prof-row" href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ&amp;hl=pt-BR" target="_blank">
+        <span class="ic">🎓</span>
+        <span class="nm">Google Scholar<span class="desc">citations &amp; h-index</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://ifsc.academia.edu/RamonMayorMartins" target="_blank">
+        <span class="ic">📚</span>
+        <span class="nm">Academia.edu<span class="desc">paper repository</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://www.researchgate.net/profile/Ramon-Martins-5" target="_blank">
+        <span class="ic">📚</span>
+        <span class="nm">ResearchGate<span class="desc">researcher network</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://www.semanticscholar.org/author/Ramon-Mayor-Martins/31109678" target="_blank">
+        <span class="ic">🔎</span>
+        <span class="nm">Semantic Scholar<span class="desc">AI-driven literature index</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://dblp.org/search?q=Ramon+Mayor+Martins" target="_blank">
+        <span class="ic">💾</span>
+        <span class="nm">dblp<span class="desc">CS bibliography</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://www.growkudos.com/profile/ramon_mayor_martins" target="_blank">
+        <span class="ic">📈</span>
+        <span class="nm">Kudos<span class="desc">research showcase</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://wiki.sj.ifsc.edu.br/index.php/Ramon_Mayor_Martins#Produ.C3.A7.C3.A3o" target="_blank">
+        <span class="ic">📑</span>
+        <span class="nm">Wikipage · IFSC-SJ<span class="desc">institutional production page</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="http://lattes.cnpq.br/6289204315531991" target="_blank">
+        <span class="ic">📋</span>
+        <span class="nm">Lattes CV<span class="desc">official Brazilian CV</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://orcid.org/0000-0002-1952-0909" target="_blank">
+        <span class="ic">🆔</span>
+        <span class="nm">ORCID<span class="desc">0000-0002-1952-0909</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="https://www.webofscience.com/wos/author/record/HHZ-6380-2022" target="_blank">
+        <span class="ic">🔗</span>
+        <span class="nm">Web of Science · ResearcherID<span class="desc">HHZ-6380-2022</span></span>
+        <span class="arr">↗</span>
+      </a>
+      <a class="prof-row" href="#" style="cursor: default;" onclick="event.preventDefault();">
+        <span class="ic">📄</span>
+        <span class="nm">JEMS<span class="desc">id 118582</span></span>
+        <span class="arr">·</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 02 BOOKS & CHAPTERS                                          -->
+  <!-- ============================================================ -->
+  <section id="books">
+    <div class="sec-head">
+      <h3><span class="num">02.</span> Books &amp; book chapters <span class="slash">/</span><span class="en">monographs &amp; chapters</span></h3>
+      <div class="meta"><b>5</b> entries</div>
+    </div>
+<div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-kind">Book chapter</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Creating Mobile Applications with Artificial Intelligence Adopting Computational Action</div>
+    <div class="pub-venue">Springer Cham · in <b>Education, Development and Intervention: Toward Participatory and Integrated Solutions</b></div>
+    <div class="pub-authors">Gresse von Wangenheim, C.; da Cruz Alves, N.; Rauber, M.F.; Martins, R.M.; Hauck, J.C.</div>
+    <div class="pub-notes">DOI: 10.1007/978-3-031-60713-4 · <a href="https://link.springer.com/chapter/10.1007/978-3-031-60713-4_10#citeas" target="_blank">chapter link</a>.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2021</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-kind">Book</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Redução do número de sensores de EEG e detecção de movimento motor através de Redes Neurais Artificiais</div>
+    <div class="pub-venue">NEA Edições</div>
+    <div class="pub-authors">Martins, R.M.; Bandeira, V.; Lobato, E.M.</div>
+    <div class="pub-notes">ISBN: 978-620-3-46822-5.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2020</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-kind">Book</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Análise comparativa entre os métodos HMM e GMM-UBM: busca pelo α-ótimo dos locutores crianças utilizando a técnica VTLN</div>
+    <div class="pub-venue">NEA Edições</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    <div class="pub-notes">ISBN-13: 978-620-2-80600-8.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2020</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-kind">Book chapter</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Análise de softwares de modelagem de antenas para cursos técnicos e de engenharia de telecomunicações</div>
+    <div class="pub-venue">ATENA · in <b>Ensino, Pesquisa e Desenvolvimento na Engenharia Eletrônica e Computação</b></div>
+    <div class="pub-authors">Martins, R.M.</div>
+    <div class="pub-notes">DOI: 10.22533/at.ed.8712119023.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2019/2020</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-kind">Book chapter</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Análise em Multiresolução do sinal de Eletrocardiograma para Detecção de Cardiopatias</div>
+    <div class="pub-venue">ATENA · in <b>Impactos das Tecnologias na Engenharia Biomédica</b></div>
+    <div class="pub-authors">Lobato, E.M.; Martins, R.M.; Espindola, B.</div>
+    <div class="pub-notes">DOI: 10.22533/at.ed.370201701.</div>
+  </div>
+</div>
+</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 03 ARTICLES                                                  -->
+  <!-- ============================================================ -->
+  <section id="articles">
+    <div class="sec-head">
+      <h3><span class="num">03.</span> Articles <span class="slash">/</span><span class="en">peer-reviewed papers</span></h3>
+      <div class="meta"><b>53</b> entries · grouped by year</div>
+    </div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2026</span>
+    <span class="c">7 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    <span class="pub-qualis q-b">B5</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Detecção de Botnets em Tráfego IoT na Borda: Uma Avaliação de Modelos Leves sob Protocolo Leave-One-Scenario-Out</div>
+    <div class="pub-venue">SBrT 2026 — Simpósio Brasileiro de Telecomunicações e Processamento de Sinais</div>
+    <div class="pub-authors">Medeiros, D.S.; Arndt, D.M.; Martins, R.M.</div>
+    <div class="pub-notes">To submit (16/04/2026) · title preserved as in source.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Assessing Critical Thinking Development in Programming Education: A Case Study with Technical and Undergraduate Students</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.C.</div>
+    <div class="pub-notes">To submit (16/04/2026).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Pensamento Crítico no Ensino Médio Técnico: Relato de Experiência com o ProgCTQ como Ferramenta Diagnóstica</div>
+    <div class="pub-venue">WIE 2026 / CBIE 2026</div>
+    <div class="pub-authors">Martins, R.M.; Arndt, D.M.; Hauck, J.C.; Medeiros, D.S.</div>
+    <div class="pub-notes">To submit (16/04/2026).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    <span class="pub-qualis q-a3">A3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação Automatizada de Pensamento Crítico em Programação via Aprendizado de Máquina: Um Estudo de Concordância com o Instrumento ProgCTQ</div>
+    <div class="pub-venue">SBIE 2026 / CBIE 2026</div>
+    <div class="pub-authors">Martins, R.M.; Arndt, D.M.; Hauck, J.C.; Medeiros, D.S.</div>
+    <div class="pub-notes">To submit (16/04/2026).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-b">B5</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Comparação de Wav. Pool. e Dual-Branch com CBAM e ROI para Class.</div>
+    <div class="pub-venue">SBrT 2026 — Simpósio Brasileiro de Telecomunicações e Processamento de Sinais</div>
+    <div class="pub-authors">Paz Faria, B.; Martins, R.M.; Lobato, E.M.</div>
+    <div class="pub-notes">Submitted (15/04/2026) · title truncated as in source.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Pensamento Crítico na Aprendizagem de Programação: Diagnóstico do Gap entre Autopercepção e Habilidade Demonstrada em Estudantes de Computação</div>
+    <div class="pub-venue">WEI 2026 / CSBC 2026</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.R.C.</div>
+    <div class="pub-notes">Submitted (03/2026).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2026</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação do desenvolvimento do Pensamento Crítico para o ensino técnico e superior no contexto do ensino de programação</div>
+    <div class="pub-venue">EDUCOMP 2025 — IV WTD-EduComp</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.R.C.</div>
+    <div class="pub-notes">Accepted (2026) · <b>finalist</b> Thesis Contest.</div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2025</span>
+    <span class="c">14 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação de Habilidades do Pensamento Crítico no Ensino Técnico e Superior no Ensino de Computação: Um Mapeamento Sistemático</div>
+    <div class="pub-venue">CBIE-SBIE</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.R.C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Comparing the Perceptions of Middle and High School Students from Different Socioeconomic Status Backgrounds on Learning Machine Learning</div>
+    <div class="pub-venue">CBIE-SBIE</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Borgatto, A.F.; Hauck, J.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação do Desenvolvimento do Pensamento Crítico no Ensino de Programação para Estudantes do Ensino Técnico e Superior: Uma Aplicação Piloto</div>
+    <div class="pub-venue">CBIE-SBIE</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.R.C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Intervenções baseadas em jogos para protocolo ao B.: uma revisão de escopo</div>
+    <div class="pub-venue">Educação &amp; Realidade</div>
+    <div class="pub-authors">Ramos, D.K.; Martins, R.M.; Brito, C.; Anastacio, B.S.; Martins, K.A.; De Luca, J.V.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Jogos Sérios na Prevenção do Bullying Escolar: Contribuições de uma Intervenção com Alunos do Ensino Fundamental</div>
+    <div class="pub-venue">Revista Psicologia: Teoria e Prática</div>
+    <div class="pub-authors">Ramos, D.K.; Martins, R.M.; Brito, C.; Anastacio, B.S.; Martins, K.A.; De Luca, J.V.</div>
+    <div class="pub-notes">Submitted (11/2025).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Jogar para aprender sobre as emoções: contribuições do jogo digital Sensidex à competência emocional</div>
+    <div class="pub-venue">SBGames 2025</div>
+    <div class="pub-authors">Ramos, D.K.; Martins, R.M.; Martins, K.A.; Anastacio, B.S.; Luiz e Silveira, B.S.</div>
+    <div class="pub-notes">DOI: 10.5753/sbgames.2025.9638.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">A Scale for Assessing the Learning of Machine Learning in Middle and High School</div>
+    <div class="pub-venue">ACM Transactions on Computing Education (TOCE)</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Barbetta, P.A.; Borgatto, A.F.; Martins, R.M.; Hauck, J.C.</div>
+    <div class="pub-notes">DOI: 10.1145/3749993.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação do Desenvolvimento do Pensamento Crítico no Ensino de Programação para Estudantes do Ensino Técnico e Superior: Uma Proposta de Modelo</div>
+    <div class="pub-venue">WEI 2025 / CSBC</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.C.</div>
+    <div class="pub-notes">DOI: 10.5753/wei.2025.7944.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Comparing the Perceptions of Middle and High School Students from Different Socioeconomic Status Backgrounds on Learning Machine Learning</div>
+    <div class="pub-venue">RBIE — Revista Brasileira de Informática na Educação</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Borgatto, A.F.; Hauck, J.</div>
+    <div class="pub-notes">Vol. 33 · DOI: 10.5753/rbie.2025.5751.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Estratégias para o Ensino de Machine Learning para Estudantes em Vulnerabilidade Social no Ensino Fundamental e Médio</div>
+    <div class="pub-venue">CSBC</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    <div class="pub-notes"><b>Finalist</b> Thesis Contest · DOI: 10.5753/ctd.2025.6931.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Estratégias para o Ensino de Machine Learning para Estudantes em Vulnerabilidade Social no Ensino Fundamental e Médio</div>
+    <div class="pub-venue">EDUCOMP 2025 — IV WTD-EduComp</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    <div class="pub-notes"><b>3rd place</b> Thesis Contest.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Ensinando Ética em IA com um Jogo de Cartas para Estudantes do Ensino Fundamental e Médio de um Contexto de Vulnerabilidade Social</div>
+    <div class="pub-venue">WEI 2025 / CSBC</div>
+    <div class="pub-authors">Martins, R.M.; Arndt, D.M.; Gresse von Wangenheim, C.; von Wangenheim, L.; Rauber, M.F.; Hauck, J.C.</div>
+    <div class="pub-notes">DOI: 10.5753/wei.2025.6772.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">PseudocodeLab: Uma Ferramenta Educacional Open Source e Gentil para o Ensino de Programação com Pseudocódigos</div>
+    <div class="pub-venue">LabIdeias 2025 / EDUCOMP 2025</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2025</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Java-Judge-OO: Uma Ferramenta Educacional para Avaliação Automatizada de Programação Orientada a Objetos em Java</div>
+    <div class="pub-venue">LabIdeias 2025 / EDUCOMP 2025</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2024</span>
+    <span class="c">10 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação de Habilidades do Pensamento Crítico no Ensino Técnico e Superior no Ensino de Computação: Um Mapeamento Sistemático</div>
+    <div class="pub-venue">RBIE — Revista Brasileira de Informática na Educação</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.C.R.</div>
+    <div class="pub-notes">Earlier editorial phase of the 2025 published item.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Bibliometric St on IoE</div>
+    <div class="pub-venue">—</div>
+    <div class="pub-authors">Djalo, A.; Embalo, S.; Vunge, M.; Souza, S.; Bandiri, S.Y.M.; Martins, R.M.</div>
+    <div class="pub-notes">To submit · title truncated as in source.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Optimization of the Electric Distribution Network with Photovoltaic Generation: Application of PSO for Reconfiguration in Intermittent Scenarios</div>
+    <div class="pub-venue">IEEE 16th Latin America Symposium on Circuits and Systems (LASCAS)</div>
+    <div class="pub-authors">Ca, E.; Gomes, Y.; Bandiri, S.Y.M.; Martins, R.M.; Spadoti, D.; Pimenta, T.</div>
+    <div class="pub-notes">DOI: 10.1109/LASCAS64004.2025.10966326.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Desenvolvimento de um Repositório de REA para Promover a MAA na Guiné-Bissau</div>
+    <div class="pub-venue">RBIE — Revista Brasileira de Informática na Educação</div>
+    <div class="pub-authors">Bandiri, S.Y.M.; Martins, R.M.</div>
+    <div class="pub-notes">Submitted (02/2025).</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-tbd">🟪 TBD</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Python-Based Music ID Sys — Audio Fingerprint and FFT Techniques</div>
+    <div class="pub-venue">—</div>
+    <div class="pub-authors">Bandiri, S.Y.M.; Martins, R.M.</div>
+    <div class="pub-notes">To submit · title truncated as in source.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Herramienta Educativa R Shiny para Diagnóstico de Conjunto de Datos</div>
+    <div class="pub-venue">LatinR 2024</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    <div class="pub-notes">Article / oral communication.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Exploring the Relationship between Learning of Machine Learning Concepts and Socioeconomic Status Background among Middle and High School Students: A Comparative Analysis</div>
+    <div class="pub-venue">ACM Transactions on Computing Education (TOCE)</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Borgatto, A.F.; Hauck, J.</div>
+    <div class="pub-notes">DOI: 10.1145/3680288.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Critical Thinking Assessment in K-12 Computing Education: A Systematic Mapping of the Literature</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Arndt, D.M.; Martins, R.M.; Hauck, J.C.R.</div>
+    <div class="pub-notes">DOI: 10.15388/infedu.2025.02.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Reability and Validity of an Automated Model for Assessing the Learning of Machine Learning at the Create Stage in Middle and High School</div>
+    <div class="pub-venue">Education and Information Technologies</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Barbetta, P.A.; Borgatto, A.F.; Martins, R.M.</div>
+    <div class="pub-notes">Submitted · title preserved as in source.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2024</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Proposta de Escala para Avaliação da Aprendizagem de Machine Learning em nível Create na Educação Básica</div>
+    <div class="pub-venue">SBIE 2024</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Borgatto, A.F.; Martins, R.M.; Arndt, D.M.; Hauck, J.C.</div>
+    <div class="pub-notes">DOI: 10.5753/sbie.2024.241471.</div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2023</span>
+    <span class="c">8 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Machine Learning for All! — Introducing Machine Learning in Middle and High School</div>
+    <div class="pub-venue">International Journal of Artificial Intelligence in Education (IJAIED)</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.</div>
+    <div class="pub-notes">Springer · DOI: 10.1007/s40593-022-00325-y.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Teaching Machine Learning to Middle and High School Students from a Low Socio-Economic Status Background</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.; Silvestre, M.F.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Teaching Computing to Middle and High School Students from a Low Socio-Economic Status Background: A Systematic Literature Review</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.</div>
+    <div class="pub-notes"><b>3rd most-read article</b> · 6.5k views.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Eficácia das Metodologias Ativas e do Suporte Tecnológico no Ensino de Machine Learning na Educação Básica</div>
+    <div class="pub-venue">EDUCOMP 2023</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">VULCAN — A Visual Layer for Jupyter Notebook for Teaching Image Classification</div>
+    <div class="pub-venue">Computer on the Beach 2023</div>
+    <div class="pub-authors">Martins, R.M.; Franz, A.C.; Gresse von Wangenheim, C.; Hauck, J.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Development of a Deep Learning Model for the Classification of Mosquito Larvae Images</div>
+    <div class="pub-venue">BRACIS 2023</div>
+    <div class="pub-authors">Martins, R.M.; Espíndola, B.M.; Araújo, P.P.; Gresse von Wangenheim, C.; Pinto, C.J.C.; Caminha, G.</div>
+    <div class="pub-notes">Springer chapter / paper.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Desafios e Soluções no Ensino de ML para Estudantes em Situação de Vulnerabilidade Social</div>
+    <div class="pub-venue">WIE 2023 / CBIE</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.; Silvestre, M.F.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Reliability and Validity of an Automated Model for Assessing the Learning of Machine Learning in Middle and High School: Experiences from the “ML for All!” course</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Barbetta, P.A.; Borgatto, A.F.; Martins, R.M.; Hauck, J.C.</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2022</span>
+    <span class="c">5 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a1">A1</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Findings on Teaching Machine Learning in High School: A Ten-Year Systematic Literature Review</div>
+    <div class="pub-venue">Informatics in Education</div>
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.</div>
+    <div class="pub-notes"><b>Most-read article</b> · 16.5k views.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Uma análise detalhada do desempenho de aprendizagem de Machine Learning na Educação Básica aplicando a Teoria de Resposta ao Item</div>
+    <div class="pub-venue">RBIE — Revista Brasileira de Informática na Educação</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Borgatto, A.; Martins, R.M.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Análise do desempenho de aprendizagem de Machine Learning na Educação Básica aplicando a Teoria de Resposta ao Item</div>
+    <div class="pub-venue">EDUCOMP 2023</div>
+    <div class="pub-authors">Rauber, M.F.; Gresse von Wangenheim, C.; Borgatto, A.; Martins, R.M.</div>
+    <div class="pub-notes"><b>Best research paper</b> award.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">ML4Teens — Introduzindo Machine Learning no Ensino Médio</div>
+    <div class="pub-venue">WEI / CSBC</div>
+    <div class="pub-authors">Cardozo, J.; Martins, R.M.; Gresse von Wangenheim, C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-a3">A3</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Confiabilidade e Validade da Avaliação do Desempenho de Aprendizagem de Machine Learning na Educação Básica</div>
+    <div class="pub-venue">SBIE 2022</div>
+    <div class="pub-authors">Rauber, M.F.; Garcia, A.B.; Gresse von Wangenheim, C.; Borgatto, A.F.; Martins, R.M.; Hauck, J.C.R.</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2018</span>
+    <span class="c">3 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2018</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Redução de canais de EEG e detecção de movimento motor através de Redes Neurais Artificiais</div>
+    <div class="pub-venue">CBEB 2018</div>
+    <div class="pub-authors">Lobato, E.; Martins, R.M.; Bandeira, V.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2018</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Análise em Multirresolução do Sinal de Eletrocardiograma para Detecção de Cardiopatias</div>
+    <div class="pub-venue">CBEB 2018</div>
+    <div class="pub-authors">Martins, R.M.; Lobato, E.; Espindola, B.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2018</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    <span class="pub-qualis q-b">B4</span>
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Extração de Parâmetros para Detecção Automática de Batimentos Cardíacos Anormais em Exames</div>
+    <div class="pub-venue">CBEB 2018</div>
+    <div class="pub-authors">Martins, R.M.; Lobato, E.; Souza, J.</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2017</span>
+    <span class="c">4 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2017</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Estudo do Efeito da Aplicação de Filtro de Mediana Temporal na Eliminação de Ruídos Impulsivos em Imagens de Vídeo</div>
+    <div class="pub-venue">SIIM/SPS 2017</div>
+    <div class="pub-authors">Amaral, C.J.; Stivanello, M.E.; Martins, R.M.; Batista, P.V.H.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2017</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Speech Recognition Using Hidden Markov Model with Different Acoustic Modeling Techniques — a Comparison</div>
+    <div class="pub-venue">BalkanCom 2017</div>
+    <div class="pub-authors">Martins, R.M.; Amaral, C.J.</div>
+    <div class="pub-notes">Presented in person · Tirana, Albania.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2017</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Desempenho de Modulações Digitais Utilizando Subsistemas SDR</div>
+    <div class="pub-venue">Computer on the Beach 2017</div>
+    <div class="pub-authors">Lucindo, L.; Martins, R.M.; Amaral, C.J.; Theisges, M.L.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2017</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Implementação de Codificador e Transmissor ADS-B para Análise de Segurança em Aeronaves</div>
+    <div class="pub-venue">Computer on the Beach 2017</div>
+    <div class="pub-authors">Ferreira Broering, E.; Martins, R.M.; Nóbrega, R.</div>
+    
+  </div>
+</div>
+  </div>
+</div>
+<div class="year-group">
+  <div class="year-head">
+    <span class="y">2016</span>
+    <span class="c">2 publications</span>
+  </div>
+  <div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2016</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Survey of digital radio standards and updating for rollout in Brazil</div>
+    <div class="pub-venue">SET International Journal of Broadcast Engineering</div>
+    <div class="pub-authors">Martins, M.R.; Ferreira Broering, E.; Bedaque, D.; Michel de Souza, J.; Henrique Bonotto da Silva, T.</div>
+    <div class="pub-notes">DOI: 10.18580/setijbe.2016.9.</div>
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2016</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">SDR-WBFM Receiver as an alternative to replace equipment in FM extended</div>
+    <div class="pub-venue">SET International Journal of Broadcast Engineering</div>
+    <div class="pub-authors">Martins, M.R.</div>
+    <div class="pub-notes">DOI: 10.18580/setijbe.2016.8.</div>
+  </div>
+</div>
+  </div>
+</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 04 TUTORIALS                                                 -->
+  <!-- ============================================================ -->
+  <section id="tutorials">
+    <div class="sec-head">
+      <h3><span class="num">04.</span> Tutorials <span class="slash">/</span><span class="en">workshops &amp; talks</span></h3>
+      <div class="meta"><b>2</b> entries</div>
+    </div>
+<div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2020</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Using SatNOGS for cubesats ground station</div>
+    <div class="pub-venue">4th IAA Latin American Cubesat Workshop</div>
+    <div class="pub-authors">Martins, R.M.; Espindola, N.; Matos, R.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2018</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">An Introduction to SDR and GNU Radio</div>
+    <div class="pub-venue">III IAA Latin American CubeSat Workshop</div>
+    <div class="pub-authors">Martins, R.M.</div>
+    
+  </div>
+</div>
+</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 05 TECHNICAL REPORTS                                         -->
+  <!-- ============================================================ -->
+  <section id="reports">
+    <div class="sec-head">
+      <h3><span class="num">05.</span> Technical reports <span class="slash">/</span><span class="en">supplementary material</span></h3>
+      <div class="meta"><b>4</b> entries</div>
+    </div>
+<div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-sub">🟦 SUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Avaliação do Ensino de Machine Learning — Cursos Computação na Escola — Instituto Pe. Vilson Groh 2022</div>
+    
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Supplementary Material — Evaluation of the course Machine Learning for All!</div>
+    
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.; Rauber, M.F.; Hauck, J.C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Supplementary Material — Findings on Teaching Machine Learning in High School</div>
+    
+    <div class="pub-authors">Martins, R.M.; Gresse von Wangenheim, C.</div>
+    
+  </div>
+</div>
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2022</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">Modelo de Avaliação da Aprendizagem — Cursos Computação na Escola — Instituto Pe. Vilson Groh 2022</div>
+    
+    <div class="pub-authors">Rauber, M.F.; Martins, R.M.; Gresse von Wangenheim, C.; Hauck, J.C.</div>
+    
+  </div>
+</div>
+</div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 06 SOFTWARE REGISTRATIONS                                    -->
+  <!-- ============================================================ -->
+  <section id="software">
+    <div class="sec-head">
+      <h3><span class="num">06.</span> Software registrations <span class="slash">/</span><span class="en">INPI &amp; equivalents</span></h3>
+      <div class="meta"><b>1</b> entries</div>
+    </div>
+<div class="pub-list">
+<div class="pub">
+  <div class="pub-meta">
+    <span class="pub-year">2023</span>
+    <span class="pub-status s-pub">✅ PUB</span>
+    
+  </div>
+  <div class="pub-body">
+    <div class="pub-title">App XôDengue</div>
+    <div class="pub-venue">INPI / SINOVA / UFSC</div>
+    <div class="pub-authors">Gresse von Wangenheim, C.; Martins, R.M.; Araújo, P.P.; Layla von Wangenheim; Carlos Pinto</div>
+    <div class="pub-notes">Process BR512023003755-9 · Registered.</div>
+  </div>
+</div>
+</div>
+  </section>
+
+  <footer class="foot">
+    <div>Ramon Mayor Martins, Ph.D. · IFSC São José Campus</div>
+    <div>
+      <a href="./index.html">rmayormartins.github.io</a>
+      · publications v1.0 · last updated <span id="ftd">2026.05</span>
+    </div>
+  </footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  const d = new Date();
+  const iso = d.toISOString().slice(0,10);
+  const ym  = d.toISOString().slice(0,7).replace('-', '.');
+  const bd = document.getElementById('bd');     if (bd)  bd.textContent  = iso;
+  const mb = document.getElementById('mb-upd'); if (mb)  mb.textContent  = iso;
+  const ftd = document.getElementById('ftd');   if (ftd) ftd.textContent = ym;
+})();
+</script>
+
+</body>
+</html>
