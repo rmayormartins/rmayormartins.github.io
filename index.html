@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramon Mayor Martins · Ph.D.</title>
+<meta name="description" content="Personal page of Ramon Mayor Martins, Ph.D. · Associate Professor at IFSC São José Campus · Telecommunications Engineering · Research in AI, Computing Education, Telecom and Signal Processing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   MODERNIST THEME · light · same tokens as academicreport / academicroadmap
+   =================================================================== */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #fafafa;
+  --bg-deep: #f5f5f5;
+  --line: #e5e5e5;
+  --line-soft: #efefef;
+  --line-dot: #cccccc;
+  --text: #333333;
+  --text-strong: #1d1f21;
+  --text-mute: #666666;
+  --text-low: #999999;
+  --accent: #267CB9;
+  --accent-soft: #4a9bd1;
+  --accent-deep: #1d5e8c;
+  --accent-bg: #f0f7fc;
+  /* category palette */
+  --c1: #267CB9;
+  --c2: #4caf6d;
+  --c3: #e8a93e;
+  --c4: #d96666;
+  --c5: #8e6cb3;
+  --c6: #5cb3c2;
+  --font-mono: 'Source Code Pro', ui-monospace, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent-deep); }
+::selection { background: var(--accent); color: #fff; }
+
+/* ===== LAYOUT ===== */
+.layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 50px;
+  padding: 50px 40px;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar { position: sticky; top: 50px; align-self: start; }
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 18px;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+.sidebar .role {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+}
+.sidebar .role b { color: var(--text-strong); font-weight: 600; }
+.sidebar .avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  margin: 14px 0 18px;
+  filter: grayscale(0.08);
+  transition: filter 0.25s;
+}
+.sidebar .avatar:hover { filter: grayscale(0); }
+.sidebar .avatar-cap {
+  font-size: 10px;
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: -10px 0 14px;
+  text-align: right;
+}
+.side-card {
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  margin: 18px 0;
+  font-size: 11px;
+}
+.side-card .lbl {
+  color: var(--text-low);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.side-card .v {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-size: 13px;
+}
+.side-card .v .accent { color: var(--accent); }
+.side-card .meta {
+  font-size: 10px;
+  color: var(--text-low);
+  margin-top: 4px;
+}
+.sidebar nav {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: 18px;
+  font-size: 12px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 8px;
+  /* subtle scrollbar · Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-dot) transparent;
+}
+/* subtle scrollbar · WebKit */
+.sidebar nav::-webkit-scrollbar { width: 6px; }
+.sidebar nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar nav::-webkit-scrollbar-thumb {
+  background: var(--line-dot);
+  border-radius: 3px;
+}
+.sidebar nav::-webkit-scrollbar-thumb:hover { background: var(--accent-soft); }
+.sidebar nav a { color: var(--accent); padding: 2px 0; }
+.sidebar nav a.current {
+  color: var(--text-strong);
+  font-weight: 600;
+  pointer-events: none;
+}
+.sidebar nav a.current::before {
+  content: '● ';
+  font-size: 8px;
+  color: var(--accent);
+  vertical-align: middle;
+}
+.sidebar nav .label {
+  color: var(--text-low);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 14px 0 4px;
+}
+.sidebar nav .label:first-child { margin-top: 0; }
+
+/* ===== MAIN ===== */
+.main { min-width: 0; }
+
+.head-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+  margin-bottom: 18px;
+}
+.head-row .crumb {
+  font-size: 11px; color: var(--text-low);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.head-row .crumb::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+.head-row .version { font-size: 11px; color: var(--text-low); }
+.head-row .version b { color: var(--text-strong); font-weight: 600; }
+
+/* ===== HERO ===== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 22px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+}
+.hero .name {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-strong);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+.hero .name .dot {
+  color: var(--accent);
+  font-weight: 700;
+}
+.hero .tag {
+  font-size: 13px;
+  color: var(--text-mute);
+  margin: 0 0 4px;
+}
+.hero .tag b { color: var(--text-strong); font-weight: 600; }
+.hero .tag .a { color: var(--accent); font-weight: 600; }
+
+.hero .sigblock {
+  text-align: right;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--text-low);
+  line-height: 1.7;
+}
+.hero .sigblock .big {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero .sigblock .small { display: block; }
+.hero .sigblock .small b { color: var(--text-strong); font-weight: 600; }
+
+.page-lede {
+  color: var(--text-mute);
+  font-size: 13px;
+  max-width: 880px;
+  margin: 22px 0 22px;
+}
+.page-lede strong { color: var(--text-strong); font-weight: 600; }
+.page-lede .a { color: var(--accent); font-weight: 600; }
+
+/* ===== META BAR ===== */
+.meta-bar {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  font-size: 11px;
+  color: var(--text-low);
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+.meta-bar b { color: var(--text-strong); font-weight: 600; }
+.meta-bar .ok {
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.meta-bar .ok::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ===== KPI GRID ===== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 50px;
+}
+.kpi {
+  background: var(--bg);
+  padding: 18px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.kpi .lbl {
+  font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.kpi .val {
+  font-size: 30px; color: var(--accent); font-weight: 700;
+  line-height: 1.05; margin: 4px 0; letter-spacing: -0.01em;
+}
+.kpi .sub { font-size: 10px; color: var(--text-mute); }
+
+/* ===== SECTION ===== */
+section { margin-bottom: 50px; }
+.sec-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+  padding-bottom: 10px; margin-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.sec-head h3 {
+  font-size: 16px; font-weight: 700;
+  color: var(--text-strong); margin: 0;
+  letter-spacing: -0.005em;
+}
+.sec-head h3 .num {
+  color: var(--accent); font-weight: 500;
+  margin-right: 10px; font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.sec-head h3 .slash { color: var(--text-low); font-weight: 400; margin: 0 6px; }
+.sec-head h3 .en { color: var(--text-low); font-weight: 400; font-size: 12px; }
+.sec-head .meta { font-size: 11px; color: var(--text-low); }
+.sec-head .meta b { color: var(--accent); font-weight: 600; }
+
+/* ===== PANEL ===== */
+.panel {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 20px 22px;
+}
+.panel-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4px; gap: 12px;
+}
+.panel-title { font-size: 13px; font-weight: 600; color: var(--text-strong); }
+.panel-title b { color: var(--accent); font-weight: 600; }
+.panel-tag {
+  font-size: 10px; color: var(--text-low);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.panel-tag.live { color: var(--accent); }
+.panel-tag.live::before {
+  content: '● '; font-size: 8px;
+  vertical-align: middle;
+  animation: blink 2.4s ease-in-out infinite;
+}
+.panel-sub {
+  font-size: 11px; color: var(--text-mute);
+  margin: 0 0 16px;
+}
+
+/* ===== GRIDS ===== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+/* ===== LAB CARD (big, hero card for the two labs) ===== */
+.lab-card {
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 26px 26px 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.lab-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.lab-card .lc-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 14px; margin-bottom: 14px;
+}
+.lab-card .lc-icon {
+  font-size: 30px;
+  line-height: 1;
+}
+.lab-card .lc-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  border: 1px solid var(--accent);
+  padding: 3px 8px;
+  background: var(--bg);
+}
+.lab-card .lc-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.lab-card .lc-title .a { color: var(--accent); }
+.lab-card .lc-sub {
+  font-size: 12px;
+  color: var(--text-mute);
+  margin: 0 0 14px;
+  min-height: 36px;
+}
+.lab-card .lc-list {
+  list-style: none; padding: 0; margin: 0 0 16px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5px 14px;
+  font-size: 11px;
+}
+.lab-card .lc-list li {
+  color: var(--text);
+  padding-left: 12px;
+  position: relative;
+}
+.lab-card .lc-list li::before {
+  content: '▸';
+  color: var(--accent);
+  position: absolute;
+  left: 0; top: 0;
+  font-size: 10px;
+}
+.lab-card .lc-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dotted var(--line-dot);
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 11px;
+}
+.lab-card .lc-foot .url { color: var(--text-mute); }
+.lab-card .lc-foot .cta {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.lab-card:hover .lc-foot .cta { color: var(--accent-deep); }
+
+/* ===== CARD GRID (site map) ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.nav-card {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.nav-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  text-decoration: none;
+}
+.nav-card .top {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-low);
+  margin-bottom: 4px;
+}
+.nav-card .top .arr { color: var(--accent); font-weight: 700; }
+.nav-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 4px 0;
+}
+.nav-card .meta {
+  font-size: 11px;
+  color: var(--text-mute);
+  flex: 1;
+}
+
+/* ===== PROFILE ROWS ===== */
+.prof-list {
+  display: flex; flex-direction: column;
+  gap: 0;
+}
+.prof-row {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-bottom: none;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+.prof-row:last-child { border-bottom: 1px solid var(--line); }
+.prof-row:hover {
+  background: var(--accent-bg);
+  text-decoration: none;
+}
+.prof-row .ic {
+  font-size: 16px; line-height: 1;
+  text-align: center;
+  color: var(--accent);
+}
+.prof-row .nm { color: var(--text-strong); font-weight: 600; }
+.prof-row .nm .desc {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-mute);
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+}
+.prof-row .arr {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+/* ===== PATCH GRID (awards) ===== */
+.patch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.patch {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.patch:hover { border-color: var(--accent); background: var(--accent-bg); }
+.patch .ic { font-size: 20px; line-height: 1; margin-bottom: 4px; }
+.patch .t { font-size: 12px; font-weight: 700; color: var(--text-strong); }
+.patch .o { font-size: 11px; color: var(--text-mute); }
+.patch .y {
+  font-size: 10px; color: var(--accent); font-weight: 600;
+  margin-top: 6px; letter-spacing: 0.05em;
+}
+
+/* ===== CONTACT BLOCK ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+}
+.contact-block {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 18px 20px;
+  font-size: 12px;
+}
+.contact-block h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-strong);
+  margin: 0 0 10px;
+  letter-spacing: 0.02em;
+}
+.contact-block .row {
+  display: flex; gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px dotted var(--line-dot);
+}
+.contact-block .row:last-child { border-bottom: none; }
+.contact-block .k {
+  color: var(--text-low);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 10px;
+  min-width: 80px;
+  padding-top: 1px;
+}
+.contact-block .v { color: var(--text-strong); font-weight: 500; flex: 1; }
+.contact-block .v.code {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== FOOTER ===== */
+.foot {
+  margin-top: 60px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 14px;
+  font-size: 11px;
+  color: var(--text-low);
+}
+.foot a { color: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .layout { grid-template-columns: 200px 1fr; gap: 35px; padding: 40px 28px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .lab-card .lc-list { grid-template-columns: 1fr 1fr; }
+  .hero { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+  .hero .sigblock { text-align: left; }
+}
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 20px;
+  }
+  .sidebar {
+    position: static;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .hero .name { font-size: 32px; }
+  .lab-card { padding: 22px 20px 18px; }
+  .lab-card .lc-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- ========== SIDEBAR ========== -->
+<aside class="sidebar">
+  <h1>Ramon Mayor Martins</h1>
+  <p class="role">Ph.D. · <b>Associate Professor</b></p>
+  <p class="role">IFSC · São José Campus</p>
+  <p class="role">Telecommunications Engineering</p>
+
+  <img class="avatar" src="img/logo.png" alt="Ramon Mayor Martins · Space Center Houston" />
+  <p class="avatar-cap">space center · houston</p>
+
+  <div class="side-card">
+    <div class="lbl">Research &amp; Innovation Coord.</div>
+    <div class="v"><span class="accent">FG2 · active</span></div>
+    <div class="meta">since 03/2025</div>
+  </div>
+
+  <nav>
+    <div class="label">site</div>
+    <a class="current" href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./current.html">Current Status</a>
+    <a href="./publications.html">Publications</a>
+    <a href="./academicreport.html">Academic Dashboard</a>
+    <a href="./academicroadmap.html">Academic Roadmap</a>
+    <a href="./technicalprofile.html">Technical Profile</a>
+    <a href="./contact.html">Contact Me</a>
+
+    <div class="label">labs</div>
+    <a href="./telecom-tools/" target="_blank">Telecom Tools</a>
+    <a href="./ia-tools/" target="_blank">AI Tools</a>
+
+    <div class="label">profiles</div>
+    <a href="https://github.com/rmayormartins" target="_blank">GitHub</a>
+    <a href="https://huggingface.co/rmayormartins" target="_blank">HuggingFace</a>
+    <a href="http://lattes.cnpq.br/6289204315531991" target="_blank">Lattes</a>
+    <a href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">Scholar</a>
+    <a href="https://orcid.org/0000-0002-1952-0909" target="_blank">ORCID</a>
+  </nav>
+</aside>
+
+<!-- ========== MAIN ========== -->
+<main class="main">
+
+  <div class="head-row">
+    <div class="crumb">home · index</div>
+    <div class="version">v1.0 · last build <b id="bd">—</b></div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <div class="hero">
+    <div>
+      <h2 class="name">Ramon Mayor Martins<span class="dot">.</span></h2>
+      <p class="tag">Ph.D. in Computer Science · <span class="a">UFSC, 2024</span></p>
+      <p class="tag"><b>Associate Professor</b> · IFSC São José · since 04/2016</p>
+      <p class="tag">Telecom Engineering &amp; ADS · Research &amp; Innovation Coord.</p>
+    </div>
+    <div class="sigblock">
+      <span class="big">PU4MAY</span>
+      <span class="small"><b>callsign</b> · BRA</span>
+      <span class="small">grid GG52qx</span>
+      <span class="small">SC · BR</span>
+    </div>
+  </div>
+
+  <p class="page-lede">
+    <strong>Ph.D. in Computer Science</strong> from
+    <a href="https://ufsc.br" target="_blank">Universidade Federal de Santa Catarina</a> (2024) and
+    <strong>M.Sc. in Telecommunications</strong> from
+    <a href="https://www.inatel.br" target="_blank">Instituto Nacional de Telecomunicações</a> (2014).
+    Also holds postgraduate certificates in Systems Engineering, Computer Networks and Telecommunications,
+    plus a Professional MBA in Systems Analysis &amp; Telecommunications.
+    B.Eng. in Electrical Engineering (Telematics &amp; Telecom) from
+    <a href="https://www.unisul.br" target="_blank">Universidade do Sul de Santa Catarina</a> (2010).
+    Since 2016, Associate Professor of Telecommunications at
+    <a href="https://www.ifsc.edu.br/" target="_blank">Instituto Federal de Santa Catarina</a>,
+    São José Campus.
+  </p>
+
+  <div class="meta-bar">
+    <div>tenure: <b>04/2016+</b></div>
+    <div>Ph.D.: <b>UFSC · 2024</b></div>
+    <div>post-doc: <b>UFSC · 2025+</b></div>
+    <div>callsign: <b>PU4MAY</b></div>
+    <div style="margin-left: auto;" class="ok">station online</div>
+  </div>
+
+  <!-- ========== KPI GRID ========== -->
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="lbl">mission day</div>
+      <div class="val" id="mission-day">—</div>
+      <div class="sub">since onboarding · 04/2016</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">output</div>
+      <div class="val">95<span style="font-size: 18px; color: var(--text-low);">+</span></div>
+      <div class="sub">papers · ch · books · sw</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">qualis A1</div>
+      <div class="val">11</div>
+      <div class="sub">top venues</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">supervisions</div>
+      <div class="val">35<span style="font-size: 18px; color: var(--text-low);">+</span></div>
+      <div class="sub">undergrad + grad + UR</div>
+    </div>
+  </div>
+
+  <!-- ========== 01 LABS ========== -->
+  <section id="labs">
+    <div class="sec-head">
+      <h3><span class="num">01.</span> Labs <span class="slash">/</span><span class="en">interactive tools</span></h3>
+      <div class="meta">single-file HTML · GitHub Pages · <b>10+</b> apps</div>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- TELECOM TOOLS -->
+      <a class="lab-card" href="./telecom-tools/" target="_blank">
+        <div class="lc-head">
+          <div class="lc-icon">📡</div>
+          <span class="lc-tag">live · running</span>
+        </div>
+        <h4 class="lc-title">Telecom <span class="a">Tools</span></h4>
+        <p class="lc-sub">Interactive lab suite covering RF, satellites, IoT, optics, antennas and DSP — designed for teaching and exploration in Telecommunications Engineering.</p>
+        <ul class="lc-list">
+          <li>Satellite Lab</li>
+          <li>RF Lab</li>
+          <li>IoT Lab</li>
+          <li>Optical Lab</li>
+          <li>DSP Lab</li>
+          <li>Digital Comm Lab</li>
+          <li>Antenna Lab</li>
+          <li>RF µElectronics</li>
+        </ul>
+        <div class="lc-foot">
+          <span class="url">/telecom-tools/</span>
+          <span class="cta">▶ launch</span>
+        </div>
+      </a>
+
+      <!-- AI TOOLS -->
+      <a class="lab-card" href="./ia-tools/" target="_blank">
+        <div class="lc-head">
+          <div class="lc-icon">🤖</div>
+          <span class="lc-tag">live · running</span>
+        </div>
+        <h4 class="lc-title">AI <span class="a">Tools</span></h4>
+        <p class="lc-sub">Standalone tools for the Intro to Data Science &amp; ML course — didactic visualizations of the main classical Machine Learning algorithms.</p>
+        <ul class="lc-list">
+          <li>Decision Tree</li>
+          <li>SVM</li>
+          <li>Naive Bayes</li>
+          <li>Random Forest</li>
+          <li>K-Means</li>
+          <li>KNN</li>
+          <li>ANN</li>
+          <li>ENEM Scoring</li>
+        </ul>
+        <div class="lc-foot">
+          <span class="url">/ia-tools/</span>
+          <span class="cta">▶ launch</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- on-the-fly extra systems -->
+    <div class="panel" style="margin-top: 18px;">
+      <div class="panel-head">
+        <div class="panel-title">on-the-fly systems <b>· commanders, radars &amp; spaces</b></div>
+        <div class="panel-tag live">live</div>
+      </div>
+      <p class="panel-sub">infrastructure operated / maintained in production</p>
+      <div class="card-grid" style="margin-top: 6px;">
+        <a class="nav-card" href="https://huggingface.co/rmayormartins" target="_blank">
+          <div class="top"><span>spaces · 🤗</span><span class="arr">↗</span></div>
+          <h4>HuggingFace Spaces</h4>
+          <p class="meta">NLP, computer vision and LLM demos.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/starlink-commander/" target="_blank">
+          <div class="top"><span>SGP4 · constellation</span><span class="arr">↗</span></div>
+          <h4>Starlink Commander</h4>
+          <p class="meta">Real-time Starlink constellation · Leaflet 2D + Three.js 3D · RSS feeds.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/iss-commander/" target="_blank">
+          <div class="top"><span>LEO · live</span><span class="arr">↗</span></div>
+          <h4>ISS Commander</h4>
+          <p class="meta">International Space Station · live orbit &amp; current crew.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/sat-commander/" target="_blank">
+          <div class="top"><span>SGP4 · 3D/2D</span><span class="arr">↗</span></div>
+          <h4>SAT-COMMANDER</h4>
+          <p class="meta">Multi-satellite tracker · 2D map + 3D globe · TLE propagation.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/funcube1-commander/" target="_blank">
+          <div class="top"><span>AO-73 · SDR decode</span><span class="arr">↗</span></div>
+          <h4>FUNcube-1 Commander</h4>
+          <p class="meta">AO-73 telemetry · real SDR decode pipeline · BPSK.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/telecom-tools/hamradio-commander" target="_blank">
+          <div class="top"><span>HF/VHF · ham</span><span class="arr">↗</span></div>
+          <h4>HamRadio Commander</h4>
+          <p class="meta">Ham radio operations dashboard · bands, propagation &amp; logs.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/ai-news-radar/" target="_blank">
+          <div class="top"><span>RSS · AI news</span><span class="arr">↗</span></div>
+          <h4>AI News Radar</h4>
+          <p class="meta">AI news aggregator · SNR scoring · China &amp; Japan coverage.</p>
+        </a>
+        <a class="nav-card" href="https://rmayormartins.github.io/telecom-news-radar/" target="_blank">
+          <div class="top"><span>RSS · telecom</span><span class="arr">↗</span></div>
+          <h4>Telecom News Radar</h4>
+          <p class="meta">Telecom news aggregator · curated RSS feeds · SNR scoring.</p>
+        </a>
+        <a class="nav-card" href="https://network.satnogs.org/stations/389/" target="_blank">
+          <div class="top"><span>satnogs · IFSC-389</span><span class="arr">↗</span></div>
+          <h4>SatNOGS Ground Station</h4>
+          <p class="meta">Station 389 · IFSC São José · LEO tracking.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 PROFILES ========== -->
+  <section id="profiles">
+    <div class="sec-head">
+      <h3><span class="num">02.</span> Profiles <span class="slash">/</span><span class="en">academic &amp; professional</span></h3>
+      <div class="meta">external links</div>
+    </div>
+
+    <div class="grid-2">
+
+      <div>
+        <div class="panel-title" style="margin-bottom: 10px;">academic</div>
+        <div class="prof-list">
+          <a class="prof-row" href="http://lattes.cnpq.br/6289204315531991" target="_blank">
+            <span class="ic">📋</span>
+            <span class="nm">Lattes CNPq<span class="desc">official Brazilian CV</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://scholar.google.com.br/citations?user=8SWqOv8AAAAJ" target="_blank">
+            <span class="ic">🎓</span>
+            <span class="nm">Google Scholar<span class="desc">citations &amp; h-index</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://orcid.org/0000-0002-1952-0909" target="_blank">
+            <span class="ic">🆔</span>
+            <span class="nm">ORCID<span class="desc">0000-0002-1952-0909</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://www.researchgate.net/profile/Ramon-Martins-3" target="_blank">
+            <span class="ic">📚</span>
+            <span class="nm">ResearchGate<span class="desc">researcher network</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://dblp.org/pid/261/1571.html" target="_blank">
+            <span class="ic">💾</span>
+            <span class="nm">DBLP<span class="desc">CS bibliography</span></span>
+            <span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel-title" style="margin-bottom: 10px;">development &amp; community</div>
+        <div class="prof-list">
+          <a class="prof-row" href="https://github.com/rmayormartins" target="_blank">
+            <span class="ic">⌥</span>
+            <span class="nm">GitHub<span class="desc">public repos &amp; projects</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://huggingface.co/rmayormartins" target="_blank">
+            <span class="ic">🤗</span>
+            <span class="nm">HuggingFace<span class="desc">spaces · models · NLP &amp; CV</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://www.kaggle.com/rmayormartins" target="_blank">
+            <span class="ic">📊</span>
+            <span class="nm">Kaggle<span class="desc">datasets &amp; notebooks</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://replit.com/@rmayormartins" target="_blank">
+            <span class="ic">▶</span>
+            <span class="nm">Replit<span class="desc">prototypes &amp; sandboxes</span></span>
+            <span class="arr">↗</span>
+          </a>
+          <a class="prof-row" href="https://br.pinterest.com/rmayormartins/" target="_blank">
+            <span class="ic">📌</span>
+            <span class="nm">Pinterest<span class="desc">visual references &amp; antiques</span></span>
+            <span class="arr">↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== 03 EXPLORE ========== -->
+  <section id="explore">
+    <div class="sec-head">
+      <h3><span class="num">03.</span> Explore <span class="slash">/</span><span class="en">internal pages</span></h3>
+      <div class="meta">site · go deeper</div>
+    </div>
+
+    <div class="card-grid">
+      <a class="nav-card" href="./about.html">
+        <div class="top"><span>profile</span><span class="arr">→</span></div>
+        <h4>About</h4>
+        <p class="meta">Bio, education, research interests &amp; professional track.</p>
+      </a>
+      <a class="nav-card" href="./current.html">
+        <div class="top"><span>2026</span><span class="arr">→</span></div>
+        <h4>Current Status</h4>
+        <p class="meta">Active research groups &amp; ongoing lines for the year.</p>
+      </a>
+      <a class="nav-card" href="./publications.html">
+        <div class="top"><span>papers · books</span><span class="arr">→</span></div>
+        <h4>Publications</h4>
+        <p class="meta">Full list of articles, chapters, books &amp; technical output.</p>
+      </a>
+      <a class="nav-card" href="./technicalprofile.html">
+        <div class="top"><span>stack · systems</span><span class="arr">→</span></div>
+        <h4>Technical Profile</h4>
+        <p class="meta">Live systems, code, projects by area &amp; commanders.</p>
+      </a>
+      <a class="nav-card" href="./contributions.html">
+        <div class="top"><span>open · community</span><span class="arr">→</span></div>
+        <h4>Contributions</h4>
+        <p class="meta">Open contributions to science &amp; tech dissemination.</p>
+      </a>
+      <a class="nav-card" href="./tasklist.html">
+        <div class="top"><span>backlog</span><span class="arr">→</span></div>
+        <h4>Task List</h4>
+        <p class="meta">Research backlog 2021–2026 · open &amp; closed items.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== 04 AWARDS ========== -->
+  <section id="awards">
+    <div class="sec-head">
+      <h3><span class="num">04.</span> Selected awards <span class="slash">/</span><span class="en">honors &amp; certifications</span></h3>
+      <div class="meta">international · national</div>
+    </div>
+
+    <div class="patch-grid">
+      <div class="patch">
+        <div class="ic">🏆</div>
+        <div class="t">MIT Teacher Excellence Award</div>
+        <div class="o">App Inventor Foundation</div>
+        <div class="y">2023</div>
+      </div>
+      <div class="patch">
+        <div class="ic">🛰️</div>
+        <div class="t">NASA Open Science Qualified</div>
+        <div class="o">NASA Open Science Initiative</div>
+        <div class="y">2024</div>
+      </div>
+      <div class="patch">
+        <div class="ic">🤖</div>
+        <div class="t">IBM ML Specialist · Advanced</div>
+        <div class="o">IBM</div>
+        <div class="y">2024</div>
+      </div>
+      <div class="patch">
+        <div class="ic">⚡</div>
+        <div class="t">Intel Advanced Technical Pro</div>
+        <div class="o">Intel · AI in the Cloud</div>
+        <div class="y">2024</div>
+      </div>
+      <div class="patch">
+        <div class="ic">🥉</div>
+        <div class="t">3rd place · Thesis Contest</div>
+        <div class="o">Educomp 2025 · SBC</div>
+        <div class="y">2025</div>
+      </div>
+      <div class="patch">
+        <div class="ic">🎖️</div>
+        <div class="t">Finalist · Thesis Contest</div>
+        <div class="o">CSBC 2025 · top 11/43</div>
+        <div class="y">2025</div>
+      </div>
+    </div>
+
+    <p style="font-size: 11px; color: var(--text-low); margin-top: 14px; text-align: right;">
+      full list at <a href="./academicreport.html">Academic Dashboard</a> →
+    </p>
+  </section>
+
+  <!-- ========== 05 CONTACT ========== -->
+  <section id="contact-block">
+    <div class="sec-head">
+      <h3><span class="num">05.</span> Contact <span class="slash">/</span><span class="en">drop a line</span></h3>
+      <div class="meta">official channels</div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h4>channels</h4>
+        <div class="row">
+          <span class="k">institutional</span>
+          <span class="v code">ramon.mayor at: ifsc.edu.br</span>
+        </div>
+        <div class="row">
+          <span class="k">personal</span>
+          <span class="v code">rmayormartins at: gmail.com</span>
+        </div>
+        <div class="row">
+          <span class="k">backup</span>
+          <span class="v code">mayor at: linuxmail.org</span>
+        </div>
+        <div class="row">
+          <span class="k">callsign</span>
+          <span class="v code">PU4MAY · ham radio · Brazil</span>
+        </div>
+      </div>
+      <div class="contact-block">
+        <h4>institutional address</h4>
+        <div class="row">
+          <span class="k">campus</span>
+          <span class="v">IFSC · São José Campus</span>
+        </div>
+        <div class="row">
+          <span class="k">programs</span>
+          <span class="v">Telecom Eng. &amp; ADS</span>
+        </div>
+        <div class="row">
+          <span class="k">role</span>
+          <span class="v">Research &amp; Innovation Coord.</span>
+        </div>
+        <div class="row">
+          <span class="k">group</span>
+          <span class="v">GPSIA · leader</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="foot">
+    <div>Ramon Mayor Martins, Ph.D. · IFSC São José Campus</div>
+    <div>
+      <a href="https://rmayormartins.github.io/">rmayormartins.github.io</a>
+      · home v1.0 · last updated <span id="ftd">2026.05</span>
+    </div>
+  </footer>
+
+</main>
+</div>
+
+<script>
+/* dynamic mission day · same source as roadmap */
+(function(){
+  const start = new Date('2016-04-01');
+  const days = Math.floor((Date.now() - start.getTime()) / (1000 * 60 * 60 * 24));
+  const cell = document.getElementById('mission-day');
+  if (cell) cell.textContent = days.toLocaleString('en-US');
+
+  /* last build = today */
+  const bd = document.getElementById('bd');
+  if (bd) {
+    const d = new Date();
+    bd.textContent = d.toISOString().slice(0,10);
+  }
+
+  /* footer date */
+  const ftd = document.getElementById('ftd');
+  if (ftd) {
+    const d = new Date();
+    ftd.textContent = d.toISOString().slice(0,7).replace('-', '.');
+  }
+})();
+</script>
+
+</body>
+</html>
