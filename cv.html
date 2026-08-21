@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ramon Mayor Martins, Ph.D. · Pesquisador em Inteligência Artificial</title>
+<meta name="description" content="Doutor em Ciência da Computação (UFSC). Pesquisa aplicada em IA: visão computacional, NLP, LLMs e processamento de sinais. Coordenador de Pesquisa e Inovação, IFSC São José.">
+<meta name="author" content="Ramon Mayor Martins">
+<meta name="theme-color" content="#0A2B63">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Ramon Mayor Martins, Ph.D. · Pesquisador em Inteligência Artificial">
+<meta property="og:description" content="Visão computacional, NLP, LLMs e processamento de sinais. Do modelo ao sistema em produção. 385 citações, 14 artigos em periódicos, 35 trabalhos em anais.">
+<meta property="og:url" content="https://rmayormartins.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --wash:#F2F6FC;
+  --rule:#D0DCEB;
+  --rule-soft:#E3EAF4;
+  --ink:#0A1524;
+  --body:#1E2C3C;
+  --muted:#5C6F84;
+  --blue:#1449B8;
+  --blue-deep:#0A2B63;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --cond:"IBM Plex Sans Condensed","IBM Plex Sans",-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--body);
+  font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.55;
+  background-image:
+    linear-gradient(rgba(20,73,184,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(20,73,184,.055) 1px,transparent 1px);
+  background-size:56px 56px;
+}
+a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(20,73,184,.3)}
+a:hover{color:var(--blue-deep);border-bottom-color:var(--blue-deep)}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+strong{font-weight:600;color:var(--ink)}
+.sheet{max-width:1080px;margin:0 auto;padding:0 28px 64px;background:var(--paper);
+  box-shadow:0 0 0 1px var(--rule-soft)}
+
+.cmdbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;
+  justify-content:flex-end;padding:10px 0;margin-bottom:12px;background:var(--paper)}
+.btn{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--blue);background:var(--paper);border:1px solid var(--blue);
+  padding:8px 14px;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--blue);color:#fff}
+
+/* cabeçalho */
+.masthead{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:end;padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue);margin:0 0 14px}
+.eyebrow .dot{color:var(--rule)}
+h1{font-family:var(--cond);font-weight:700;font-size:clamp(40px,7vw,74px);line-height:.92;
+  letter-spacing:-.015em;margin:0;color:var(--ink);text-transform:uppercase}
+h1 .light{font-weight:600;color:var(--blue);display:block;font-size:.44em;letter-spacing:.06em;margin-bottom:6px}
+.role{font-family:var(--mono);font-size:12.5px;color:var(--body);margin:14px 0 0;letter-spacing:.01em}
+.role b{color:var(--blue-deep);font-weight:500}
+
+.portrait{position:relative;width:136px;flex:none;margin:0}
+.portrait-img{width:136px;height:136px;object-fit:cover;border-radius:50%;
+  border:1px solid var(--rule);display:block;background:var(--paper)}
+.portrait figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);text-align:center;margin-top:8px}
+
+/* faixa de status */
+.telemetry{display:flex;flex-wrap:wrap;border-top:1.5px solid var(--blue-deep);
+  border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.telemetry span{padding:9px 0;margin-right:16px;white-space:nowrap}
+.telemetry span+span::before{content:"/";color:var(--rule);margin-right:16px}
+.telemetry b{color:var(--blue-deep);font-weight:600}
+.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:var(--blue);margin-right:8px;vertical-align:middle;animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+
+.contact{display:flex;flex-wrap:wrap;gap:0 30px;padding:16px 0 4px;font-family:var(--mono);font-size:12px;color:var(--ink)}
+.contact div{padding:4px 0}
+.contact .k{color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-size:9.5px;display:block}
+.fill{color:#B45309;border-bottom:1px dashed #B45309}
+
+/* blocos */
+.block{display:grid;grid-template-columns:170px 1fr;gap:30px;
+  border-top:1px solid var(--rule);padding:24px 0 4px}
+h2{font-family:var(--cond);font-weight:700;font-size:15px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink);margin:0}
+.tag .meta{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);
+  letter-spacing:.1em;margin-top:7px;text-transform:uppercase}
+.lede{font-size:16.5px;line-height:1.6;margin:0;color:var(--body);max-width:66ch}
+.lede + p{margin-top:12px}
+
+.stats{border:1px solid var(--rule)}
+.srow{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--rule)}
+.srow:last-child{border-bottom:0}
+.stat{padding:15px 16px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--cond);font-weight:700;font-size:27px;color:var(--blue);line-height:1}
+.stat .l{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.1em;margin-top:8px;line-height:1.45}
+
+.dom{border-top:1px dotted var(--rule);padding:14px 0 12px}
+.dom:first-child{border-top:0;padding-top:0}
+h3{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue);margin:0 0 6px}
+.dom p{margin:0;max-width:72ch}
+.kit{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:8px}
+
+.entry{display:grid;grid-template-columns:98px 1fr;gap:20px;padding:11px 0;
+  border-top:1px dotted var(--rule);break-inside:avoid}
+.entry:first-child{border-top:0}
+.when{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.05em;padding-top:3px}
+.what h4{margin:0 0 3px;font-family:var(--sans);font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.35}
+.what p{margin:0;font-size:14px;color:var(--body);max-width:70ch}
+.what .who{font-family:var(--mono);font-size:11px;color:var(--muted);margin:3px 0 5px}
+.code{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:.06em}
+
+.pubgroup{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue-deep);border-bottom:1px solid var(--rule);padding-bottom:5px;margin:16px 0 2px}
+.pubgroup:first-child{margin-top:0}
+ol.pubs{margin:0;padding:0;list-style:none;counter-reset:p}
+ol.pubs li{position:relative;padding:9px 0 9px 34px;border-top:1px dotted var(--rule);
+  font-size:14px;color:var(--body);break-inside:avoid}
+ol.pubs li:first-child{border-top:0}
+ol.pubs li::before{counter-increment:p;content:counter(p,decimal-leading-zero);
+  position:absolute;left:0;top:10px;font-family:var(--mono);font-size:10.5px;color:var(--blue)}
+ol.pubs .venue{color:var(--muted)}
+.cit{font-family:var(--mono);font-size:10px;color:var(--blue);border:1px solid var(--blue);
+  padding:1px 6px;margin-left:6px;white-space:nowrap;border-radius:2px}
+
+ul.plain{margin:0;padding:0;list-style:none}
+ul.plain li{padding:7px 0;border-top:1px dotted var(--rule);font-size:14px;color:var(--body);break-inside:avoid}
+ul.plain li:first-child{border-top:0}
+ul.plain .yr{font-family:var(--mono);font-size:10.5px;color:var(--blue);margin-left:6px}
+
+.links{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--rule)}
+.links a{display:block;padding:11px 14px;border:0;border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);color:var(--body)}
+.links a:nth-child(2n){border-right:0}
+.links a:nth-last-child(-n+2){border-bottom:0}
+.links a:hover{background:var(--wash)}
+.links .n{display:block;font-family:var(--sans);font-weight:500;font-size:13.5px;color:var(--ink)}
+.links .d{display:block;font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.05em;margin-top:3px}
+
+.uplink{display:flex;gap:18px;align-items:center;border:1px solid var(--rule);
+  border-left:3px solid var(--blue-deep);padding:16px;background:var(--wash)}
+.qr{width:104px;height:104px;flex:none;color:var(--ink)}
+.qr .qrline{stroke-width:1}
+.uplink .t{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.7}
+.uplink .t b{display:block;font-family:var(--cond);font-size:13px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--blue-deep);margin-bottom:6px;font-weight:700}
+
+footer{border-top:1.5px solid var(--blue-deep);margin-top:32px;padding-top:14px;
+  font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media screen and (max-width:860px){
+  .masthead{grid-template-columns:1fr;align-items:start}
+  .portrait{order:-1}
+  .block{grid-template-columns:1fr;gap:12px}
+  .links{grid-template-columns:1fr 1fr}
+  .srow{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2n){border-right:0}
+  .stat:nth-child(3){border-top:1px solid var(--rule)}
+  .entry{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+/* ===== impressão ===== */
+@page{size:A4;margin:13mm 14mm}
+@media print{
+  html,body{background:#fff;font-size:9.4pt;line-height:1.4}
+  body{background-image:none}
+  .sheet{max-width:none;padding:0;box-shadow:none}
+  .cmdbar,.no-print{display:none!important}
+  a{color:var(--blue);border-bottom:0}
+  .masthead{grid-template-columns:1fr auto;padding-bottom:10px;gap:20px}
+  .eyebrow{font-size:7pt;letter-spacing:.15em;margin-bottom:7px}
+  h1{font-size:31pt;line-height:.9}
+  .role{font-size:8.4pt;margin-top:8px}
+  .portrait,.portrait-img{width:96px}
+  .portrait-img{height:96px}
+  .telemetry{font-size:6.9pt;letter-spacing:.1em}
+  .telemetry span{margin-right:12px}
+  .telemetry span+span::before{margin-right:12px}
+  .contact{font-size:8.4pt;gap:0 22px;padding:11px 0 3px}
+  .block{grid-template-columns:120px 1fr;gap:18px;padding:5px 0 2px;break-inside:auto}
+  h2{font-size:9.6pt;letter-spacing:.08em}
+  .tag .meta{font-size:7.2pt;margin-top:5px}
+  .lede{font-size:9.8pt;line-height:1.4}
+  .stat{padding:8px 10px}
+  .stat .n{font-size:18pt}
+  .stat .l{font-size:7pt;margin-top:5px}
+  .dom{padding:7px 0 7px}
+  h3{font-size:9.4pt}
+  .kit,.what .who,.code,.links .d{font-size:7.6pt}
+  .entry{padding:4px 0;gap:14px;grid-template-columns:84px 1fr}
+  .when{font-size:8pt}
+  .what h4{font-size:10pt}
+  .what p{margin-top:1px}
+  .what p,ol.pubs li,ul.plain li{font-size:9pt}
+  .pubgroup{font-size:7.4pt;margin:11px 0 1px}
+  ol.pubs li{padding:4px 0 4px 26px}
+  ol.pubs li::before{top:6px;font-size:8pt}
+  ol.pubs .venue{font-size:8.6pt}
+  .cit{font-size:7.4pt}
+  ul.plain li{padding:5px 0}
+  .links a{padding:6px 9px}
+  .links .n{font-size:9pt}
+  .uplink{padding:7px 10px;gap:11px;background:#fff}
+  .qr{width:58px;height:58px}
+  .uplink .t{font-size:7.8pt;line-height:1.55}
+  h2,h3,h4{break-after:avoid}
+  .keep{break-inside:avoid}
+  footer{font-size:7.4pt;margin-top:6px;padding-top:6px}
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+
+  <div class="cmdbar no-print">
+    <button class="btn" onclick="window.print()">Salvar como PDF</button>
+    <a class="btn" id="vcf" download="ramon-mayor-martins.vcf" href="#">Salvar contato</a>
+  </div>
+
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Pesquisador Doutor em Inteligência Artificial <span class="dot">·</span> Projetos de P,D&amp;I</p>
+      <h1><span class="light">Ramon</span>Mayor Martins</h1>
+      <p class="role"><b>Ph.D. em Ciência da Computação</b> · UFSC 2024<br>
+      M.Sc. em Telecomunicações · INATEL 2014<br>
+      Eng. de Telecomunicações · UNISUL 2010<br>
+      IA aplicada · visão computacional · NLP e LLMs · processamento de sinais</p>
+    </div>
+    <figure class="portrait">
+      <img class="portrait-img" src="data:image/jpeg;base64,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" alt="Ramon Mayor Martins">
+    </figure>
+  </header>
+
+  <div class="telemetry">
+    <span class="live">Disponível <b>dedicação integral</b></span>
+    <span><b>CLT</b> · 36 meses</span>
+    <span>Sem P,D&amp;I <b>em empresa hoje</b></span>
+    <span><b>Santa Catarina</b> · BR</span>
+  </div>
+
+  <div class="contact">
+    <div><span class="k">e-mail</span>rmayormartins@gmail.com</div>
+    <div><span class="k">institucional</span>ramon.mayor@ifsc.edu.br</div>
+    <div><span class="k">telefone</span><span class="fill">preencher antes de enviar</span></div>
+    <div><span class="k">site</span><a href="https://rmayormartins.github.io/">rmayormartins.github.io</a></div>
+    <div><span class="k">github</span><a href="https://github.com/rmayormartins">github.com/rmayormartins</a></div>
+    <div><span class="k">lattes</span><a href="http://lattes.cnpq.br/6289204315531991">6289204315531991</a></div>
+    <div><span class="k">orcid</span><a href="https://orcid.org/0000-0002-1952-0909">0000-0002-1952-0909</a></div>
+  </div>
+
+  <section class="block">
+    <div class="tag"><h2>Perfil</h2><span class="meta">resumo</span></div>
+    <div>
+      <p class="lede">Doutor em Ciência da Computação, trabalho com inteligência artificial desde 2011 e construo
+      sistemas que saem do artigo e entram em operação. Faço o ciclo completo: definição do problema, curadoria e
+      anotação de dados, treino e validação de modelos, empacotamento e publicação de aplicações que ficam rodando.
+      Na tese de doutorado propus um processo completo de desenvolvimento de machine learning centrado no ser humano.</p>
+      <p>Aplicações já entregues em saúde (mamografia, ECG, EEG), meio ambiente (classificação de larvas de
+      <i>Aedes</i>, com registro de software no INPI), agropecuária (contagem de rebanho em imagens de drone),
+      linguagem e fala (RAG multilíngue, agentes com LLM, classificadores de sotaque) e sistemas espaciais
+      (decodificação de telemetria de satélites por SDR). Coordeno projetos de P,D&amp;I com edital, orçamento e
+      equipe desde 2016 e hoje respondo pela Coordenadoria de Pesquisa e Inovação de um câmpus do IFSC,
+      onde faço a ponte entre pesquisa acadêmica e demanda aplicada.</p>
+    </div>
+  </section>
+
+  <section class="block keep">
+    <div class="tag"><h2>Indicadores</h2><span class="meta">produção verificável</span></div>
+    <div class="stats">
+      <div class="srow">
+        <div class="stat"><div class="n">385</div><div class="l">citações<br>Google Scholar</div></div>
+        <div class="stat"><div class="n">14</div><div class="l">artigos em periódicos<br>revisados por pares</div></div>
+        <div class="stat"><div class="n">35</div><div class="l">trabalhos completos<br>em anais</div></div>
+      </div>
+      <div class="srow">
+        <div class="stat"><div class="n">06</div><div class="l">livros e capítulos<br>publicados</div></div>
+        <div class="stat"><div class="n">80</div><div class="l">repositórios<br>públicos no GitHub</div></div>
+        <div class="stat"><div class="n">01</div><div class="l">registro de software<br>INPI BR512023003755-9</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Domínios de IA</h2><span class="meta">com artefato entregue</span></div>
+    <div>
+      <div class="dom">
+        <h3>Visão computacional</h3>
+        <p>Detecção primária de nódulos em mamografia combinando transformada wavelet no pré-processamento com
+        redes convolucionais (projeto em execução, 2025-2026). Classificação de larvas de <i>Aedes aegypti</i> a
+        partir de imagens de campo, publicada em Lecture Notes in Computer Science e transformada em aplicativo
+        registrado. Contagem de bovinos em imagens aéreas e de drone com YOLOv5 e dataset próprio anotado.
+        Detecção de manchas solares em imagens do Sol.</p>
+        <p class="kit">CNN · Vision Transformer · YOLOv5 · fast.ai · OpenCV · wavelet · datasets anotados do zero</p>
+      </div>
+      <div class="dom">
+        <h3>Linguagem, fala e LLMs</h3>
+        <p>Comitê de LLMs para correção de redações, com modelos avaliando o mesmo texto de forma independente
+        e consolidação das notas. Sistema multilíngue de perguntas e respostas com RAG, comitê de múltiplos agentes
+        para decisão assistida, geração estruturada com Llama 3 servida via Groq, análise de sentimento em comitê de
+        modelos e classificadores de sotaque em português e espanhol. Base sólida em reconhecimento de fala: o mestrado
+        comparou HMM e GMM-UBM na busca do fator ótimo de VTLN para locutores crianças (IEEE ITS).</p>
+        <p class="kit">Hugging Face Transformers · RAG · agentes · Llama 3 / Groq · Gradio · HMM/GMM · MFCC</p>
+      </div>
+      <div class="dom">
+        <h3>Sinais, séries temporais e biomédica</h3>
+        <p>Detecção automática de cardiopatias e do complexo QRS em ECG com análise multirresolução e redes
+        neurais. Redução do número de sensores de EEG e detecção de movimento motor com RNA, resultado publicado
+        em livro. Detecção sísmica com wavelet e IA no NASA Space Apps Challenge 2024.</p>
+        <p class="kit">wavelets · extração de atributos · RNA e SVM · scikit-learn · MATLAB e Octave · R</p>
+      </div>
+      <div class="dom">
+        <h3>Engenharia de sistemas e entrega</h3>
+        <p>Modelos empacotados e publicados como aplicações de uso real: inspeção e conversão de modelos entre
+        formatos (ONNX, PyTorch, Keras), Spaces no Hugging Face, front-ends autocontidos servidos em GitHub Pages
+        e integrações com APIs de LLM. Hardware e sinal quando o problema pede: rádio definido por software,
+        GNU Radio e IP core em VHDL sobre FPGA Xilinx.</p>
+        <p class="kit">Python · R · C/C++ · Java · VHDL · Git e GitHub Actions · ONNX · Jupyter · Colab · Kaggle</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Projetos de P,D&amp;I</h2><span class="meta">coordenação e execução</span></div>
+    <div>
+      <div class="entry">
+        <div class="when">2026</div>
+        <div class="what">
+          <h4>Sistema inteligente para detecção de ansiedade em sinais de EEG</h4>
+          <p class="who">Coordenador · IFSC · sinais biomédicos e aprendizado profundo</p>
+          <p>Escalogramas de transformada wavelet como entrada de uma arquitetura EEG-Conformer, que combina
+          convolução e atenção para capturar padrões locais e dependências longas do sinal.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2025-2026</div>
+        <div class="what">
+          <h4>Sistema inteligente para detecção primária de nódulos em mamografias</h4>
+          <p class="who">Coordenador · IFSC · edital PIBITI/PROPPI <span class="code">PISJE4218-2025</span></p>
+          <p>Aprendizado profundo com transformada wavelet no pré-processamento para apoio ao rastreamento
+          precoce. Equipe com bolsistas de graduação e parceria interna de pesquisa.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2019-2024</div>
+        <div class="what">
+          <h4>Ensino de machine learning em escala na educação básica</h4>
+          <p class="who">Pesquisador · UFSC · Grupo de Qualidade de Software e Computação na Escola</p>
+          <p>Concepção do curso, dos modelos de avaliação automática de aprendizagem e da intervenção aplicada
+          em rede pública, com resultados publicados em periódicos internacionais e prêmio do MIT.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2018-2020</div>
+        <div class="what">
+          <h4>Estação terrena SatNOGS IFSC-389 e servidor WebSDR</h4>
+          <p class="who">Coordenador · fomento FAPESC e IFSC</p>
+          <p>Implantação de estação de rastreio e recepção de nanossatélites em órbita baixa, integrada à rede
+          mundial SatNOGS, e servidor de exploração de sinais de RF aberto à comunidade.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2018-2019</div>
+        <div class="what">
+          <h4>Detecção automática de cardiopatias a partir de sinais de ECG</h4>
+          <p class="who">Coordenador · IFSC <span class="code">08/FC/PROPPI/2018</span></p>
+          <p>Extração de parâmetros e classificação de batimentos anormais com redes neurais e máquinas de
+          vetores de suporte, voltado a monitoramento contínuo em dispositivo móvel.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2013-2014</div>
+        <div class="what">
+          <h4>IP core de modulador e demodulador OFDM em VHDL</h4>
+          <p class="who">Engenheiro de projetos · Inatel Competence Center · Design House</p>
+          <p>Desenvolvimento para WiMax e TV Digital em FPGA Xilinx Virtex-4 e Spartan, com autoria dos
+          algoritmos de sincronismo de símbolo OFDM. Experiência direta de P&amp;D com meta de produto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Trajetória</h2><span class="meta">vínculos</span></div>
+    <div>
+      <div class="entry">
+        <div class="when">2016 · atual</div>
+        <div class="what">
+          <h4>Professor efetivo de Telecomunicações · IFSC, câmpus São José</h4>
+          <p class="who">Coordenador de Pesquisa e Inovação do câmpus, biênio 2025-2027 · Portaria 833/2025</p>
+          <p>Ensino em Engenharia de Telecomunicações e em Análise e Desenvolvimento de Sistemas, incluindo
+          ciência de dados e aprendizado de máquina. Gestão da carteira de pesquisa e inovação do câmpus.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2025 · atual</div>
+        <div class="what">
+          <h4>Estágio pós-doutoral · UFSC</h4>
+          <p class="who">Educação, tecnologias digitais e jogos aplicados</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2021 · atual</div>
+        <div class="what">
+          <h4>Pesquisador colaborador · UFSC e IFSC</h4>
+          <p class="who">Grupo de Qualidade de Software (INCoD/UFSC) · vice-líder do Grupo de Pesquisa em Ciência e Gestão de Dados (CNPq/IFSC)</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2015-2016</div>
+        <div class="what">
+          <h4>Professor de Ciência da Computação · IESGF</h4>
+          <p class="who">Circuitos digitais, sistemas distribuídos e programação</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2005-2008</div>
+        <div class="what">
+          <h4>Engenharia em campo · Eletrosul e Brasil Telecom</h4>
+          <p class="who">Sistemas de supervisão e planejamento de redes corporativas de dados</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Sistemas no ar</h2><span class="meta">amostra executável</span></div>
+    <div>
+      <div class="links">
+        <a href="https://huggingface.co/rmayormartins"><span class="n">Hugging Face Spaces</span><span class="d">demos de NLP, visão computacional e LLM</span></a>
+        <a href="https://rmayormartins.github.io/ia-tools/"><span class="n">AI Tools</span><span class="d">visualizações interativas de algoritmos de ML</span></a>
+        <a href="https://rmayormartins.github.io/telecom-tools/"><span class="n">Telecom Tools</span><span class="d">oito laboratórios de RF, satélite, óptica e DSP</span></a>
+        <a href="https://rmayormartins.github.io/sat-commander/"><span class="n">SAT-COMMANDER</span><span class="d">rastreio multissatélite · propagação de TLE</span></a>
+        <a href="https://rmayormartins.github.io/starlink-commander/"><span class="n">Starlink Commander</span><span class="d">constelação em tempo real · mapa 2D e globo 3D</span></a>
+        <a href="https://rmayormartins.github.io/ai-news-radar/"><span class="n">AI News Radar</span><span class="d">agregador com pontuação de sinal e ruído</span></a>
+      </div>
+      <p class="kit" style="margin-top:10px">Estação SatNOGS IFSC-389 operando na rede mundial · código-fonte aberto em github.com/rmayormartins</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Publicações</h2><span class="meta">seleção · 11 em veículos Qualis A1 · lista completa no Lattes</span></div>
+    <div>
+      <p class="pubgroup">Periódicos · 13 publicados e 1 aceito</p>
+      <ol class="pubs">
+        <li>Findings on Teaching Machine Learning in High School: a Ten-Year Systematic Literature Review.
+          <span class="venue">Informatics in Education, 2022.</span><span class="cit">63 citações</span></li>
+        <li>Machine Learning for All! Introducing Machine Learning in Middle and High School.
+          <span class="venue">International Journal of Artificial Intelligence in Education, Springer, 2023.</span><span class="cit">27 citações</span></li>
+        <li>Exploring the Relationship between Learning of Machine Learning Concepts and Socioeconomic Status Background.
+          <span class="venue">ACM Transactions on Computing Education, 2024.</span></li>
+        <li>Scale for Assessing the Learning of Machine Learning for Image Classification in Middle and High School.
+          <span class="venue">ACM Transactions on Computing Education, 2025.</span></li>
+        <li>Reliability and Validity of an Automated Model for Assessing the Learning of Machine Learning in Middle and High School.
+          <span class="venue">Informatics in Education, 2023.</span><span class="cit">6 citações</span></li>
+        <li>Teaching Computing to Middle and High School Students from a Low Socio-Economic Status Background.
+          <span class="venue">Informatics in Education, 2023.</span><span class="cit">7 citações</span></li>
+        <li>Critical Thinking Assessment in K-12 Computing Education: a Systematic Mapping.
+          <span class="venue">Informatics in Education, 2024.</span></li>
+        <li>Comparing the Perceptions of Middle and High School Students from Different Socioeconomic Status Backgrounds on Learning Machine Learning.
+          <span class="venue">Revista Brasileira de Informática na Educação, 2025.</span></li>
+      </ol>
+
+      <p class="pubgroup">Livros e capítulos · 6 no total</p>
+      <ol class="pubs">
+        <li>Development of a Deep Learning Model for the Classification of Mosquito Larvae Images.
+          <span class="venue">Lecture Notes in Computer Science, Springer, 2023.</span></li>
+        <li>Creating Mobile Applications with Artificial Intelligence Adopting Computational Action.
+          <span class="venue">Integrated Science, Springer, 2024.</span></li>
+        <li>Redução do número de sensores de EEG e detecção de movimento motor através de redes neurais artificiais.
+          <span class="venue">Livro, NEA Edições, 2021.</span></li>
+      </ol>
+
+      <p class="pubgroup">Conferências · 35 trabalhos completos em anais</p>
+      <ol class="pubs">
+        <li>GMM as an Alternative to HMM in the Search for the Optimal Warping Factor for VTLN.
+          <span class="venue">IEEE International Telecommunications Symposium, 2014.</span></li>
+        <li>Optimization of the Electric Distribution Network with Photovoltaic Generation: application of PSO.
+          <span class="venue">IEEE Latin America Symposium on Circuits and Systems, 2025.</span></li>
+        <li>Speech Recognition Using Hidden Markov Model with Different Acoustic Modeling Techniques: a Comparison.
+          <span class="venue">International Balkan Conference on Communications and Networking, 2017.</span></li>
+        <li>Herramienta Educativa R Shiny para Diagnóstico de Conjunto de Datos.
+          <span class="venue">LatinR, Conferencia Latinoamericana sobre Uso de R, 2024.</span></li>
+      </ol>
+      <p class="kit" style="margin-top:10px">Conselho editorial da Informatics in Education (Universidade de Vilnius, Qualis A1) desde 2025 ·
+      revisor da ACM Transactions on Computing Education e da IEEE Transactions on Education</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Prêmios</h2><span class="meta">reconhecimentos<br>e certificações</span></div>
+    <div>
+      <ul class="plain">
+        <li><strong>Teacher Excellence Award</strong> · MIT App Inventor Foundation, pelo trabalho de ensino de IA com estudantes em vulnerabilidade social <span class="yr">2023</span></li>
+        <li><strong>Transform to Open Science</strong> · qualificação da NASA em ciência aberta, 100 horas <span class="yr">2024</span></li>
+        <li><strong>Machine Learning Specialist, nível avançado</strong> · IBM &nbsp;/&nbsp; <strong>AI in the Cloud, Technical Pro avançado</strong> · Intel <span class="yr">2024</span></li>
+        <li><strong>Concurso de Teses da SBC</strong> · terceiro lugar no Educomp e finalista no Congresso da Sociedade Brasileira de Computação <span class="yr">2025</span></li>
+        <li><strong>MIT App of the Season</strong> · menção honrosa pelo aplicativo XôDengue &nbsp;/&nbsp; terceiro lugar no MIT Appathon for Good <span class="yr">2022-2023</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="tag"><h2>Formação</h2><span class="meta">titulação</span></div>
+    <div>
+      <ul class="plain">
+        <li><strong>Pós-doutorado</strong> · Universidade Federal de Santa Catarina, em andamento <span class="yr">2025</span></li>
+        <li><strong>Doutorado em Ciência da Computação</strong> · UFSC. Tese sobre estratégias para o ensino de machine learning a estudantes em vulnerabilidade social <span class="yr">2024</span></li>
+        <li><strong>Mestrado em Telecomunicações</strong> · INATEL, bolsista CAPES. Normalização de locutor e VTLN em reconhecimento de fala <span class="yr">2014</span></li>
+        <li><strong>Especializações</strong> · Engenharia de Sistemas, Redes de Computadores, Sistemas de Telecomunicações e MBA em Análise de Sistemas e Telecomunicações <span class="yr">2015-2018</span></li>
+        <li><strong>Engenharia Elétrica, ênfase em Telemática e Telecomunicações</strong> · UNISUL <span class="yr">2010</span></li>
+      </ul>
+      <p class="kit" style="margin-top:10px">Português nativo · inglês e espanhol: leitura, escrita e conversação avançadas</p>
+    </div>
+  </section>
+
+  <section class="block keep">
+    <div class="tag"><h2>Uplink</h2><span class="meta">versão viva deste cv</span></div>
+    <div class="uplink">
+      <a href="https://rmayormartins.github.io/" aria-label="Abrir rmayormartins.github.io" style="border:0;line-height:0">
+        <svg viewBox="0 0 29 29" class="qr" role="img" aria-label="QR code para rmayormartins.github.io"><path class="qrline" stroke="currentColor" d="M0 0.5h7m2 0h1m4 0h2m2 0h1m3 0h7m-29 1h1m5 0h1m3 0h1m3 0h1m3 0h2m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h2m4 0h5m1 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m2 0h3m1 0h1m2 0h1m1 0h1m3 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m7 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h3m1 0h1m1 0h2m1 0h3m2 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-16 1h1m1 0h3m2 0h1m-20 1h1m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m2 0h2m2 0h1m1 0h2m1 0h1m-23 1h2m1 0h2m1 0h1m3 0h2m1 0h2m3 0h3m1 0h3m-29 1h4m2 0h2m1 0h1m1 0h4m1 0h2m3 0h1m1 0h2m3 0h1m-28 1h1m1 0h3m1 0h1m2 0h1m2 0h1m1 0h1m1 0h2m2 0h1m2 0h2m1 0h2m-28 1h1m1 0h1m1 0h5m2 0h2m1 0h1m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m-28 1h1m1 0h3m3 0h1m1 0h2m3 0h3m3 0h1m1 0h1m1 0h3m-29 1h1m2 0h1m2 0h4m5 0h1m2 0h1m3 0h1m1 0h1m3 0h1m-29 1h3m1 0h1m2 0h1m2 0h3m4 0h1m1 0h1m3 0h1m1 0h1m1 0h1m-27 1h2m3 0h4m1 0h1m1 0h1m3 0h1m1 0h3m-22 1h1m2 0h2m2 0h1m1 0h1m1 0h4m2 0h2m3 0h1m1 0h2m2 0h1m-27 1h1m3 0h1m2 0h1m1 0h1m3 0h1m2 0h1m5 0h2m2 0h1m-24 1h1m3 0h4m1 0h1m2 0h2m1 0h1m2 0h1m1 0h1m1 0h2m-29 1h4m1 0h9m1 0h1m1 0h1m1 0h7m-18 1h1m3 0h1m2 0h3m2 0h1m3 0h1m1 0h3m-29 1h7m4 0h1m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m3 0h1m-29 1h1m5 0h1m2 0h4m2 0h1m1 0h4m3 0h2m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m2 0h3m1 0h1m1 0h6m-25 1h1m1 0h3m1 0h1m2 0h7m2 0h1m4 0h1m4 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m1 0h2m2 0h1m3 0h3m4 0h3m-29 1h1m5 0h1m1 0h1m1 0h2m1 0h1m3 0h1m1 0h3m1 0h1m1 0h1m1 0h2m-29 1h7m2 0h1m1 0h5m1 0h1m2 0h2m2 0h1m2 0h1"/></svg>
+      </a>
+      <div class="t">
+        <b>Aponte a câmera ou clique</b>
+        rmayormartins.github.io<br>
+        Painel acadêmico, publicações, código-fonte e sistemas em operação.<br>
+        Documento em arquivo HTML único: abre no navegador e imprime em PDF.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Ramon Mayor Martins, Ph.D. · Santa Catarina · Brasil</span>
+    <span>Currículo dirigido à vaga de pesquisador doutor em IA · Propulse Fundraising</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var vcf = [
+    "BEGIN:VCARD","VERSION:3.0",
+    "N:Mayor Martins;Ramon;;Dr.;",
+    "FN:Ramon Mayor Martins",
+    "TITLE:Ph.D. em Ciencia da Computacao - Pesquisador em Inteligencia Artificial",
+    "ORG:Instituto Federal de Santa Catarina",
+    "EMAIL;TYPE=INTERNET:rmayormartins@gmail.com",
+    "EMAIL;TYPE=INTERNET,WORK:ramon.mayor@ifsc.edu.br",
+    "URL:https://rmayormartins.github.io/",
+    "URL:https://github.com/rmayormartins",
+    "URL:https://orcid.org/0000-0002-1952-0909",
+    "NOTE:Visao computacional, NLP, LLMs e processamento de sinais. Lattes 6289204315531991.",
+    "END:VCARD"
+  ].join("\r\n");
+  var el = document.getElementById("vcf");
+  if (el) el.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vcf);
+})();
+</script>
+</body>
+</html>
